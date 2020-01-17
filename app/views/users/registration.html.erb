@@ -8,6 +8,8 @@
     <%= hidden_field_tag "user_id", current_user.id %>
   
     <button id = "btn-pay" type = "button" class = "btn btn-primary">支払いをする</button>
+    
+    <%= render "shared/explanation" %>
    
     <script>
     var handler = StripeCheckout.configure({
