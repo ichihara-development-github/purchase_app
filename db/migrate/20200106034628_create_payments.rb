@@ -1,9 +1,9 @@
 class CreatePayments < ActiveRecord::Migration[5.0]
   def change
-    drop_table :payments
     create_table :payments do |t|
     t.references :user, foreign_key: true
     t.string :currency
+    t.string :payments, :email
     t.string :payments, :description
     t.integer :payments, :customer_id
     t.date :payments, :payment_date
