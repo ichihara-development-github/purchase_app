@@ -1,0 +1,26 @@
+<div class = "margin-vertical">
+    <% if current_user %>
+<% unless current_user.seller? %>
+   <%= link_to "オーナ登録はこちら", registration_path ,class: "btn btn-warning btn-lg btn-block" %>
+    <% end %>
+    <% end %>
+</div>
+
+ <div class="row">
+    <% @stores.each do |store| %>
+  <div class="col-md-6 margin-vertical">
+    <div class="card">
+        <% if store.top_image %>
+        <%= image_tag "store/#{store.top_image}" ,class: "img-fluid", style: "height:250px"%>
+        <% else %>
+        <%= image_tag "store/shop.jpg", class: "card-img-top" %>
+        <% end %>
+      <div class="card-body">
+            <h5 class="card-title"><%= store.name %></h5>
+            <p class="card-text"><%= store.description %></p>
+        <%= link_to "Go Shop", store_path(store), class: "btn btn-primary" %>
+    </div>
+  </div>
+  </div>
+    <% end %>
+     </div>

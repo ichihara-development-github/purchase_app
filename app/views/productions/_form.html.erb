@@ -1,0 +1,56 @@
+
+ 
+ <%= form_for @production do |f| %>
+    <div class = "form-group center" >
+        <%= f.label :main_image, class: "image-label" do%>
+        <h3>メインイメージ<span style ="color:red">*</span></h3>
+        <span class = "far fa-images fa-4x"></span>
+        <%= f.file_field :main_image, class: "file-field"%>
+        <% end %>
+    </div>
+    <div class = "form-group ">
+      <div class = "row">
+        <div class = "col-md-6 center">
+             <h4>サブ画像2</h4>
+        <%= f.label :sub_image1, class: "image-label" do%>
+        <span class = "far fa-images fa-lg"></span>
+        <%= f.file_field :sub_image1, class: "file-field"%>
+        <% end %>
+        </div>
+        <div class = "col-md-6 center">
+             <h4>サブ画像1</h4>
+        <%= f.label :sub_image2, class: "image-label" do%>
+        <span class = "far fa-image fa-lg"></span>
+        <%= f.file_field :sub_image2,class: "file-field"%>
+        <% end %>
+        </div>
+      </div>
+    </div>
+          <div class="form-group">
+              <div class = "row">
+          <div class = "col-md-6">
+            <%= f.label :name%>
+            <span style = "color:red">*</span>
+            <%= f.text_field :name, required: true, class: "form-control",maxlength: 20 , id: "exampleInputEmail1" %>
+          </div>
+          <div class = "col-md-3"><%= f.label "価格"%>
+            <%= f.text_field :price, required: true, class: "form-control"%>
+          </div>
+          </div>
+        </div>
+           <div class="form-group">
+                <div class = "col-md-10">
+            <%= f.label "説明"%>
+            <%= f.text_area :description, required: true,class: "form-control",maxlength: 1000 ,style: "height:250px" %>
+            </div>
+          </div>
+          <div class = "col-md-3">
+            <label for="exampleFormControlSelect1">カテゴリー</label>
+            <%= f.select(:category, options_for_select(categories), class: "form-control", id: "exampleFormControlSelect1", include_blank: "未選択") %><br>
+          </div>
+         <div class = "form-group center">
+          <%= f.submit "作成", class: "btn btn-primary col-md-4" %>
+         </div>
+    <% end %>
+    
+    

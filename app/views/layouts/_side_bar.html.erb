@@ -1,0 +1,17 @@
+<% if current_user %>
+
+<div class = "side-bar right">
+    <ul class="list-group">
+                <li class="list-group-item center">
+                  <%= link_to "買い物かご　", baskets_path %>　　
+                  <span class="badge badge-primary badge-pill"><%= current_user.baskets.count %></span><br /><br />
+                  小計:　<span class = "price">¥<%= current_user.considering_productions.sum(:price)%></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  メッセージ
+                  <span class="badge badge-primary badge-pill">2</span>
+                </li>
+              </ul>
+ </div>
+ 
+<% end %>

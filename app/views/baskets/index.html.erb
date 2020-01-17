@@ -1,0 +1,51 @@
+ <div class = "margin-vertical">
+ <span class = "dropdown-log dropdown-toggle right "> 購入履歴</span>
+ <div class = "display-400 purchacelog">
+    <div class = "container ">
+     <h3><%= purchaced_count(current_user) %>点</h3>
+     <h3>合計: ¥<%= purchaced_sum(current_user) %></h3>
+     </div>
+     <table class="table table-striped">
+  <thead>
+    <tr class = "table-success">
+        <th scope="col"></th>
+      <th scope="col">商品名</th>
+      <th scope="col">価格</th></th>
+      <th scope="col">購入日</th>
+    </tr>
+  </thead>
+  <tbody>
+       <% current_user.purchaced_productions.each do |production| %>
+    <tr>
+      <th scope="row"><%= production.id%></th>
+      <td><%= production.name %></td>
+      <td><%= production.price%></td>
+      <td><%= Purchaced.find_by(user_id: current_user.id, production_id: production.id).created_at.strftime("%Y年%m月%d日 %H時%M分")%></td>
+    </tr>
+     <% end %>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+<div class = "container">
+    現在検討中
+     
+     <div class = "margin-vertical">
+     <h3><%= basket_count(current_user) %>点</h3>
+     <h3>合計: ¥<%= basket_sum(current_user) %></h3>
+     
+    <div class = "right">
+      <% if current_user.baskets.exists? %>
+         <%= link_to "レジに進む", new_purchace_path, class: "accounting-btn" %>
+      <% else %>
+         <p>商品をカートに追加してください</p>
+      <% end %>
+     </div>
+
+ <div class="row basket-index">
+ <%= render "production", obj: @productions %>
+</div>
+
+ </div>

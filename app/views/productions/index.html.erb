@@ -1,0 +1,55 @@
+
+
+  <div class = "row">
+      <div class = "col-lg-9">
+    
+    <%= render "search_form"%>
+    </div>
+    <div class = "col-lg-3">
+      <div class =  "side-bar-wrapper">
+      <%= render "layouts/side_bar" %>
+      </div>
+    </div>
+
+</div>
+    
+    
+<%= will_paginate @productions, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+     <h2>人気の商品</h2>
+ <div class="row">
+    <% @popular[0..2].each do |production| %>
+  <div class="col-md-4 margin-vertical">
+    <div class="shadow">
+        <%= image_tag "production/#{production.main_image}", class: "long-img" %>
+      <div class="card-body">
+          <span><%= link_to production_path(production) do %>
+            <h4 class="card-title"><%= production.name %></h5>
+          <% end %></span>
+            <div class = "description"><%= production.description %></div>
+            <span>¥<%= production.price%></span>
+              <% if current_user %>
+                    <span class = "production-basket-<%= production.id %>">
+                      <%= render "productions/cart_link", production: production %>
+                    </span>
+                <% else %>
+                    <%= link_to production_path(production) do%>
+                      <button type="button" class="right btn", style = "background-color: orange">追加<i class = "fas fa-cart-arrow-down"></i></button>
+                    <% end %>
+                <% end %>
+      </div>
+  </div>
+  </div>
+    <% end %>
+     </div>
+ <div class = "container">
+     <h2>商品一覧</h2>
+     <%= render "production", obj: @productions %>
+</div>
+
+ <%= will_paginate @productions, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+</div>
+
+
+

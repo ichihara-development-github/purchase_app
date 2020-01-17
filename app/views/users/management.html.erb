@@ -1,0 +1,71 @@
+ <h2>これまでの売り上げ</h2>
+      <h3><%= purchaced_data(current_user).count %>点</h3>
+       <h3>合計: ¥<%= pay_off(current_user)  %></h3>
+    
+ 
+  <div class = "display-400">
+    <div class = "container">
+     <table class="table table-striped">
+  <thead>
+    <tr class = "table-success">
+      <th scope="col">商品名</th>
+      <th scope="col">価格</th>
+      <th scope= "col">購入日</th>
+      <th scope="col">購入者</th>
+      <th scope="col">アクション</th>
+    </tr>
+  </thead>
+    <tbody>
+     <% purchaced_data(current_user).each do |datum| %>
+     <% production = Production.find(datum.production_id) %>
+     <% user = User.find(datum.user_id) %>
+    <tr>
+      <td><%= production.name %></td>
+      <td><%= production.price %></td>
+      <td><%= datum.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+       <td><%= link_to user_path(user) do %><%= user.name %><% end %></td>
+      <td>
+        <%= link_to stores_path,class: "btn btn-success" do %><span class = "fa fa-envelope"></span><% end %>
+      </td>
+    </tr>
+     <% end %>
+  </tbody>
+ </table>
+ </div>
+ </div>
+ <h2>見込み売り上げ</h2>
+      <h3><%= basket_data(current_user).count %>点</h3>
+       <h3>合計: ¥<%= prospect_pay(current_user)  %></h3>
+<div class = "display-400">
+     <div class = "container">
+         現在検討中
+     </div>
+     <table class="table table-striped">
+  <thead>
+    <tr class = "table-primary">
+      <th scope="col">商品名</th>
+      <th scope="col">価格</th>
+       <th scope= "col">カート追加日</th>
+      <th scope="col">検討者</th>
+      <th scope="col">アクション</th>
+    </tr>
+  </thead>
+   <tbody>
+       <% basket_data(current_user).each do |datum| %>
+     <% production = Production.find(datum.production_id) %>
+     <% user = User.find(datum.user_id) %>
+    <tr>
+      <td><%= production.name %></td>
+      <td><%= production.price %></td>
+      <td><%= datum.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+      <td><%= user.name %></td>
+      <td>
+        <%= link_to stores_path,class: "btn btn-success" do %><span class = "fa fa-envelope"></span><% end %>
+      </td>
+    </tr>
+     <% end %>
+  </tbody>
+</table>
+</div>
+</table>
+

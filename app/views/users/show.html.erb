@@ -1,0 +1,18 @@
+<div class = "margin-vertical">
+<% unless current_user.seller? %>
+   <%= link_to "オーナ登録はこちら", registration_path ,class: "btn btn-warning btn-lg btn-block" %>
+<% end %>
+
+<div class = "container center">
+    <% if @user.profile_image %>
+        <%= image_tag "user/#{@user.profile_image}", class: "img-thumbnail", style: "width: 200px; border-radius: 1000px" %>
+    <% end %>
+    <h2><%= @user.name %></h2>
+    <h5><%= @user.introduce %></h5>
+    <% if @user.store %>
+    <%= link_to store_path(@user.store) do %><h5><%= @user.store.name %></h5><% end %>
+    <% end %>
+    <%= link_to "プロフィルの編集", edit_user_path(@user) , class: "btn btn-success"%>
+</div>
+
+</div>

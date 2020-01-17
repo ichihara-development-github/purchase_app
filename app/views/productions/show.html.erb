@@ -1,0 +1,106 @@
+<div class = "row">
+  
+  <div class = "col-md-9">
+              
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval = "3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+           <%= image_tag "production/#{@production.main_image}", class: "d-block", :size =>'1000x500' %>
+        </div>
+        <% if @production.sub_image1 %>
+        <div class="carousel-item">
+           <%= image_tag "production/#{@production.sub_image1}", class: "d-block w-100", :size =>'1000x500' %>
+        </div>
+        <% end %>
+        <% if @production.sub_image2 %>
+        <div class="carousel-item">
+          <%= image_tag "production/#{@production.sub_image2}", class: "d-block w-100", :size =>'1000x500' %>
+        </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    
+    <div class = "container">
+     <h1 class="display-5"><%= @production.name %></h1>
+     <span class = "right price" >¥ <%= @production.price %></span>
+      <blockquote class="blockquote text-left">
+       <p class="mb-0"><%= simple_format(@production.description) %></p>
+      </blockquote>
+    </div>
+    
+  
+    <% unless in_basket(@production) %>
+    <div class = "margin-vertical">
+      <%= link_to basket_add_path(@production), method: :post do %>
+        <button type="button" class="right btn", style = "background-color: orange">カートへ追加<i class = "fas fa-cart-arrow-down"></i></button>
+      <% end %>
+    </div>
+    <% end %>
+    
+    <table class="table ">
+  <tbody>
+    <tr>
+      <td><h5>出品Store</h5></td>
+      <td><%= @production.store.name%></td>
+    </tr>
+    <tr>
+      <td><h5>出品者</h5></td>
+      <td><%= @production.store.user.name%></td>
+    </tr>
+    <tr>
+      <td><h5>カテゴリー</h5></td>
+      <td><%= @production.category %></td>
+    </tr>
+    <tr>
+      <td><h5>出品日</h5></td>
+      <td><%= @production.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+    </tr>
+    
+  </tbody>
+  
+</table>
+<div class = "comment-form col-md-12">
+   <h5>コメント</h5>
+   <%= form_for @comment, method: :post, remote: true do |f| %>
+   <%= f.hidden_field :id, :value => @production.id %>
+   <div class = "margin-vertical">
+     <div class="form-group">
+      <%= f.text_area :content ,class: "form-control", rows:"4" %>
+     </div>
+      <%= f.submit  "投稿", class: "btn btn-primary"%>
+   </div>
+   <% end %>
+  <div class="list-group">
+  <div class = "comment-index">
+    <%= render "comments/comment" %>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class = "col-md-3">
+  <div class =  "side-bar-wrapper">
+      <%= render "layouts/side_bar" %>
+  </div>
+  </div>
+
+
+
+<div class = "margin-vertical">
+<h3>その他の商品</h3>
+<% other_productions = @production.store.productions.where.not(id: @production.id) %>
+<%= render "productions/production", obj: other_productions %>
+</div>
+      
+    
+ </div>
+ 
+ 

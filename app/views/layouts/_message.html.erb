@@ -1,0 +1,22 @@
+<% if flash[:error_messages] %>
+
+    <div class="alert alert-danger" role="alert">
+        
+     <h4><%= "入力した内容にエラーが#{flash[:error_messages].count}件あります" %></h4>
+    
+    <% flash[:error_messages].each do |message| %>
+    <ul>
+          <li style = "list-style: none"><%= message %></li>
+    </ul>
+    <% end %>
+     </div>
+
+<% else %>
+    <% flash.each do |key, message| %>
+    
+    <div class="alert alert-<%= key %>" role="alert">
+      <%= message %>
+    </div>
+
+    <% end %>
+<% end %>

@@ -1,0 +1,18 @@
+<%= form_for(:session, url: login_path) do |f| %>
+  <div class= "col-md-10">
+  <div class = "margin-vertical">
+    
+    <%= f.label :email %>
+    <%= f.text_field :email,class: "form-control" %><br />
+    
+    <%= f.label :password %>
+    <%= f.text_field :password,class: "form-control"  %><br />
+    
+    </div>
+    
+    <%= f.submit "ログイン" ,class:"col-md-4 btn btn-primary" %>
+     <%= link_to "まだ登録されていない方はこちら", new_user_path, class: "margin-vertical right btn btn-secondary" %>
+     </div>
+    </div>
+  <% end %>
+  
