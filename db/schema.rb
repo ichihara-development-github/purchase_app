@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200109070554) do
+ActiveRecord::Schema.define(version: 20200106034628) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "user_id"
@@ -38,20 +38,11 @@ ActiveRecord::Schema.define(version: 20200109070554) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.integer  "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_messages_on_room_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "payments", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "currency"
     t.integer  "payments"
+    t.string   "email"
     t.string   "description"
     t.integer  "customer_id"
     t.date     "payment_date"
@@ -60,7 +51,6 @@ ActiveRecord::Schema.define(version: 20200109070554) do
     t.integer  "profit_after_subtract_commission"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.string   "email"
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
@@ -68,13 +58,13 @@ ActiveRecord::Schema.define(version: 20200109070554) do
     t.string   "name"
     t.text     "description"
     t.integer  "price"
+    t.string   "category"
     t.integer  "store_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "main_image"
     t.string   "sub_image1"
     t.string   "sub_image2"
-    t.string   "category"
     t.index ["store_id"], name: "index_productions_on_store_id"
   end
 
@@ -85,15 +75,6 @@ ActiveRecord::Schema.define(version: 20200109070554) do
     t.datetime "updated_at",    null: false
     t.index ["production_id"], name: "index_purchaceds_on_production_id"
     t.index ["user_id"], name: "index_purchaceds_on_user_id"
-  end
-
-  create_table "related_productions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "production_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["production_id"], name: "index_related_productions_on_production_id"
-    t.index ["user_id"], name: "index_related_productions_on_user_id"
   end
 
   create_table "stores", force: :cascade do |t|

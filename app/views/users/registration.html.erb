@@ -13,7 +13,7 @@
    
     <script>
     var handler = StripeCheckout.configure({
-        key: "<%= Rails.application.secrets.publishable_key %>",
+        key: "<%= ENV["publishable_key"] %>",
         locale : "auto",
         currency: "jpy",
         panelLabel:"オーナーアカウント登録",

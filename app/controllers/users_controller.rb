@@ -126,7 +126,7 @@ class UsersController < ApplicationController
       
     rescue Stripe::AuthenticationError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（AuthenticationError）#{e.message}"
-      render "refistration"
+      render "registration"
       
     rescue Stripe::StripeError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（StripeError）#{e.message}"
