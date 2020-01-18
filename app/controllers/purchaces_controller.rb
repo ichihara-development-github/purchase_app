@@ -51,19 +51,19 @@ class PurchacesController < ApplicationController
      
     rescue Stripe::InvalidRequestError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（InvalidRequestError）#{e.message}"
-      render "registration"
+      render "new"
       
     rescue Stripe::AuthenticationError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（AuthenticationError）#{e.message}"
-      render "refistration"
+      render "new"
       
     rescue Stripe::StripeError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（StripeError）#{e.message}"
-      render "registration"
+      render "new"
       
     rescue => e
       flash.now[:danger] = "エラーが発生しました#{e.message}"
-      render "registration"
+      render "new"
     end
   
   end

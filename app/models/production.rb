@@ -41,4 +41,8 @@ class Production < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true, :numericality => { :greater_than => 0, :less_than => 1000000 } 
   validates :main_image, presence: true
+  
+  mount_uploader :main_image, ImageUploader
+  mount_uploader :sub_image1, ImageUploader
+  mount_uploader :sub_image2, ImageUploader
 end

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   
-  before_action :login?, only: [:create]
+  before_action :login_user?, only: [:create]
   before_action :set_comment, only: [:destroy]
   before_action -> {has_authority?(@comment.user) }, only: [:destroy]
   

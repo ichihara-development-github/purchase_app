@@ -7,6 +7,10 @@ gem 'bootstrap'
 gem 'will_paginate-bootstrap4'
 gem 'stripe'
 gem 'rails-i18n'
+
+gem 'fog-aws'
+gem 'carrierwave'
+gem 'mini_magick'
 #-------------------------------------------------------------------
 
 
