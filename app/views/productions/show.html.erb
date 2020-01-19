@@ -94,7 +94,7 @@
 
 
 
-<div class = "margin-vertical">
+<div class = "container margin-vertical">
 <h3>その他の商品</h3>
 <% other_productions = @production.store.productions.where.not(id: @production.id) %>
 <%= render "productions/production", obj: other_productions %>
