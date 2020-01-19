@@ -7,7 +7,16 @@
         <div class="carousel-item active">
            <%= image_tag @production.main_image, class: "d-block", :size =>'1000x500' %>
         </div>
-       
+        <% if @production.sub_image1 %>
+          <div class="carousel-item">
+             <%= image_tag @production.sub_image1, class: "d-block w-100", :size =>'1000x500' %>
+          </div>
+        <% end %>
+        <% if @production.sub_image2 %>
+          <div class="carousel-item">
+            <%= image_tag @production.sub_image2, class: "d-block w-100", :size =>'1000x500' %>
+          </div>
+        <% end %>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
