@@ -1,6 +1,6 @@
 <% obj.each do |production| %> 
    <div class="col-md-10 margin-vertical basket-wrapper">
-      <%= image_tag "production/#{production.main_image}",style: "width:25%",class: "left card-img" %>
+      <%= image_tag production.main_image,style: "width:25%",class: "left card-img" %>
       <div class = "basket-container right">
           <span class = "right", style = "color:red"><%= production.price %></span>
           <div calss = "container">
