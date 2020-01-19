@@ -18,19 +18,19 @@
 
 $(function(){
    
-    $(".dropdown-toggle").click(function(){
-        $(this).next(".dropdown-menu").fadeToggle()
-    });
+    // $(".dropdown-toggle").click(function(){
+    //     $(this).next(".dropdown-menu").fadeToggle()
+    // });
     
-    $(".dropdown-log").on("click", function(){
-        $(this).next(".purchacelog").slideToggle()
-    });
+    // $(".dropdown-log").on("click", function(){
+    //     $(this).next(".purchacelog").slideToggle()
+    // });
     
-     $(".fade-menu-toggle").on("click", function(){
-        $(this).next(".fade-menu").fadeToggle()
-    });
+    // $(".fade-menu-toggle").on("click", function(){
+    //     $(this).next(".fade-menu").fadeToggle()
+    // });
     
-    $('.slide-menu-toggle').on("click", function(){
+    $('.slide-menu-toggle').click(function(){
   
   if($(this).hasClass('active')) {
     $(this).removeClass('active'); 
