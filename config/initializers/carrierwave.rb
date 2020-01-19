@@ -11,7 +11,9 @@ if Rails.env.production?
             aws_secret_access_key: ENV["aws_secret_access_key"],
             region: 'ap-northeast-1'
         }
+        
         config.fog_directory = "purchase-app-backet"
+        config.asset_host = 'https://purchase-app-backet.s3.amazonaws.com'
         
     end
     
