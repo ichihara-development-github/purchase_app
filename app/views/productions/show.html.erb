@@ -5,16 +5,16 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval = "3000">
       <div class="carousel-inner">
         <div class="carousel-item active">
-           <%= image_tag "production/#{@production.main_image}", class: "d-block", :size =>'1000x500' %>
+           <%= image_tag @production.main_image, class: "d-block", :size =>'1000x500' %>
         </div>
         <% if @production.sub_image1 %>
         <div class="carousel-item">
-           <%= image_tag "production/#{@production.sub_image1}", class: "d-block w-100", :size =>'1000x500' %>
+           <%= image_tag @production.sub_image1, class: "d-block w-100", :size =>'1000x500' %>
         </div>
         <% end %>
         <% if @production.sub_image2 %>
         <div class="carousel-item">
-          <%= image_tag "production/#{@production.sub_image2}", class: "d-block w-100", :size =>'1000x500' %>
+          <%= image_tag @production.sub_image2, class: "d-block w-100", :size =>'1000x500' %>
         </div>
         <% end %>
       </div>

@@ -5,7 +5,7 @@
 
 <div class = "container center">
     <% if @user.profile_image %>
-        <%= image_tag "user/#{@user.profile_image}", class: "img-thumbnail", style: "width: 200px; border-radius: 1000px" %>
+        <%= image_tag @user.profile_image, class: "img-thumbnail", style: "width: 200px; border-radius: 1000px" %>
     <% end %>
     <h2><%= @user.name %></h2>
     <h5><%= @user.introduce %></h5>
