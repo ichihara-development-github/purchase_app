@@ -10,7 +10,7 @@ gem 'rails-i18n'
 
 gem 'fog-aws'
 gem 'carrierwave'
-gem 'mini_magick'
+# gem 'mini_magick'
 #-------------------------------------------------------------------
 
 
