@@ -21,7 +21,7 @@
     <% @popular[0..2].each do |production| %>
   <div class="col-md-4 margin-vertical">
     <div class="shadow">
-        <%= image_tag "production/#{production.main_image}", class: "long-img" %>
+        <%= image_tag production.main_image, class: "long-img" %>
       <div class="card-body">
           <span><%= link_to production_path(production) do %>
             <h4 class="card-title"><%= production.name %></h5>
