@@ -23,10 +23,6 @@ class UsersController < ApplicationController
   def create 
     @user = User.new(user_params)
     if @user.save
-      if params[:user][:profile_image]
-        File.binwrite("app/assets/images/user/#{@user.id}.jpg", params[:user][:profile_image].read)
-        @user.update(profile_image: "#{@user.id}.jpg")
-      end
       flash[:success] = "ユーザー登録が完了しました"
       session[:user_id] = @user.id
       redirect_to productions_path
@@ -44,10 +40,6 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      if params[:user][:profile_image]
-        File.binwrite("app/assets/images/user/#{@user.id}.jpg", params[:user][:profile_image].read)
-        @user.update(profile_image: "#{@user.id}.jpg")
-      end
       flash[:success] = "編集が完了しました"
       redirect_to edit_user_path(@user)
     else

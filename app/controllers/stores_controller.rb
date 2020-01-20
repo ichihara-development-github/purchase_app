@@ -25,8 +25,6 @@ class StoresController < ApplicationController
     @store = current_user.build_store(store_params)
    
     if @store.save
-      File.binwrite("app/assets/images/store/#{@store.id}.jpg", params[:store][:top_image].read)
-      @store.update(top_image: "#{@store.id}.jpg")
       redirect_to stores_path
       flash[:success] = "Storeの作成が完了しました"
     else
@@ -52,11 +50,7 @@ class StoresController < ApplicationController
   
   def update
     @store.update(store_params)
-     if params[:store][:top_image]
-        File.binwrite("app/assets/images/store/#{@store.id}.jpg", params[:store][:top_image].read)
-        @store.update(top_image: "#{@store.id}.jpg")
-     end
-     redirect_to edit_store_path(@store)
+    redirect_to edit_store_path(@store)
   end
   
   

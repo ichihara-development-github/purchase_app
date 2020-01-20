@@ -22,19 +22,8 @@ class ProductionsController < ApplicationController
   def create
      @store = Store.find(current_user.id)
      @production = @store.productions.build(production_params)
+     
     if @production.save
-      File.binwrite("app/assets/images/production/#{@production.id}.jpg", params[:production][:main_image].read)
-      @production.update(main_image: "#{@production.id}.jpg")
-      
-     if params[:production][:sub_image1]
-      File.binwrite("app/assets/images/production/#{@production.id}_1.jpg", params[:production][:sub_image1].read)
-      @production.update(sub_image1: "#{@production.id}_1.jpg")
-     end
-     if params[:production][:sub_image2]
-      File.binwrite("app/assets/images/production/#{@production.id}_2.jpg", params[:production][:sub_image2].read)
-      @production.update(sub_image2: "#{@production.id}_2.jpg")
-     end
-      
       redirect_to productions_path
       flash[:success] = "商品の作成が完了しました"
     else
@@ -69,22 +58,7 @@ class ProductionsController < ApplicationController
   end
   
   def update
-      flash[:error_messages] = @production.errors.full_messages unless  @production.update(production_params)
-    
-    if params[:production][:main_image]
-       File.binwrite("app/assets/images/production/#{@production.id}.jpg", params[:production][:main_image].read)
-       @production.update(main_image: "#{@production.id}.jpg")
-    end
-    
-   if params[:production][:sub_image1]
-    File.binwrite("app/assets/images/production/#{@production.id}_1.jpg", params[:production][:sub_image1].read)
-    @production.update(sub_image1: "#{@production.id}_1.jpg")
-   end
-   
-   if params[:production][:sub_image2]
-    File.binwrite("app/assets/images/production/#{@production.id}_2.jpg", params[:production][:sub_image2].read)
-    @production.update(sub_image2: "#{@production.id}_2.jpg")
-   end
+    flash[:error_messages] = @production.errors.full_messages unless  @production.update(production_params)
    
     flash[:success] = "商品を編集しました"
     redirect_to edit_production_path(@production)
