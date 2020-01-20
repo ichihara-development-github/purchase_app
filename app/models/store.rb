@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-    has_many :productions
+    has_many :productions, dependent: :destroy
     belongs_to :user
     
   validates :name, presence: true, uniqueness: true, length: {minimum: 1}
