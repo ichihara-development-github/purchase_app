@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :purchaceds
   has_many :purchaced_productions, through: :purchaceds, source: :production
   
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
   has_secure_password
   

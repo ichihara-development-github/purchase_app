@@ -35,7 +35,7 @@ class Production < ApplicationRecord
   has_many :purchaceds, dependent: :nullify
   has_many :purchaced_user, through: :purchaceds, source: :user
   
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
