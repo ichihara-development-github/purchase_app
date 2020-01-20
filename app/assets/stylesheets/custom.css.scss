@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+1p');
 
+// general
+
 a{
     color:rgb(100,100,100);
 }
@@ -36,6 +38,15 @@ a{
 .margin-vertical{
     margin: 15px 0;
 }
+
+//bootstrap
+
+
+.col-6{
+    padding:5px;
+}
+
+//layouts
 
 
 .side-bar{

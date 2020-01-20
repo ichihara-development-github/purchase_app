@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :payment, dependent: :nullify
   has_many :baskets, dependent: :destroy
   has_many :considering_productions, through: :baskets, source: :production
-  has_many :purchaceds, dependent: :nullify
+  has_many :purchaceds, dependent: :destroy
   has_many :purchaced_productions, through: :purchaceds, source: :production
   
   has_many :comments, dependent: :destroy
