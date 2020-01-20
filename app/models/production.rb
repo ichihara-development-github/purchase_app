@@ -32,7 +32,7 @@ class Production < ApplicationRecord
   
   has_many :baskets, dependent: :destroy
   has_many :considered_user, through: :baskets, source: :user
-  has_many :purchaceds, dependent: :destroy
+  has_many :purchaceds
   has_many :purchaced_user, through: :purchaceds, source: :user
   
   has_many :comments
