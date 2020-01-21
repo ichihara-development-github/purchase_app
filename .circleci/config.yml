@@ -43,11 +43,11 @@ jobs:
   deploy:
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
+    context: purchase-app
     working_directory: /tmp/repo
     
     steps:
       - checkout
-        context: purchase-app
       - run:
           name: 'Install Heroku'
           command: |
@@ -58,16 +58,16 @@ jobs:
             fi
       - run:
           name: heroku maintenance on
-          command: heroku maintenance:on --app ${HEROKU_APP_NAME}
+          command: heroku maintenance:on --app ichihara-purchase-app
           
       - run:
           name: Deploy to Heroku_Production
           command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+            git push https://heroku:ichihara-purchase-app@git.heroku.com/$HEROKU_APP_NAME.git master
             
       - run:
           name: heroku maintenance off
-          command: heroku maintenance:off --app ${HEROKU_APP_NAME}
+          command: heroku maintenance:off --app ichihara-purchase-app
 
 workflows:
   version: 2
