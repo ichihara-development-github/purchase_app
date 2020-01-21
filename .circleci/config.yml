@@ -41,13 +41,13 @@ jobs:
           path: /tmp/circleci-test-results  
 
   deploy:
-    context: purchase-app
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
     working_directory: /tmp/repo
     
     steps:
       - checkout
+        context: purchase-app
       - run:
           name: 'Install Heroku'
           command: |
