@@ -61,12 +61,12 @@ jobs:
           name: heroku maintenance on
           command: heroku maintenance:on --app ${HEROKU_APP_NAME}
       - run:
-        　#git push コマンドを通してHEROKUにdeploy
+        　# git push コマンドを通してHEROKUにdeploy
           name: Deploy to Heroku_Production
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME_PROD.git master
       - run:
-          #deployが終了したらメンテナンスモードをoffに
+          # deployが終了したらメンテナンスモードをoffに
           name: heroku maintenance off
           command: heroku maintenance:off --app ${HEROKU_APP_NAME}
 
