@@ -70,7 +70,6 @@ jobs:
           name: heroku maintenance off
           command: heroku maintenance:off --app ${HEROKU_APP_NAME}
 
-
 workflows:
   version: 2
   build-deploy:
