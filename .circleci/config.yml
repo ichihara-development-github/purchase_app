@@ -45,6 +45,8 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
     working_directory: /tmp/repo
+    - deploy:
+        context: purchase-app
     steps:
       - checkout
       - run:
