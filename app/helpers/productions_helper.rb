@@ -5,7 +5,7 @@ module ProductionsHelper
     end
     
     def categories
-        ["スポーツ","ファッション","デジタル","食品"]
+        ["スポーツ","ファッション","デジタル","生活", "食品"]
     end
     
     def choice(search_factor)
