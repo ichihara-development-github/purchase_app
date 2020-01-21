@@ -32,6 +32,7 @@ class ProductionsController < ApplicationController
     end
   end
   
+  
   def index
     @productions = Production.paginate(page: params[:page], per_page: 10)
     popular

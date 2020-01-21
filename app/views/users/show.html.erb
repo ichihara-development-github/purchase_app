@@ -4,8 +4,10 @@
 <% end %>
 
 <div class = "container center">
-    <% if @user.profile_image %>
+    <% if @user.profile_image.present? %>
         <%= image_tag @user.profile_image, class: "img-thumbnail", style: "width: 200px; border-radius: 1000px" %>
+    <% else %>
+        <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 200px; border-radius: 1000px" alt="Something">
     <% end %>
     <h2><%= @user.name %></h2>
     <h5><%= @user.introduce %></h5>
