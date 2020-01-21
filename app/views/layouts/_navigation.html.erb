@@ -63,13 +63,13 @@
   
   </div>
   <div class = "right">
-    <ul class="navbar-nav list-group list-group-horizontal">
+    <ul class="nav list-group-horizontal">
       <% if current_user.seller? %>
       <li class="nav-item dropdown d-md-block d-none">
-        <a class="nav-link dropdown-toggle" href = "#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href = "#" id="navbarDropdownMenuLink" style = "color:white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Storeメニュー
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu">
           <% if current_user.store %>
             <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "dropdown-item" %></a>
             <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_production_path, class: "dropdown-item" %></a>
