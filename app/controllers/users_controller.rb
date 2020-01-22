@@ -50,12 +50,14 @@ class UsersController < ApplicationController
   end
   
   def destroy
+    unless (current_user == @user) or @user.admin
     if @user.destroy
-      flash[:success] = "ご利用ありがとうございました"
-      redirect_to root_path
-    else
-      flash[:warning] = "上手くいきませんでした"
-      render users_path
+        flash[:success] = "ユーザーを削除しました"
+        redirect_to users_path
+      else
+        flash[:warning] = "上手くいきませんでした"
+        render users_path
+      end
     end
   end
 
