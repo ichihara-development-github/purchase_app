@@ -11,7 +11,12 @@
     </div>
     
     <%= f.submit "ログイン" ,class:"col-md-4 btn btn-primary" %>
-     <%= link_to "まだ登録されていない方はこちら", new_user_path, class: "margin-vertical right btn btn-secondary" %>
+    <%= link_to "まだ登録されていない方はこちら", new_user_path, class: "margin-vertical right btn btn-secondary" %>
+     </div>
+     
+     <div class = "marign-vertical">
+       <h4>ゲストの方はこちら</h4>
+       <%= link_to "ゲストととしてログインする", guest_login_path, method: :post, class: "btn btn-primary" %>
      </div>
     </div>
   <% end %>
