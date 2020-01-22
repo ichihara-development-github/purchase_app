@@ -20,7 +20,7 @@ class ProductionsController < ApplicationController
   end
   
   def create
-     @store = Store.find(current_user.id)
+     @store = current_user.store
      @production = @store.productions.build(production_params)
      
     if @production.save
@@ -31,7 +31,7 @@ class ProductionsController < ApplicationController
       render "new"
     end
   end
-  
+
   
   def index
     @productions = Production.paginate(page: params[:page], per_page: 10)

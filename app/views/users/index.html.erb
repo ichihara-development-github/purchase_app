@@ -14,7 +14,6 @@
       <td><%= link_to user_path(user) do %><%= user.name %><% end %></td>
       <td><%= user.email%></td>
       <td>
-        <%= link_to stores_path,class: "btn btn-success" do %><span class = "fa fa-envelope"></span><% end %>
         <% unless (current_user == user) or user.admin%>
           <%= link_to user_path(user),method: :delete,class: "btn btn-danger", data: {confirm: "本当に削除しますか？"} do%><span class = "fa fa-trash"></span><% end %>
         <% end %>
