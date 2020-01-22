@@ -19,6 +19,15 @@
     <%= javascript_tag do %>
     
     $(function(){
+    
+    var add_required = function(){
+    
+     if $(.price-search).value("")){
+     $(this).removeAtttr("required")}else{
+     $(this).attr("required", "true")} 
+     
+     }
+    
  
     
     $(".dropdown-toggle").click(function(){
