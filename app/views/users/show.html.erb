@@ -11,10 +11,14 @@
     <% end %>
     <h2><%= @user.name %></h2>
     <h5><%= @user.introduce %></h5>
-    <% if @user.store %>
-    <%= link_to store_path(@user.store) do %><h5><%= @user.store.name %></h5><% end %>
+    <div class = "margin-vertical">
+        <% if @user.store %>
+            <h5><%= link_to store_path(@user.store) do %><%= @user.store.name %><% end %>　運営者</h5>
+        <% end %>
+    </div>
+    <% if @user == current_user %>
+        <%= link_to "プロフィルの編集", edit_user_path(@user) , class: "btn btn-success"%>
     <% end %>
-    <%= link_to "プロフィルの編集", edit_user_path(@user) , class: "btn btn-success"%>
 </div>
 
 </div>
