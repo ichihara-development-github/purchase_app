@@ -14,6 +14,7 @@ Rails.application.routes.draw do
  get "complete_payment", to: "users#complete_payment"
 
  post "guest_login", to: "session#guest_login"
+ post "guest_user_login", to: "session#guest_user_login"
  
  get "store_management", to: "users#management"
  

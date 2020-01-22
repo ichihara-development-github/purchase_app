@@ -1,23 +1,27 @@
 <%= form_for(:session, url: login_path) do |f| %>
   <div class= "col-md-10">
-  <div class = "margin-vertical">
-    
-    <%= f.label :email %>
-    <%= f.text_field :email,class: "form-control" %><br />
-    
-    <%= f.label :password %>
-    <%= f.text_field :password,class: "form-control"  %><br />
-    
+    <div class = "margin-vertical">
+      
+      <%= f.label :email %>
+      <%= f.text_field :email,class: "form-control" %><br />
+      
+      <%= f.label :password %>
+      <%= f.text_field :password,class: "form-control" %><br />
+      
+      <%= f.submit "ログイン" ,class:"col-md-4 btn btn-primary" %>
+       <%= link_to "まだ登録されていない方はこちら", new_user_path, class: "right margin-vertical btn btn-secondary" %>
+      
     </div>
     
-    <%= f.submit "ログイン" ,class:"col-md-4 btn btn-primary" %>
-    <%= link_to "まだ登録されていない方はこちら", new_user_path, class: "margin-vertical right btn btn-secondary" %>
-     </div>
-     
-     <div class = "marign-vertical">
-       <h4>ゲストの方はこちら</h4>
-       <%= link_to "ゲストととしてログインする", guest_login_path, method: :post, class: "btn btn-primary" %>
-     </div>
-    </div>
+    <div style = "margin-top:100px">
+      <h4>ゲストの方はこちら</h4>
+       <div class = "container">
+        <%= link_to "管理者でログイン", guest_login_path, method: :post, class: "margin-vertical col-md-3 col-sm-10 btn btn-info" %>
+        <%= link_to "一般ユーザーでログイン", guest_user_login_path, method: :post, class: "col-md-3 col-sm-10 btn btn-secondary" %>
+       </div>
+   </div>
+  </div>
+
   <% end %>
   
+      

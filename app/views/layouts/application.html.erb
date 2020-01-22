@@ -19,7 +19,7 @@
     <%= javascript_tag do %>
     
     $(function(){
-   
+    
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()
     });
@@ -34,7 +34,7 @@
     });
     
     $('.slide-menu-toggle').on("click", function(){
-  
+   
   if($(this).hasClass('active')) {
     $(this).removeClass('active'); 
     $(".slide-menu").removeClass('open'); 
@@ -43,13 +43,28 @@
     $(this).addClass('active'); 
     $(".slide-menu").addClass('open');
   }
-});
+  })
+  
+  //パスワードフォーム
+  $(".password-icon-toggle").on("click",function() {
+   
+    $(this).toggleClass("fa-eye-slash");
+    
+    var form = $(this).next_all(".password-form");
+    
+    // type切替
+    if (form.attr("type") == "password") {
+      form.attr("type", "text");
+    } else {
+      form.attr("type", "password");
+    }
+  })
 
     var headersHeight = $('header').outerHeight(); 
     $('.main').css('padding-top', headersHeight + 'px'); 
     $('.slide-menu').css('margin-top', headersHeight + 'px');
     
-    });
+});
     
     <% end %>
      <%= render "layouts/navigation" %>

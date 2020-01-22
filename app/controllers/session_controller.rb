@@ -21,11 +21,25 @@ class SessionController < ApplicationController
     session[:user_id] = user.id
     flash[:success] = "管理者としてログインしました"
     redirect_to productions_path
-    
   end
+  
+  def guest_user_login
+    @user_id = User.last.id
+    user = User.create(name: "user#{@user_id + 1}", email:"user#{@user_id + 1}@user.com", password: "password")
+    session[:user_id] = user.id
+    session[:guest_id] = user.id
+    flash[:success] = "一般ユーザーとしてログインしました"
+    redirect_to productions_path
+  end
+  
+  
   
   def destroy
     session[:user_id] = nil
+    if session[:guest_id]
+      User.find(session[:guest_id]).destroy
+      session[:guest_id] = nil
+    end 
     flash[:success] = "ログアウトしました"
     redirect_to root_path
   end

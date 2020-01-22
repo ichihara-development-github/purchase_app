@@ -34,7 +34,7 @@ class ProductionsController < ApplicationController
 
   
   def index
-    @productions = Production.paginate(page: params[:page], per_page: 10)
+    @productions = Production.paginate(page: params[:page], per_page: 8)
     popular
   end
   
@@ -57,7 +57,7 @@ class ProductionsController < ApplicationController
 
   def edit
   end
-  
+
   def update
     flash[:error_messages] = @production.errors.full_messages unless  @production.update(production_params)
    
