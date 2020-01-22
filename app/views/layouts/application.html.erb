@@ -40,11 +40,11 @@
   })
   
   //パスワードフォーム
-  $(".password-icon-toggle").on("click",function() {
+  $("#password-icon-toggle").on("click",function() {
    
     $(this).toggleClass("fa-eye-slash");
     
-    var form = $(this).next_all(".password-form");
+    $(this).next_all(".password-form");
     
     // type切替
     if (form.attr("type") == "password") {
