@@ -44,7 +44,7 @@
    
     $(this).toggleClass("fa-eye-slash");
     
-    $(this).next_all(".password-form");
+    var form = $(".password-form");
     
     // type切替
     if (form.attr("type") == "password") {
