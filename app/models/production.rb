@@ -4,8 +4,12 @@ class Production < ApplicationRecord
      
        if sp
            sp.reject! { |key, value| value.empty?}
-      
-           @result = Production.where(price: sp[:min] .. sp[:max])
+           
+           if sp[:min] 
+               @result = Production.where(price: sp[:min] .. sp[:max])
+           else
+               @result = @result.where("#{key.first}": "#{value.first}")
+           end
            sp.reject! { |key, value| key["min"] or key["max"]}
            
            sp.each do |key, value|
