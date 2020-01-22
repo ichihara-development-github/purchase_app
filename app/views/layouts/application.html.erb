@@ -19,6 +19,7 @@
     <%= javascript_tag do %>
     
     $(function(){
+ 
     
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()
@@ -35,14 +36,7 @@
     
     $('.slide-menu-toggle').on("click", function(){
    
-  if($(this).hasClass('active')) {
-    $(this).removeClass('active'); 
-    $(".slide-menu").removeClass('open'); 
-    
-  } else {
-    $(this).addClass('active'); 
-    $(".slide-menu").addClass('open');
-  }
+    $(this).toggleClass("active");
   })
   
   //パスワードフォーム

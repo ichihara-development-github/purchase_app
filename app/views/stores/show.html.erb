@@ -13,7 +13,10 @@
         <% else %>
             <% image_tag "shop/shop" %>
         <% end %>
-   
+       
+       <% if current_user.store == @store %>
+       <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success"%>
+       <% end %>
     </div>
     
      <div class = "col-lg-3">
