@@ -1,1 +1,32 @@
-<%= render "form" %> 
+<%= form_for(@user,maltipart: true) do |f| %>
+  <div class= "col-md-10">
+  <div class = "margin-vertical">
+    
+    <div class = "form-group">
+        <%= f.label :profile_image, class: "image-label" do %>
+            <h4>トップイメージ</h4>
+            <span class = "far fa-images fa-3x"></span>
+            <%= f.file_field :profile_image, class: "file-field" %>
+        <% end %>
+    </div>
+    
+    <div class = "form-group">
+        <%= f.label :name %><span style = "color:red">*</span>
+        <%= f.text_field :name, required: true, class: "form-control" %><br />
+     
+        <%= f.label :email %><span style = "color:red">*</span>
+        <%= f.text_field :email, required: true, class: "form-control" %><br />
+        
+        <%= f.label :introduce %>
+        <%= f.text_area :introduce,class: "form-control"  %><br />
+        
+    </div>
+    
+    <%= f.submit "ユーザーを登録" ,class:"col-md-4 btn btn-primary" %>
+     </div>
+    </div>
+  <% end %>
+
+</div>
+
+ 

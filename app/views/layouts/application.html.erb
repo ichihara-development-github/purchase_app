@@ -22,13 +22,19 @@
     
     var add_required = function(){
     
-     if $(.price-search).value("")){
-     $(this).removeAtttr("required")}else{
-     $(this).attr("required", "true")} 
-     
-     }
     
+    var sum =[];
+    
+    $(".price-search").each(function() {
+      sum.push.$(this).vali()
+      
+      if (sum.length > 0){
+      $(".price-search").attr("required", "true")}else{
+      $(".price-search").removeAttr("required")
+      }
+      }
  
+    })
     
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()

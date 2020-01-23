@@ -14,7 +14,7 @@ class User < ApplicationRecord
   
   validates :name, presence: true, uniqueness: true, length: { minimum: 1}
   validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX}
-  validates :password, presence: true, length: { minimum: 6}
+  validates :password, presence: true, length: { minimum: 6}, allow_nil: true
   
   mount_uploader :profile_image, ImageUploader
   
