@@ -36,6 +36,7 @@
  
     };
     
+    
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()
     });
@@ -66,6 +67,22 @@
     } else {
       form.attr("type", "password");
     }
+    
+    //image_input
+    
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#production_image").change(function(){
+        readURL(this);
+    });
+  });
   })
 
     var headersHeight = $('header').outerHeight(); 
