@@ -5,7 +5,11 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval = "3000">
       <div class="carousel-inner">
         <div class="carousel-item active">
+          <% if @production.main_image %>
            <%= image_tag @production.main_image, class: "d-block", :size =>'1000x500' %>
+          <% else %>
+            <img class="wide-img" src="https://purchase-app-backet.s3.amazonaws.com/uploads/no-image.jpg" alt="Something">
+          <% end %>
         </div>
         <% if @production.sub_image1.present? %>
           <div class="carousel-item">

@@ -11,9 +11,9 @@
   <div class="col-md-6 margin-vertical">
     <div class="card">
         <% if store.top_image %>
-        <%= image_tag store.top_image ,class: "img-fluid", style: "height:250px"%>
+            <%= image_tag store.top_image ,class: "img-fluid", style: "height:250px"%>
         <% else %>
-        <%= image_tag "store/shop.jpg", class: "card-img-top" %>
+            <img class="wide-img" src="https://purchase-app-backet.s3.amazonaws.com/uploads/no-image.jpg" alt="Something">
         <% end %>
       <div class="card-body">
             <h5 class="card-title"><%= store.name %></h5>

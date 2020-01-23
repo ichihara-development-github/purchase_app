@@ -4,7 +4,6 @@ class Store < ApplicationRecord
     
   validates :name, presence: true, uniqueness: true, length: {minimum: 1}
   validates :description, presence: true
-  validates :top_image, presence: true
   
   mount_uploader :top_image, ImageUploader
 end
