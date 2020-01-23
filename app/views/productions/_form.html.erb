@@ -2,18 +2,19 @@
  <%= form_for @production do |f| %>
     <div class = "form-group ">
       <div class = "row">
+        
         <div class = "col-md-3 center">
            <h4>メインイメージ</h4>
-            <div class = "input-image">
               <% if @production.main_image.present? %>
                 <%= image_tag @production.main_image, id: :img_prev %>
               <% else %>
-                <%= f.label :main_image, class: "image-label" do%>
+              <%= f.label :main_image1, class: "image-label" do%>
+              <div class = "input-image">
                   <span class = "fas fa-camera fa-3x"></span>
-                  <%= f.file_field :main_image, class: "file-field", id: "#production_image"%>
-                <% end %>
-              <% end %>
-            </div>
+                  <%= f.file_field :main_image, class: "file-field", id: "production_image"%>
+              </div>
+          <% end %>
+            <% end %>
         </div>
         <div class = "col-md-3 center">
           <h4>サブ画像1</h4>
