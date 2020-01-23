@@ -10,10 +10,10 @@
     <% @stores.each do |store| %>
   <div class="col-md-6 margin-vertical">
     <div class="card">
-        <% if store.top_image %>
+        <% if store.top_image.present? %>
             <%= image_tag store.top_image ,class: "img-fluid", style: "height:250px"%>
         <% else %>
-            <img class="wide-img" src="https://purchase-app-backet.s3.amazonaws.com/uploads/no-image.jpg" alt="Something">
+            <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
         <% end %>
       <div class="card-body">
             <h5 class="card-title"><%= store.name %></h5>
