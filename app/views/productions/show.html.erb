@@ -52,16 +52,16 @@
     <table class="table ">
   <tbody>
     <tr>
-      <td><h5>出品Store</h5></td>
-      <td><%= @production.store.name%></td>
+      <td><h5>出品店舗</h5></td>
+      <td><%= link_to store_path(@production.store)do %><%= @production.store.name%><% end %></td>
     </tr>
     <tr>
       <td><h5>出品者</h5></td>
-      <td><%= @production.store.user.name%></td>
+      <td><%= link_to user_path(@production.store.user) do %><%= @production.store.user.name%><% end %></td>
     </tr>
     <tr>
       <td><h5>カテゴリー</h5></td>
-      <td><%= @production.category %></td>
+      <td><%= @production.category? ? @production.category : "カテゴリーなし" %></td>
     </tr>
     <tr>
       <td><h5>出品日</h5></td>
