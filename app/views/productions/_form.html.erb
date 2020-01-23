@@ -4,25 +4,25 @@
       <div class = "row">
         <div class = "col-md-3 center">
            <h4>メインイメージ</h4>
-           <%= f.label :main_image, class: "image-label" do%>
             <div class = "input-image">
               <% if @production.main_image.present? %>
                 <%= image_tag @production.main_image, id: :img_prev %>
               <% else %>
-                <span class = "fas fa-camera fa-3x"></span>
-                <%= f.file_field :main_image, class: "file-field", id: "production_image"%>
+                <%= f.label :main_image, class: "image-label" do%>
+                  <span class = "fas fa-camera fa-3x"></span>
+                  <%= f.file_field :main_image, class: "file-field"%>
+                <% end %>
               <% end %>
             </div>
-          <% end %>
         </div>
         <div class = "col-md-3 center">
           <h4>サブ画像1</h4>
           <%= f.label :sub_image1, class: "image-label" do%>
-          <div class = "input-image">
-              <span class = "fas fa-camera fa-3x"></span>
-              <%= f.file_field :sub_image1, class: "file-field"%>
-            <% end %>
-          </div>
+            <div class = "input-image">
+                <span class = "fas fa-camera fa-3x"></span>
+                <%= f.file_field :sub_image1, class: "file-field"%>
+            </div>
+          <% end %>
         </div>
         <div class = "col-md-3 center">
           <h4>サブ画像2</h4>
