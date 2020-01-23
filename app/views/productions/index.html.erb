@@ -21,10 +21,10 @@
     <% @popular[0..2].each do |production| %>
   <div class="col-md-4 margin-vertical">
     <div class="shadow">
-      <% if production.main_image %>
+      <% if production.main_image.present?%>
         <%= image_tag production.main_image, class: "long-img" %>
       <% else %>
-        <img class="wide-img" src="https://purchase-app-backet.s3.amazonaws.com/uploads/no-image.jpg" alt="Something">
+        <img class="long-img" src="https://purchase-app-backet.s3.amazonaws.com/uploads/no-image.jpg" alt="Something">
       <% end %>
       <div class="card-body">
           <span><%= link_to production_path(production) do %>

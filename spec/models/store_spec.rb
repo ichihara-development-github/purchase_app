@@ -10,11 +10,6 @@ RSpec.describe Store, type: :model do
       expect(store).not_to be_valid
   end
   
-  it "is top_image exist?" do
-      store = Store.new(name: "samplestore")
-      expect(store).not_to be_valid
-  end
-  
    
   it "isn't  save same name" do
      store = Store.new(name: "SampleStore", top_image: "sample.jpg")

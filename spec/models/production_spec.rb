@@ -25,10 +25,6 @@ RSpec.describe Production, type: :model do
       expect(production).not_to be_valid
   end
   
-  it "is main_image exist?" do
-      production = @store.productions.build(name: "sampleproduction", price:1, description:"This is sample production")
-      expect(production).not_to be_valid
-  end
   
   it "is production belongs to store?" do
      production = Production.new(name: "sampleproduction", price:1, description:"This is sample production", main_image: "sample.jpg")
