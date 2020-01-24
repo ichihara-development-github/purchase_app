@@ -1,4 +1,15 @@
 <%= form_for(@user,maltipart: true) do |f| %>
+<div class="circle-avatar">
+      <img id="avatar_img_prev" src="#" class='d-none'>
+    <% if current_user.profile_image %>
+      <%= image_tag current_user.profile_image.to_s, class: "img-thumbnail", style: "border-radius:1000px" %>   
+    <% else %>
+       <img class="wide-img" src="https://purchase-app-backet.s3.amazonaws.com/uploads/welcome.jpg" alt="Something">
+    <% end %>
+      <%= f.file_field :profile_image, id: 'post_img' %>
+  </div>
+
+
   <div class= "col-md-10">
   <div class = "margin-vertical">
     
