@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get "after_purchace", to: "purchaces#after_purchace"
  
  resources :users
+ resources :password_reset, only: [:new, :create, :edit, :update]
  resources :session, only: [:new, :create, :destroy]
  resources :stores
  resources :productions
