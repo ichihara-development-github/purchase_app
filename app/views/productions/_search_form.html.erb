@@ -15,7 +15,7 @@
       </div>
       <div class = "col-md-4">
          <%= label_tag "上限金額"%>
-         <%= text_field_tag :max,"", :class => "price-search form-control" %>
+         <%= text_field_tag :max,"", :class => "price-search form-control", :onchange => "add_required()" %>
       </div>
     </div>
     <div class = "row">
