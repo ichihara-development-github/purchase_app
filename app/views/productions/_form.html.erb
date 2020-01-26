@@ -1,7 +1,4 @@
 
-
-
-
  <%= form_for @production do |f| %>
     <div class = "form-group ">
       <div class = "row">
@@ -11,11 +8,12 @@
               <% if @production.main_image.present? %>
                 <%= image_tag @production.main_image, id: :img_prev %>
               <% else %>
-                <%= f.label :main_image, class: "image-label" do%>
                 <div class = "input-image">
-                    <span class = "fas fa-camera fa-3x"></span>
-                    <%= f.file_field :main_image ,class: "file-field"%>
+                   <img id="img1">
+                   <span class = "fas fa-camera fa-3x"></span>
                 </div>
+                <%= f.label :main_image, class: "image-label" do%>
+                 <%= f.file_field :main_image , id: "myfile"%>
                 <% end %>
              <% end %>
         </div>

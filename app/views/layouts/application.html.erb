@@ -18,20 +18,6 @@
     
     <%= javascript_tag do %>
     
-    function add_required(){
-    
-        var sum =[];
-        
-        $(".price-search").each(function(){
-          sum.push.$(this).val()
-          
-          if (sum.length > 0){
-          $(".price-search").attr("required", "true")}else{
-          $(".price-search").removeAttr("required")
-          }
-        })
- 
-    };
     
     $(function(){
     
