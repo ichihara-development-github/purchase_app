@@ -48,7 +48,10 @@ class PasswordResetsController < ApplicationController
     end
     
     def valid_user
-        redirect_to root_path unless (@user && @user.authenticated?(:reset, params[:id]))
+        unless @user && @user.authenticated?(:reset, params[:id])
+            flash[:danger] = "リンクが有効ではありません"
+            redirect_to root_path
+        end
     end
     
     def check_expration
