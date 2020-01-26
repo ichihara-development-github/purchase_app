@@ -29,9 +29,9 @@ class User < ApplicationRecord
   def send_password_reset_mail
     UserMailer.password_reset(self).deliver_now
   end
-  
+
   def password_reset_expired?
-    reset_sent_at > 2.hours.ago
+    reset_sent_at < 2.hours.ago
   end
   
   has_one :store, dependent: :destroy, class_name: Store
