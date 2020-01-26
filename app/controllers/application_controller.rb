@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
         end
   end
   
+  def login(user)
+    session[:user_id] = user.id
+      flash[:success] = "ログインしました"
+  end
+  
   def login_user?
     unless current_user
       flash[:warning] = "Loginが必要です"

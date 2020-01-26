@@ -10,6 +10,8 @@ gem 'rails-i18n'
 
 gem 'fog-aws'
 gem 'carrierwave'
+
+gem 'mail-iso-2022-jp'
 #-------------------------------------------------------------------
 
 
