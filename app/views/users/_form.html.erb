@@ -1,6 +1,6 @@
 
   <%= form_for(@user,maltipart: true) do |f| %>
-  <div class= "col-md-10">
+  <div class= "col-md-6 middle">
   <div class = "margin-vertical">
     
     <div class = "form-group">
@@ -25,7 +25,7 @@
         <%= f.text_field :password_confirmation,required: true, type: "password", class: "password-form form-control"%><br />
     </div>
     
-    <%= f.submit "ユーザーを登録" ,class:"col-md-4 btn btn-primary" %>
+    <%= f.submit "ユーザーを登録" ,class:"btn btn-primary form-control" %>
      </div>
     </div>
   <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200125150448) do
+ActiveRecord::Schema.define(version: 20200126092939) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "user_id"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20200125150448) do
     t.string   "profile_image"
     t.string   "password_digest"
     t.string   "reset_digest"
-    t.time     "reset_sent_at"
+    t.datetime "reset_sent_at"
     t.index ["store_id"], name: "index_users_on_store_id"
   end
 

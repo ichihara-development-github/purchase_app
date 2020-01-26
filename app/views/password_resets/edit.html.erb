@@ -1,18 +1,21 @@
-<h1>パスワードの再登録</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 middle">
+    <h1>パスワードの再登録</h1>
+    <div class = "margin-vertical">
     <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
 
       <%= hidden_field_tag :email, @user.email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "更新", class: "btn btn-primary" %>
+     <%= f.label :password %><span style = "color:red">*</span><span id = "password-icon-toggle" class = "fas fa-eye fa-eye-slash"></span>
+     <%= f.text_field :password, required: true,  type: "password", class: "password-form form-control"  %><br />
+      
+     <%= f.label :password %><span style = "color:red">*</span><span id = "password-icon-toggle" class = "fas fa-eye fa-eye-slash"></span>
+        <%= f.text_field :password, required: true,  type: "password", class: "password-form form-control"  %><br />
+     
+     <%= f.submit "更新", class: "btn btn-primary form-control" %>
+     
     <% end %>
+    </div>
   </div>
 </div>

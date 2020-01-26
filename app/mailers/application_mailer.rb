@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'pasocn.cloud@icloud.com', charset: 'ISO-2022-JP'
+  default from: 'noreply@iexample.com', charset: 'ISO-2022-JP'
   layout 'mailer'
 end
 
