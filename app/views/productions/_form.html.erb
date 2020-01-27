@@ -3,46 +3,48 @@
       <div class = "row">
         <div class = "col-md-4 center">
            <h4>メインイメージ</h4>
-            <div class = "input-image middle">
+            <div class = "middle">
               <% if @production.main_image.present? %>
                 <%= image_tag @production.main_image, class: "full-img"%>
-                <% else %>
-               <img class = "rounded full-img", id="main_img_output">
-               <% end %>
-            </div>
-            <div class = "margin-vertical">
-             <%= f.label :main_image, "+ 画像をアップ", class: "image-up" %>
-             <%= f.file_field :main_image, class: "upfile", style: "display: none"%>
+              <% else %>
+                <img class = "rounded input-image", id="main_img_output">
+              <% end %>
+              
+               <div class = "margin-vertical">
+                 <%= f.label :main_image, "+ 画像をアップ", class: "image-up" %>
+                 <%= f.file_field :main_image, class: "upfile", style: "display: none"%>
+               </div>
             </div>
         </div>
         <div class = "col-md-4 center">
           <h4>サブイメージ1</h4>
-            <div class = "input-image middle">
+            <div class = "middle">
                <% if @production.sub_image1.present? %>
                 <%= image_tag @production.sub_image1, class: "full-img"%>
                 <% else %>
-               <img class = "rounded full-img", id="sub_img1_output">
+               <img class = "rounded input-image", id="sub_img1_output">
                <% end %>
-            </div>
-            <div class = "margin-vertical">
-             <%= f.label :sub_image1, "+ 画像をアップ", class: "image-up" %>
-             <%= f.file_field :sub_image1, class: "upfile", style: "display: none"%>
+            
+              <div class = "margin-vertical">
+               <%= f.label :sub_image1, "+ 画像をアップ", class: "image-up" %>
+               <%= f.file_field :sub_image1, class: "upfile", style: "display: none"%>
+              </div>
             </div>
         </div>
         <div class = "col-md-4 center">
           <h4>サブ画像2</h4>
-          <div class = "input-image middle">
-               <% if @production.sub_image2.present? %>
-                <%= image_tag @production.sub_image2, class: "full-img"%>
-                <% else %>
-               <img class = "rounded full-img", id="sub_img2_output">
-               <% end %>
-            </div>
+          <div class = "middle">
+            <% if @production.sub_image2.present? %>
+        　    <%= image_tag @production.sub_image2, class: "full-img"%>
+            <% else %>
+             　<img class = "rounded input-image", id="sub_img2_output">
+　           <% end %>
+      
             <div class = "margin-vertical">
-             <%= f.label :sub_image2, "+ 画像をアップ", class: "image-up" %>
-             <%= f.file_field :sub_image2, class: "upfile", style: "display: none"%>
+               <%= f.label :sub_image2, "+ 画像をアップ", class: "image-up" %>
+               <%= f.file_field :sub_image2, class: "upfile", style: "display: none"%>
             </div>
-        </div>
+          </div>
       </div>
     </div>
           <div class="form-group">
