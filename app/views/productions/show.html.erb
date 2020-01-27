@@ -6,19 +6,19 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <% if @production.main_image.present? %>
-           <%= image_tag @production.main_image, class: "d-block", :size =>'1000x500' %>
+           <%= image_tag @production.main_image, class: "d-block w-100", style: "height:400px; width:90%"%>
           <% else %>
             <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
           <% end %>
         </div>
         <% if @production.sub_image1.present? %>
-          <div class="carousel-item">
-             <%= image_tag @production.sub_image1, class: "d-block w-100", :size =>'1000x500' %>
+          <div class="carousel-item middle">
+             <%= image_tag @production.sub_image1, class: "d-block w-100", style: "height:400px; width:90%" %>
           </div>
         <% end %>
         <% if @production.sub_image2.present? %>
           <div class="carousel-item">
-            <%= image_tag @production.sub_image2, class: "d-block w-100", :size =>'1000x500' %>
+            <%= image_tag @production.sub_image2, class: "d-block w-100", style: "height:400px; width:90%" %>
           </div>
         <% end %>
       </div>
