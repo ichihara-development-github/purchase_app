@@ -22,10 +22,10 @@
     $(function(){
     
     $(function(){
-  $('.upfile').change(function(e){
+  $(".upfile").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    var output= $('.upfile').parent().next("img").attr('id')
+    var output= $(".upfile").parents(".middle").find("img").attr("id")
  
     reader.onload = (function(file){
       return function(e){
