@@ -9,12 +9,11 @@
            <h4>メインイメージ</h4>
             <div class = "input-image">
                <img class = "rounded", id="img1" style = "width:100%; height:100%">
-          画像がありません
             </div>
             <div class = "margin-vertical">
              <% f.label :main_image, "画像をアップ", class: "image-up" %>
-             <%= f.file_field :main_image, id: "upfile"%>
-             </div>
+             <%= f.file_field :main_image, class: "upfile", style: "display: none"%>
+            </div>
         </div>
         <div class = "col-md-3 center">
           <h4>サブ画像1</h4>
