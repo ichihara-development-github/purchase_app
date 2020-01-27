@@ -29,8 +29,8 @@
  
     reader.onload = (function(file, output){
       return function(e){
-        $("main_img_output").attr("src", e.target.result);
-        $("main_img_output").attr("title", file.name);
+        $("#main_img_output").attr("src", e.target.result);
+        $("#main_img_output").attr("title", file.name);
       };
     })(file);
     reader.readAsDataURL(file);
