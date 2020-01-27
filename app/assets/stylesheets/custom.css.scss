@@ -4,6 +4,18 @@
 
 // general
 
+.image-up{
+    display: none;
+        background-color: orange;
+        width: 180px;
+        height: 40px;
+        margin-left: 10px;
+        border-radius: 5px;
+        padding-top: 5px;
+        color: white;
+        text-align: center;
+      }
+
 a{
     color:rgb(100,100,100);
 }
@@ -24,7 +36,7 @@ a{
 }
 
 .middle{
-     left:0;
+    left:0;
     right:0;
     margin:auto;
 }
@@ -228,13 +240,10 @@ a{
     overflow:auto;
 }
 
-.file-field{
-    display:none;
-}
-
 .input-image{
-    padding:60px;
-    border:solid 1px rgb(200,200,200);
+    width: 200px;
+    height:200px;
+    border: solid 1px rgb(200,200,200);
 }
 .image-label:hover{
    cursor:pointer;   

@@ -1,21 +1,24 @@
 
+
  <%= form_for @production do |f| %>
+
     <div class = "form-group ">
       <div class = "row">
         
         <div class = "col-md-3 center">
            <h4>メインイメージ</h4>
-              <% if @production.main_image.present? %>
-                <%= image_tag @production.main_image, id: :img_prev %>
-              <% else %>
-                <div class = "input-image">
-                   <img class = "rounded", id="img1", style="width:300px;height:300px;">
-                   <span class = "fas fa-camera fa-3x"></span>
-                </div>
-                　<%= f.label :main_image, class: "image-label" do%>
-                 <%= f.file_field :main_image , id: "myfile"%>
-                <% end %>
+            <div class = "input-image">
+             <% if @production.main_image.present? %>
+               <img class = "rounded", id="img1">
+             <% else %>
+               <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="no-image", style = "width:100%; height:100%">
              <% end %>
+            </div>
+            <div class = "margin-vertical">
+             <% f.label :main_image, "画像をアップ", class: "image-up"%>
+             <%= f.file_field :main_image, id: "file-input"%>
+            
+             </div>
         </div>
         <div class = "col-md-3 center">
           <h4>サブ画像1</h4>
