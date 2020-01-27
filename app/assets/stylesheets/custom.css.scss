@@ -4,20 +4,6 @@
 
 // general
 
-.image-up{
-    width: 150px;
-    margin:0px auto;
-    display: block;
-    background-color: orange;
-    border-radius: 5px;
-    padding:5px 10px;
-    color: white;
-    
-    &:hover{
-        cursor: pointer;
-    }
-      }
-
 a{
     color:rgb(100,100,100);
 }
@@ -59,6 +45,12 @@ a{
     margin: 15px 0;
 }
 
+.display-400{
+    margin:15px 0;
+    max-height:400px;
+    overflow:auto;
+}
+
 //bootstrap
 
 
@@ -83,6 +75,11 @@ a{
     margin:0px auto;
     height:350px;
     border-radius:5px;
+}
+
+.full-img{
+    width:100%;
+    height:100%;
 }
 
 
@@ -236,16 +233,32 @@ a{
     };
 }
 
-.display-400{
-    margin:15px 0;
-    max-height:400px;
-    overflow:auto;
-}
+
+
+//image-input
 
 .input-image{
     width: 200px;
     height:200px;
+    background-image:url("https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg");
+    background-size:contain;
+    background-position:center center;   
 }
 .image-label:hover{
    cursor:pointer;   
 }
+
+.image-up{
+    width: 150px;
+    margin:0px auto;
+    display: block;
+    background-color: orange;
+    border-radius: 5px;
+    padding:5px 10px;
+    color: white;
+    
+    &:hover{
+        cursor: pointer;
+    }
+      }
+
