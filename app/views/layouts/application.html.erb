@@ -25,7 +25,7 @@
   $('.upfile').change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    var output= $(this).parent().next("img").attr('id')
+    var output= $('.upfile').parent().next("img").attr('id')
  
     reader.onload = (function(file){
       return function(e){
