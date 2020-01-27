@@ -7,7 +7,7 @@
               <% if @production.main_image.present? %>
                 <%= image_tag @production.main_image, class: "full-img"%>
                 <% else %>
-               <img class = "rounded full-img", id="img1">
+               <img class = "rounded full-img", id="main_img_output">
                <% end %>
             </div>
             <div class = "margin-vertical">
@@ -21,7 +21,7 @@
                <% if @production.sub_image1.present? %>
                 <%= image_tag @production.sub_image1, class: "full-img"%>
                 <% else %>
-               <img class = "rounded full-img", id="img1">
+               <img class = "rounded full-img", id="sub_img1_output">
                <% end %>
             </div>
             <div class = "margin-vertical">
@@ -35,7 +35,7 @@
                <% if @production.sub_image2.present? %>
                 <%= image_tag @production.sub_image2, class: "full-img"%>
                 <% else %>
-               <img class = "rounded full-img", id="img1">
+               <img class = "rounded full-img", id="sub_img2_output">
                <% end %>
             </div>
             <div class = "margin-vertical">

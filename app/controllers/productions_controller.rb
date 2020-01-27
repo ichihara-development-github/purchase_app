@@ -64,7 +64,7 @@ class ProductionsController < ApplicationController
     flash[:success] = "商品を編集しました"
     redirect_to production_path(@production)
   end
-  
+
   def destroy
     @production.destroy
     flash[:success] = "削除しました"
