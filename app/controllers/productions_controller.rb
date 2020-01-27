@@ -62,7 +62,7 @@ class ProductionsController < ApplicationController
     flash[:error_messages] = @production.errors.full_messages unless  @production.update(production_params)
    
     flash[:success] = "商品を編集しました"
-    redirect_to edit_production_path(@production)
+    redirect_to production_path(@production)
   end
   
   def destroy
