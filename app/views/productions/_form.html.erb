@@ -8,12 +8,12 @@
         <div class = "col-md-3 center">
            <h4>メインイメージ</h4>
             <div class = "input-image">
-               <img class = "rounded", id="img1">
+               <img class = "rounded", id="img1" style = "width:100%; height:100%">
           画像がありません
             </div>
             <div class = "margin-vertical">
-             <% f.label :main_image, "画像をアップ", class: "image-up", size: "200x200"%>
-             <%= f.file_field :main_image, id: "myfile"%>
+             <% f.label :main_image, "画像をアップ", class: "image-up" %>
+             <%= f.file_field :main_image, id: "upfile"%>
              </div>
         </div>
         <div class = "col-md-3 center">
