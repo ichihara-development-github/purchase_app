@@ -29,12 +29,12 @@
  
     reader.onload = (function(file){
  
-      return function(e, output){
+      return function(e, id){
         $(id).attr("src", e.target.result);
         $(id).attr("title", file.name);
       };
-    })(file, output);
-    reader.readAsDataURL(file);
+    })(file);
+    reader.readAsDataURL(file, output);
  
   });
 });
