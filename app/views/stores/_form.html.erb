@@ -1,11 +1,18 @@
 
     <%= form_for @store do |f| %>
     <div class = "form-group">
-       <%= f.label :top_image, class: "image-label" do%>
-        <h3>トップイメージ<span style ="color:red">*</span></h3>
-        <span class = "far fa-images fa-3x"></span>
-        <%= f.file_field :top_image, class: "file-field"%>
-        <% end %>
+       <div class = "middle">
+              <% if @store.top_image.present? %>
+                <%= image_tag @store.top_image, class: "input-image"%>
+              <% else %>
+                <img class = "rounded input-image", id="top_img_output">
+              <% end %>
+              
+               <div class = "margin-vertical">
+                 <%= f.label :top_image, "+ 画像をアップ", class: "image-up" %>
+                 <%= f.file_field :top_image, class: "upfile", style: "display: none"%>
+               </div>
+            </div>
     </div>
           <div class="form-group">
             <%= f.label :name %>
