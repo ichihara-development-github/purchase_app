@@ -5,7 +5,7 @@
            <h4>メインイメージ</h4>
             <div class = "middle">
               <% if @production.main_image.present? %>
-                <%= image_tag @production.main_image, class: "input-image"%>
+                <%= image_tag @production.main_image, class: "input-image", id: "main_img_output"%>
               <% else %>
                 <img class = "rounded input-image", id="main_img_output">
               <% end %>
@@ -20,13 +20,13 @@
           <h4>サブイメージ1</h4>
             <div class = "middle">
                <% if @production.sub_image1.present? %>
-                <%= image_tag @production.sub_image1, class: "input-image"%>
+                <%= image_tag @production.sub_image1, class: "input-image", id: "sub_img1_output"%>
                 <% else %>
                <img class = "rounded input-image", id="sub_img1_output">
                <% end %>
             
               <div class = "margin-vertical">
-               <%= f.label :sub_image1, "+ 画像をアップ", class: "image-up" %>
+               <%= f.label :sub_image1, "+ 画像をアップ", class: "image-up",%>
                <%= f.file_field :sub_image1, class: "upfile", style: "display: none"%>
               </div>
             </div>
@@ -35,7 +35,7 @@
           <h4>サブ画像2</h4>
           <div class = "middle">
             <% if @production.sub_image2.present? %>
-        　    <%= image_tag @production.sub_image2, class:"input-image"%>
+        　    <%= image_tag @production.sub_image2, class:"input-image", id: "sub_im2g_output" %>
             <% else %>
              　<img class = "rounded input-image", id="sub_img2_output">
 　           <% end %>
