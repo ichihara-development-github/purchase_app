@@ -1,22 +1,6 @@
 
   <%= form_for(@user,maltipart: true) do |f| %>
   <div class= "col-md-6 middle">
-  <div class = "margin-vertical">
-    
-    <div class = "form-group">
-        <div class = "middle">
-              <% if @user.prfile_image.present? %>
-                <%= image_tag @user.profile_image, class: "input-image"%>
-              <% else %>
-                <img class = "rounded input-image", id="profile_img_output">
-              <% end %>
-               <div class = "margin-vertical">
-                 <%= f.label :profile_image, "+ 画像をアップ", class: "image-up" %>
-                 <%= f.file_field :profile_image, class: "upfile", style: "display: none"%>
-               </div>
-            </div>
-    <% end %>
-    </div>
     
     <div class = "form-group">
         <%= f.label :name %><span style = "color:red">*</span>
