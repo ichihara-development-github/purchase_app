@@ -8,10 +8,11 @@
     
     <div class = "col-lg-9">
         <h2><%= @store.name %></h2>
+        
         <% if @store.top_image.present? %>
             <%= image_tag @store.top_image, class: "wide-img" %>
         <% else %>
-            <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+            <img class="wide-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
         <% end %>
        
        <% if current_user.store == @store %>
