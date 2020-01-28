@@ -25,12 +25,13 @@
   $(".upfile").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    <!--var output= $(this).parents(".middle").find("img").attr("id")-->
+    var output= $(this).parents(".middle").find("img").attr("id")
  
     reader.onload = (function(file, output){
+  debugger;
       return function(e){
-        $("#main_img_output").attr("src", e.target.result);
-        $("#main_img_output").attr("title", file.name);
+        $(output).attr("src", e.target.result);
+        $(output).attr("title", file.name);
       };
     })(file);
     reader.readAsDataURL(file);
