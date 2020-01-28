@@ -27,15 +27,15 @@
     var reader = new FileReader();
     var output= $(this).parents(".middle").find("img").attr("id")
  
-    reader.onload = (function(file,id){
+    reader.onload = (function(file, id){
  
-      return function(e, id){
+      return function(e){
         $(id).attr("src", e.target.result);
         $(id).attr("title", file.name);
       };
-    })(file);
+    })(file, output);
     
-    reader.readAsDataURL(file, output);
+    reader.readAsDataURL(file);
  
   });
 });
