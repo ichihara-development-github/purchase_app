@@ -30,8 +30,8 @@
     reader.onload = (function(file, id){
  debugger;
       return function(e){
-        $(id).attr("src", e.target.result);
-        $(id).attr("title", file.name);
+        $("#main_img_output").attr("src", e.target.result);
+        $("#main_img_output").attr("title", file.name);
       };
     })(file, output);
     
