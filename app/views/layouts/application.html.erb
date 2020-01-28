@@ -27,9 +27,9 @@
     var reader = new FileReader();
     var output= $(this).parents(".middle").find("img").attr("id")
  
-    reader.onload = (function(file, id){
+    reader.onload = (function(file){
  
-      return function(e){
+      return function(e, output){
         $(id).attr("src", e.target.result);
         $(id).attr("title", file.name);
       };
