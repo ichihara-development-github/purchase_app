@@ -86,7 +86,6 @@ class ProductionsController < ApplicationController
         flash[:warning] = "マッチする商品が見つかりませんでした" 
         redirect_to productions_path
       else
-      
       popular
       render "index"
      end
@@ -95,11 +94,13 @@ class ProductionsController < ApplicationController
   
     def free_search
         @productions = Production.free_search(params[:free_word]).paginate(page: params[:page], per_page: 10)
-        popular
-        render "index"
+        
         if @productions.blank?
-          flash.now[:notice] = "マッチする商品が見つかりませんでした"
+          flash[:warning] = "マッチする商品が見つかりませんでした"
           redirect_to productions_path
+        else
+          popular
+          render "index"
         end
     end
   
