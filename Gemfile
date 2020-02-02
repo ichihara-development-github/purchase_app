@@ -12,6 +12,11 @@ gem 'fog-aws'
 gem 'carrierwave'
 
 gem 'mail-iso-2022-jp'
+
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv' 
 #-------------------------------------------------------------------
 
 
