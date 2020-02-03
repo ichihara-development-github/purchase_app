@@ -28,3 +28,4 @@ production:
   username: root
   password: 
   socket: /var/lib/mysql.sock
+

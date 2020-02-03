@@ -13,10 +13,6 @@ gem 'carrierwave'
 
 gem 'mail-iso-2022-jp'
 
-gem 'capistrano'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-gem 'capistrano-rbenv' 
 #-------------------------------------------------------------------
 
 
@@ -55,7 +51,7 @@ group :development, :test do
   gem 'rspec-rails', '~>3.6'
   gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
-   gem "factory_bot_rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -69,6 +65,15 @@ end
 
 group :production do
   gem 'pg'
+end
+
+group :production, :staging do
+  gem 'unicorn'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 
