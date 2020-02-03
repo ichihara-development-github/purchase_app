@@ -1,5 +1,5 @@
 
-lock '3.4.0'
+lock '3.11.2'
 
 set :application, 'purchase_app'
 
