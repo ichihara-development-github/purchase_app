@@ -1,0 +1,76 @@
+# Logfile created on 2020-02-04 14:31:46 +0000 by logger.rb/61378
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-04 14:31:46 +0000 cap deploy @roduction
+  INFO ---------------------------------------------------------------------------
+ DEBUG [72c51641] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [72c51641] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-04 14:31:57 +0000 cap deploy proction
+  INFO ---------------------------------------------------------------------------
+ DEBUG [718abd7f] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [718abd7f] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-04 14:32:08 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [75b79a73] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [75b79a73] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-04 16:24:51 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [0020589c] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [0020589c] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-04 16:27:36 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [8f1923c0] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [8f1923c0] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-04 16:29:57 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [42ceca94] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [42ceca94] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-04 17:10:12 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [8a629576] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [8a629576] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 07:28:02 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [6d3c97d9] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [6d3c97d9] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 07:30:30 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [edc78848] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [edc78848] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 07:34:39 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e2b99fbd] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [e2b99fbd] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 07:37:25 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [f0cfe15e] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [f0cfe15e] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 11:38:34 +0000 cap deploy production
+  INFO ---------------------------------------------------------------------------
+ DEBUG [09edb949] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [09edb949] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 16:21:10 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [9a74c334] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [9a74c334] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 17:10:13 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [46f1f46b] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [46f1f46b] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-05 17:17:16 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [1a61d49c] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [1a61d49c] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
