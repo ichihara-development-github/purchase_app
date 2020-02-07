@@ -1,0 +1,39 @@
+current directory: C:/Users/yoshi/SampleDocker/purchase_app/vendor/bundler/gems/kgio-2.11.3/ext/kgio
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r ./siteconf20200206-43404-12x78t2.rb extconf.rb
+checking for CLOCK_MONOTONIC in time.h... yes
+checking for clockid_t in time.h... yes
+checking for clock_gettime() in -lrt... no
+checking for t_open() in -lnsl... no
+checking for socket() in -lsocket... no
+checking for poll() in poll.h... no
+checking for getaddrinfo() in sys/types.h,sys/socket.h,netdb.h... no
+getaddrinfo required
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=C:/Ruby26-x64/bin/$(RUBY_BASE_NAME)
+	--with-rtlib
+	--without-rtlib
+	--with-nsllib
+	--without-nsllib
+	--with-socketlib
+	--without-socketlib
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  C:/Users/yoshi/SampleDocker/purchase_app/vendor/bundler/extensions/x64-mingw32/2.6.0/kgio-2.11.3/mkmf.log
+
+extconf failed, exit code 1

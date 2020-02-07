@@ -1,0 +1,358 @@
+have_macro: checking for CLOCK_MONOTONIC in time.h... -------------------- yes
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return 0;
+8: }
+/* end */
+
+"x86_64-w64-mingw32-gcc -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <time.h>
+ 6: /*top*/
+ 7: #ifndef CLOCK_MONOTONIC
+ 8: # error
+ 9: |:/ === CLOCK_MONOTONIC undefined === /:|
+10: #endif
+/* end */
+
+--------------------
+
+have_type: checking for clockid_t in time.h... -------------------- yes
+
+"x86_64-w64-mingw32-gcc -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <time.h>
+6: 
+7: /*top*/
+8: typedef clockid_t conftest_type;
+9: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_library: checking for clock_gettime() in -lrt... -------------------- no
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260 -lrt  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+C:/Ruby26-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lrt
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <time.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return 0;
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))clock_gettime; return !p; }
+/* end */
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260 -lrt  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c:18:13: error: conflicting types for 'clock_gettime'
+   18 | extern void clock_gettime();
+      |             ^~~~~~~~~~~~~
+In file included from C:/Ruby26-x64/msys64/mingw64/x86_64-w64-mingw32/include/time.h:308,
+                 from C:/Ruby26-x64/msys64/mingw64/x86_64-w64-mingw32/include/iptypes.h:16,
+                 from C:/Ruby26-x64/msys64/mingw64/x86_64-w64-mingw32/include/iphlpapi.h:17,
+                 from C:/Ruby26-x64/include/ruby-2.6.0/ruby/win32.h:44,
+                 from C:/Ruby26-x64/include/ruby-2.6.0/ruby/defines.h:345,
+                 from C:/Ruby26-x64/include/ruby-2.6.0/ruby/ruby.h:29,
+                 from C:/Ruby26-x64/include/ruby-2.6.0/ruby.h:33,
+                 from conftest.c:1:
+C:/Ruby26-x64/msys64/mingw64/x86_64-w64-mingw32/include/pthread_time.h:88:28: note: previous declaration of 'clock_gettime' was here
+   88 | int __cdecl WINPTHREAD_API clock_gettime(clockid_t clock_id, struct timespec *tp);
+      |                            ^~~~~~~~~~~~~
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <time.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return 0;
+17: }
+18: extern void clock_gettime();
+19: int t(void) { clock_gettime(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for t_open() in -lnsl... -------------------- no
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260 -lnsl  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:57: error: 't_open' undeclared (first use in this function); did you mean '_open'?
+   17 | int t(void) { void ((*volatile p)()); p = (void ((*)()))t_open; return !p; }
+      |                                                         ^~~~~~
+      |                                                         _open
+conftest.c:17:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))t_open; return !p; }
+/* end */
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260 -lnsl  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+C:/Ruby26-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lnsl
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return 0;
+16: }
+17: extern void t_open();
+18: int t(void) { t_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for socket() in -lsocket... -------------------- no
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260 -lsocket  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+C:/Ruby26-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lsocket
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))socket; return !p; }
+/* end */
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260 -lsocket  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c:17:13: error: conflicting types for 'socket'
+   17 | extern void socket();
+      |             ^~~~~~
+In file included from C:/Ruby26-x64/include/ruby-2.6.0/ruby/win32.h:41,
+                 from C:/Ruby26-x64/include/ruby-2.6.0/ruby/defines.h:345,
+                 from C:/Ruby26-x64/include/ruby-2.6.0/ruby/ruby.h:29,
+                 from C:/Ruby26-x64/include/ruby-2.6.0/ruby.h:33,
+                 from conftest.c:1:
+C:/Ruby26-x64/msys64/mingw64/x86_64-w64-mingw32/include/winsock2.h:1031:37: note: previous declaration of 'socket' was here
+ 1031 |   WINSOCK_API_LINKAGE SOCKET WSAAPI socket(int af,int type,int protocol);
+      |                                     ^~~~~~
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return 0;
+16: }
+17: extern void socket();
+18: int t(void) { socket(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for poll() in poll.h... -------------------- no
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c:5:10: fatal error: poll.h: No such file or directory
+    5 | #include <poll.h>
+      |          ^~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <poll.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return 0;
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))poll; return !p; }
+/* end */
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c:5:10: fatal error: poll.h: No such file or directory
+    5 | #include <poll.h>
+      |          ^~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <poll.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return 0;
+17: }
+18: extern void poll();
+19: int t(void) { poll(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for getaddrinfo() in sys/types.h,sys/socket.h,netdb.h... -------------------- no
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c:6:10: fatal error: sys/socket.h: No such file or directory
+    6 | #include <sys/socket.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <sys/types.h>
+ 6: #include <sys/socket.h>
+ 7: #include <netdb.h>
+ 8: 
+ 9: /*top*/
+10: extern int t(void);
+11: int main(int argc, char **argv)
+12: {
+13:   if (argc > 1000000) {
+14:     int (* volatile tp)(void)=(int (*)(void))&t;
+15:     printf("%d", (*tp)());
+16:   }
+17: 
+18:   return 0;
+19: }
+20: int t(void) { void ((*volatile p)()); p = (void ((*)()))getaddrinfo; return !p; }
+/* end */
+
+"x86_64-w64-mingw32-gcc -o conftest.exe -IC:/Ruby26-x64/include/ruby-2.6.0/x64-mingw32 -IC:/Ruby26-x64/include/ruby-2.6.0/ruby/backward -IC:/Ruby26-x64/include/ruby-2.6.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math conftest.c  -L. -LC:/Ruby26-x64/lib -L. -pipe -s     -lx64-msvcrt-ruby260  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c:6:10: fatal error: sys/socket.h: No such file or directory
+    6 | #include <sys/socket.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <sys/types.h>
+ 6: #include <sys/socket.h>
+ 7: #include <netdb.h>
+ 8: 
+ 9: /*top*/
+10: extern int t(void);
+11: int main(int argc, char **argv)
+12: {
+13:   if (argc > 1000000) {
+14:     int (* volatile tp)(void)=(int (*)(void))&t;
+15:     printf("%d", (*tp)());
+16:   }
+17: 
+18:   return 0;
+19: }
+20: extern void getaddrinfo();
+21: int t(void) { getaddrinfo(); return 0; }
+/* end */
+
+--------------------
+

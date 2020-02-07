@@ -1,20 +1,24 @@
-
 lock '3.11.2'
 
 set :application, 'purchase_app'
 
-set :repo_url, 'git@github.com:ichihara-development-github/purchace_app.git'
+set :repo_url, 'git@github.com:ichihara-development-github/purchase_app.git'
 
-set :deploy_to, '/var/www/purchase_app'
+set :deploy_to, '/var/www/rails/purchase_app'
 
+# シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 
+# シンボリックリンクをはるフォルダ。(※後述)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
+# 保持するバージョンの個数(※後述)
 set :keep_releases, 5
 
+# rubyのバージョン
 set :rbenv_ruby, '2.6.3'
 
+#出力するログのレベル。
 set :log_level, :debug
 
 namespace :deploy do

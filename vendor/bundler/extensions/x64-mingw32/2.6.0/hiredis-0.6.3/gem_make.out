@@ -1,0 +1,14 @@
+current directory: C:/Users/yoshi/SampleDocker/purchase_app/vendor/bundler/gems/hiredis-0.6.3/ext/hiredis_ext
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r ./siteconf20200206-40292-1k2v3cn.rb extconf.rb
+checking for sys/socket.h... no
+Could not find <sys/socket.h> (Likely Windows).
+Skipping building hiredis. The slower, pure-ruby implementation will be used instead.
+
+current directory: C:/Users/yoshi/SampleDocker/purchase_app/vendor/bundler/gems/hiredis-0.6.3/ext/hiredis_ext
+make "DESTDIR=" clean
+
+current directory: C:/Users/yoshi/SampleDocker/purchase_app/vendor/bundler/gems/hiredis-0.6.3/ext/hiredis_ext
+make "DESTDIR="
+
+current directory: C:/Users/yoshi/SampleDocker/purchase_app/vendor/bundler/gems/hiredis-0.6.3/ext/hiredis_ext
+make "DESTDIR=" install
