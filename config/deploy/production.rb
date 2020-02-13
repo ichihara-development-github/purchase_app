@@ -42,7 +42,7 @@ server "3.20.24.205", user: "ichihara", roles: %w{app db web}
 # Global options
 # --------------
  set :ssh_options, {
-  keys: %w(~/.ssh/ichihara.pem),
+  keys: %w(~/.ssh/ichihara_key_rsa),
   forward_agent: true,
    auth_methods: %w(publickey),
   port: 22

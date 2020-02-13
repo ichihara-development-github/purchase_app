@@ -13,6 +13,9 @@ gem 'carrierwave'
 
 gem 'mail-iso-2022-jp'
 
+gem 'unicorn'
+gem 'mysql2'
+
 #-------------------------------------------------------------------
 
 
@@ -56,6 +59,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -71,9 +75,6 @@ group :production do
   gem 'pg'
 end
 
-group :production, :staging do
-  gem 'unicorn'
-end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
