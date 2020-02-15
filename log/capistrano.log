@@ -2434,3 +2434,640 @@
   INFO ---------------------------------------------------------------------------
  DEBUG [927fa9ee] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
  DEBUG [927fa9ee] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 02:08:17 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [4bb2224f] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [4bb2224f] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [4bb2224f] Finished in 3.026 seconds with exit status 0 (successful).
+  INFO [1332bdb3] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [1332bdb3] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [1332bdb3] Finished in 0.675 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [61bb9684] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [61bb9684] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [61bb9684] Finished in 0.650 seconds with exit status 0 (successful).
+  INFO [c78d0370] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [c78d0370] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [c78d0370] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [c78d0370] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 02:21:50 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [96a16852] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [96a16852] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [96a16852] Finished in 5.468 seconds with exit status 0 (successful).
+  INFO [98a0712e] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [98a0712e] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [98a0712e] Finished in 0.596 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [890fd886] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [890fd886] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [890fd886] Finished in 0.850 seconds with exit status 0 (successful).
+  INFO [5526b9bf] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [5526b9bf] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [5526b9bf] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [5526b9bf] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 02:52:35 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [c0fb240c] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [c0fb240c] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [c0fb240c] Finished in 6.369 seconds with exit status 0 (successful).
+  INFO [5450bcf1] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [5450bcf1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [5450bcf1] Finished in 0.617 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [477f447f] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [477f447f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [477f447f] Finished in 0.889 seconds with exit status 0 (successful).
+  INFO [6baedbb1] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [6baedbb1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [6baedbb1] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [6baedbb1] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 02:59:35 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [641c07c2] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [641c07c2] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [641c07c2] Finished in 2.587 seconds with exit status 0 (successful).
+  INFO [42f27237] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [42f27237] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [42f27237] Finished in 0.618 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [75a8c768] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [75a8c768] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [75a8c768] Finished in 0.694 seconds with exit status 0 (successful).
+  INFO [36f3b83a] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [36f3b83a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [36f3b83a] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [36f3b83a] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 03:06:36 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [866afba9] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [866afba9] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [866afba9] Finished in 3.399 seconds with exit status 0 (successful).
+  INFO [b36555c2] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [b36555c2] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [b36555c2] Finished in 0.552 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [73e2134f] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [73e2134f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [73e2134f] Finished in 0.930 seconds with exit status 0 (successful).
+  INFO [9897e33c] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [9897e33c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [9897e33c] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [9897e33c] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 03:54:12 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e59f9fa4] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [e59f9fa4] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 03:55:11 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [3d38b69c] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [3d38b69c] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 03:59:49 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [494557bb] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [494557bb] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 04:00:27 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [cb09c8aa] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [cb09c8aa] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 04:02:03 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [61d7b11e] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [61d7b11e] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [61d7b11e] Finished in 2.330 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 04:02:47 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [0541aaaf] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [0541aaaf] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [0541aaaf] Finished in 2.436 seconds with exit status 0 (successful).
+  INFO [674276d4] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [674276d4] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [674276d4] Finished in 0.630 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [7055c93e] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [7055c93e] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [7055c93e] Finished in 0.598 seconds with exit status 0 (successful).
+  INFO [1995bf0e] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [1995bf0e] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [1995bf0e] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [1995bf0e] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 04:04:16 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e8c0f60b] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [e8c0f60b] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [e8c0f60b] Finished in 5.441 seconds with exit status 0 (successful).
+  INFO [094dbb49] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [094dbb49] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [094dbb49] Finished in 0.686 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [9b6643eb] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [9b6643eb] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [9b6643eb] Finished in 0.663 seconds with exit status 0 (successful).
+  INFO [4f11f785] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [4f11f785] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [4f11f785] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [4f11f785] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 13:51:34 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [271fdeb1] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [271fdeb1] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [271fdeb1] Finished in 6.008 seconds with exit status 0 (successful).
+  INFO [dab2c4f5] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [dab2c4f5] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [dab2c4f5] Finished in 2.033 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [0ca83f46] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [0ca83f46] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [0ca83f46] Finished in 1.020 seconds with exit status 0 (successful).
+  INFO [0ceef0bc] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [0ceef0bc] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [0ceef0bc] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [0ceef0bc] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 13:58:10 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [8590bdc8] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [8590bdc8] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 13:58:36 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [ca5586d8] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [ca5586d8] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [ca5586d8] Finished in 2.706 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 13:59:42 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [14cc8b3b] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [14cc8b3b] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [14cc8b3b] Finished in 3.424 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 14:01:22 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [959912fb] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [959912fb] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [959912fb] Finished in 3.818 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 14:43:03 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [f451e662] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [f451e662] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [f451e662] Finished in 4.875 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 14:52:07 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [41a518b1] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [41a518b1] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [41a518b1] Finished in 3.730 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 15:06:37 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [c22bd707] Running [ -d $HOME/.rbenv/versions/2.6.5 ] as ec2-user@3.20.24.205
+ DEBUG [c22bd707] Command: [ -d $HOME/.rbenv/versions/2.6.5 ]
+ DEBUG [c22bd707] Finished in 8.878 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.5 is not installed or not found in $HOME/.rbenv/versions/2.6.5 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 15:15:08 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [bf2f6b7e] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [bf2f6b7e] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [bf2f6b7e] Finished in 3.403 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 15:28:33 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [c71a97db] Running [ -d $HOME/.rbenv/versions/2.6.5 ] as ec2-user@3.20.24.205
+ DEBUG [c71a97db] Command: [ -d $HOME/.rbenv/versions/2.6.5 ]
+ DEBUG [c71a97db] Finished in 5.047 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.5 is not installed or not found in $HOME/.rbenv/versions/2.6.5 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 15:28:58 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [37579d64] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [37579d64] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [37579d64] Finished in 4.241 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 18:19:29 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [51a49add] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [51a49add] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [51a49add] Finished in 3.965 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 20:05:14 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [7976ab25] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [7976ab25] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [7976ab25] Finished in 3.267 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 20:08:08 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [c053521b] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [c053521b] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 20:08:36 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [41056d73] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [41056d73] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [41056d73] Finished in 2.627 seconds with exit status 0 (successful).
+  INFO [2009e9ba] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [2009e9ba] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [2009e9ba] Finished in 0.667 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [26b49d8c] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [26b49d8c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [26b49d8c] Finished in 0.667 seconds with exit status 0 (successful).
+  INFO [3aa7cb07] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [3aa7cb07] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [3aa7cb07] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [3aa7cb07] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 20:51:02 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [62b3b5d8] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [62b3b5d8] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [62b3b5d8] Finished in 2.881 seconds with exit status 0 (successful).
+  INFO [ff5f8dd5] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [ff5f8dd5] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [ff5f8dd5] Finished in 0.685 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [478989b5] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [478989b5] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [478989b5] Finished in 0.616 seconds with exit status 0 (successful).
+  INFO [79b48612] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [79b48612] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [79b48612] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [79b48612] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 20:53:58 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [67da07a1] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [67da07a1] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 20:56:54 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [506e33d8] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [506e33d8] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [506e33d8] Finished in 3.310 seconds with exit status 0 (successful).
+  INFO [a7836865] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [a7836865] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [a7836865] Finished in 0.701 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [6ebfaf44] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [6ebfaf44] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [6ebfaf44] Finished in 0.825 seconds with exit status 0 (successful).
+  INFO [95b6aab0] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [95b6aab0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [95b6aab0] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [95b6aab0] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 21:03:49 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e459dbcc] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [e459dbcc] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [e459dbcc] Finished in 3.113 seconds with exit status 0 (successful).
+  INFO [c60babec] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [c60babec] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [c60babec] Finished in 0.682 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [eef9555c] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [eef9555c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [eef9555c] Finished in 0.647 seconds with exit status 0 (successful).
+  INFO [97a26e61] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [97a26e61] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [97a26e61] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [97a26e61] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 21:56:06 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [2ce789df] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [2ce789df] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 21:57:20 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [4d7bf738] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [4d7bf738] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [4d7bf738] Finished in 3.152 seconds with exit status 0 (successful).
+  INFO [66568238] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [66568238] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [66568238] Finished in 0.800 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [6a967841] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [6a967841] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [6a967841] Finished in 0.815 seconds with exit status 0 (successful).
+  INFO [461497f8] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [461497f8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [461497f8] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [461497f8] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 22:37:53 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [dd58f8f2] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [dd58f8f2] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-14 22:38:20 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [71262b70] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [71262b70] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [71262b70] Finished in 7.222 seconds with exit status 0 (successful).
+  INFO [d2c0af50] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [d2c0af50] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [d2c0af50] Finished in 3.755 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [789f8a37] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [789f8a37] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [789f8a37] Finished in 0.811 seconds with exit status 0 (successful).
+  INFO [ea9a133b] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [ea9a133b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [ea9a133b] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [ea9a133b] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 00:27:00 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e1c16fe8] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [e1c16fe8] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [e1c16fe8] Finished in 34.100 seconds with exit status 0 (successful).
+  INFO [9874657b] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [9874657b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [9874657b] Finished in 1.092 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [97a525f6] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [97a525f6] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [97a525f6] Finished in 8.136 seconds with exit status 0 (successful).
+  INFO [47fdb842] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [47fdb842] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [47fdb842] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [47fdb842] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 00:39:19 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [381a4468] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ec2-user@3.20.24.205
+ DEBUG [381a4468] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [381a4468] Finished in 18.807 seconds with exit status 1 (failed).
+  WARN rbenv: 2.6.3 is not installed or not found in $HOME/.rbenv/versions/2.6.3 on 3.20.24.205
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 00:47:00 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [a3058ac5] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [a3058ac5] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [a3058ac5] Finished in 4.534 seconds with exit status 0 (successful).
+  INFO [f23ad506] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [f23ad506] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [f23ad506] Finished in 0.658 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [4565abe6] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [4565abe6] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [4565abe6] Finished in 6.023 seconds with exit status 0 (successful).
+  INFO [ee13ba24] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [ee13ba24] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [ee13ba24] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [ee13ba24] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 02:17:47 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [a299fc05] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [a299fc05] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [a299fc05] Finished in 2.813 seconds with exit status 0 (successful).
+  INFO [131718c1] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [131718c1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [131718c1] Finished in 0.616 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [70f77fd8] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [70f77fd8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [70f77fd8] Finished in 0.745 seconds with exit status 0 (successful).
+  INFO [52cda40b] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [52cda40b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [52cda40b] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [52cda40b] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 02:32:06 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [3d944934] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [3d944934] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [3d944934] Finished in 3.702 seconds with exit status 0 (successful).
+  INFO [3437203b] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [3437203b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [3437203b] Finished in 0.635 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [78b8e287] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [78b8e287] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [78b8e287] Finished in 1.784 seconds with exit status 0 (successful).
+  INFO [ca7c59f9] Running /usr/bin/env git ls-remote ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [ca7c59f9] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [ca7c59f9] 	fatal: 'ichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [ca7c59f9] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 02:41:03 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [5f0acdb2] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [5f0acdb2] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [5f0acdb2] Finished in 4.850 seconds with exit status 0 (successful).
+  INFO [ea8e9e35] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [ea8e9e35] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [ea8e9e35] Finished in 0.628 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [400a3efd] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [400a3efd] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [400a3efd] Finished in 0.697 seconds with exit status 0 (successful).
+  INFO [c2e7412a] Running /usr/bin/env git ls-remote ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [c2e7412a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [c2e7412a] 	fatal: 'ichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [c2e7412a] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 02:44:21 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [8489f60d] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [8489f60d] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [8489f60d] Finished in 2.697 seconds with exit status 0 (successful).
+  INFO [9620f305] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [9620f305] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [9620f305] Finished in 0.818 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [efb51807] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [efb51807] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [efb51807] Finished in 0.651 seconds with exit status 0 (successful).
+  INFO [a0607ae4] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [a0607ae4] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [a0607ae4] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [a0607ae4] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 02:45:28 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [88292f78] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [88292f78] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [88292f78] Finished in 3.180 seconds with exit status 0 (successful).
+  INFO [dc68cba6] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [dc68cba6] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [dc68cba6] Finished in 0.886 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [72c27873] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [72c27873] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [72c27873] Finished in 1.348 seconds with exit status 0 (successful).
+  INFO [4834b2d7] Running /usr/bin/env git ls-remote https://github.com/ichihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [4834b2d7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote https://github.com/ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [4834b2d7] 	fatal: 'githubichihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [4834b2d7] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 02:46:20 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+ DEBUG [7240e97c] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.20.24.205
+ DEBUG [7240e97c] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [7240e97c] Finished in 3.758 seconds with exit status 0 (successful).
+  INFO [c4494549] Running /usr/bin/env mkdir -p /tmp as ichihara@3.20.24.205
+ DEBUG [c4494549] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [c4494549] Finished in 0.618 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [de30a4c7] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.20.24.205
+ DEBUG [de30a4c7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [de30a4c7] Finished in 0.630 seconds with exit status 0 (successful).
+  INFO [e49a4eb2] Running /usr/bin/env git ls-remote https://github.com/chihara-development-github/purchase_app.git HEAD as ichihara@3.20.24.205
+ DEBUG [e49a4eb2] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote https://github.com/chihara-development-github/purchase_app.git HEAD )
+ DEBUG [e49a4eb2] 	fatal: 'githubchihara-development-github/purchase_app.git' does not appear to be a git repository
+ DEBUG [e49a4eb2] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 02:48:53 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 14:31:52 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 14:32:47 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 14:33:25 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 14:36:08 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 14:38:02 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 14:38:21 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 15:07:09 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 15:20:59 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 15:26:28 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 15:26:47 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 15:36:27 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-15 15:40:29 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
