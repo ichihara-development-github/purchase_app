@@ -26,7 +26,7 @@ production:
   adapter: mysql2
   encoding: utf8
   pool: 5
-  database: purchase_app_production
-  username: root
-  password:
-  socket: /var/lib/mysql.sock
+  database: purchase-app-db
+  host: purchase-app-rds.ckbaeqyxwuvr.us-east-2.rds.amazonaws.com
+  username: ENV["DB_USERNAME"]
+  password: ENV["DB_PASSWORD"]

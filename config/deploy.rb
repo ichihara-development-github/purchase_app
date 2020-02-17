@@ -2,7 +2,7 @@ lock '3.11.2'
 
 set :application, 'purchase_app'
 
-set :repo_url, 'git@github.com:ichihara-development-github/purchase_app.git'
+set :repo_url, 'github:ichihara-development-github/purchase_app.git'
 
 set :deploy_to, '/var/www/rails/purchase_app'
 
