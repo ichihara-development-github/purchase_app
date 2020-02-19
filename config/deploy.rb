@@ -1,9 +1,9 @@
-lock '3.11.2'
+lock '3.12.0'
 
 set :application, 'purchase_app'
 
 set :repo_url, 'github:ichihara-development-github/purchase_app.git'
-
+#
 # set :deploy_to, '/var/www/rails/purchase_app'
 
 set :rbenv_type, :user
