@@ -23,13 +23,12 @@ class SessionController < ApplicationController
   end
 
   def guest_user_login
-    @user_id = User.last.id
-    if @user_id.nil?
+    if User.empty?
       user = User.create(name: "user1", email:"user1@user.com", password: "password", admin: true, seller: true)
     else
       user = User.create(name: "user#{@user_id + 1}", email:"user#{@user_id + 1}@user.com", password: "password")
       session[:guest_id] = user.id
-    else
+    end
     login user
     redirect_to productions_path
   end
