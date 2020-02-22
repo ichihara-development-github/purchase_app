@@ -25,6 +25,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
+  charset: utf8
   pool: 5
   database: purchase_app_db
   host: purchase-app-rds.ckbaeqyxwuvr.us-east-2.rds.amazonaws.com
