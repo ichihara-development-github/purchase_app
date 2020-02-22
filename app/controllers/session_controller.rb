@@ -26,7 +26,8 @@ class SessionController < ApplicationController
     unless User.any?
       user = User.create(name: "user1", email:"user1@user.com", password: "password", admin: true, seller: true)
     else
-      user = User.create(name: "user#{@user_id + 1}", email:"user#{@user_id + 1}@user.com", password: "password")
+      user_id = User.last.id
+      user = User.create(name: "user#{user_id + 1}", email:"user#{user_id + 1}@user.com", password: "password")
       session[:guest_id] = user.id
     end
     login user
