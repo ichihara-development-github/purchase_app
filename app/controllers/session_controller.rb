@@ -23,7 +23,7 @@ class SessionController < ApplicationController
   end
 
   def guest_user_login
-    if User.empty?
+    unless User.any?
       user = User.create(name: "user1", email:"user1@user.com", password: "password", admin: true, seller: true)
     else
       user = User.create(name: "user#{@user_id + 1}", email:"user#{@user_id + 1}@user.com", password: "password")
