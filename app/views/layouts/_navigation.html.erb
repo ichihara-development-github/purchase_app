@@ -13,7 +13,7 @@
          <i class="fas fa-bars fa-2x"></i>
         </a>
         <div class="slide-menu center" aria-labelledby="navbarDropdownMenuLink">
-          
+
           <ul class="navbar-nav">
             <li class="nav-item active pd-10 slide-item">
                <%= link_to  "店舗一覧",stores_path, style: "color:white"%>
@@ -26,23 +26,25 @@
                 <%= link_to  "ユーザー一覧",users_path, style:"color:white" %>
               </li>
             <% end %>
-            <li>
-              <a href = "#" class="nav-link fade-menu-toggle slide-item">
-                Storeメニュー▾
-              </a>
-              <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
-                <% if current_user.store %>
-                  <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "fade-item" %></a>
-                  <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_production_path, class: "fade-item" %></a>
-                  <% if current_user.store.productions %>
-                    <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_productions_path, class: "fade-item" %></a>
+            <% if current_user.seller? %>
+              <li>
+                <a href = "#" class="nav-link fade-menu-toggle slide-item">
+                　店舗メニュー▾
+                </a>
+                <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <% if current_user.store %>
+                    <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "fade-item" %></a>
+                    <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_production_path, class: "fade-item" %></a>
+                    <% if current_user.store.productions %>
+                      <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_productions_path, class: "fade-item" %></a>
+                    <% end %>
+                  <% else %>
+                   <a class="dropdown-item" href="#"><%= link_to "店舗新規作成", new_store_path, class: "fade-item" %></a>
                   <% end %>
-                <% else %>
-                 <a class="dropdown-item" href="#"><%= link_to "Store新規作成", new_store_path, class: "fade-item" %></a>
-                <% end %>
-                <a class="dropdown-item" href="#"><%= link_to "管理画面", store_management_path, class: "fade-item" %></a>
-              </div>
-            </li>
+                  <a class="dropdown-item" href="#"><%= link_to "管理画面", store_management_path, class: "fade-item" %></a>
+                </div>
+              </li>
+            <% end %>
           </ul>
       </li>
 
@@ -60,7 +62,7 @@
     </li>
   </ul>
   </div>
-  
+
   </div>
   <div class = "right">
     <ul class="nav list-group-horizontal">
@@ -93,16 +95,16 @@
 
     </div>
   <% else %>
-  
+
   <ul class = "navbar-nav list-group list-group-horizontal">
     <li class = "btn"><%= link_to "商品一覧", productions_path, style: "color:white" %> </li>
   </ul>
-  
+
   <ul class = "navbar-nav list-group list-group-horizontal">
     <li class = "btn btn-light"><%= link_to "ログイン", new_session_path %></li>
     <li class = "btn"><%= link_to "新規登録", new_user_path, style: "color:white" %> </li>
   </ul>
-  
+
   <% end %>
 </nav>
 
