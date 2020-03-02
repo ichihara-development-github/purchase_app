@@ -15,15 +15,15 @@ class Production < ApplicationRecord
                     sp.reject! { |key, value| key["max"]}
                end
             else
-                sp.each do |key, value|
-                    @result = @result.where("#{key.first}": "#{value.first}")
-                end
+              sp.each do |key, value|
+                 @result = Production.where("#{key.first}": "#{value.first}")
+               end
             end
 
-           @result = Production.where("#{key}": "#{value}")
-           sp.each do |key, value|
-               @result = presult.where("#{key}": "#{value}")
-           end
+            sp.each do |key, value|
+                @result = @result.where("#{key}": "#{value}")
+                end
+            end
 
            return @result
 
