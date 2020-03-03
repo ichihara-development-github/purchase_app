@@ -65,9 +65,19 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
-            
+      
 workflows:
   version: 2
-  build_and_deploy:
+  test_and_deploy:
     jobs:
       - build
+      - Rubocop:
+        requires:
+          - build
+      - rspec tests:
+        requires:
+          - build
+      - Capistrano deploy:
+        requires:
+          - Rubocop
+          - rspec tests
