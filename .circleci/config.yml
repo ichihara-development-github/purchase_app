@@ -40,16 +40,16 @@ jobs:
           fingerprints:
             - "{$ SSH_KEY}"
 
-      #run rubocop tests
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
+    #run rubocop tests
+    - run:
+        name: Rubocop
+        command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
 
-      # run tests
-      - run:
-          name: rspec tests
-          command:
-            bundle exec rspec
+    # run tests
+    - run:
+        name: rspec tests
+        command:
+          bundle exec rspec
 
       # collect reports
       - store_test_results:
