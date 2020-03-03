@@ -66,18 +66,18 @@ jobs:
             fi
             bundle exec cap production deploy
 
-workflows:
-  version: 2
-  test_and_deploy:
-    jobs:
-      - build
-      - Rubocop:
-        requires:
-          - build
-      - rspec tests:
-        requires:
-          - build
-      - deploy:
-        requires:
-          - Rubocop
-          - rspec tests
+# workflows:
+#   version: 2
+#   test_and_deploy:
+#     jobs:
+#       - build
+#       - Rubocop:
+#         requires:
+#           - build
+#       - rspec tests:
+#         requires:
+#           - build
+#       - deploy:
+#         requires:
+#           - Rubocop
+#           - rspec tests
