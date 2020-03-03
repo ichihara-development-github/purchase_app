@@ -36,6 +36,14 @@ jobs:
 #       - run: mv config/database.yml.ci config/database.yml 
 
       # Database setup
+      - run:
+          name: default mysql client install
+          command: |
+            sudo apt update
+            sudo apt-get install default-mysql-client
+      - run:
+          name: bundle Install
+          command: bundle install --path vendor/bundle
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       
