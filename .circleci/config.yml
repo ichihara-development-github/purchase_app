@@ -57,11 +57,18 @@ jobs:
             bundle exec cap production deploy
           
   Rubocop:
+    dokcer:
+      - image: circleci/ruby:2.6.1-node-browsers
+      - image: circleci/mysql:5.6
     steps:
      #run rubocop
       - run:
           command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
-  rspec tests:
+          
+  Rspec tests:
+    dokcer:
+      - image: circleci/ruby:2.6.1-node-browsers
+      - image: circleci/mysql:5.6
     steps:
       # run tests
       - run:
@@ -76,7 +83,7 @@ workflows:
       - Rubocop:
           requires:
             - build
-      - rspec tests:
+      - Rspec tests:
           requires:
             - build
       - Capistrano deploy:
