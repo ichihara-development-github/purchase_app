@@ -40,7 +40,7 @@ jobs:
 
       - run:
           name: Rubocop
-          command: bundle exec rubocop
+          command: rubocop --fail-level w --display-only-fail-level-offenses
 
 
       # run tests
