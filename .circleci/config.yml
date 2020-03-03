@@ -40,31 +40,34 @@ jobs:
           fingerprints:
             - "{$ SSH_KEY}"
 
-    #run rubocop tests
-    - run:
-        name: Rubocop
-        command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
-
-    # run tests
-    - run:
-        name: rspec tests
-        command:
-          bundle exec rspec
-
       # collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-
+          
+  delpoy:
+    steps:
+     #run rubocop tests
       - run:
-          name: Capistrano deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
-            bundle exec cap production deploy
+          name: Rubocop
+          command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
+
+      # run tests
+      - run:
+          name: rspec tests
+          command:
+            bundle exec rspec
+            
+      - run:
+         name: Capistrano deploy
+         command: |
+           if [ "${CIRCLE_BRANCH}" != "master" ]; then
+             exit 0
+           fi
+           bundle exec cap production deploy
+  
       
 workflows:
   version: 2
