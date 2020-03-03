@@ -1,4 +1,4 @@
 
 - add_ssh_keys:
-          fingerprints:
-          - "${SSSH_KEY}"
+　　fingerprints:
+  　　- "${SSSH_KEY}"
