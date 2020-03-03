@@ -47,27 +47,31 @@ jobs:
           path: /tmp/test-results
           destination: test-results
           
-    delpoy:
+      #deploy with capistrano
+      - run:
+          name: Capistrano deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy
+  
+          
+  test:
+    dopcker:
+      - image: circleci/ruby:2.6.1-node-browsers
+      - image: circleci/mysql:5.6
+      
       steps:
-       #run rubocop tests
+       #run rubocop
         - run:
             name: Rubocop
             command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
-
         # run tests
         - run:
             name: rspec tests
             command:
               bundle exec rspec
-
-        - run:
-           name: Capistrano deploy
-           command: |
-             if [ "${CIRCLE_BRANCH}" != "master" ]; then
-               exit 0
-             fi
-             bundle exec cap production deploy
-  
       
 workflows:
   version: 2
