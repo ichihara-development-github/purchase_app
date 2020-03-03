@@ -74,10 +74,10 @@ workflows:
       - Rubocop:
           requires:
             - build
-#       - rspec tests:
-#         requires:
-#           - build
-#       - Capistrano deploy:
-#         requires:
-#           - Rubocop
-#           - rspec tests
+      - rspec tests:
+          requires:
+            - build
+      - Capistrano deploy:
+          requires:
+            - Rubocop
+            - rspec tests
