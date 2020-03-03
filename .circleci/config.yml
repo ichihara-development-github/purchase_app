@@ -32,12 +32,12 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-#       - run: mv config/database.yml.ci config/database.yml 
+#       - run: mv config/database.yml.ci config/database.yml
 
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
-      
+
       #run rubocop tests
       - run:
           name: Rubocop
@@ -45,10 +45,9 @@ jobs:
 
       # run tests
       - run:
-          name: run tests
-          command: 
-            bundle exec rspec 
-             
+          name: rspec tests
+          command:
+            bundle exec rspec
 
       # collect reports
       - store_test_results:
@@ -68,3 +67,19 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - build
+      - Rubocop:
+        required :
+          - build
+      - rspec tests:
+        require:
+          - build
+      - deploy:
+        requires:
+          - Rubocop
+          - rspec tests
