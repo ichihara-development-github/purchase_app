@@ -42,7 +42,7 @@ jobs:
           - "${SSSH_KEY}"
            
 
-  deploy:
-      name: deploy_with_Capistrano
-      command:
-        bundel exec cap production deploy
+      - deploy:
+        name: deploy_with_Capistrano
+        command:
+          bundel exec cap production deploy
