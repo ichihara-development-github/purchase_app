@@ -44,7 +44,6 @@ jobs:
           name: Rubocop
           command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
 
-
       # run tests
       - run:
           name: run tests
