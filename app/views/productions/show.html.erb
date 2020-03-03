@@ -1,7 +1,7 @@
 <div class = "row">
-  
+
   <div class = "col-md-9">
-              
+
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval = "3000">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -31,7 +31,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    
+
     <div class = "container">
      <h1 class="display-5"><%= @production.name %></h1>
      <span class = "right price" >¥ <%= @production.price %></span>
@@ -39,8 +39,8 @@
        <p class="mb-0"><%= simple_format(@production.description) %></p>
       </blockquote>
     </div>
-    
-  
+
+
     <% unless in_basket(@production) %>
     <div class = "margin-vertical">
       <%= link_to basket_add_path(@production), method: :post do %>
@@ -48,7 +48,7 @@
       <% end %>
     </div>
     <% end %>
-    
+
     <table class="table ">
   <tbody>
     <tr>
@@ -67,10 +67,15 @@
       <td><h5>出品日</h5></td>
       <td><%= @production.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
     </tr>
-    
+
   </tbody>
-  
+
 </table>
+
+<% if current_user.store.production == @production %>
+<%= link_to "商品の編集", edit_store_path(@production) , class: "btn btn-success margin-vertical"%>
+<% end %>
+
 <div class = "comment-form col-md-12">
    <h5>コメント</h5>
    <%= form_for @comment, method: :post, remote: true do |f| %>
@@ -103,8 +108,6 @@
 <% other_productions = @production.store.productions.where.not(id: @production.id) %>
 <%= render "productions/production", obj: other_productions %>
 </div>
-      
-    
+
+
  </div>
- 
- 

@@ -3,20 +3,20 @@ class Production < ApplicationRecord
     def self.search(sp)
 
        if sp
-           sp.reject! { |key, value| value.empty?}
+           sp.reject! { |_key, value| value.empty? }
 
            if sp[:min] or sp[:max]
                if sp[:min]
                    @result = Production.where("price >  ?", sp[:min])
-                   sp.reject! { |key, value| key["min"] }
+                   sp.reject! { |key, _value | key["min"] }
                end
                if sp[:max]
                     @result = Production.where("price <  ?", sp[:max])
-                    sp.reject! { |key, value| key["max"]}
+                    sp.reject! { |key, _value | key["max"]}
                end
-            else
+           else
               @result = Production
-            end
+           end
 
             sp.each do |key, value|
                 @result = @result.where("#{key}": "#{value}")

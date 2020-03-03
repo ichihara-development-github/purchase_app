@@ -4,23 +4,23 @@ class UsersController < ApplicationController
   before_action -> { has_authority?(@user) }, only: [:update, :edit, :destroy]
   before_action :seller_user?, only: [:management]
   before_action :admin_user?, only: [:index]
-  
+
   def set_user
     @user = User.find(params[:id])
   end
 
 #-------------------------------------------------------------------------------
-  
+
   def index
     @users = User.all
   end
-  
-  
+
+
   def new
     @user = User.new
   end
-  
-  def create 
+
+  def create
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "ユーザー登録が完了しました"
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def edit
   end
-  
+
   def update
     if @user.update(user_params)
       flash[:success] = "編集が完了しました"
@@ -46,46 +46,46 @@ class UsersController < ApplicationController
       flash[:error_messages] = @user.errors.full_messages
       render "edit"
     end
-    
+
   end
-  
+
   def destroy
     unless (current_user == @user) or @user.admin
-    if @user.destroy
-        flash[:success] = "ユーザーを削除しました"
-        redirect_to users_path
+      if @user.destroy
+          flash[:success] = "ユーザーを削除しました"
+          redirect_to users_path
       else
-        flash[:warning] = "上手くいきませんでした"
-        render users_path
+          flash[:warning] = "上手くいきませんでした"
+          render users_path
       end
     end
   end
 
   def management
   end
-  
+
   def registration
   end
 
 
   def payment
-    begin 
+    begin
        ActiveRecord::Base.transaction do
-         
+
         unless current_user.seller
           current_user.toggle!(:seller)
         else
            flash[:danger] = "既にオーナーです"
-           redirect_to complete_payment_path 
+           redirect_to complete_payment_path
            raise ActiveRecord::Rollback
         end
-       
+
        #決済------------------------------
        customer = Stripe::Customer.create(
          email: params[:stripe_email],
          source: params[:stripeToken]
          )
-         
+
          charge = Stripe::Charge.create(
            customer: customer.id,
            amount:1000,
@@ -94,7 +94,7 @@ class UsersController < ApplicationController
            receipt_email: params[:stripe_email],
            #falseだと仮払い
            capture: true)
-           
+
           payment = current_user.payment.build(
           email:                             customer.email,
           description:                       charge.description,
@@ -110,33 +110,33 @@ class UsersController < ApplicationController
           redirect_to complete_payment_path
           flash.now[:success] = "オーナー登録が完了しました"
         end
-  
+
     rescue Stripe::CardError => e
-     flash[:danger] = "決済中にエラーが発生しました。{e.message}"
-     
+     flash[:danger] = "決済中にエラーが発生しました。#{e.message}"
+
     rescue Stripe::InvalidRequestError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（InvalidRequestError）#{e.message}"
       render "registration"
-      
+
     rescue Stripe::AuthenticationError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（AuthenticationError）#{e.message}"
       render "registration"
-      
+
     rescue Stripe::StripeError => e
       flash.now[:danger] = "決済(stripe)でエラーが発生しました（StripeError）#{e.message}"
       render "registration"
-      
+
     rescue => e
       flash.now[:danger] = "エラーが発生しました#{e.message}"
       render "registration"
     end
- end
- 
+  end
+
  def complete_payment
  end
-  
-    
-  
+
+
+
 #-------------------------------------------------------------------------------
 private
 

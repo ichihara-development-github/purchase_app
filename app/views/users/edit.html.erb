@@ -2,7 +2,7 @@
 
   <div class= "col-md-6 middle">
   <div class = "margin-vertical">
-    
+
     <div class = "form-group center" >
         <h4>プロフィール画像</h4>
         <div class = "middle">
@@ -16,26 +16,24 @@
              <%= f.file_field :profile_image, class: "upfile", style: "display: none"%>
            </div>
         </div>
-        
+
     </div>
-    
+
     <div class = "form-group">
         <%= f.label :name %><span style = "color:red">*</span>
         <%= f.text_field :name, required: true, class: "form-control" %><br />
-     
+
         <%= f.label :email %><span style = "color:red">*</span>
         <%= f.text_field :email, required: true, class: "form-control" %><br />
-        
+
         <%= f.label :introduce %>
         <%= f.text_area :introduce,class: "form-control"  %><br />
-        
+
     </div>
     
-    <%= f.submit "ユーザーを登録" ,class:"col-md-4 btn btn-primary" %>
+    <%= f.submit "変更" ,class:"col-md-4 btn btn-primary" %>
      </div>
     </div>
   <% end %>
 
 </div>
-
- 
