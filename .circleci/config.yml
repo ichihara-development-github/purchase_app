@@ -82,7 +82,7 @@ workflows:
 #       - build
 #       - Rubocop:
 #         requires:
-          - build
+#           - build
 #       - rspec tests:
 #         requires:
 #           - build
