@@ -43,6 +43,6 @@ jobs:
            
 
       - deploy:
-        name: deploy_with_Capistrano
-        command:
-          bundel exec cap production deploy
+          name: deploy_with_Capistrano
+          command:
+              bundel exec cap production deploy
