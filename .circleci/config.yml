@@ -8,6 +8,9 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      -  run:
+          name: install_dependent_on_systems
+          command: apk add --update --no-cache linux-headers git openssh-client tar gzip build-base tzdata mariadb-dev
       - checkout
 
       # Download cache
@@ -45,4 +48,4 @@ jobs:
       - deploy:
           name: deploy_with_Capistrano
           command:
-              bundel exec cap production deploy
+              bundle exec cap production deploy
