@@ -71,13 +71,13 @@ workflows:
   test_and_deploy:
     jobs:
       - build
-      - Rubocop:
-        requires:
-          - build
-      - rspec tests:
-        requires:
-          - build
-      - Capistrano deploy:
-        requires:
-          - Rubocop
-          - rspec tests
+#       - Rubocop:
+#         requires:
+#           - build
+#       - rspec tests:
+#         requires:
+#           - build
+#       - Capistrano deploy:
+#         requires:
+#           - Rubocop
+#           - rspec tests
