@@ -1,4 +1,7 @@
 
+- add_ssh_keys:
+          fingerprints:
+          - "${SSSH_KEY}"
 # version: 2
 # jobs:
 #   build:
@@ -41,9 +44,9 @@
 #       - store_test_results:
 #           path: /tmp/circleci-test-results
 
-      - add_ssh_keys:
-          fingerprints:
-          - "${SSSH_KEY}"
+#       - add_ssh_keys:
+#           fingerprints:
+#           - "${SSSH_KEY}"
            
 
 #       - deploy:
