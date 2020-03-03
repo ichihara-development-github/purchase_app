@@ -68,9 +68,6 @@ jobs:
             
 workflows:
   version: 2
-  sample_workflow:
+  build_and_deploy:
     jobs:
       - build
-      - Rubocop:
-        requires:
-          - build
