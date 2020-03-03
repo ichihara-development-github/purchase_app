@@ -71,6 +71,9 @@ workflows:
   sample_workflow:
     jobs:
       - build
+      - Rubocop:
+        requires:
+          - build
 
 # workflows:
 #   version: 2
