@@ -72,8 +72,8 @@ workflows:
     jobs:
       - build
       - Rubocop:
-        requires:
-          - build
+          requires:
+            - build
 #       - rspec tests:
 #         requires:
 #           - build
