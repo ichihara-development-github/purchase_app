@@ -15,7 +15,7 @@ executors:
     
 jobs:
   build:
-    excutor: default
+    executor: default
     steps:
       - checkout
       # Download and cache dependencies
@@ -52,7 +52,7 @@ jobs:
           destination: test-results
             
   test:
-    excutor: default
+    executor: default
     steps:
       - run:
           name: RuboCop
@@ -63,7 +63,7 @@ jobs:
           command: bundle exec rspec
    
   deploy:
-    excutor: default
+    executor: default
     steps:
       #deploy with capistrano
     - run:
