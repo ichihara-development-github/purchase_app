@@ -2,7 +2,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: circleci/ruby:2.6.5
+      - image: circleci/ruby:2.6.3
       - image: circleci/mysql:5.6
       
       
