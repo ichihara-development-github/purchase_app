@@ -81,6 +81,14 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
+            
+  say_comlete:
+    executor: default
+    steps:
+      - run:
+        command: echo "deploy completed"
+            
+   
         
 workflows:
   version: 2.1
@@ -90,12 +98,15 @@ workflows:
       - RuboCop:
           requires:
             - build
-      - Rsepc test:
+      - Rspec test:
           requires:
             - build
       - deploy:
           requires:
             - RuboCop
             - Rspec test
+      - say_complete:
+          requires:
+            - deploy
         
  
