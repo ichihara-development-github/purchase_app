@@ -82,7 +82,7 @@ workflows:
       - test:
         requires:
           - build
-       - depoy:
+      - depoy:
         requires:
           - test
       
