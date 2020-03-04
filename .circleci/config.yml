@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 executors:
   default:
     docker:
@@ -75,14 +75,14 @@ jobs:
           bundle exec cap production deploy
           
 workflows:
-  version: 2
+  version: 2.1
   build_test_and_deploy:
     jobs:
       - build
       - test:
         requires:
           - build
-      - depoy:
+      - deploy:
         requires:
           - test
       
