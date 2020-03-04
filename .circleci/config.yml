@@ -84,6 +84,7 @@ jobs:
             
   say_complete:
     steps:
+      - setup_bundler_and_cache
       - run:
         command: echo "deploy completed"
             
