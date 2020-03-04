@@ -4,8 +4,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
       - image: circleci/mysql:5.6
-
-
+      
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
       - MYSQL_ROOT_HOST: '%'
@@ -13,8 +12,7 @@ jobs:
       - BUNDLER_VERSION: 2.0.2
 
     working_directory: ~/repo 
-    executor:
-      nama: default
+   
     steps:
       - checkout
       # Download and cache dependencies
