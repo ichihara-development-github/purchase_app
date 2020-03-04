@@ -2,7 +2,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: circleci/ruby:2.6.1-node-browsers
+      - image: circleci/ruby:2.-node-browsers
       - image: circleci/mysql:5.6
       
       
@@ -55,17 +55,18 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-            
-  test:
+  Rubo cop:
     executor: default
     steps: 
       - setup_bundler_and_cache
       - run:
-          name: RuboCop
           command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
           
+  Rspec test:
+    executor: default
+    steps: 
+      - setup_bundler_and_cache   
       - run:
-          name: Rspec tests
           command: bundle exec rspec
    
   deploy:
@@ -80,17 +81,21 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
-          
+        
 workflows:
   version: 2.1
   build_test_and_deploy:
     jobs:
       - build
-      - test:
+      - RuboCop:
+          requires:
+            - build
+      - Rsepc test:
           requires:
             - build
       - deploy:
-          requires:
-            - build
-          
+        requires:
+          - RuboCop
+          - Rspec test
+        
  
