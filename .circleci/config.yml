@@ -55,7 +55,7 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-  Rubo cop:
+  Rubocop:
     executor: default
     steps: 
       - setup_bundler_and_cache
@@ -94,8 +94,8 @@ workflows:
           requires:
             - build
       - deploy:
-        requires:
-          - RuboCop
-          - Rspec test
+          requires:
+            - RuboCop
+            - Rspec test
         
  
