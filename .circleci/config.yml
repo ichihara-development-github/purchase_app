@@ -55,7 +55,7 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-  Rubocop:
+  RuboCop:
     executor: default
     steps: 
       - setup_bundler_and_cache
