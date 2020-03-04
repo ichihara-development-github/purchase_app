@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 executors:
   default:
     docker:
@@ -79,7 +79,7 @@ jobs:
             bundle exec rspec
 
 workflows:
-  version: 2
+  version: 2.1
   test_and_deploy:
     jobs:
       - setup
