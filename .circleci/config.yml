@@ -81,13 +81,13 @@ workflows:
   version: 2
   test_and_deploy:
     jobs:
-      - build
+      - setup
       - Rubocop:
           requires:
-            - build
+            - setup
       - Rspec tests:
           requires:
-            - build
+            - setup
       - Capistrano deploy:
           requires:
             - Rubocop
