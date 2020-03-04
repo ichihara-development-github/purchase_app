@@ -14,32 +14,27 @@ executors:
 
     working_directory: ~/repo 
     
-commands:
-  setup_bundler_and_cache:
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 2.0.2
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 jobs:
   build:
     executor: default
     steps:
-      - setup_bundler_and_cache
+    - checkout
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+    - run:
+        name: install dependencies
+        command: |
+          gem install bundler -v 2.0.2
+          bundle install --jobs=4 --retry=3 --path vendor/bundle
+    - save_cache:
+        paths:
+          - ./vendor/bundle
+        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       
       # Database setup
       - run: bundle exec rake db:create
@@ -59,7 +54,23 @@ jobs:
   test:
     executor: default
     steps: 
-      - setup_bundler_and_cache
+    - checkout
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+    - run:
+        name: install dependencies
+        command: |
+          gem install bundler -v 2.0.2
+          bundle install --jobs=4 --retry=3 --path vendor/bundle
+    - save_cache:
+        paths:
+          - ./vendor/bundle
+        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: RuboCop
           command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
@@ -71,7 +82,23 @@ jobs:
   deploy:
     executor: default
     steps:
-      - setup_bundler_and_cache
+    - checkout
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+    - run:
+        name: install dependencies
+        command: |
+          gem install bundler -v 2.0.2
+          bundle install --jobs=4 --retry=3 --path vendor/bundle
+    - save_cache:
+        paths:
+          - ./vendor/bundle
+        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       #deploy with capistrano
       - run:
           name: Capistrano deploy
