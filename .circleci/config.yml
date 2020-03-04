@@ -83,6 +83,7 @@ jobs:
             bundle exec cap production deploy
             
   say_complete:
+    executor: default
     steps:
       - setup_bundler_and_cache
       - run:
