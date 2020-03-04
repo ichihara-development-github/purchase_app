@@ -13,7 +13,7 @@ executors:
 
     working_directory: ~/repo 
     
-command:
+commands:
   setup_bundler_and_cache:
     steps:
       - checkout
