@@ -1,5 +1,4 @@
-version: 2.1
-executors:
+version: 2
   default:
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
@@ -52,6 +51,14 @@ jobs:
           path: /tmp/test-results
           destination: test-results
           
+      - run:
+          name: RuboCop
+          command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
+          
+      - run:
+          name: Rspec tests
+          command: bundle exec rspec
+          
       #deploy with capistrano
       - run:
           name: Capistrano deploy
@@ -60,36 +67,4 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
-          
-  Rubocop:
-    executor:
-      name: defult
-    steps:
-     #run rubocop
-      - run:
-          command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
-          
-  Rspec tests:
-    executor:
-      name: default
-    steps:
-      # run tests
-      - run:
-          command:
-            bundle exec rspec
-
-workflows:
-  version: 2.1
-  test_and_deploy:
-    jobs:
-      - setup
-      - Rubocop:
-          requires:
-            - setup
-      - Rspec tests:
-          requires:
-            - setup
-      - Capistrano deploy:
-          requires:
-            - Rubocop
-            - Rspec tests
+ 
