@@ -82,7 +82,7 @@ jobs:
             fi
             bundle exec cap production deploy
             
-  say_comlete:
+  say_complete:
     executor: default
     steps:
       - run:
