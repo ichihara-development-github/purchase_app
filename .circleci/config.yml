@@ -13,9 +13,8 @@ executors:
 
     working_directory: ~/repo 
     
-jobs:
-  build:
-    executor: default
+command:
+  setup_bundler_and_cache:
     steps:
       - checkout
       # Download and cache dependencies
@@ -35,7 +34,12 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-          
+jobs:
+  build:
+    executor: default
+    steps:
+      - setup_bundler_and_cache
+      
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
@@ -53,21 +57,8 @@ jobs:
             
   test:
     executor: default
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 2.0.2
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-          
+    steps: 
+      - setup_bundler_and_cache
       - run:
           name: RuboCop
           command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
@@ -79,14 +70,15 @@ jobs:
   deploy:
     executor: default
     steps:
+      - setup_bundler_and_cache
       #deploy with capistrano
-    - run:
-        name: Capistrano deploy
-        command: |
-          if [ "${CIRCLE_BRANCH}" != "master" ]; then
-            exit 0
-          fi
-          bundle exec cap production deploy
+      - run:
+          name: Capistrano deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy
           
 workflows:
   version: 2.1
