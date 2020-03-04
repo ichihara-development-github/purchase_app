@@ -106,8 +106,5 @@ workflows:
           requires:
             - RuboCop
             - Rspec test
-      - say_complete:
-          requires:
-            - deploy
+      
         
- 
