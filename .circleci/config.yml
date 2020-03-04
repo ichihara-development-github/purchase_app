@@ -83,7 +83,6 @@ jobs:
             bundle exec cap production deploy
             
   say_complete:
-    executor: default
     steps:
       - run:
         command: echo "deploy completed"
