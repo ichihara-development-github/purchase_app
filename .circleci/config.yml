@@ -1,6 +1,6 @@
 version: 2
-jobs:
-  build:
+executors:
+  default:
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
       - image: circleci/mysql:5.6
@@ -11,7 +11,11 @@ jobs:
       - RAILS_ENV: 'test'
       - BUNDLER_VERSION: 2.0.2
 
-    working_directory: ~/repo
+    working_directory: ~/repo 
+jobs:
+  setup:
+    executor:
+      nama: default
     steps:
       - checkout
       # Download and cache dependencies
@@ -57,18 +61,16 @@ jobs:
             bundle exec cap production deploy
           
   Rubocop:
-    docker:
-      - image: circleci/ruby:2.6.1-node-browsers
-      - image: circleci/mysql:5.6
+    executor:
+      name: defult
     steps:
      #run rubocop
       - run:
           command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
           
   Rspec tests:
-    docker:
-      - image: circleci/ruby:2.6.1-node-browsers
-      - image: circleci/mysql:5.6
+    executor:
+      name: default
     steps:
       # run tests
       - run:
