@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :notification do
+    
+  end
+
   
  
   factory :user, class: User do

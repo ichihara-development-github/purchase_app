@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200125150448) do
+ActiveRecord::Schema.define(version: 20200305011358) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20200125150448) do
     t.integer  "followed_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "active_user_id"
+    t.integer  "passive_user_id"
+    t.integer  "production_id"
+    t.integer  "comment_id"
+    t.boolean  "checked",         default: false
+    t.string   "action"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "payments", force: :cascade do |t|

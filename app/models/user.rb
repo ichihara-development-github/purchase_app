@@ -1,31 +1,31 @@
 class User < ApplicationRecord
-  
+
   before_save :downcase_email
-  
+
   attr_accessor :reset_token
-  
+
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
-  
+
   def User.new_token
     SecureRandom.urlsafe_base64
   end
-  
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-  
+
   def create_reset_digest
     self.reset_token = User.new_token
     update_attribute(:reset_digest, User.digest(reset_token))
     update_attribute(:reset_sent_at, Time.zone.now)
   end
-  
+
   def send_password_reset_mail
     UserMailer.password_reset(self).deliver_now
   end
@@ -33,32 +33,36 @@ class User < ApplicationRecord
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
-  
+
   has_one :store, dependent: :destroy, class_name: Store
   has_many :payment, dependent: :nullify
   has_many :baskets, dependent: :destroy
   has_many :considering_productions, through: :baskets, source: :production
   has_many :purchaceds, dependent: :destroy
   has_many :purchaced_productions, through: :purchaceds, source: :production
-  
+
   has_many :comments, dependent: :destroy
-  
+
+  has_many :active_notifications, class_name: "Notification", foreign_key: "active_user_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification",foreign_key:  "passive_user_id", dependent: :destroy
+
+
   has_secure_password
-  
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  
+
   validates :name, presence: true, uniqueness: true, length: { minimum: 1}
   validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, length: { minimum: 6}, allow_nil: true
-  
+
   mount_uploader :profile_image, ImageUploader
-  
-  
+
+
    private
 
     def downcase_email
       self.email = email.downcase
     end
-  
-  
+
+
 end

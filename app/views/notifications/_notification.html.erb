@@ -1,0 +1,23 @@
+<% @notifications.each do |notification| %>
+
+<% notice_user = notification.notice_user %>
+<% production = notification.production %>
+<% comment = notification.comment %>
+<% debugger %>
+ <div href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">
+        <%= link_to users_path(notice_user) do %><%= notice_user.name %><% end %>が
+        <% if notification.action == "購入" %> <%= production.name %>を購入しました。
+        <% elsif notification.action == "コメント"%> がコメントしました
+        <% elsif notofication.action == "カート"%> が<%= production.name %>をカートに入れました。
+        <% end %>
+      </h5>
+     <small><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></small>
+    </div>
+    <div class = "left">
+       <%= image_tag notice_user.profile_image, class: "img-thumbnail", style: "width: 50px; border-radius: 1000px" %>
+    </div>
+    <p class="mb-1"><%= comment.content %></p>
+  </div>
+<% end %>

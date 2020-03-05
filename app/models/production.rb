@@ -48,6 +48,8 @@ class Production < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :notifications, dependent: :destroy
+
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true, :numericality => { :greater_than => 0, :less_than => 1000000 }

@@ -63,7 +63,7 @@ a{
 
 .side-bar{
     width:230px;
-    
+
 }
 .long-img{
     height:220px;
@@ -84,14 +84,14 @@ a{
 
 
 .dropdown-toggle:hover{
-    cursor: pointer 
+    cursor: pointer
 }
 
 .slide-toggle{
     position:relative;
-    
+
     :hover{
-    cursor: pointer 
+    cursor: pointer
     }
 }
 
@@ -103,12 +103,12 @@ a{
   top: 0;
   right: 0;
   z-index: 10;
-  transform: translateX(500px); 
-  transition: all .5s; 
+  transform: translateX(500px);
+  transition: all .5s;
 }
 
 .slide-menu.open {
-   transform: translateX(0); 
+   transform: translateX(0);
 }
 
 .slide-item{
@@ -117,7 +117,7 @@ a{
     font-size:20px;
     line-height:50px;
     color:white;
-    
+
     &:hover{
         background-color:rgba(300,300,300,.8);
     }
@@ -136,6 +136,19 @@ a{
 
 .purchacelog{
     display: none;
+}
+
+// notice-icon
+
+.notice{
+  position: relative;
+}
+
+.notice-icon{
+  width: 1px;
+  position: absolute;
+  top :0;
+  right: 10px;
 }
 
 //top
@@ -157,18 +170,18 @@ a{
     width: 100%;
     background-color: rgba(0,0,0,.4);
     z-index: 2;
-    
+
     color: white;
-    
+
     &:hover{
         background-color:rgba(0,0,0,0.2);
     }
-    
+
     h1{
        margin-top: 150px;
     }
-    
-    
+
+
 }
 
 .top-btn-wrapper{
@@ -177,7 +190,7 @@ a{
     left:0;
     right:0;
     margin:auto;
-    
+
 }
 // production
 
@@ -226,7 +239,7 @@ a{
     background-color:#e5a323;
     box-shadow:1px 1px 1px rgb(10,10,10);
     border-radius:5px;
-    
+
     font:{
         weight: bold;
         family:'Sawarabi Gothic', sans-serif;
@@ -242,10 +255,10 @@ a{
     height:200px;
     background-image:url("https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg");
     background-size:contain;
-    background-position:center center;   
+    background-position:center center;
 }
 .image-label:hover{
-   cursor:pointer;   
+   cursor:pointer;
 }
 
 .image-up{
@@ -256,9 +269,8 @@ a{
     border-radius: 5px;
     padding:5px 10px;
     color: white;
-    
+
     &:hover{
         cursor: pointer;
     }
       }
-
