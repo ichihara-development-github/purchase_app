@@ -1,23 +1,28 @@
 <% @notifications.each do |notification| %>
 
-<% notice_user = notification.notice_user %>
-<% production = notification.production %>
-<% comment = notification.comment %>
-<% debugger %>
+<% notice_user = notification.noticed_user %>
  <div href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
+      <div class = "">
+        <% if notice_user.profile_image.present? %>
+         <%= image_tag notice_user.profile_image, class: "img-thumbnail", style: "width: 50px; border-radius: 1000px" %>
+        <% else %>
+          <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 50px; border-radius: 1000px" alt="Something">
+        <% end %>
+      </div>
       <h5 class="mb-1">
         <%= link_to users_path(notice_user) do %><%= notice_user.name %><% end %>が
-        <% if notification.action == "購入" %> <%= production.name %>を購入しました。
-        <% elsif notification.action == "コメント"%> がコメントしました
-        <% elsif notofication.action == "カート"%> が<%= production.name %>をカートに入れました。
+        <% if notification.action == "購入" %>
+         <%= notification.production.name %>を購入しました。
+        <% elsif notification.action == "コメント"%>
+        <% comment = notification.comment.content %>
+        コメントしました<br />
+        <%= link_to comments_path(notice_user) do %><%= comment %><% end %>
+        <% elsif notification.action == "カート"%>
+         <%= notification.production.name %>をカートに入れました。
         <% end %>
       </h5>
-     <small><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></small>
+     <h6><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></h6>
     </div>
-    <div class = "left">
-       <%= image_tag notice_user.profile_image, class: "img-thumbnail", style: "width: 50px; border-radius: 1000px" %>
-    </div>
-    <p class="mb-1"><%= comment.content %></p>
   </div>
 <% end %>

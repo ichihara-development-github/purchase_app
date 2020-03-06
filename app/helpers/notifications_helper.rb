@@ -5,6 +5,6 @@ module NotificationsHelper
   end
 
   def unchecked_notifications
-    current_user.notifications.count
+    current_user.passive_notifications.count
   end
 end

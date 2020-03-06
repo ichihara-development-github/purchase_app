@@ -1,7 +1,6 @@
 class Production < ApplicationRecord
 
     def self.search(sp)
-
        if sp
            sp.reject! { |_key, value| value.empty? }
 
@@ -37,7 +36,6 @@ class Production < ApplicationRecord
             all
         end
    end
-
 
   belongs_to :store
 

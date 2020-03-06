@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'comments/index'
+  get "comments/index"
 
-  get 'purcahce/new'
+  get "purcahce/new"
 
- root 'welcome#top'
+ root "welcome#top"
 
  post "login", to: "session#create"
 
@@ -24,11 +24,12 @@ Rails.application.routes.draw do
  post "basket_add", to: "baskets#add"
  post "basket_delete", to: "baskets#delete"
 
- post   '/baskets/:production_id' => 'baskets#create', as: "in_basket"
- delete '/baskets/:production_id' => 'baskets#destroy', as: "out_basket"
+ post   "/baskets/:production_id" => "baskets#create", as: "in_basket"
+ delete "/baskets/:production_id" => "baskets#destroy", as: "out_basket"
 
+ get "after_purchace", to: "purchaces#after_purchace"
 
-  get "after_purchace", to: "purchaces#after_purchace"
+ delete "notifications", to: "notifications#destroy"
 
  resources :users
  resources :password_resets, only: [:new, :create, :edit, :update]
@@ -38,7 +39,7 @@ Rails.application.routes.draw do
  resources :comments, only: [:create, :destroy]
  resources :baskets, only: [:index]
  resources :purchaces, only: [:new, :create]
- resources :notifications, only: [:index, :destroy]
+ resources :notifications, only: [:index]
 
 
 

@@ -18,19 +18,16 @@
     <li class="nav-item active pd-10">
       <%= link_to  "商品一覧",productions_path, class: "nav-link" %>
     </li>
-    <li class="nav-item active pd-10">
-      <%= link_to  "ユーザー一覧",users_path, class: "nav-link" if current_user.admin %>
-    </li>
   </ul>
   </div>
 
   </div>
   <div class = "right">
     <ul class="nav list-group-horizontal">
-      <% if current_user.seller? %>
+      <% if current_user.seller? || current_user.admin? %>
       <li class="nav-item dropdown d-md-block d-none">
         <a class="nav-link dropdown-toggle" href = "#" id="navbarDropdownMenuLink" style = "color:white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          店舗メニュー
+          管理メニュー
         </a>
         <div class="dropdown-menu">
           <% if current_user.store %>
@@ -43,6 +40,11 @@
            <a class="dropdown-item" href="#"><%= link_to "Store新規作成", new_store_path, class: "dropdown-item" %></a>
           <% end %>
           <a class="dropdown-item" href="#"><%= link_to "管理画面", store_management_path, class: "dropdown-item" %></a>
+          <% if current_user.admin %>
+            <a class="dropdown-item" href="#">
+              <%= link_to "ユーザー一覧", users_path, class: "dropdown-item" %>
+            </a>
+          <% end %>
         </div>
       </li>
       <% end %>
@@ -50,7 +52,7 @@
         <%= link_to notifications_path do %>
           <span class="fas fa-bell fa-2x", style = "color:white; margin:10px"></span>
         <% end %>
-        <% if has_unchecked_notifications.any? %><span><%= unchecked_notifications class: "nitice-icon %></span><% end %>
+        <% if has_unchecked_notifications.any? %><div class = "notice-icon center"><%= unchecked_notifications %></div><% end %>
       </li>
 
       <li class = "nav-item ">
@@ -71,15 +73,10 @@
             <li class="nav-item active pd-10 slide-item">
               <%= link_to  "商品一覧",productions_path, style: "color:white"%>
             </li>
-            <% if current_user.admin %>
-              <li class="nav-item active pd-10 slide-item">
-                <%= link_to  "ユーザー一覧",users_path, style:"color:white" %>
-              </li>
-            <% end %>
             <% if current_user.seller? %>
               <li>
                 <a href = "#" class="nav-link fade-menu-toggle slide-item">
-                　店舗メニュー▾
+                　管理メニュー▾
                 </a>
                 <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
                   <% if current_user.store %>

@@ -72,7 +72,7 @@
 
 </table>
 
-<% if current_user.store.production == @production %>
+<% if has_production(@production) %>
 <%= link_to "商品の編集", edit_store_path(@production) , class: "btn btn-success margin-vertical"%>
 <% end %>
 

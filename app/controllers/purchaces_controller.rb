@@ -3,8 +3,8 @@ class PurchacesController < ApplicationController
     @productions = current_user.considering_productions
   end
 
-  def create_notification(user)
-      notification = user.active_notifications.new(
+  def create_notification(production, user)
+      notification = current_user.active_notifications.new(
       production_id: id,
       user_id: user.id,
       action: "購入"
@@ -49,10 +49,10 @@ class PurchacesController < ApplicationController
       @productions = current_user.considering_productions
       @productions.each do |production|
         current_user.purchaceds.create(production_id: production.id)
+        create_notification(production, production.store.user)
       end
       current_user.baskets.destroy_all
       flash[:success] = "購入が完了しました"
-      create_notification(current_user)
       redirect_to productions_path
         end
 

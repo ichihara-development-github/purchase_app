@@ -1,5 +1,11 @@
 module ProductionsHelper
 
+  def has_production(production)
+    if current_user.store
+      current_user.store.productions.select(production)
+    end
+  end
+
     def in_basket(production)
       Basket.find_by(user_id: current_user.id, production_id: production.id)
     end
