@@ -1,9 +1,9 @@
+<%= link_to notifications_path, method: :delete, class: "right" do %>
+    <i class="fas fa-trash" style="color: red;"></i>
+    <span>すべて削除</span>
+<% end %>
 <h3 >通知</h3>
-    <%= link_to notifications_path, method: :delete, class: "right" do %>
-        <i class="fas fa-trash" style="color: red;"></i>
-      <span>すべて削除</span>
-    <% end %>
-    <hr>
+
 <% if @notifications.exists? %>
     <div class="users-index">
         <%= render @notifications %>

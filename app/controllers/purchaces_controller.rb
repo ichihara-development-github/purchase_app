@@ -4,12 +4,14 @@ class PurchacesController < ApplicationController
   end
 
   def create_notification(production, user)
-      notification = current_user.active_notifications.new(
-      production_id: id,
-      user_id: user.id,
-      action: "購入"
-    )
-    notification.save
+    unless current_user == user
+        notification = current_user.active_notifications.new(
+        production_id: production.id,
+        user_id: user.id,
+        action: "購入"
+      )
+      notification.save
+    end
   end
 
 

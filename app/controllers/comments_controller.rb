@@ -9,12 +9,14 @@ class CommentsController < ApplicationController
   end
 
   def create_notification(comment, user)
-      notification = current_user.active_notifications.new(
-      comment_id: comment.id,
-      passive_user_id: user.id,
-      action: "コメント"
-    )
-    notification.save
+    unless current_user == user
+        notification = current_user.active_notifications.new(
+        comment_id: comment.id,
+        passive_user_id: user.id,
+        action: "コメント"
+      )
+      notification.save
+    end
   end
 
 

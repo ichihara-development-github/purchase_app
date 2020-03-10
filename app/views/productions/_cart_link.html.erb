@@ -1,11 +1,9 @@
 <% if in_basket(production) %>
-    <%= link_to out_basket_path(production.id), method: :delete, remote: true, class: "right " do %>
-         <span class="fas fa-shopping-cart fa-lg", style = "color:orange"></span>
-    <% end %>
+  <%= link_to out_basket_path(production.id), method: :delete, remote: true, class: "right " do %>
+       <i class="fas fa-shopping-cart fa-lg", style = "color:orange"></i>
+  <% end %>
 <% else %>
-    <%= link_to in_basket_path(production.id), method: :post, remote: true, class: "right" do %>
-    <span class="fas fa-cart-arrow-down fa-lg"></span>
-    <% end %>
+  <%= link_to in_basket_path(production.id), method: :post, remote: true, class: "right" do %>
+    <i class="fas fa-cart-arrow-down fa-lg"></i>
+  <% end %>
 <% end %>
-
-

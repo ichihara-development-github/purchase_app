@@ -1,7 +1,6 @@
 module StoresHelper
 
     def has_store(store)
-      debugger
       if current_user.store
         current_user.store == store
       end

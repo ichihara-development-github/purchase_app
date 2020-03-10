@@ -9,13 +9,15 @@ class BasketsController < ApplicationController
     end
 
     def create_notification(production, user)
-      debugger
-      notification = current_user.active_notifications.new(
-        production_id: production.id,
-        passive_user_id: user.id,
-        action: "カート"
-      )
-      notification.save
+    
+        notification = current_user.active_notifications.new(
+          production_id: production.id,
+          passive_user_id: user.id,
+          action: "カート"
+        )
+          notification.save
+
+
     end
 
 
@@ -51,8 +53,8 @@ class BasketsController < ApplicationController
     def delete
         @basket = Basket.find_by(user_id: current_user.id, production_id: params[:format])
         @basket.destroy
-        redirect_to baskets_path
-
+        flash[:success] = "カートにから削除しました"
+        redirect_to :back
     end
 
 end

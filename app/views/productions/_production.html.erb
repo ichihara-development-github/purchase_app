@@ -7,21 +7,21 @@
              <% else %>
               <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
             <% end %>
-            <%= link_to production_path(production) do %>
-          <div class="card-body">
-                <h5 ="card-title"><%= production.name %></h5>
-                <span>¥<%= production.price %></span>
-                <% if current_user %>
-                    <span class = "production-basket-<%= production.id %>">
-                      <%= render "productions/cart_link", production: production %>
-                    </span>
-                <% else %>
-                    <%= link_to production_path(production) do%>
-                      <button type="button" class="right btn", style = "background-color: orange">追加</button>
-                    <% end %>
+              <div class="card-body">
+                <%= link_to production_path(production) do %>
+                    <h5 ="card-title"><%= production.name %></h5>
                 <% end %>
-          </div>
-          <% end %>
+                <span>¥<%= production.price %></span>
+                  <span class = "production-basket-<%= production.id %>" >
+                    <% if current_user %>
+                      <%= render "cart_link", production: production %>
+                    <% else %>
+                      <%= link_to production_path(production) do%>
+                        <button type="button" class="right btn", style = "background-color: orange">追加</button>
+                      <% end %>
+                    <% end %>
+                  </span>
+              </div>
       </div>
       </div>
     <% end %>

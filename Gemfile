@@ -44,7 +44,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'byebug', '~> 9.0', '>= 9.0.6', platform: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', '~> 9.0', '>= 9.0.6', platform: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~>3.6'

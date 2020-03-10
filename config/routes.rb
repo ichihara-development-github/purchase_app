@@ -41,6 +41,8 @@ Rails.application.routes.draw do
  resources :purchaces, only: [:new, :create]
  resources :notifications, only: [:index]
 
+ mount ActionCable.server => "/cable"
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

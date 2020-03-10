@@ -40,14 +40,17 @@
       </blockquote>
     </div>
 
-
-    <% unless in_basket(@production) %>
     <div class = "margin-vertical">
-      <%= link_to basket_add_path(@production), method: :post do %>
-        <button type="button" class="right btn", style = "background-color: orange">カートへ追加<i class = "fas fa-cart-arrow-down"></i></button>
+      <% if in_basket(@production) %>
+        <%= link_to basket_delete_path(@production), method: :post do %>
+          <button type="button" class="right btn btn-secondary",>カートから出す</button>
+        <% end %>
+      <% else %>
+        <%= link_to basket_add_path(@production), method: :post do %>
+          <button type="button" class="right btn", style = "background-color: orange">カートへ追加<i class = "fas fa-cart-arrow-down"></i></button>
+        <% end %>
       <% end %>
     </div>
-    <% end %>
 
     <table class="table ">
   <tbody>

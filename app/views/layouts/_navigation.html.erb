@@ -52,7 +52,9 @@
         <%= link_to notifications_path do %>
           <span class="fas fa-bell fa-2x", style = "color:white; margin:10px"></span>
         <% end %>
-        <% if has_unchecked_notifications.any? %><div class = "notice-icon center"><%= unchecked_notifications %></div><% end %>
+        <% if has_unchecked_notifications%>
+          <span id = "notifications_count"><%= render "layouts/notifications_count"%></span>
+        <% end %>
       </li>
 
       <li class = "nav-item ">
