@@ -1,3 +1,5 @@
+<%= will_paginate @notifications, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
 <%= link_to notifications_path, method: :delete, class: "right" do %>
     <i class="fas fa-trash" style="color: red;"></i>
     <span>すべて削除</span>

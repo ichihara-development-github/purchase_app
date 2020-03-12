@@ -34,6 +34,22 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  #follow
+
+  def follow(user)
+    active_relationships.create(followed_id: user.id)
+  end
+
+  def remove(user)
+    active_relationships.find(followed_id: user.id).destroy
+  end
+
+  def following?(user)
+    following.include?(user)
+  end
+
+#-------------------------------------------------------------------------
+
   has_one :store, dependent: :destroy, class_name: Store
   has_many :payment, dependent: :nullify
   has_many :baskets, dependent: :destroy
@@ -43,8 +59,19 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  #notification
   has_many :active_notifications, class_name: "Notification", foreign_key: "active_user_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification",foreign_key:  "passive_user_id", dependent: :destroy
+
+  #follow
+  has_many :active_relationships, class_name: "Relationship",
+                           foreign_key: "following_id",
+                           dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :passive_realtionships, class_name: "Relationship",
+                             foreign_key: "followed_id",
+                             dependent: :destroy
+  has_many :followers, through: :passive_realtionships, source: :following
 
 
   has_secure_password

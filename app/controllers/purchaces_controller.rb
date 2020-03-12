@@ -7,7 +7,7 @@ class PurchacesController < ApplicationController
     unless current_user == user
         notification = current_user.active_notifications.new(
         production_id: production.id,
-        user_id: user.id,
+        passive_user_id: user.id,
         action: "購入"
       )
       notification.save

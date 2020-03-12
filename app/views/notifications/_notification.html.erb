@@ -1,4 +1,4 @@
-<% notice_user = notification.noticed_user %>
+<% notice_user = notification.notice_user %>
  <div href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <span class = "">
@@ -12,11 +12,11 @@
       <h5 class="mb-1">
         <%= link_to users_path(notice_user) do %><%= notice_user.name %><% end %>が
         <% if notification.action == "購入" %>
-         <%= notification.production.name %>を購入しました。
+         <%= notification.comment.production.name %>を購入しました。
         <% elsif notification.action == "コメント"%>
-        <% comment = notification.comment.content %>
+        <%= notification.comment.production.name %>に<br />
         コメントしました<br /><br />
-        <%= link_to comments_path(notice_user) do %><%= comment %><% end %>
+        <%= link_to production_path(notification.comment.production) do %><%=  notification.comment.content %><% end %>
         <% elsif notification.action == "カート"%>
          <%= notification.production.name %>をカートに入れました。
         <% end %>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   get "comments/index"
 
   get "purcahce/new"
@@ -40,8 +44,14 @@ Rails.application.routes.draw do
  resources :baskets, only: [:index]
  resources :purchaces, only: [:new, :create]
  resources :notifications, only: [:index]
+ resources :relationships, only: [:create, :destroy]
 
- mount ActionCable.server => "/cable"
+ resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
 
 
 

@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :relationship do
+    
+  end
+
   factory :notification do
     
   end

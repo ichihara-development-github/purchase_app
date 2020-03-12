@@ -2,7 +2,7 @@
 
   <div class = "row">
       <div class = "col-lg-9">
-    
+
     <%= render "search_form"%>
     </div>
     <div class = "col-lg-3">
@@ -12,8 +12,8 @@
     </div>
 
 </div>
-    
-    
+
+
 <%= will_paginate @productions, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 
      <h2>人気の商品</h2>
@@ -28,7 +28,7 @@
       <% end %>
       <div class="card-body">
           <span><%= link_to production_path(production) do %>
-            <h4 class="card-title"><%= production.name %></h5>
+            <h4 class="card-title"><%= production.name %></h4>
           <% end %></span>
             <div class = "description"><%= production.description %></div>
             <span>¥<%= production.price%></span>
@@ -54,4 +54,3 @@
  <%= will_paginate @productions, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 
 </div>
-

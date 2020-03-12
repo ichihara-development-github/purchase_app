@@ -61,6 +61,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page], per_page: 8)
+    render "follow_and_followers"
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page], per_page: 8)
+    render "follow_and_followers"
+  end
+
   def management
   end
 
