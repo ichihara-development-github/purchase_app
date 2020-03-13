@@ -19,6 +19,8 @@
         <%= link_to production_path(notification.comment.production) do %><%=  notification.comment.content %><% end %>
         <% elsif notification.action == "カート"%>
          <%= notification.production.name %>をカートに入れました。
+         <% elsif notification.action == "フォロー"%>
+          <%= notice_user.name %>があなたをフォローしました。
         <% end %>
       </h5>
      <midium class ="right"><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></midium>

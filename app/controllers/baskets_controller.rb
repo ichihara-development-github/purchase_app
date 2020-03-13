@@ -9,15 +9,13 @@ class BasketsController < ApplicationController
     end
 
     def create_notification(production, user)
-    
+
         notification = current_user.active_notifications.new(
           production_id: production.id,
           passive_user_id: user.id,
           action: "カート"
         )
           notification.save
-
-
     end
 
 
