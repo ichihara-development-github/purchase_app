@@ -14,7 +14,7 @@
                 <span>¥<%= production.price %></span>
                   <span class = "production-basket-<%= production.id %>" >
                     <% if current_user %>
-                      <%= render "cart_link", production: production %>
+                      <%= render "productions/cart_link", production: production %>
                     <% else %>
                       <%= link_to production_path(production) do%>
                         <button type="button" class="right btn", style = "background-color: orange">追加</button>

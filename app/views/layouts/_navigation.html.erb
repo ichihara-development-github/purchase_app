@@ -82,7 +82,7 @@
                 </a>
                 <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
                   <% if current_user.store %>
-                    <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "fade-item" %></a>
+                    <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "fade-item" %>
                     <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_production_path, class: "fade-item" %></a>
                     <% if current_user.store.productions %>
                       <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_productions_path, class: "fade-item" %></a>
@@ -94,6 +94,9 @@
                 </div>
               </li>
             <% end %>
+            <li class="nav-item active slide-item">
+              <%= link_to "ユーザー一覧", users_path, class: "dropdown-item", style:"color:white" if current_user.admin? %>
+            </li>
             <li class="nav-item active pd-10 slide-item">
               <%= link_to  "ログアウト", session_path(session[:user_id]),method: :delete, style:"color:white" %>
             </li>

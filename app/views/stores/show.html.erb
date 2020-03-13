@@ -3,31 +3,24 @@
 <% end %>
 
 <div class = "container center">
-
     <div class = "row">
-
-    <div class = "col-lg-9">
-        <h2><%= @store.name %></h2>
-
-        <% if @store.top_image.present? %>
-            <%= image_tag @store.top_image, class: "wide-img" %>
-        <% else %>
-            <img class="wide-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
-        <% end %>
-
-       <% if has_store(@store) %>
-       <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
-       <% end %>
-    </div>
-
-     <div class = "col-lg-3">
-        <div class =  "side-bar-wrapper">
-          <%= render "layouts/side_bar" %>
-         </div>
-    </div>
-
+      <div class = "col-lg-9">
+          <h2><%= @store.name %></h2>
+          <% if @store.top_image.present? %>
+              <%= image_tag @store.top_image, class: "wide-img" %>
+          <% else %>
+              <img class="wide-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+          <% end %>
+         <% if has_store(@store) %>
+         <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
+         <% end %>
+      </div>
+       <div class = "col-lg-3">
+          <div class =  "side-bar-wrapper">
+            <%= render "layouts/side_bar" %>
+           </div>
+      </div>
      </div>
-
 </div>
 
  <div class = "container">
