@@ -36,18 +36,6 @@ class PurchacesController < ApplicationController
           )
           payment.save!
 
-          def create_notification(production, user)
-            unless current_user == user
-                notification = current_user.active_notifications.new(
-                production_id: production.id,
-                passive_user_id: user.id,
-                action: "購入"
-              )
-              notification.save
-            end
-          end
-
-
       @productions = current_user.considering_productions
       @productions.each do |production|
         current_user.purchaceds.create(production_id: production.id)
