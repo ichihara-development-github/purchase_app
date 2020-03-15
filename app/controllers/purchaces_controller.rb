@@ -3,17 +3,6 @@ class PurchacesController < ApplicationController
     @productions = current_user.considering_productions
   end
 
-  def create_notification(production, user)
-    unless current_user == user
-        notification = current_user.active_notifications.new(
-        production_id: production.id,
-        passive_user_id: user.id,
-        action: "購入"
-      )
-      notification.save
-    end
-  end
-
 
   def create
 
@@ -47,11 +36,22 @@ class PurchacesController < ApplicationController
           )
           payment.save!
 
+          def create_notification(production, user)
+            unless current_user == user
+                notification = current_user.active_notifications.new(
+                production_id: production.id,
+                passive_user_id: user.id,
+                action: "購入"
+              )
+              notification.save
+            end
+          end
+
 
       @productions = current_user.considering_productions
       @productions.each do |production|
         current_user.purchaceds.create(production_id: production.id)
-        create_notification(production, production.store.user)
+        create_notification(production.store.user, @production, "", "購入")
       end
       current_user.baskets.destroy_all
       flash[:success] = "購入が完了しました"

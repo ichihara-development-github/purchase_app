@@ -8,15 +8,6 @@ class BasketsController < ApplicationController
          @class_name = ".production-basket-#{@production.id}"
     end
 
-    def create_notification(production, user)
-
-        notification = current_user.active_notifications.new(
-          production_id: production.id,
-          passive_user_id: user.id,
-          action: "カート"
-        )
-          notification.save
-    end
 
 
     def index
@@ -25,7 +16,7 @@ class BasketsController < ApplicationController
 
     def create
         current_user.baskets.create(production_id: @production.id)
-        create_notification(@production, @production.store.user)
+        create_notification(@production.store.user, @production, "","カート")
         respond_to do |format|
              format.html
              format.js

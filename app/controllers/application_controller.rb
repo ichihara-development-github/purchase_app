@@ -32,9 +32,20 @@ class ApplicationController < ActionController::Base
   end
 
   def has_authority?(user)
-    unless (current_user == user) || current_user.admin
+    unless (current_user == user) || current_us
+      er.admin
       redirect_to root_path
       flash[:danger] = '権限がありません'
     end
+  end
+
+  def create_notification(user, production, comment, action)
+      notification = current_user.active_notifications.new(
+        passive_user_id: user.id,
+        action: "#{action}"
+      )
+      notification.production_id = production.id if production.present?
+      notification.comment_id = comment.id if comment.present?
+      notification.save
   end
 end

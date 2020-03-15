@@ -8,25 +8,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-  def create_notification(comment, user)
-    unless current_user == user
-        notification = current_user.active_notifications.new(
-        comment_id: comment.id,
-        passive_user_id: user.id,
-        action: "コメント"
-      )
-      notification.save
-    end
-  end
-
-
-
   def create
     @production = Production.find(params[:comment][:id])
     @comments = @production.comments.order(created_at: "DESC")
     @comment = current_user.comments.build(production_id: @production.id,content: params[:comment][:content])
     @comment.save
-    create_notification(@comment, @production.store.user)
+    create_notification(@production.store.user, "",@comment,"コメント")
 
     respond_to do |format|
       format.js
