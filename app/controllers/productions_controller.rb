@@ -10,7 +10,7 @@ class ProductionsController < ApplicationController
 
   def has_store?
    if current_user.seller && !current_user.store
-    flash[:warning] = "Storeを所持していません"
+    flash[:warning] = "店舗を所持していません"
     redirect_to new_store_path
    end
   end

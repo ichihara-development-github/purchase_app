@@ -1,4 +1,7 @@
 <% notice_user = notification.notice_user %>
+<% if production = notification.production %><% end %>
+<% if comment = notification.comment %><% end %>
+
  <div href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <span class = "">
@@ -9,21 +12,21 @@
         <% end %>
       </span>
       <div class="col-10">
-      <h5 class="mb-1">
-        <%= link_to users_path(notice_user) do %><%= notice_user.name %><% end %>が
-        <% if notification.action == "購入" %>
-         <%= link_to users_path(noti) do %><%= notification.production %><% end %>を購入しました。
-        <% elsif notification.action == "コメント"%>
-          <%= notification.comment.production.name %>に<br />
-          コメントしました<br /><br />
-        <%= link_to production_path(notification.comment.production) do %><%=  notification.comment.content %><% end %>
-        <% elsif notification.action == "カート"%>
-         <%= notification.production.name %>をカートに入れました。
-        <% elsif notification.action == "フォロー"%>
-          さんがあなたをフォローしました。
-        <% end %>
-      </h5>
-     <midium class ="right"><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></midium>
+        <h5 class="mb-1">
+          <%= link_to users_path(notice_user) do %><%= notice_user.name %><% end %>が
+          <% if notification.action == "購入" %>
+           <%= link_to productions_path(production) do %><%= production.name %><% end %>を購入しました。
+          <% elsif notification.action == "コメント"%>
+            <%= comment.production.name %>に<br />
+            コメントしました<br /><br />
+          <%= link_to production_path(comment.production) do %><%= comment.content %><% end %>
+          <% elsif notification.action == "カート"%>
+           <%= production.name %>をカートに入れました。
+          <% elsif notification.action == "フォロー"%>
+            さんがあなたをフォローしました。
+          <% end %>
+        </h5>
+        <midium class ="right"><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></midium>
     </div>
   </div>
   </div>
