@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comments = @production.comments.order(created_at: "DESC")
     @comment = current_user.comments.build(production_id: @production.id,content: params[:comment][:content])
     @comment.save
-    create_notification(@production.store.user, "",@comment,"コメント")
+    create_notification(@production.store.user, "",@comment,"comment")
 
     respond_to do |format|
       format.js

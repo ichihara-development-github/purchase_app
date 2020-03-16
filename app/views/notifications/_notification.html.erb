@@ -14,15 +14,15 @@
       <div class="col-10">
         <h5 class="mb-1">
           <%= link_to users_path(notice_user) do %><%= notice_user.name %><% end %>が
-          <% if notification.action == "購入" %>
+          <% if notification.action == "purchase" %>
            <%= link_to productions_path(production) do %><%= production.name %><% end %>を購入しました。
-          <% elsif notification.action == "コメント"%>
+          <% elsif notification.action == "comment"%>
             <%= comment.production.name %>に<br />
             コメントしました<br /><br />
           <%= link_to production_path(comment.production) do %><%= comment.content %><% end %>
-          <% elsif notification.action == "カート"%>
+          <% elsif notification.action == "basket"%>
            <%= production.name %>をカートに入れました。
-          <% elsif notification.action == "フォロー"%>
+          <% elsif notification.action == "follow"%>
             さんがあなたをフォローしました。
           <% end %>
         </h5>
