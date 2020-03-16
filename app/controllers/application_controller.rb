@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def create_notification(user, production, comment, action)
+    unless current_user == user
       notification = current_user.active_notifications.new(
         passive_user_id: user.id,
         action: "#{action}"
@@ -47,5 +48,6 @@ class ApplicationController < ActionController::Base
       notification.production_id = production.id if production.present?
       notification.comment_id = comment.id if comment.present?
       notification.save
+    end
   end
 end

@@ -39,7 +39,7 @@ class PurchacesController < ApplicationController
       @productions = current_user.considering_productions
       @productions.each do |production|
         current_user.purchaceds.create(production_id: production.id)
-        create_notification(production.store.user, @production, "", "purchase")
+        create_notification(production.store.user, production, "", "purchase")
       end
       current_user.baskets.destroy_all
       flash[:success] = "購入が完了しました"
@@ -68,6 +68,5 @@ class PurchacesController < ApplicationController
     end
 
   end
-
 
 end

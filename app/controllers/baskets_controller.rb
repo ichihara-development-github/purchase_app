@@ -15,8 +15,9 @@ class BasketsController < ApplicationController
     end
 
     def create
+        user = @production.store.user
         current_user.baskets.create(production_id: @production.id)
-        create_notification(@production.store.user, @production, "","basket")
+        create_notification(user, @production, "","basket")
         respond_to do |format|
              format.html
              format.js
