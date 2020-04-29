@@ -11,7 +11,7 @@ class Store < ApplicationRecord
   after_validation :geocode
   private
   def geocode
-    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co&callback=initMap&language=ja")
+    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"#{ENV['GOOGLE_MAP_KEY']}")
     res = HTTP.get(uri).to_s
     response = JSON.parse(res)
     self.latitude = response["results"][0]["geometry"]["location"]["lat"]

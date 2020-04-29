@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
     unless current_user == user
       notification = current_user.active_notifications.new(
         passive_user_id: user.id,
-        action: "#{action}"
+        action: action.to_s
       )
       notification.production_id = production.id if production.present?
       notification.comment_id = comment.id if comment.present?

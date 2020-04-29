@@ -10,6 +10,7 @@ class AddressesController < ApplicationController
   end
 
   private
+
   def address_params
     params.require(:address).permit(:name)
   end
