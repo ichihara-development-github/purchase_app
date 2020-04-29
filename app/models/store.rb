@@ -9,9 +9,10 @@ class Store < ApplicationRecord
   mount_uploader :top_image, ImageUploader
 
   after_validation :geocode
+
   private
   def geocode
-    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"#{ENV['GOOGLE_MAP_KEY']}")
+    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=#{ENV['GOOGLE_MAP_KEY']}")
     res = HTTP.get(uri).to_s
     response = JSON.parse(res)
     self.latitude = response["results"][0]["geometry"]["location"]["lat"]

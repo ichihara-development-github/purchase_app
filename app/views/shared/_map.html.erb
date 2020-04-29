@@ -49,4 +49,4 @@ function initMap() {
     }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key="#{ENV['GOOGLE_MAP_KEY']}" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap&language=ja" async defer></script>
