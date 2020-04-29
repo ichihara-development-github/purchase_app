@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :address do
+    name { "MyString" }
+    latitude { 1.5 }
+    longitude { 1.5 }
+  end
+
   factory :relationship do
     
   end

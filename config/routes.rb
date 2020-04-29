@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'addresses/create'
+
+  get 'addresses/destroy'
+
   get 'relationships/create'
 
   get 'relationships/destroy'
@@ -45,6 +49,7 @@ Rails.application.routes.draw do
  resources :purchaces, only: [:new, :create]
  resources :notifications, only: [:index]
  resources :relationships, only: [:create, :destroy]
+ resources :addresses, only: [:create, :destroy]
 
  resources :users do
     member do

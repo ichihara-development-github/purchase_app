@@ -1,0 +1,52 @@
+<h2>店舗の所在地</h2>
+<div id = "map">
+
+
+</div>
+
+<style>
+#map{
+  height: 300px;
+}
+</style>
+
+<script>
+
+function initMap() {
+
+      //初期表示位置
+      var latlng = new google.maps.LatLng(36.30, 139.5);
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: latlng
+
+      });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+        (function(){
+          var contentString = "所在地: <%= @store.address %>";
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+          var marker = new google.maps.Marker({
+            position:{lat: <%= @store.latitude %>, lng: <%= @store.longitude %>},
+            map: map,
+            title: contentString,
+            animation: google.maps.Animation.DROP
+          });
+
+          var latlng = new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>);
+          map.setCenter(latlng);
+
+          marker.addListener("click", function(){
+            infowindow.open(map, marker, content);
+          });
+
+        })();
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co&callback=initMap&language=ja" async defer></script>
