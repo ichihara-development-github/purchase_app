@@ -13,6 +13,7 @@ gem 'mail-iso-2022-jp'
 gem 'mysql2'
 
 gem 'geocoder'
+gem 'http'
 
 platforms :ruby do
   gem 'unicorn'

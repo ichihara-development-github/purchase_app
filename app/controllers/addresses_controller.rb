@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   def create
-    Address.create(address_params)
+    @store.address.create(params[:name])
     redirect_to root_path
   end
 
