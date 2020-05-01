@@ -15,6 +15,8 @@ gem 'mysql2'
 gem 'geocoder'
 gem 'http'
 
+gem 'dotenv-rails'
+
 platforms :ruby do
   gem 'unicorn'
 end
