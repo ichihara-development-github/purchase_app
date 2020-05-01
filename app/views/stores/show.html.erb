@@ -4,7 +4,7 @@
 
 <div class = "container center">
     <div class = "row">
-      <div class = "col-lg-11">
+      <div class = "">
           <h2><%= @store.name %></h2>
           <div class="margin-vertical">
           <% if @store.top_image.present? %>
@@ -16,7 +16,7 @@
           <div class="">
             <h4><%= @store.description %></h4>
           </div>
-          <div class="col-10">
+          <div class="col-11 middle">
             <%= render "shared/map" if @store.address.present? %>
             <%= @store.address %>
           </div>

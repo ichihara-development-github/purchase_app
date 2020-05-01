@@ -79,7 +79,6 @@ class ProductionsController < ApplicationController
 
     if search_params.values.all?("")
       redirect_to productions_path
-
     else
       @productions = Production.search(search_params).paginate(page: params[:page], per_page: 10)
       if @productions.blank?
