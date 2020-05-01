@@ -12,7 +12,7 @@ class Store < ApplicationRecord
 
   private
   def geocode
-    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=#{ENV['GOOGLE_MAP_KEY']}")
+    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co")
     res = HTTP.get(uri).to_s
     response = JSON.parse(res)
     self.latitude = response["results"][0]["geometry"]["location"]["lat"]
