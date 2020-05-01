@@ -6,13 +6,20 @@
     <div class = "row">
       <div class = "col-lg-9">
           <h2><%= @store.name %></h2>
+          <div class="margin-vertical">
           <% if @store.top_image.present? %>
               <%= image_tag @store.top_image, class: "wide-img" %>
           <% else %>
               <img class="wide-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
           <% end %>
-          <%= render "shared/map" if @store.address.present? %>
-          <%= @store.address %>
+          </div>
+          <div class="">
+            <h4><%= @store.description %></h4>
+          </div>
+          <div class="">
+            <%= render "shared/map" if @store.address.present? %>
+            <%= @store.address %>
+          </div>
          <% if has_store(@store) %>
          <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
          <% end %>
