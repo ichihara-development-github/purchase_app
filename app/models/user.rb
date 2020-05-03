@@ -53,9 +53,9 @@ class User < ApplicationRecord
   has_one :store, dependent: :destroy, class_name: Store
   has_many :payment, dependent: :nullify
   has_many :baskets, dependent: :destroy
-  has_many :considering_productions, through: :baskets, source: :production
+  has_many :considering_products, through: :baskets, source: :product
   has_many :purchaceds, dependent: :destroy
-  has_many :purchaced_productions, through: :purchaceds, source: :production
+  has_many :purchaced_products, through: :purchaceds, source: :product
 
   has_many :comments, dependent: :destroy
 

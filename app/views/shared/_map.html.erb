@@ -6,7 +6,7 @@
 
 <style>
 #map{
-  height: 300px;
+  height: 400px;
 }
 </style>
 
@@ -18,37 +18,72 @@ function initMap() {
       var latlng = new google.maps.LatLng(36.30, 139.5);
 
       var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
+          zoom: 10,
           center: latlng
 
       });
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
-        (function(){
-          var contentString = "所在地: <%= @store.address %>";
+      <% if stores.class == Store::ActiveRecord_Relation %>
+        <% stores.each do |store| %>
+        (function show_map(){
+
           var infowindow = new google.maps.InfoWindow({
-            content: contentString
+            content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
+                     "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
+                     "<p><%= store.address %></p>",
+                     maxWidth: 220
+
           });
 
           var marker = new google.maps.Marker({
-            position:{lat: <%= @store.latitude %>, lng: <%= @store.longitude %>},
+            position:{lat: <%= store.latitude %> , lng: <%= store.longitude %> },
             map: map,
-            title: contentString,
+            title: "<%= store.address if store.address %>",
             animation: google.maps.Animation.DROP
           });
 
-          var latlng = new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>);
+          var latlng = new google.maps.LatLng(<%= store.latitude %> , <%= store.longitude %>);
           map.setCenter(latlng);
 
           marker.addListener("click", function(){
-            infowindow.open(map, marker, content);
+            infowindow.open(map, marker);
           });
 
         })();
+        <% end %>
+      <% else %>
+      <% store = stores %>
+      (function show_map(){
+
+        var infowindow = new google.maps.InfoWindow({
+          content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
+                   "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
+                   "<p><%= store.address %></p>",
+                   maxWidth: 220
+
+        });
+
+        var marker = new google.maps.Marker({
+          position:{lat: <%= store.latitude %> , lng: <%= store.longitude %> },
+          map: map,
+          title: "<%= store.address if store.address %>",
+          animation: google.maps.Animation.DROP
+        });
+
+        var latlng = new google.maps.LatLng(<%= store.latitude %> , <%= store.longitude %>);
+        map.setCenter(latlng);
+
+        marker.addListener("click", function(){
+          infowindow.open(map, marker);
+        });
+
+      })();
+      <% end %>
+
+
     }
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY']%>&callback=initMap&language=ja" async defer></script>
-
-<%= ENV['GOOGLE_MAP_KEY']%>

@@ -1,0 +1,56 @@
+
+
+  <div class = "row">
+      <div class = "col-lg-9">
+
+    <%= render "search_form"%>
+    </div>
+    <div class = "col-lg-3">
+      <div class =  "side-bar-wrapper">
+      <%= render "layouts/side_bar" %>
+      </div>
+    </div>
+
+</div>
+
+
+<%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+     <h2>人気の商品</h2>
+ <div class="row">
+    <% @popular[0..2].each do |product| %>
+  <div class="col-md-4 margin-vertical">
+    <div class="shadow">
+      <% if product.main_image.present?%>
+        <%= image_tag product.main_image, class: "long-img" %>
+      <% else %>
+        <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="no-image">
+      <% end %>
+      <div class="card-body">
+          <span><%= link_to product_path(product) do %>
+            <h4 class="card-title"><%= product.name %></h4>
+          <% end %></span>
+            <div class = "description"><%= product.description %></div>
+            <span>¥<%= product.price%></span>
+              <% if current_user %>
+                    <span class = "product-basket-<%= product.id %>">
+                      <%= render "products/cart_link", product: product %>
+                    </span>
+                <% else %>
+                    <%= link_to product_path(product) do%>
+                      <button type="button" class="right btn", style = "background-color: orange">追加</button>
+                    <% end %>
+                <% end %>
+      </div>
+  </div>
+  </div>
+    <% end %>
+     </div>
+ <div class = "products">
+     <h2>商品一覧</h2>
+     <%= render "product", obj: @products %>
+</div>
+
+ <%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+</div>

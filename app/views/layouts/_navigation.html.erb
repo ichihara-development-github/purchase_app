@@ -16,7 +16,7 @@
        <%= link_to  "店舗一覧",stores_path, class: "nav-link" %>
     </li>
     <li class="nav-item active pd-10">
-      <%= link_to  "商品一覧",productions_path, class: "nav-link" %>
+      <%= link_to  "商品一覧",products_path, class: "nav-link" %>
     </li>
   </ul>
   </div>
@@ -32,9 +32,9 @@
         <div class="dropdown-menu">
           <% if current_user.store %>
             <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "dropdown-item" %>
-            <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_production_path, class: "dropdown-item" %></a>
-            <% if current_user.store.productions %>
-              <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_productions_path, class: "dropdown-item" %></a>
+            <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_product_path, class: "dropdown-item" %></a>
+            <% if current_user.store.products %>
+              <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_products_path, class: "dropdown-item" %></a>
             <% end %>
           <% else %>
            <a class="dropdown-item" href="#"><%= link_to "Store新規作成", new_store_path, class: "dropdown-item" %></a>
@@ -73,7 +73,7 @@
                <%= link_to  "店舗一覧",stores_path, style: "color:white"%>
             </li>
             <li class="nav-item active pd-10 slide-item">
-              <%= link_to  "商品一覧",productions_path, style: "color:white"%>
+              <%= link_to  "商品一覧",products_path, style: "color:white"%>
             </li>
             <% if current_user.seller? %>
               <li>
@@ -83,9 +83,9 @@
                 <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
                   <% if current_user.store %>
                     <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "fade-item" %>
-                    <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_production_path, class: "fade-item" %></a>
-                    <% if current_user.store.productions %>
-                      <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_productions_path, class: "fade-item" %></a>
+                    <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_product_path, class: "fade-item" %></a>
+                    <% if current_user.store.products %>
+                      <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_products_path, class: "fade-item" %></a>
                     <% end %>
                   <% else %>
                    <a class="dropdown-item" href="#"><%= link_to "店舗新規作成", new_store_path, class: "fade-item" %></a>
@@ -109,7 +109,7 @@
   <% else %>
 
   <ul class = "navbar-nav list-group list-group-horizontal">
-    <li class = "btn"><%= link_to "商品一覧", productions_path, style: "color:white" %> </li>
+    <li class = "btn"><%= link_to "商品一覧", products_path, style: "color:white" %> </li>
   </ul>
 
   <ul class = "navbar-nav list-group list-group-horizontal">

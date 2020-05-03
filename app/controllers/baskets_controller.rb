@@ -4,20 +4,20 @@ class BasketsController < ApplicationController
     before_action :set_valiable, only: [:create, :destroy]
 
     def set_valiable
-         @production = Production.find(params[:production_id])
-         @class_name = ".production-basket-#{@production.id}"
+         @product = Product.find(params[:product_id])
+         @class_name = ".product-basket-#{@product.id}"
     end
 
 
 
     def index
-        @productions = current_user.considering_productions
+        @products = current_user.considering_products
     end
 
     def create
-        user = @production.store.user
-        current_user.baskets.create(production_id: @production.id)
-        create_notification(user, @production, "","basket")
+        user = @product.store.user
+        current_user.baskets.create(product_id: @product.id)
+        create_notification(user, @product, "","basket")
         respond_to do |format|
              format.html
              format.js
@@ -25,7 +25,7 @@ class BasketsController < ApplicationController
     end
 
     def destroy
-        @basket = current_user.baskets.find_by(production_id: @production.id)
+        @basket = current_user.baskets.find_by(product_id: @product.id)
         @basket.destroy
          respond_to do |format|
              format.html
@@ -34,14 +34,14 @@ class BasketsController < ApplicationController
     end
 
     def add
-        @production = Production.find(params[:format])
-        Basket.create(user_id: current_user.id, production_id: @production.id)
+        @product = Product.find(params[:format])
+        Basket.create(user_id: current_user.id, product_id: @product.id)
         flash[:success] = "カートに追加しました"
         redirect_to :back
     end
 
     def delete
-        @basket = Basket.find_by(user_id: current_user.id, production_id: params[:format])
+        @basket = Basket.find_by(user_id: current_user.id, product_id: params[:format])
         @basket.destroy
         flash[:success] = "カートにから削除しました"
         redirect_to :back

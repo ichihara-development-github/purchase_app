@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200421012101) do
+ActiveRecord::Schema.define(version: 20200503054649) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "production_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["production_id"], name: "index_baskets_on_production_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_baskets_on_product_id"
     t.index ["user_id"], name: "index_baskets_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "production_id"
+    t.integer  "product_id"
     t.string   "content"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["production_id"], name: "index_comments_on_production_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20200421012101) do
   create_table "notifications", force: :cascade do |t|
     t.integer  "active_user_id"
     t.integer  "passive_user_id"
-    t.integer  "production_id"
+    t.integer  "product_id"
     t.integer  "comment_id"
     t.boolean  "checked",         default: false
     t.string   "action"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20200421012101) do
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
-  create_table "productions", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "price"
@@ -76,15 +76,15 @@ ActiveRecord::Schema.define(version: 20200421012101) do
     t.string   "main_image"
     t.string   "sub_image1"
     t.string   "sub_image2"
-    t.index ["store_id"], name: "index_productions_on_store_id"
+    t.index ["store_id"], name: "index_products_on_store_id"
   end
 
   create_table "purchaceds", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "production_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["production_id"], name: "index_purchaceds_on_production_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_purchaceds_on_product_id"
     t.index ["user_id"], name: "index_purchaceds_on_user_id"
   end
 

@@ -6,15 +6,15 @@ FactoryBot.define do
   end
 
   factory :relationship do
-    
+
   end
 
   factory :notification do
-    
+
   end
 
-  
- 
+
+
   factory :user, class: User do
     id {1}
     name{"user"}
@@ -22,15 +22,15 @@ FactoryBot.define do
     password{ "password"}
     seller {true}
     admin{ true}
-  end 
- 
+  end
+
   factory :normal_user, class: User do
     id {2}
    name { "normal_user"}
    email {"normal_user@user.com"}
    password {"password"}
   end
-  
+
   factory :has_no_store, class: User do
     id {3}
    name { "has_no_store"}
@@ -38,50 +38,50 @@ FactoryBot.define do
    password {"password"}
    seller {true}
   end
-  
+
   factory :store, class: Store do
     name {"store"}
     description {"This is my store"}
     top_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/sample.jpg')) }
     user_id { 1 }
   end
-  
-  factory :production, class: Production do
+
+  factory :product, class: Product do
     store_id { 1}
-    name  {"production"}
+    name  {"product"}
     price  {1}
-    description  {"This is the production"}
+    description  {"This is the product"}
     main_image  {"p"}
   end
-  
-  factory :production2, class: Production do
+
+  factory :product2, class: Product do
     store_id { 1}
-    name  {"production2"}
+    name  {"product2"}
     price  {1}
-    description  {"This is the production2"}
+    description  {"This is the product2"}
     main_image  {"p"}
   end
-  
+
   factory :comment, class: Comment do
     content { "This is a comment" }
     user_id { 1 }
-    production_id { 1 }
+    product_id { 1 }
   end
-  
+
    factory :comment2, class: Comment do
     content { "This is a comment2" }
     user_id { 1 }
-    production_id { 1 }
+    product_id { 1 }
   end
-  
+
   factory :basket, class: Basket do
     user_id {1}
-    production_id {1}
+    product_id {1}
   end
-  
+
   factory :purchaced, class: Purchaced do
     user_id {1}
-    production_id {1}
+    product_id {1}
   end
 
 end

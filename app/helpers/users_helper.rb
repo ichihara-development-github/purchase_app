@@ -2,23 +2,22 @@ module UsersHelper
 
 
     def purchaced_count(user)
-        user.purchaced_productions.count
-
+        user.purchaced_products.count
     end
 
     def purchaced_sum(user)
-         user.purchaced_productions.sum(:price)
+         user.purchaced_products.sum(:price)
     end
 
     def considered_count(user)
-         user.considered_productions.count
+         user.considered_products.count
     end
 
 
     def purchaced_data(user)
         purchaced = []
-        user.store.productions.each do |production|
-            data = Purchaced.where(production_id: production.id)
+        user.store.products.each do |product|
+            data = Purchaced.where(product_id: product.id)
             data.each do |datum|
                 purchaced << datum
             end
@@ -28,8 +27,8 @@ module UsersHelper
 
     def basket_data(user)
         basket = []
-        user.store.productions.each do |production|
-            data = Basket.where(production_id: production.id)
+        user.store.products.each do |product|
+            data = Basket.where(product_id: product.id)
             data.each do |datum|
                 basket << datum
             end
@@ -40,7 +39,7 @@ module UsersHelper
     def pay_off(user)
         total = 0
         purchaced_data(user).each do |datum|
-            total += Production.find(datum.production_id).price
+            total += Product.find(datum.product_id).price
         end
         total
     end
@@ -48,7 +47,7 @@ module UsersHelper
     def prospect_pay(user)
         total = 0
         basket_data(user).each do |datum|
-            total += Production.find(datum.production_id).price
+            total += Product.find(datum.product_id).price
         end
         total
     end

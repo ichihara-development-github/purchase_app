@@ -1,0 +1,16 @@
+<% obj.each do |product| %>
+   <div class="col-md-10 margin-vertical basket-wrapper">
+      <%= image_tag product.main_image,style: "width:30%",class: "left card-img" %>
+      <div class = "basket-container right">
+          <span class = "right", style = "color:red"><%= product.price %></span>
+          <div calss = "container">
+          <%= link_to product_path(product) do %>
+              <h4><%= product.name %></h4>
+          <% end %>
+             <p><%= product.description %></p>
+          </div>
+          <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" %>
+
+     </div>
+    </div>
+<% end %>

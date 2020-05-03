@@ -1,6 +1,6 @@
 class PurchacesController < ApplicationController
   def new
-    @productions = current_user.considering_productions
+    @products = current_user.considering_products
   end
 
 
@@ -36,14 +36,14 @@ class PurchacesController < ApplicationController
           )
           payment.save!
 
-      @productions = current_user.considering_productions
-      @productions.each do |production|
-        current_user.purchaceds.create(production_id: production.id)
-        create_notification(production.store.user, production, "", "purchase")
+      @products = current_user.considering_products
+      @products.each do |product|
+        current_user.purchaceds.create(product_id: product.id)
+        create_notification(product.store.user, product, "", "purchase")
       end
       current_user.baskets.destroy_all
       flash[:success] = "購入が完了しました"
-      redirect_to productions_path
+      redirect_to products_path
         end
 
     rescue Stripe::CardError => e

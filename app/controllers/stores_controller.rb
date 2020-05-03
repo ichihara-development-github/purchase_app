@@ -39,9 +39,12 @@ class StoresController < ApplicationController
     @stores = Store.all
   end
 
+  def stores_map
+  end
+
   def show
     @store = Store.find(params[:id])
-    @productions = @store.productions
+    @products = @store.products
   end
 
   def edit

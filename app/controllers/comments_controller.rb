@@ -9,11 +9,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @production = Production.find(params[:comment][:id])
-    @comments = @production.comments.order(created_at: "DESC")
-    @comment = current_user.comments.build(production_id: @production.id,content: params[:comment][:content])
+    @product = Production.find(params[:comment][:id])
+    @comments = @product.comments.order(created_at: "DESC")
+    @comment = current_user.comments.build(product_id: @product.id,content: params[:comment][:content])
     @comment.save
-    create_notification(@production.store.user, "",@comment,"comment")
+    create_notification(@product.store.user, "",@comment,"comment")
 
     respond_to do |format|
       format.js
@@ -23,9 +23,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @production = Production.find(@comment.production_id)
+    @product = Production.find(@comment.product_id)
     @comment.destroy
-    @comments = @production.comments.order(created_at: "DESC")
+    @comments = @product.comments.order(created_at: "DESC")
    respond_to do |format|
       format.js
       format.html

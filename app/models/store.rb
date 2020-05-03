@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-  has_many :productions, dependent: :destroy
+  has_many :products, dependent: :destroy
   has_many :addresses, dependent: :destroy
   belongs_to :user
 
@@ -12,8 +12,8 @@ class Store < ApplicationRecord
 
   private
   def geocode
-    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=#{ENV['GOOGLE_MAP_KEY']}")
-    res = HTTP.get(uri).to_s
+    cgi = CGI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=#{ENV['GOOGLE_MAP_KEY']}")
+    res = HTTP.get(cgi).to_s
     response = JSON.parse(res)
     self.latitude = response["results"][0]["geometry"]["location"]["lat"]
     self.longitude = response["results"][0]["geometry"]["location"]["lng"]

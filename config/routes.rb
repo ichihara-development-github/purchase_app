@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
  post "login", to: "session#create"
 
- get "edit_productions", to: "productions#edit_productions"
+ get "edit_products", to: "products#edit_products"
  get "registration", to: "users#registration"
  post "payment", to: "users#payment"
  get "complete_payment", to: "users#complete_payment"
@@ -26,24 +26,26 @@ Rails.application.routes.draw do
 
  get "store_management", to: "users#management"
 
- get "search", to: "productions#search"
- get "free_search", to: "productions#free_search"
+ get "search", to: "products#search"
+ get "free_search", to: "products#free_search"
 
  post "basket_add", to: "baskets#add"
  post "basket_delete", to: "baskets#delete"
 
- post   "/baskets/:production_id" => "baskets#create", as: "in_basket"
- delete "/baskets/:production_id" => "baskets#destroy", as: "out_basket"
+ post   "/baskets/:product_id" => "baskets#create", as: "in_basket"
+ delete "/baskets/:product_id" => "baskets#destroy", as: "out_basket"
 
  get "after_purchace", to: "purchaces#after_purchace"
 
  delete "notifications", to: "notifications#destroy"
 
+ get "stores_map", to: "stores#stores_map"
+
  resources :users
  resources :password_resets, only: [:new, :create, :edit, :update]
  resources :session, only: [:new, :create, :destroy]
  resources :stores
- resources :productions
+ resources :products
  resources :comments, only: [:create, :destroy]
  resources :baskets, only: [:index]
  resources :purchaces, only: [:new, :create]
