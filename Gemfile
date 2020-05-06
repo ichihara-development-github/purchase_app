@@ -15,7 +15,7 @@ gem 'mysql2'
 gem 'geocoder'
 gem 'http'
 
-gem 'dotenv-rails'
+gem 'gon'
 
 platforms :ruby do
   gem 'unicorn'
