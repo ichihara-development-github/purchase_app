@@ -26,6 +26,7 @@ function initMap() {
       transitLayer.setMap(map);
 
       <% if stores.class == Store::ActiveRecord_Relation %>
+      <%debugger%>
         <% stores.each do |store| %>
         (function(){
 
