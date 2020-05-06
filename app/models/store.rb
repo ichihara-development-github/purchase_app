@@ -14,7 +14,7 @@ class Store < ApplicationRecord
 
   private
   def geocode
-    res = HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=#{ENV['GOOGLE_MAP_KEY']}")
+    res = HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co")
     response = JSON.parse(res)
     self.latitude = response["results"][0]["geometry"]["location"]["lat"]
     self.longitude = response["results"][0]["geometry"]["location"]["lng"]
