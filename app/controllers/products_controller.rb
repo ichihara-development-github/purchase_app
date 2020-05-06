@@ -71,8 +71,6 @@ class ProductsController < ApplicationController
     redirect_to edit_products_path
   end
 
-
-
  #-------------------------search-------------------------------
 
   def search
