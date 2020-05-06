@@ -25,36 +25,24 @@ function initMap(){
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
-      <% Store.all.each do |store| %>
-
-
-
-      (function(){
-
+      <% Store.all..each do |store| %>
+(function(){
+        var contentString = '<%= link_to store.name, store_path(store) %>';
         var infowindow = new google.maps.InfoWindow({
-          content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
-                   "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
-                   "<p><%= store.address %></p>",
-                   maxWidth: 220
-
+            content: contentString
         });
 
         var marker = new google.maps.Marker({
-          position:{lat: <%= store.latitude %> , lng: <%= store.longitude %> },
-          map: map,
-          title: "<%= store.address if store.address %>",
-          animation: google.maps.Animation.DROP
+            position:{lat: <%= store.latitude %>, lng: <%= store.longitude %>},
+            map: map,
+            title: contentString,
+            icon: '../img/mapicon.png'
         });
-
-        marker.addListener("click", function(){
-          infowindow.open(map, marker);
+      marker.addListener('click', function() {
+            infowindow.open(map, marker);
         });
-
-
-
-
-
-      })();
+})();
+      <% end %>
 
   <% end %>
 
