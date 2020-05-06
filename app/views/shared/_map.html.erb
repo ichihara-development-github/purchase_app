@@ -27,7 +27,7 @@ function initMap() {
 
       <% if stores.class == Store::ActiveRecord_Relation %>
         <% stores.each do |store| %>
-        (function show_map(){
+        (function(){
 
           var infowindow = new google.maps.InfoWindow({
             content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
@@ -55,7 +55,7 @@ function initMap() {
         <% end %>
       <% else %>
       <% store = stores %>
-      (function show_map(){
+      (function(){
 
         var infowindow = new google.maps.InfoWindow({
           content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
