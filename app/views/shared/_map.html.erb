@@ -1,11 +1,11 @@
 <h2>店舗の所在地</h2>
-<div id = "map">
+<div class = "map">
 
 
 </div>
 
 <style>
-#map{
+.map{
   height: 400px;
 }
 </style>
@@ -17,7 +17,7 @@ function initMap() {
       //初期表示位置
       var latlng = new google.maps.LatLng(36.30, 139.5);
 
-      var map = new google.maps.Map(document.getElementById('map'), {
+      var map = new google.maps.Map(document.getElementByClassName('map'), {
           zoom: 10,
           center: latlng
 

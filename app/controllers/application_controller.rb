@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def has_authority?(user)
-    unless (current_user == user) || current_us
+    unless (current_user == user) || current_user
       er.admin
       redirect_to root_path
       flash[:danger] = '権限がありません'

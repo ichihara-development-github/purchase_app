@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "ユーザー登録が完了しました"
       session[:user_id] = @user.id
-      redirect_to productions_path
+      redirect_to products_path
     else
       flash[:error_messages] = @user.errors.full_messages
       render "new"
