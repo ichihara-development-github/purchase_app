@@ -17,7 +17,7 @@
             <h4><%= @store.description %></h4>
           </div>
           <div class="col-11 middle">
-            <%= render "shared/map", stores: @store if @store.address.present? %>
+            <%= render "shared/map" if @store.address.present? %>
             <%= @store.address %>
           </div>
          <% if has_store(@store) %>

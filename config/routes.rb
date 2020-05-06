@@ -39,8 +39,6 @@ Rails.application.routes.draw do
 
  delete "notifications", to: "notifications#destroy"
 
- get "stores_map", to: "stores#stores_map"
-
  resources :users
  resources :password_resets, only: [:new, :create, :edit, :update]
  resources :session, only: [:new, :create, :destroy]

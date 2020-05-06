@@ -40,11 +40,10 @@ class StoresController < ApplicationController
   end
 
   def stores_map
-  
+
   end
 
   def show
-    @store = Store.find(params[:id])
     @products = @store.products
   end
 

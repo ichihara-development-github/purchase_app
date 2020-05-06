@@ -1,16 +1,16 @@
 <div href="#" class="list-group-item list-group-item-action">
    <div class="d-flex w-100 justify-content-between">
      <div class = "col-4">
-       <% if @user.profile_image.present? %>
-           <%= image_tag @user.profile_image, style: "width: 100px; border-radius: 1000px" %>
+       <% if user.profile_image.present? %>
+           <%= image_tag user.profile_image, style: "width: 100px; border-radius: 1000px" %>
        <% else %>
            <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 100px; border-radius: 1000px" alt="Something">
        <% end %>
      </div>
      <div class = "col-8">
-     <%= link_to user_path(@user) do%>
-      <h4><%= @user.name %></h4>
-      <h5><%= @user.introduce %></h5>
+     <%= link_to user_path(user) do%>
+      <h4><%= user.name %></h4>
+      <h5><%= user.introduce %></h5>
      <% end %>
      </div>
    </div>

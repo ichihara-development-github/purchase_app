@@ -5,12 +5,12 @@
        <%= @user.following.count %>
      </strong>
     <% end %>
-  following
+  フォロー
 
   <%= link_to followers_user_path(@user) do %>
     <strong id = "followers">
      <%= @user.followers.count %>
     </strong>
   <% end %>
-  followers
+  フォロワー
 </div>

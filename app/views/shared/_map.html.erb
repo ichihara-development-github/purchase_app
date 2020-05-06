@@ -26,21 +26,20 @@ function initMap(){
       transitLayer.setMap(map);
 
 
-      <% store = stores %>
       (function(){
 
         var infowindow = new google.maps.InfoWindow({
-          content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
-                   "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
-                   "<p><%= store.address %></p>",
+          content: "<img src = '<%= @store.top_image if @store.top_image %>' style = 'width:100%'><br />"+
+                   "<a href='<%= store_path(@store) %>' style = 'font-size: 20px'><%= @store.name %></a><br />"+
+                   "<p><%= @store.address %></p>",
                    maxWidth: 220
 
         });
 
         var marker = new google.maps.Marker({
-          position:{lat: <%= store.latitude %> , lng: <%= store.longitude %> },
+          position:{lat: <%= @store.latitude %> , lng: <%= @store.longitude %> },
           map: map,
-          title: "<%= store.address if store.address %>",
+          title: "<%= @store.address if @store.address %>",
           animation: google.maps.Animation.DROP
         });
 
