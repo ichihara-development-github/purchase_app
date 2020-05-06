@@ -40,13 +40,12 @@ class StoresController < ApplicationController
   end
 
   def stores_map
-    gon.GOOGLE_MAP_KEY = ENV['GOOGLE_MAP_KEY']
+  
   end
 
   def show
     @store = Store.find(params[:id])
     @products = @store.products
-    gon.GOOGLE_MAP_KEY = ENV['GOOGLE_MAP_KEY']
   end
 
   def edit
