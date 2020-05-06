@@ -1,1 +1,64 @@
-<%= render "shared/map", stores: Store.all %>
+<h2>店舗の所在地</h2>
+<div id = "map">
+
+
+</div>
+
+<style>
+#map{
+  height: 400px;
+}
+</style>
+
+<script>
+
+function initMap(){
+
+      //初期表示位置
+      var latlng = new google.maps.LatLng(35.6812362, 139.7649361);
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: latlng
+
+      });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+      <% Store.all.each do |store| %>
+
+
+
+      (function(){
+
+        var infowindow = new google.maps.InfoWindow({
+          content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
+                   "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
+                   "<p><%= store.address %></p>",
+                   maxWidth: 220
+
+        });
+
+        var marker = new google.maps.Marker({
+          position:{lat: <%= store.latitude %> , lng: <%= store.longitude %> },
+          map: map,
+          title: "<%= store.address if store.address %>",
+          animation: google.maps.Animation.DROP
+        });
+
+        marker.addListener("click", function(){
+          infowindow.open(map, marker);
+        });
+
+
+
+
+
+      })();
+
+  <% end %>
+
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co&callback=initMap&language=ja"></script>
