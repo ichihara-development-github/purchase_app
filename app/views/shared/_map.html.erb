@@ -26,7 +26,7 @@ function initMap(){
       transitLayer.setMap(map);
 
 
-      <% stores.each do |store| %>
+      <% stores = store %>
       (function(){
 
         var infowindow = new google.maps.InfoWindow({
@@ -51,7 +51,7 @@ function initMap(){
 
 
       })();
-      <% end %>
+
 
 
     }
