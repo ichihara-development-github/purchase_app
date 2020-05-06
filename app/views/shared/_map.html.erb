@@ -21,41 +21,14 @@ function initMap(){
       var latlng = new google.maps.LatLng(35.30, 134.0);
 
       var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 6,
+          zoom: 16,
           center: latlng
 
       });
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
-      <% if stores.class == Store::ActiveRecord_Relation %>
-        <% stores.each do |store| %>
-        (function(){
-
-          var infowindow = new google.maps.InfoWindow({
-            content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
-                     "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
-                     "<p><%= store.address %></p>",
-                     maxWidth: 220
-
-          });
-
-          var marker = new google.maps.Marker({
-            position:{lat: <%= store.latitude %> , lng: <%= store.longitude %> },
-            map: map,
-            title: "<%= store.address if store.address %>",
-            animation: google.maps.Animation.DROP
-          });
-
-          marker.addListener("click", function(){
-            infowindow.open(map, marker);
-          });
-
-
-
-        })();
-        <% end %>
-      <% else %>
+      <% if stores.class !== Store::ActiveRecord_Relation %>
       <% store = stores %>
       (function(){
 
@@ -84,6 +57,35 @@ function initMap(){
 
 
       })();
+
+      <% else %>
+      <% stores.each do |store| %>
+      (function(){
+
+        var infowindow = new google.maps.InfoWindow({
+          content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
+                   "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
+                   "<p><%= store.address %></p>",
+                   maxWidth: 220
+
+        });
+
+        var marker = new google.maps.Marker({
+          position:{lat: <%= store.latitude %> , lng: <%= store.longitude %> },
+          map: map,
+          title: "<%= store.address if store.address %>",
+          animation: google.maps.Animation.DROP
+        });
+
+        marker.addListener("click", function(){
+          infowindow.open(map, marker);
+        });
+
+
+
+      })();
+      <% end %>
+
       <% end %>
     }
 
