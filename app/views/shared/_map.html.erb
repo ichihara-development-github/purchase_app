@@ -10,6 +10,9 @@
 }
 </style>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co&callback=initMap&language=ja"></script>
+
+
 <script>
 
 function initMap(){
@@ -18,7 +21,7 @@ function initMap(){
       var latlng = new google.maps.LatLng(35.30, 134.0);
 
       var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 10,
+          zoom: 6,
           center: latlng
 
       });
@@ -43,6 +46,11 @@ function initMap(){
             title: "<%= store.address if store.address %>",
             animation: google.maps.Animation.DROP
           });
+
+          marker.addListener("click", function(){
+            infowindow.open(map, marker);
+          });
+
 
 
         })();
@@ -69,15 +77,17 @@ function initMap(){
         var latlng = new google.maps.LatLng(<%= store.latitude %> , <%= store.longitude %>);
         map.setCenter(latlng);
 
+        marker.addListener("click", function(){
+          infowindow.open(map, marker);
+        });
+
+
 
       })();
       <% end %>
-      marker.addListener("click", function(){
-        infowindow.open(map, marker);
-      });
-
-
     }
-</script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co&callback=initMap&language=ja"></script>
+    $(document).ready(function() {
+  initMap();
+});
+</script>
