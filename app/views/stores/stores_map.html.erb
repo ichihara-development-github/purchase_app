@@ -25,7 +25,7 @@ function initMap(){
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
-      <% Store.all..each do |store| %>
+      <% Store.all.each do |store| %>
 (function(){
         var contentString = '<%= link_to store.name, store_path(store) %>';
         var infowindow = new google.maps.InfoWindow({
@@ -36,13 +36,13 @@ function initMap(){
             position:{lat: <%= store.latitude %>, lng: <%= store.longitude %>},
             map: map,
             title: contentString,
-            icon: '../img/mapicon.png'
+            
         });
       marker.addListener('click', function() {
             infowindow.open(map, marker);
         });
 })();
-      <% end %>
+
 
   <% end %>
 
