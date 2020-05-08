@@ -2,8 +2,8 @@
  <span class = "dropdown-log dropdown-toggle right "> 購入履歴</span>
  <div class = "col-12 display-400 purchacelog">
     <div class = "container ">
-     <h3><%= purchaced_count(current_user) %>点</h3>
-     <h3>合計: ¥<%= purchaced_sum(current_user) %></h3>
+     <h3><%= purchaced_count %>点</h3>
+     <h3>合計: ¥<%= purchaced_sum %></h3>
      </div>
      <table class="table table-striped">
   <thead>
@@ -33,8 +33,13 @@
     現在検討中
 
      <div class = "margin-vertical">
-     <h3><%= basket_count(current_user) %>点</h3>
-     <h3>合計: ¥<%= basket_sum(current_user) %></h3>
+     <h4><%= basket_count %>点</h4>
+     <h4>商品合計 ¥<%= basket_sum %></h4>
+     <h4>+ 送料 <%= postage %></h4><br />
+
+     <h3>合計: ¥<%= basket_sum + postage %></h3><%= render "shared/postage_explanation" %>
+
+     <%= render "shared/postage_explanation" %>
 
     <div class = "right">
       <% if current_user.baskets.exists? %>

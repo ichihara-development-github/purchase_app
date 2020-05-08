@@ -1,16 +1,16 @@
 module UsersHelper
+    include ApplicationHelper
 
-
-    def purchaced_count(user)
-        user.purchaced_products.count
+    def purchaced_count
+        current_user.purchaced_products.count
     end
 
-    def purchaced_sum(user)
-         user.purchaced_products.sum(:price)
+    def purchaced_sum
+         current_user.purchaced_products.sum(:price)
     end
 
-    def considered_count(user)
-         user.considered_products.count
+    def considered_count
+         current_user.considered_products.count
     end
 
 

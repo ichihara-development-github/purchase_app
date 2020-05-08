@@ -2,7 +2,6 @@
 
 class Store < ApplicationRecord
   has_many :products, dependent: :destroy
-  has_many :addresses, dependent: :destroy
   belongs_to :user
 
   validates :name, presence: true, uniqueness: true, length: {minimum: 1}

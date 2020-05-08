@@ -1,5 +1,7 @@
 module StoresHelper
 
+  include ApplicationHelper
+
     def has_store(store)
       if current_user.store
         current_user.store == store

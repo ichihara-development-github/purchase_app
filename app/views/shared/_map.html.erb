@@ -1,4 +1,4 @@
-<h2>店舗の所在地</h2>
+
 <div id = "map">
 
 
@@ -15,16 +15,28 @@
 function initMap(){
 
       //初期表示位置
-      var latlng = new google.maps.LatLng(35.6812362, 139.7649361);
+      var latlng = new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>);
 
       var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
+          zoom: 10,
           center: latlng
 
       });
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
+      var circleOptions = {
+        center: latlng,  // 中心点(google.maps.LatLng)
+        fillColor: 'red',   // 塗りつぶし色
+        fillOpacity: 0.2,       // 塗りつぶし透過度（0: 透明 ⇔ 1:不透明）
+        map: map,
+        radius: 20000,
+        strokeColor: 'red', // 外周色
+        strokeOpacity: 0.5,       // 外周透過度（0: 透明 ⇔ 1:不透明）
+        strokeWeight: 0.5         // 外周太さ（ピクセル）
+    };
+
+      var cityCircle = new google.maps.Circle(circleOptions);
 
       (function(){
 
@@ -46,8 +58,16 @@ function initMap(){
         marker.addListener("click", function(){
           infowindow.open(map, marker);
         });
+      })();
 
+      (function(){
 
+        var marker = new google.maps.Marker({
+          position:{lat: <%= current_user.latitude %> , lng: <%= current_user.longitude %> },
+          map: map,
+          title: "自宅　<%= current_user.address if current_user.address %>",
+          animation: google.maps.Animation.DROP
+        });
 
       })();
 

@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.address ||= "東京"
+
     if @user.save
       flash[:success] = "ユーザー登録が完了しました"
       session[:user_id] = @user.id
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      @user.update(address: "東京") unless params[:user][:address]
       flash[:success] = "編集が完了しました"
       redirect_to edit_user_path(@user)
     else
@@ -153,7 +156,7 @@ class UsersController < ApplicationController
 private
 
 def user_params
-  params.require(:user).permit(:name, :email, :introduce, :profile_image, :password, :password_confirmation)
+  params.require(:user).permit(:name, :email, :introduce, :address,:profile_image, :password, :password_confirmation)
 end
 
 end

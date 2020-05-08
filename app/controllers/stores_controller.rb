@@ -45,6 +45,7 @@ class StoresController < ApplicationController
 
   def show
     @products = @store.products
+    @distance = distance(current_user.latitude, current_user.longitude, @store.latitude, @store.longitude)
   end
 
   def edit

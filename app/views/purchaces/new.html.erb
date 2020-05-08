@@ -5,20 +5,21 @@
 
     <%= hidden_field_tag "stripeToken" %>
      <%= hidden_field_tag "stripe_email" %>
-      <%= hidden_field_tag 'amount', basket_sum(current_user)%>
+      <%= hidden_field_tag 'amount', basket_sum + postage %>
     <%= hidden_field_tag "user_id", current_user.id %>
 
     <%= render "shared/explanation" %>
-  
+
     <button id = "btn-pay" type = "button" class = "btn btn-primary"> 以下の内容で支払いをする</button>
 
-     <div>
-
- <div class="row basket-index">
- <%= render "baskets/product", obj: @products %>
-</div>
-
+  <div>
+    <%= render "postage_explanation" %>
+  
+     <div class="row basket-index">
+     <%= render "baskets/product", obj: @products %>
     </div>
+
+  </div>
 
     <script>
     var handler = StripeCheckout.configure({

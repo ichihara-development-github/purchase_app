@@ -1,5 +1,5 @@
 <% unless current_user.seller? %>
-<%= render "shared/invite_seller" %>
+   <%= link_to "オーナ登録はこちら", registration_path ,class: "btn btn-warning btn-lg btn-block" %>
 <% end %>
 
 <div class = "container center">
@@ -20,6 +20,9 @@
             <%= render "shared/map" if @store.address.present? %>
             <%= @store.address %>
           </div>
+          <p><%= current_user.address %>まで<%= @distance.round(2) %> km</p>
+          <h3>送料　¥<%= how_much_postage(@distance)%></h3><br />
+          <%= render "shared/postage_explanation" %>
          <% if has_store(@store) %>
          <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
          <% end %>

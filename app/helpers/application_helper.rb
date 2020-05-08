@@ -1,3 +1,4 @@
+
 module ApplicationHelper
 
     def current_user
@@ -6,4 +7,13 @@ module ApplicationHelper
         end
     end
 
+    def how_much_postage(distance)
+      if distance < 20
+        0
+      elsif distance < 50
+        500
+      else
+        1000
+      end
+    end
 end

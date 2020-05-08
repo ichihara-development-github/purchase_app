@@ -2,7 +2,7 @@
    <div class="col-md-10 margin-vertical basket-wrapper">
       <%= image_tag product.main_image,style: "width:30%",class: "left card-img" %>
       <div class = "basket-container right">
-          <span class = "right", style = "color:red"><%= product.price %></span>
+          <h4 class = "right">¥ <%= product.price %></h4>
           <div calss = "container">
           <%= link_to product_path(product) do %>
               <h4><%= product.name %></h4>
