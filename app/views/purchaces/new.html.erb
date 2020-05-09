@@ -13,8 +13,14 @@
     <button id = "btn-pay" type = "button" class = "btn btn-primary"> 以下の内容で支払いをする</button>
 
   <div>
-    <%= render "postage_explanation" %>
-  
+    <div class="margin-vertical">
+      <h4><%= basket_count %>点</h4>
+      <h4>商品合計 ¥<%= basket_sum %></h4>
+      <h4>+ 送料 <%= postage %></h4><br />
+
+      <h3>合計: ¥<%= basket_sum + postage %></h3>
+    </div>
+
      <div class="row basket-index">
      <%= render "baskets/product", obj: @products %>
     </div>

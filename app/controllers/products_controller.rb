@@ -24,6 +24,11 @@ class ProductsController < ApplicationController
      @product = @store.products.build(product_params)
 
     if @product.save
+      users = current_user.followers
+      debugger
+      users.each do |user|
+        create_notification(user, @product, "", "create")
+      end
       redirect_to products_path
       flash[:success] = "商品の作成が完了しました"
     else
@@ -49,6 +54,7 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @product.comments.order(created_at: "DESC")
+    @distance = distance(current_user.latitude, current_user.longitude, @product.store.latitude, @product.store.longitude)
   end
 
   def edit_products

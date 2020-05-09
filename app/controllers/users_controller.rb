@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      @user.update(address: "東京") unless params[:user][:address]
+      @user.update(address: "東京") unless params[:user][:address].present?
       flash[:success] = "編集が完了しました"
       redirect_to edit_user_path(@user)
     else

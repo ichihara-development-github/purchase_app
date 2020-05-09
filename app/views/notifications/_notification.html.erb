@@ -1,5 +1,5 @@
 <% notice_user = notification.notice_user %>
-<% if production = notification.production %><% end %>
+<% if product = notification.product %><% end %>
 <% if comment = notification.comment %><% end %>
 
  <div href="#" class="list-group-item list-group-item-action">
@@ -15,15 +15,21 @@
         <h5 class="mb-1">
           <%= link_to user_path(notice_user) do %><%= notice_user.name %><% end %>が
           <% if notification.action == "purchase" %>
-           <%= link_to production_path(production) do %><%= production.name %><% end %>を購入しました。
+           <%= link_to product_path(product) do %><%= product.name %><% end %>を購入しました。
           <% elsif notification.action == "comment"%>
-            <%= comment.production.name %>に<br />
+            <%= comment.product.name %>に<br />
             コメントしました<br /><br />
-          <%= link_to production_path(comment.production) do %><%= comment.content %><% end %>
+          <%= link_to product_path(comment.product) do %><%= comment.content %><% end %>
           <% elsif notification.action == "basket"%>
-           <%= production.name %>をカートに入れました。
+           <%= product.name %>をカートに入れました。
           <% elsif notification.action == "follow"%>
             さんがあなたをフォローしました。
+          <% elsif notification.action == "create" %>
+            新商品
+            <%= link_to product_path(product) do %>
+              【<%= product.name %>】
+            <% end %>
+            を出品しました
           <% end %>
         </h5>
         <midium class ="right"><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></midium>
