@@ -62,11 +62,20 @@ function initMap(){
 
       (function(){
 
+        var infowindow = new google.maps.InfoWindow({
+          content: "<p><%= current_user.address if current_user.address %></p><br />"+
+                     "<span>自宅</span>"
+        });
+
+
         var marker = new google.maps.Marker({
           position:{lat: <%= current_user.latitude %> , lng: <%= current_user.longitude %> },
           map: map,
-          title: "自宅　<%= current_user.address if current_user.address %>",
           animation: google.maps.Animation.DROP
+        });
+
+        marker.addListener("click", function(){
+          infowindow.open(map, marker);
         });
 
       })();
