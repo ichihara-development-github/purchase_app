@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 8)
-    popular
+    popular.limit(3)
   end
 
   def line_up
@@ -56,9 +56,8 @@ class ProductsController < ApplicationController
 
   end
 
-
   def popular
-    @popular = Product.order(Arel.sql('Purchaced.group(:product_id).count(:product_id).sort_by{ | _k, v | v }.reverse)')
+     Product.find(Purchaced.group(:product_id).order('count(product_id) desc').pluck(:product_id))
   end
 
   def show
@@ -99,7 +98,7 @@ class ProductsController < ApplicationController
         flash[:warning] = "マッチする商品が見つかりませんでした"
         redirect_to products_path
       else
-        popular
+        popular.limit(3)
         render "index"
       end
     end
@@ -112,7 +111,7 @@ class ProductsController < ApplicationController
           flash[:warning] = "マッチする商品が見つかりませんでした"
           redirect_to products_path
         else
-          popular
+          popular.limit(3)
           render "index"
         end
     end
