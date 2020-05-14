@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 8)
-    popular.limit(3)
+    popular
   end
 
   def line_up
@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
   end
 
   def popular
-     Product.find(Purchaced.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+     @popular = Product.find(Purchaced.group(:product_id).order('count(product_id) desc').pluck(:product_id))
   end
 
   def show
@@ -98,7 +98,7 @@ class ProductsController < ApplicationController
         flash[:warning] = "マッチする商品が見つかりませんでした"
         redirect_to products_path
       else
-        popular.limit(3)
+        popular
         render "index"
       end
     end
