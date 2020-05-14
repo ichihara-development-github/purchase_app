@@ -37,6 +37,10 @@ class Product < ApplicationRecord
         end
    end
 
+   def self.popular
+     Product.find(Purchaced.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+   end
+
   belongs_to :store
 
   has_many :baskets, dependent: :destroy

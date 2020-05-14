@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ProductsController < ApplicationController
     before_action :login_user?, only: [:show]
     before_action :has_store?, only: [:new, :edit_products]
@@ -45,9 +47,9 @@ class ProductsController < ApplicationController
 
   def line_up
     if params[:line_up] == "価格が安い"
-      @products = Product.order(id: "ASC").paginate(page: params[:page], per_page: 8)
+      @products = Product.order(price: "ASC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "新着順"
-      @products = Product.order(created_at: "ASC").paginate(page: params[:page], per_page: 8)
+      @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "購入数"
       @products = popular.paginate(page: params[:page], per_page: 8)
     end
@@ -57,7 +59,7 @@ class ProductsController < ApplicationController
   end
 
   def popular
-     @popular = Product.find(Purchaced.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+     @popular = Product.popular
   end
 
   def show
