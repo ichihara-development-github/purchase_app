@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
 
 
   def popular
-    @popular = Product.order(Purchaced.group(:product_id).count(:product_id).sort_by{ | _k, v | v }.reverse)
+    @popular = Product.order(Arel.sql('Purchaced.group(:product_id).count(:product_id).sort_by{ | _k, v | v }.reverse)')
   end
 
   def show
