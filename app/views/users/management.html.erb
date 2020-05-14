@@ -1,8 +1,8 @@
  <h2>これまでの売り上げ</h2>
       <h3><%= purchaced_data(current_user).count %>点</h3>
        <h3>合計: ¥<%= pay_off(current_user)  %></h3>
-    
- 
+
+
   <div class = "display-400">
     <div class = "container">
      <table class="table table-striped">
@@ -16,11 +16,11 @@
   </thead>
     <tbody>
      <% purchaced_data(current_user).each do |datum| %>
-     <% production = Production.find(datum.production_id) %>
+     <% product = Product.find(datum.product_id) %>
      <% user = User.find(datum.user_id) %>
     <tr>
-      <td><%= production.name %></td>
-      <td><%= production.price %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
       <td><%= datum.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
        <td><%= link_to user_path(user) do %><%= user.name %><% end %></td>
     </tr>
@@ -47,11 +47,11 @@
   </thead>
    <tbody>
        <% basket_data(current_user).each do |datum| %>
-     <% production = Production.find(datum.production_id) %>
+     <% product = Product.find(datum.product_id) %>
      <% user = User.find(datum.user_id) %>
     <tr>
-      <td><%= production.name %></td>
-      <td><%= production.price %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
       <td><%= datum.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
       <td><%= user.name %></td>
     </tr>
@@ -60,4 +60,3 @@
 </table>
 </div>
 </table>
-

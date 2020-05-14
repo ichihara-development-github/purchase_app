@@ -48,6 +48,8 @@ class ProductsController < ApplicationController
   def line_up
     if params[:line_up] == "価格が安い"
       @products = Product.order(price: "ASC").paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "価格が高い"
+        @products = Product.order(price: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "新着順"
       @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "購入数"
