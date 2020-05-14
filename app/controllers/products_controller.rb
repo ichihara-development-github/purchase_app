@@ -43,12 +43,25 @@ class ProductsController < ApplicationController
     popular
   end
 
-  def popular
-    popular_list = Purchaced.group(:product_id).count(:product_id).sort_by{ | _k, v | v }.reverse
-    @popular = []
-    popular_list.each do |popular|
-      @popular << Product.find(popular[0])
+  def line_up
+    if params[:line_up] == "価格が安い"
+      @products = Product.order(id: "ASC").paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "新着順"
+      @products = Product.order(created_at: "ASC").paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "購入数"
+      @products = line_up_purchased.paginate(page: params[:page], per_page: 8)
     end
+    popular
+    render "index"
+
+  end
+
+  def line_up_purchased
+    @popular = Product.order(Purchaced.group(:product_id).count(:product_id).sort_by{ | _k, v | v }.reverse)
+  end
+
+  def popular
+    line_up_purchased
   end
 
   def show

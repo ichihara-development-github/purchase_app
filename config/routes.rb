@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
  get "store_management", to: "users#management"
 
+ get"line_up", to: "products#line_up"
+
  get "search", to: "products#search"
  get "free_search", to: "products#free_search"
 

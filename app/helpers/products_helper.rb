@@ -14,6 +14,10 @@ module ProductsHelper
       ["スポーツ","ファッション","デジタル","生活", "食品"]
     end
 
+    def line_up_list
+      ["価格が安い","購入数","新着順"]
+    end
+
     def choice(search_factor)
       product = Product.all.pluck(search_factor)
       product.uniq
