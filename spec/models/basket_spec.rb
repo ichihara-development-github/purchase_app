@@ -8,16 +8,16 @@ RSpec.describe Basket, type: :model do
         store.save
         @production_sample = store.productions.build(name: "SampleProduction", description:"This is sample production", price: 1,main_image: "sample.jpg")
         @production_sample.save
-    
+
     end
    it "is basket belongs to production?" do
      basket = @user_sample.baskets.build()
-     expect(basket).not_to be_valid
+     expect(basket).to be_valid
   end
    it "is basket belongs to user?" do
       basket = Basket.new(production_id: @production_sample.id)
      expect(basket).not_to be_valid
   end
-  
-  
+
+
 end

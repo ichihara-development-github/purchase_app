@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       users = current_user.followers
-      debugger
+
       users.each do |user|
         create_notification(user, @product, "", "create")
       end

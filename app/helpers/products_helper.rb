@@ -1,9 +1,7 @@
 module ProductsHelper
 
-  def has_product(product)
-    if current_user.store
-      current_user.store.products.select(product)
-    end
+  def has_product?(product)
+      current_user.store.products.include?(product)
   end
 
     def in_basket(product)

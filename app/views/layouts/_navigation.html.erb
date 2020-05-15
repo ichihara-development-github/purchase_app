@@ -37,7 +37,7 @@
               <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_products_path, class: "dropdown-item" %></a>
             <% end %>
           <% else %>
-           <a class="dropdown-item" href="#"><%= link_to "Store新規作成", new_store_path, class: "dropdown-item" %></a>
+           <a class="dropdown-item" href="#"><%= link_to "店舗新規作成", new_store_path, class: "dropdown-item" %></a>
           <% end %>
           <a class="dropdown-item" href="#"><%= link_to "管理画面", store_management_path, class: "dropdown-item" %></a>
           <% if current_user.admin %>
