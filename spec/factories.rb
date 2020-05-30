@@ -1,9 +1,4 @@
 FactoryBot.define do
-  factory :address do
-    name { "MyString" }
-    latitude { 1.5 }
-    longitude { 1.5 }
-  end
 
   factory :relationship do
 
@@ -21,18 +16,33 @@ FactoryBot.define do
     email { "user@user.com"}
     password{ "password"}
     seller {true}
-    admin{ true}
+    admin{true}
+    store_id {1}
+    address{"東京"}
   end
+
+  factory :user2, class: User do
+    id {2}
+    name{"user2"}
+    email { "user2@user.com"}
+    password{ "password"}
+    seller {true}
+    admin{ true}
+    address{ "東京"}
+  end
+
+
 
   factory :normal_user, class: User do
     id {2}
    name { "normal_user"}
    email {"normal_user@user.com"}
    password {"password"}
+   address{ "東京"}
   end
 
   factory :has_no_store, class: User do
-    id {3}
+  id {3}
    name { "has_no_store"}
    email {"has_no_store@user.com"}
    password {"password"}
@@ -40,18 +50,18 @@ FactoryBot.define do
   end
 
   factory :store, class: Store do
+    id {1}
     name {"store"}
     description {"This is my store"}
-    top_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/sample.jpg')) }
     user_id { 1 }
+    address {"銀座"}
   end
 
   factory :product, class: Product do
     store_id { 1}
     name  {"product"}
-    price  {1}
+    price  {100}
     description  {"This is the product"}
-    main_image  {"p"}
   end
 
   factory :product2, class: Product do

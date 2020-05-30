@@ -2,7 +2,7 @@
   <%= form_for(@user,maltipart: true) do |f| %>
   <div class= "col-md-10 middle">
 
-    <div class = "form-group">
+  
         <%= f.label :name %><span style = "color:red">*</span>
         <%= f.text_field :name, required: true, class: "form-control" %><br />
 
@@ -18,7 +18,4 @@
 
     <%= f.submit "ユーザーを登録" ,class:"btn btn-primary form-control" %>
      </div>
-    </div>
   <% end %>
-
-</div>

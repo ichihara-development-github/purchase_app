@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'addresses/create'
-
-  get 'addresses/destroy'
-
-  get 'relationships/create'
-
-  get 'relationships/destroy'
-
-  get "comments/index"
-
-  get "purcahce/new"
-
- root "welcome#top"
+ root to: "welcome#top"
 
  post "login", to: "session#create"
 

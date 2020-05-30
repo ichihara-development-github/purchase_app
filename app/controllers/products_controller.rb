@@ -1,8 +1,8 @@
 require 'will_paginate/array'
 
 class ProductsController < ApplicationController
-    before_action :login_user?, only: [:show]
     before_action :has_store?, only: [:new, :edit_products]
+    before_action :login_user?, only: [:show]
     before_action :set_product, only: [:show, :edit, :update, :destroy]
     before_action -> { has_authority?(@product.store.user) }, only: [:edit, :update, :destroy]
 
@@ -11,8 +11,8 @@ class ProductsController < ApplicationController
   end
 
   def has_store?
-   if current_user.seller && !current_user.store
-    flash[:warning] = "店舗を所持していません"
+    unless current_user && !current_user.store
+    flash[:warning] = "商品を作成できません"
     redirect_to new_store_path
    end
   end

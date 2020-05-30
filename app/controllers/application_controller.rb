@@ -1,6 +1,7 @@
 require './lib/hubeny_distance'
 
 class ApplicationController < ActionController::Base
+
   protect_from_forgery with: :exception
   include HubenyDistance
 
@@ -15,28 +16,28 @@ class ApplicationController < ActionController::Base
 
   def login_user?
     unless current_user
-      flash[:warning] = 'Loginが必要です'
       redirect_to new_session_path
+      return flash[:warning] = 'Loginが必要です'
     end
   end
 
   def seller_user?
-    unless current_user.seller?
+    unless current_user && current_user.admin
       flash[:danger] = 'オーナー権限がありません'
-      redirect_to new_session_path
+      redirect_to root_path
     end
   end
 
   def admin_user?
-    unless current_user
+      debugger
+    unless current_user && current_user.admin
       flash[:danger] = '管理者権限がありません'
-      redirect_to new_session_path
+      redirect_to root_path
     end
   end
 
   def has_authority?(user)
-    unless (current_user == user) || current_user
-      er.admin
+    unless current_user && ((current_user == user) || current_user.admin)
       redirect_to root_path
       flash[:danger] = '権限がありません'
     end

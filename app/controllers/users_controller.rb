@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :login_user?, only: [:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action -> { has_authority?(@user) }, only: [:update, :edit, :destroy]
+  before_action -> { has_authority?(@user) }, only: [:update, :edit]
   before_action :seller_user?, only: [:management]
-  before_action :admin_user?, only: [:index]
+  before_action :admin_user?, only: [:destroy]
 
   def set_user
     @user = User.find(params[:id])
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 #-------------------------------------------------------------------------------
 
   def index
+      debugger
     @users = User.all
   end
 
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.address ||= "東京"
-
     if @user.save
       flash[:success] = "ユーザー登録が完了しました"
       session[:user_id] = @user.id
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -53,6 +54,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+
     unless (current_user == @user) or @user.admin
       if @user.destroy
           flash[:success] = "ユーザーを削除しました"
