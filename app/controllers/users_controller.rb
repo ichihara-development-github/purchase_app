@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action -> { has_authority?(@user) }, only: [:update, :edit]
   before_action :seller_user?, only: [:management]
-  before_action :admin_user?, only: [:destroy]
+  before_action :admin_user?, only: [:index, :destroy]
 
   def set_user
     @user = User.find(params[:id])
@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 #-------------------------------------------------------------------------------
 
   def index
-      debugger
     @users = User.all
   end
 
@@ -54,14 +53,16 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
-    unless (current_user == @user) or @user.admin
+     if (current_user == @user) or @user.admin
+       flash[:warning] = "自分と管理者は削除できません"
+       redirect_to users_path
+     else
       if @user.destroy
           flash[:success] = "ユーザーを削除しました"
           redirect_to users_path
       else
           flash[:warning] = "上手くいきませんでした"
-          render users_path
+          render "index"
       end
     end
   end

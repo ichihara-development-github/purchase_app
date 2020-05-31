@@ -29,7 +29,6 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_user?
-      debugger
     unless current_user && current_user.admin
       flash[:danger] = '管理者権限がありません'
       redirect_to root_path

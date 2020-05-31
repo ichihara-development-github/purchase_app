@@ -4,13 +4,18 @@ class SessionController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
-      login user
-      redirect_to products_path
+    if !current_user
+      user = User.find_by(email: params[:session][:email])
+      if user && user.authenticate(params[:session][:password])
+        login user
+        redirect_to products_path
+      else
+        flash[:warning] = "メールアドレスとパスワードが一致しません"
+        render "new"
+      end
     else
-      flash[:warning] = "メールアドレスとパスワードが一致しません"
-      render "new"
+      redirect_to new_session_path
+      flash[:warning] = "すでに#{current_user.name}としてログインしています"
     end
 
   end

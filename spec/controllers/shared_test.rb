@@ -29,7 +29,7 @@ module Shared_test
   end
 
 
-  shared_examples "redirect to root if user has not autheority" do
+  shared_examples "redirect to root if user has not authority" do
     it "is redirect to login form?" do
       expect(response).to redirect_to root_path
     end
@@ -51,7 +51,11 @@ module Shared_test
   obj ||= model.first
 
    describe "get new" do
-     before {get :new}
+
+     before do
+       login
+       get :new
+     end
 
      it "is http request success?" do
        expect(response).to have_http_status 200
@@ -73,9 +77,11 @@ module Shared_test
   end
 
    describe "get index" do
-     unless model == Product
-       before {get :index
-               login}
+       before do
+         login
+         get :index
+       end
+
        it "assign the requested object to @object" do
          expect(assigns(:"#{instance_name.pluralize}")).to match_array(model.all)
        end
@@ -83,7 +89,6 @@ module Shared_test
        it "is http request success?" do
          expect(response).to have_http_status 200
        end
-     end
    end
 
 
@@ -106,33 +111,63 @@ module Shared_test
 
     context "user has not logged in" do
       before { get :show, id: obj.id}
-
       it_behaves_like "redirect to loginpage if user has not logged in"
     end
-
   end
 
    describe "get edit" do
-     before {get :edit, id: obj.id}
-     debugger
 
-     context "user is admin" do
-       before{login}
-       it "assign the requested object to @object" do
-         expect(assigns(:"#{instance_name}")).to eq obj
-       end
+     unless model == Store
 
-       it "is http request success?" do
-         expect(response).to have_http_status 200
-         model.destroy_all
+       context "user is admin and" do
+         before do
+           login
+           get :edit, id: obj.id
+         end
+
+         it "assign the requested object to @object" do
+           expect(assigns(:"#{instance_name}")).to eq obj
+         end
+
+         it "is http request success?" do
+           expect(response).to have_http_status 200
+           model.destroy_all
+         end
        end
-     end
 
        context "user is not admin" do
-         it_behaves_like "redirect to root if user has not autheority"
+         before{ get :edit, id: obj.id}
+         it_behaves_like "redirect to root if user has not authority"
        end
+
+     end
    end
 
+   # describe "pathch update" do
+   #
+   #   context "user has authority" do
+   #     before do
+   #       login
+   #       patch :update, prams{id: obj, name: "updated"}
+   #     end
+   #
+   #     it "is redirect to root?" do
+   #       expect(response).to redirect_to "edit/#{instance_name}/#{obj.id}"
+   #     end
+   #
+   #     it "assign the danger message to flash" do
+   #       expect(flash[:danger]).to eq "権限がありません"
+   #     end
+   #
+   #
+   #   end
+   #
+   #   context "user has authority" do
+   #     before{patch :update, prams{id: obj, name: "updated"}}
+   #     it_behaves_like "redirect to root if user has not authority"
+   #   end
+   #
+   # end
   end
 
 end

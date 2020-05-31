@@ -46,7 +46,6 @@ class StoresController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

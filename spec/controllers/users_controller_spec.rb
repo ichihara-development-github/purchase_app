@@ -13,9 +13,12 @@ RSpec.describe UsersController, type: :controller do
   describe "delete #destroy" do
 
     let!(:normal_user){create(:normal_user)}
+    let!(:admin_user){create(:user2)}
 
     context "user is admin" do
       before{login}
+
+      context "target user is normal user" do
 
         it "Was it removed in the database" do
           expect{
@@ -24,8 +27,30 @@ RSpec.describe UsersController, type: :controller do
         end
 
         it "assign the danger message to flash" do
-          expect(flash[:success]).to match "ユーザーを削除しました"
+          delete :destroy,id: normal_user
+          expect(flash[:success]).to eq "ユーザーを削除しました"
         end
+
+      end
+
+      context "target user has admin attribute" do
+
+        it "Was not removed in the database" do
+          expect{
+          delete :destroy,
+          id: admin_user}.to change(User, :count).by(0)
+        end
+
+        it "assign the danger message to flash" do
+          delete :destroy,id: admin_user
+          expect(flash[:warning]).to eq "自分と管理者は削除できません"
+        end
+
+        it "is redirect to users_path?" do
+          expect(response).to users_path
+        end
+
+      end
 
     end
 
@@ -35,10 +60,24 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  it "get management" do
-    login
-    get :management
-    expect(response).to have_http_status 200
+  describe "get management" do
+
+    context "user is seller" do
+      before do
+        login
+        get :management
+      end
+
+      it "is http request success?" do
+        expect(response).to have_http_status 200
+      end
+    end
+
+    context "user has not seller attribute" do
+      let!(:normal_user){create(:normal_user)}
+      before{get :management}
+      it_behaves_like "redirect to root if user is not seller"
+    end
   end
 
 

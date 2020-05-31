@@ -34,7 +34,7 @@ FactoryBot.define do
 
 
   factory :normal_user, class: User do
-    id {2}
+    id {3}
    name { "normal_user"}
    email {"normal_user@user.com"}
    password {"password"}
@@ -42,7 +42,7 @@ FactoryBot.define do
   end
 
   factory :has_no_store, class: User do
-  id {3}
+  id {4}
    name { "has_no_store"}
    email {"has_no_store@user.com"}
    password {"password"}
