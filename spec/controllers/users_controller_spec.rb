@@ -46,10 +46,6 @@ RSpec.describe UsersController, type: :controller do
           expect(flash[:warning]).to eq "自分と管理者は削除できません"
         end
 
-        it "is redirect to users_path?" do
-          expect(response).to users_path
-        end
-
       end
 
     end
