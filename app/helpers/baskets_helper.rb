@@ -30,7 +30,7 @@ module BasketsHelper
     end
 
     def basket_sum
-      total = current_user.considering_products.sum(:price)
+      current_user.considering_products.sum(:price)
     end
 
 end

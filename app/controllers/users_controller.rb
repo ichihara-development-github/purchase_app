@@ -64,7 +64,7 @@ class UsersController < ApplicationController
           flash[:warning] = "上手くいきませんでした"
           render "index"
       end
-    end
+     end
   end
 
   def following

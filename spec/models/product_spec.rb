@@ -28,8 +28,8 @@ RSpec.describe Product, type: :model do
   end
 
   it "isn't save same name" do
-     product1 = store.products.build(name: "SampleProduct", price:100, description:"This is sample product", main_image: "sample.jpg")
-     product2 = store.products.build(name: "SampleProduct", price:100, description:"This is sample product", main_image: "")
+     store.products.build(name: "SampleProduct", price:100, description:"This is sample product", main_image: "sample.jpg")
+     store.products.build(name: "SampleProduct", price:100, description:"This is sample product", main_image: "")
      expect(product).not_to be_valid
   end
 

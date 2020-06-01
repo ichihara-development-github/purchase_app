@@ -24,7 +24,7 @@ RSpec.describe Store, type: :model do
   end
 
   it "isn't save same name" do
-     store = build(:store)
+     build(:store)
      store = user.build_store(name:"store", address: "東京")
      expect(store).not_to be_valid
   end

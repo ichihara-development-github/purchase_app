@@ -12,10 +12,9 @@ class ProductsController < ApplicationController
 
   def has_store?
     unless current_user && current_user.store
-      debugger
-    flash[:warning] = "店舗を所持していません"
-    redirect_to new_store_path
-   end
+      flash[:warning] = "店舗を所持していません"
+      redirect_to new_store_path
+    end
   end
 
   def new
