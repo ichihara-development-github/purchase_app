@@ -8,7 +8,7 @@ module ApplicationHelper
     end
 
     def how_much_postage(distance)
-      if distance < 20
+      if distance < 10
         0
       elsif distance < 50
         500

@@ -5,6 +5,7 @@ module Shared_test
     allow(controller)
       .to receive(:current_user)
       .and_return(@user)
+    session[:user_id] = @user.id
   end
 
 

@@ -3,14 +3,13 @@ Rails.application.routes.draw do
  root to: "welcome#top"
 
  post "login", to: "session#create"
+ post "guest_login", to: "session#guest_login"
+ post "guest_user_login", to: "session#guest_user_login"
 
  get "edit_products", to: "products#edit_products"
  get "registration", to: "users#registration"
  post "payment", to: "users#payment"
  get "complete_payment", to: "users#complete_payment"
-
- post "guest_login", to: "session#guest_login"
- post "guest_user_login", to: "session#guest_user_login"
 
  get "store_management", to: "users#management"
 
@@ -31,7 +30,7 @@ Rails.application.routes.draw do
 
  resources :users
  resources :password_resets, only: [:new, :create, :edit, :update]
- resources :session, only: [:new, :create, :destroy]
+ resources :session, only: [:new, :destroy]
  resources :stores
  resources :products
  resources :comments, only: [:create, :destroy]

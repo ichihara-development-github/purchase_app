@@ -13,7 +13,7 @@ RSpec.describe SessionController, type: :controller do
     expect(response.status).to eq(200)
   end
 
-  describe "post login" do
+  describe "post create" do
 
     context "user is not logged in" do
 
@@ -54,6 +54,64 @@ RSpec.describe SessionController, type: :controller do
       it "assign the warning message to flash" do
         expect(flash[:warning]).to eq "すでに#{user.name}としてログインしています"
       end
+    end
+  end
+
+  describe "guest log in" do
+    context "log in as guest admin" do
+
+      before{ post :guest_login}
+
+      it "assign the success message to flash" do
+        expect(flash[:success]).to eq "管理者としてログインしました"
+      end
+
+      it "is redirect to loginpage" do
+        expect(response).to redirect_to products_path
+      end
+    end
+
+    context "log in as guest user" do
+
+      it "Was new user saved in the database"  do
+        expect{
+        post :guest_user_login}.to change(User, :count).by(1)
+      end
+
+      it "is redirect to loginpage" do
+        post :guest_user_login
+        expect(response).to redirect_to products_path
+      end
+    end
+
+  end
+
+  describe "delete destroy" do
+
+    before{delete :destroy,id: 1}
+
+    context "user has logged in as guest account" do
+      it "is user_id in session deleted?" do
+        expect(session[:guest_id]).to eq nil
+      end
+
+      it "is user_id in session deleted?" do
+        expect(session[:user_id]).to eq nil
+      end
+    end
+
+    context "user has logged in as self account" do
+      it "is user_id in session deleted?" do
+        expect(session[:user_id]).to eq nil
+      end
+    end
+
+    it "assign the success message to flash" do
+      expect(flash[:success]).to eq "ログアウトしました"
+    end
+
+    it "is redirect to root" do
+      expect(response).to redirect_to root_path
     end
   end
 

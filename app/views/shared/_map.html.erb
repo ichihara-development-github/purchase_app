@@ -26,14 +26,14 @@ function initMap(){
       transitLayer.setMap(map);
 
       var circleOptions = {
-        center: latlng,  // 中心点(google.maps.LatLng)
-        fillColor: 'red',   // 塗りつぶし色
-        fillOpacity: 0.2,       // 塗りつぶし透過度（0: 透明 ⇔ 1:不透明）
+        center: latlng,
+        fillColor: 'red',
+        fillOpacity: 0.2,
         map: map,
-        radius: 20000,
-        strokeColor: 'red', // 外周色
-        strokeOpacity: 0.5,       // 外周透過度（0: 透明 ⇔ 1:不透明）
-        strokeWeight: 0.5         // 外周太さ（ピクセル）
+        radius: 10000,
+        strokeColor: 'red',
+        strokeOpacity: 0.5,
+        strokeWeight: 0.5
     };
 
       var cityCircle = new google.maps.Circle(circleOptions);
