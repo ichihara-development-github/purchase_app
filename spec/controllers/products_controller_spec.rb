@@ -24,13 +24,12 @@ RSpec.describe ProductsController, type: :controller do
     end
 
     describe "default test" do
-      store = Store.first
       Product.destroy_all
       product = FactoryBot.create(:product)
       it_behaves_like "default_test", Product, product
     end
 
-    
+
     describe "search test" do
       let!(:product){Product.find(1)}
       let!(:product2){create(:product2)}
