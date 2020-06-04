@@ -20,7 +20,11 @@ RSpec.describe Comment, type: :model do
   it "isn't save less than 1 charactor" do
       comment = user.comments.build(product_id: product.id)
      expect(comment).not_to be_valid
+  end
 
+  it "isn't save than 100 charactor" do
+     comment = user.comments.build(content: "a"*101, product_id: product.id)
+     expect(comment).not_to be_valid
   end
 
 end

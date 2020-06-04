@@ -76,9 +76,4 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-
-  describe "follow test" do
-
-  end
-
 end

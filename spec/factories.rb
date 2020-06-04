@@ -58,6 +58,7 @@ FactoryBot.define do
   end
 
   factory :product, class: Product do
+    id {1}
     store_id { 1}
     name  {"product"}
     price  {100}
@@ -65,22 +66,23 @@ FactoryBot.define do
   end
 
   factory :product2, class: Product do
+    id {2}
     store_id { 1}
     name  {"product2"}
-    price  {1}
+    price  {1000}
     description  {"This is the product2"}
+    category {"食品"}
     main_image  {"p"}
   end
 
   factory :comment, class: Comment do
     content { "This is a comment" }
-    user_id { 1 }
     product_id { 1 }
+    user_id {1}
   end
 
    factory :comment2, class: Comment do
     content { "This is a comment2" }
-    user_id { 1 }
     product_id { 1 }
   end
 

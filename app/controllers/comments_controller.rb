@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @product = Production.find(params[:comment][:id])
+    @product = Product.find(params[:comment][:id])
     @comments = @product.comments.order(created_at: "DESC")
     @comment = current_user.comments.build(product_id: @product.id,content: params[:comment][:content])
     @comment.save
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @product = Production.find(@comment.product_id)
+    @product = Product.find(@comment.product_id)
     @comment.destroy
     @comments = @product.comments.order(created_at: "DESC")
    respond_to do |format|

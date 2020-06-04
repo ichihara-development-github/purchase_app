@@ -42,26 +42,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 8)
-    popular
-  end
-
-  def line_up
-    if params[:line_up] == "価格が安い"
-      @products = Product.order(price: "ASC").paginate(page: params[:page], per_page: 8)
-    elsif params[:line_up] == "価格が高い"
-        @products = Product.order(price: "DESC").paginate(page: params[:page], per_page: 8)
-    elsif params[:line_up] == "新着順"
-      @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
-    elsif params[:line_up] == "購入数"
-      @products = popular.paginate(page: params[:page], per_page: 8)
-    end
-    popular
-    render "index"
-
-  end
-
-  def popular
-     @popular = Product.popular
+    @popular = Product.popular
   end
 
   def show
@@ -90,6 +71,22 @@ class ProductsController < ApplicationController
     redirect_to edit_products_path
   end
 
+  #----------------------line up------------------------------
+
+  def line_up
+    if params[:line_up] == "価格が安い"
+      @products = Product.order(price: "ASC").paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "価格が高い"
+      @products = Product.order(price: "DESC").paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "新着順"
+      @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "購入数"
+      @products = popular.paginate(page: params[:page], per_page: 8)
+    end
+    @popular = Product.popular
+    render "index"
+  end
+
  #-------------------------search-------------------------------
 
   def search
@@ -102,7 +99,7 @@ class ProductsController < ApplicationController
         flash[:warning] = "マッチする商品が見つかりませんでした"
         redirect_to products_path
       else
-        popular
+        @popular = Product.popular
         render "index"
       end
     end
@@ -110,12 +107,11 @@ class ProductsController < ApplicationController
 
     def free_search
         @products = Product.free_search(params[:free_word]).paginate(page: params[:page], per_page: 10)
-
         if @products.blank?
           flash[:warning] = "マッチする商品が見つかりませんでした"
           redirect_to products_path
         else
-          popular.limit(3)
+          @popular = Product.popular
           render "index"
         end
     end
