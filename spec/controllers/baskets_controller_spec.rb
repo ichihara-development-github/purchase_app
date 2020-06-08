@@ -9,14 +9,16 @@ RSpec.describe BasketsController, type: :controller do
 
   describe "get index" do
 
-    before{ get :index}
-
     context "user has not logged in" do
+      before{ get :index}
       it_behaves_like "redirect to loginpage if user has not logged in"
     end
 
     context "user has logged in" do
-      before{ login }
+      before do
+        login
+        get :index
+      end
 
       it "is http request success?" do
         expect(response).to have_http_status 200
@@ -30,11 +32,10 @@ RSpec.describe BasketsController, type: :controller do
   end
 
   describe "post create" do
+      before{ login}
 
     it "Was it saved in the database" do
-      expect{
-      post :create,
-      params: {basket: {product_id: 1}.to change(Basket, :count).by(1)
+      expect{post :create, params: {product_id: 1}, xhr: true}.to change(Basket, :count).by(1)
     end
   end
 
