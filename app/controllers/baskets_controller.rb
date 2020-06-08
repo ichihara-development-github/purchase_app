@@ -8,8 +8,6 @@ class BasketsController < ApplicationController
          @class_name = ".product-basket-#{@product.id}"
     end
 
-
-
     def index
         @products = current_user.considering_products
     end

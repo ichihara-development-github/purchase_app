@@ -38,15 +38,15 @@ class Product < ApplicationRecord
    end
 
    def self.popular
-     Product.find(Purchaced.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+     Product.find(Purchase.group(:product_id).order('count(product_id) desc').pluck(:product_id))
    end
 
   belongs_to :store
 
   has_many :baskets, dependent: :destroy
   has_many :considered_user, through: :baskets, source: :user
-  has_many :purchaceds, dependent: :nullify
-  has_many :purchaced_user, through: :purchaceds, source: :user
+  has_many :Purchases, dependent: :nullify
+  has_many :Purchase_user, through: :Purchases, source: :user
 
   has_many :comments, dependent: :destroy
 

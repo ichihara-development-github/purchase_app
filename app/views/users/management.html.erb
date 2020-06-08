@@ -1,5 +1,5 @@
  <h2>これまでの売り上げ</h2>
-      <h3><%= purchaced_data(current_user).count %>点</h3>
+      <h3><%= purchase_data(current_user).count %>点</h3>
        <h3>合計: ¥<%= pay_off(current_user)  %></h3>
 
 
@@ -15,7 +15,7 @@
     </tr>
   </thead>
     <tbody>
-     <% purchaced_data(current_user).each do |datum| %>
+     <% purchase_data(current_user).each do |datum| %>
      <% product = Product.find(datum.product_id) %>
      <% user = User.find(datum.user_id) %>
     <tr>

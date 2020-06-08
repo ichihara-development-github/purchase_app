@@ -1,12 +1,12 @@
 module UsersHelper
     include ApplicationHelper
 
-    def purchaced_count
-        current_user.purchaced_products.count
+    def purchase_count
+        current_user.purchase_products.count
     end
 
-    def purchaced_sum
-         current_user.purchaced_products.sum(:price)
+    def purchase_sum
+         current_user.purchase_products.sum(:price)
     end
 
     def considered_count
@@ -14,15 +14,15 @@ module UsersHelper
     end
 
 
-    def purchaced_data(user)
-        purchaced = []
+    def purchase_data(user)
+        purchase = []
         user.store.products.each do |product|
-            data = Purchaced.where(product_id: product.id)
+            data = Purchase.where(product_id: product.id)
             data.each do |datum|
-                purchaced << datum
+                purchase << datum
             end
         end
-        purchaced
+        purchase
     end
 
     def basket_data(user)
@@ -38,7 +38,7 @@ module UsersHelper
 
     def pay_off(user)
         total = 0
-        purchaced_data(user).each do |datum|
+        purchase_data(user).each do |datum|
             total += Product.find(datum.product_id).price
         end
         total

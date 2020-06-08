@@ -91,9 +91,4 @@ FactoryBot.define do
     product_id {1}
   end
 
-  factory :purchaced, class: Purchaced do
-    user_id {1}
-    product_id {1}
-  end
-
 end

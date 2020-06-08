@@ -44,6 +44,10 @@ module Shared_test
     it "is redirect to login form?" do
       expect(response).to redirect_to new_session_path
     end
+
+    it "assign the warning message to flash" do
+      expect(flash[:warning]).to eq "Loginが必要です"
+    end
   end
 
   shared_examples_for 'default_test' do |model, obj|

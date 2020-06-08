@@ -1,0 +1,54 @@
+
+    <div>
+    <%= form_tag purchases_path ,method: :post, id: "payForm" do %>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <%= hidden_field_tag "stripeToken" %>
+     <%= hidden_field_tag "stripe_email" %>
+      <%= hidden_field_tag 'amount', basket_sum + postage %>
+    <%= hidden_field_tag "user_id", current_user.id %>
+
+    <%= render "shared/explanation" %>
+
+    <button id = "btn-pay" type = "button" class = "btn btn-primary"> 以下の内容で支払いをする</button>
+
+  <div>
+    <div class="margin-vertical">
+      <h4><%= basket_count %>点</h4>
+      <h4>商品合計 ¥<%= basket_sum %></h4>
+      <h4>+ 送料 <%= postage %></h4><br />
+
+      <h3>合計: ¥<%= basket_sum + postage %></h3>
+    </div>
+
+     <div class="row basket-index">
+     <%= render "baskets/product", obj: @products %>
+    </div>
+
+  </div>
+
+    <script>
+    var handler = StripeCheckout.configure({
+        key: "<%= ENV["publishable_key"] %>",
+        locale : "auto",
+        currency: "jpy",
+        panelLabel: "商品の購入",
+        allowRemember: true,
+        token: function(token, arg){
+            document.getElementById("stripeToken").value = token.id;
+            document.getElementById("stripe_email").value = token.email;
+            document.getElementById("payForm").submit();
+        }
+    });
+
+    document.getElementById("btn-pay").addEventListener("click", function(e){
+        handler.open({
+            description: "ご購入のお支払い",
+            amount: document.getElementById("amount").value
+        });
+        e.preventDefault();
+    })
+
+    </script>
+<% end %>
+</div>

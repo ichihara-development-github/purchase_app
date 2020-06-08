@@ -24,7 +24,7 @@ Rails.application.routes.draw do
  post   "/baskets/:product_id" => "baskets#create", as: "in_basket"
  delete "/baskets/:product_id" => "baskets#destroy", as: "out_basket"
 
- get "after_purchace", to: "purchaces#after_purchace"
+ get "after_purchase", to: "purchases#after_purchase"
 
  delete "notifications", to: "notifications#destroy"
 
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
  resources :products
  resources :comments, only: [:create, :destroy]
  resources :baskets, only: [:index]
- resources :purchaces, only: [:new, :create]
+ resources :purchases, only: [:new, :create]
  resources :notifications, only: [:index]
  resources :relationships, only: [:create, :destroy]
  resources :addresses, only: [:create, :destroy]

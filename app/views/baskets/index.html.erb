@@ -1,9 +1,9 @@
  <div class = "margin-vertical">
  <span class = "dropdown-log dropdown-toggle right "> 購入履歴</span>
- <div class = "col-12 display-400 purchacelog">
+ <div class = "col-12 display-400 purchaselog">
     <div class = "container ">
-     <h3><%= purchaced_count %>点</h3>
-     <h3>合計: ¥<%= purchaced_sum %></h3>
+     <h3><%= purchase_count %>点</h3>
+     <h3>合計: ¥<%= purchase_sum %></h3>
      </div>
      <table class="table table-striped">
   <thead>
@@ -15,12 +15,12 @@
     </tr>
   </thead>
   <tbody>
-       <% current_user.purchaced_products.each do |product| %>
+       <% current_user.purchase_products.each do |product| %>
     <tr>
       <th scope="row"><%= product.id%></th>
       <td><%= product.name %></td>
       <td><%= product.price%></td>
-      <td><%= Purchaced.find_by(user_id: current_user.id, product_id: product.id).created_at.strftime("%Y年%m月%d日 %H時%M分")%></td>
+      <td><%= Purchase.find_by(user_id: current_user.id, product_id: product.id).created_at.strftime("%Y年%m月%d日 %H時%M分")%></td>
     </tr>
      <% end %>
   </tbody>
@@ -43,7 +43,7 @@
 
     <div class = "right">
       <% if current_user.baskets.exists? %>
-         <%= link_to "レジに進む", new_purchace_path, class: "accounting-btn" %>
+         <%= link_to "レジに進む", new_purchase_path, class: "accounting-btn" %>
       <% else %>
          <p>商品をカートに追加してください</p>
       <% end %>
