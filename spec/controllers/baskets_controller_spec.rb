@@ -16,7 +16,7 @@ RSpec.describe BasketsController, type: :controller do
 
     context "user has logged in" do
       before do
-        login
+        login(1)
         get :index
       end
 
@@ -32,14 +32,31 @@ RSpec.describe BasketsController, type: :controller do
   end
 
   describe "post create" do
-      before{ login}
+      before{ login(1)}
 
     it "Was it saved in the database" do
-      expect{post :create, params: {product_id: 1}, xhr: true}.to change(Basket, :count).by(1)
+      expect{
+        post :create, params: {product_id: 1}, xhr: true
+      }.to change(Basket, :count).by(1)
+    end
+
+    it "Was the notification created?" do
+      FactoryBot.create(:user2)
+      login(2)
+      expect{
+        post :create, params: {product_id: 1}, xhr: true
+      }.to change(Notification, :count).by(1)
     end
   end
 
   describe "delete destory" do
+    before {login(1)}
+    it "Was it removed in the database" do
+      FactoryBot.create(:basket)
+      expect{
+        delete :destroy, params: {product_id: 1}, xhr: true
+    }.to change(Basket, :count).by(-1)
+    end
 
   end
 

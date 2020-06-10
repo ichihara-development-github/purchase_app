@@ -1,7 +1,7 @@
 module Shared_test
 
-  def login
-    @user = User.first
+  def login(id)
+    @user = User.find(id)
     allow(controller)
       .to receive(:current_user)
       .and_return(@user)
@@ -58,7 +58,7 @@ module Shared_test
    describe "get new" do
 
      before do
-       login
+       login(1)
        get :new
      end
 
@@ -68,7 +68,7 @@ module Shared_test
    end
 
    describe "post create" do
-     before{login}
+     before{login(1)}
 
      context "" do
 
@@ -83,7 +83,7 @@ module Shared_test
 
    describe "get index" do
        before do
-         login
+         login(1)
          get :index
        end
 
@@ -101,7 +101,7 @@ module Shared_test
 
     context "user has logged in" do
       before do
-        login
+        login(1)
         get :show, id: obj.id
       end
 
@@ -126,7 +126,7 @@ module Shared_test
 
        context "user is admin and" do
          before do
-           login
+           login(1)
            get :edit, id: obj.id
          end
 

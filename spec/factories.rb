@@ -1,15 +1,5 @@
 FactoryBot.define do
 
-  factory :relationship do
-
-  end
-
-  factory :notification do
-
-  end
-
-
-
   factory :user, class: User do
     id {1}
     name{"user"}
@@ -89,6 +79,11 @@ FactoryBot.define do
   factory :basket, class: Basket do
     user_id {1}
     product_id {1}
+  end
+
+  factory :follow, class: Relationship do
+    following_id {1}
+    followed_id {2}
   end
 
 end

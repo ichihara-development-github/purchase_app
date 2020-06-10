@@ -43,7 +43,7 @@ RSpec.describe SessionController, type: :controller do
 
     context "user has already logged in" do
       before do
-        login
+        login(1)
         post :create, params: {session: {email: user.email, password: "password"}}
       end
 

@@ -15,7 +15,7 @@ RSpec.describe StoresController, type: :controller do
     context "user has store or admin" do
 
         before do
-          login
+          login(1)
           get :edit, id: store.id
         end
 

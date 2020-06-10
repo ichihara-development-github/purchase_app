@@ -16,7 +16,7 @@ RSpec.describe UsersController, type: :controller do
     let!(:admin_user){create(:user2)}
 
     context "user is admin" do
-      before{login}
+      before{login(1)}
 
       context "target user is normal user" do
 
@@ -60,7 +60,7 @@ RSpec.describe UsersController, type: :controller do
 
     context "user is seller" do
       before do
-        login
+        login(1)
         get :management
       end
 
