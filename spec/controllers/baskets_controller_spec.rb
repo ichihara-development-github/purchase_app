@@ -10,7 +10,7 @@ RSpec.describe BasketsController, type: :controller do
   describe "get index" do
 
     context "user has not logged in" do
-      before{ get :index}
+      before{ get :index }
       it_behaves_like "redirect to loginpage if user has not logged in"
     end
 
