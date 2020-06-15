@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+
   def new
     @products = current_user.considering_products
   end
@@ -36,15 +37,16 @@ class PurchasesController < ApplicationController
          )
          payment.save!
 
-     @products = current_user.considering_products
-     @products.each do |product|
-       current_user.purchases.create(product_id: product.id)
-       create_notification(product.store.user, product, "", "purchase")
-     end
-     current_user.baskets.destroy_all
-     flash[:success] = "購入が完了しました"
-     redirect_to products_path
-       end
+         @products = current_user.considering_products
+         @products.each do |product|
+           current_user.purchases.create(product_id: product.id)
+           create_notification(product.store.user, product, "", "purchase")
+         end
+
+         current_user.baskets.destroy_all
+         flash[:success] = "購入が完了しました"
+         redirect_to products_path
+        end
 
      rescue Stripe::CardError => e
        flash[:danger] = "決済中にエラーが発生しました #{e.message}"
@@ -64,8 +66,8 @@ class PurchasesController < ApplicationController
       rescue => e
         flash.now[:danger] = "エラーが発生しました#{e.message}"
         render "new"
-      end
-
-    end
+       end
 
   end
+
+end
