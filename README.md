@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ名
 
-Things you may want to cover:
+Purchase_app
 
-* Ruby version
+## DEMO
 
-* System dependencies
+## 特徴
 
-* Configuration
+## 使用技術・開発環境
 
-* Database creation
+### 開発環境
 
-* Database initialization
+- Ruby 2.6.5
+- Rails 5.1.7
 
-* How to run the test suite
+### テスト
 
-* Services (job queues, cache servers, search engines, etc.)
+- RuboCop 0.80.1
+- RSpec 3.9
 
-* Deployment instructions
+### 本番環境
 
-* ...
+- AWS
+  - VPC
+  - EC2
+  - RDS
+  - S3  
+
+### デプロイ
+
+- Capistrano
+
+### その他
+
+- CircleCI 3.12.0
