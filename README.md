@@ -4,6 +4,8 @@ Purchase_app
 
 ![スクリーンショット (60)](https://user-images.githubusercontent.com/50323412/85983157-f8dad700-ba21-11ea-8195-00fa9db263dc.png)
 
+>> [アプリはこちら]("3.20.24.205")
+
 ## 概要
 ECショップに見立てて商品を出品、購入ができるアプリです。
 
