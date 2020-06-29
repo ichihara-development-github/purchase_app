@@ -1,4 +1,4 @@
-[ソース](https://img.shields.io/github/languages/code-size/ichihara-development-github/purchase_app
+![ソース](https://img.shields.io/github/languages/code-size/ichihara-development-github/purchase_app
 )
 ## アプリ名
 
