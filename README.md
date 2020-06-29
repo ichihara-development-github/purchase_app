@@ -1,13 +1,12 @@
-![ソース](https://img.shields.io/github/languages/code-size/ichihara-development-github/purchase_app
-)
+![ソース](https://img.shields.io/github/languages/code-size/ichihara-development-github/purchase_app)
 
 ![ソース](https://img.shields.io/badge/FW-Ruby_on_Rails-red)
+![ソース](https://img.shields.io/badge/test-RSpec-blue)
 ![ソース](https://img.shields.io/badge/production-AWS-orange)
 ![ソース](https://img.shields.io/badge/deploy-CircleCI-brightgreen)
 
 
 ## アプリ名
-
 Purchase_app
 
 ![スクリーンショット (60)](https://user-images.githubusercontent.com/50323412/85983157-f8dad700-ba21-11ea-8195-00fa9db263dc.png)
