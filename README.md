@@ -100,7 +100,7 @@ GoogleMapAPIを使って店舗の登録されている住所とユーザーの�
 
 ### 本番環境
 
-- AWS
+- AWS(terraform)
   - VPC
   - EC2
   - RDS
