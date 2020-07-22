@@ -30,17 +30,17 @@
 </div>
 
 <div class = "container">
-    現在検討中
-
      <div class = "margin-vertical">
-     <h4><%= basket_count %>点</h4>
-     <h4>商品合計 ¥<%= basket_sum %></h4>
-     <h4>+ 送料 <%= postage %></h4><br />
+         <% unless @products.blank? %>
+           <h5><%= basket_count %>点</h5>
+           <h5>商品合計 ¥<%= basket_sum %></h5>
+           <h5>+ 送料 <%= postage %></h5><br />
 
-     <h3>合計: ¥<%= basket_sum + postage %></h3>
+           合計:<h3 style = "color:red"> ¥<%= basket_sum + postage %></h3>
+        <% end %>
 
-     <%= render "shared/postage_explanation" %>
-
+        <%= render "shared/postage_explanation" %>
+       </div>
     <div class = "right">
       <% if current_user.baskets.exists? %>
          <%= link_to "レジに進む", new_purchase_path, class: "accounting-btn" %>

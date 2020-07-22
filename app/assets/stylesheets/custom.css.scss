@@ -203,7 +203,10 @@ a{
 
 }
 
-
+.line-up-btn{
+  padding:5px;
+  box-shadow:2px 2px rgb(100,100,100);
+}
 // product
 
 .production-feature-image{
@@ -235,7 +238,6 @@ a{
 }
 
 // baskets
-
 .basket-wrapper{
     border-bottom:1px solid rgb(200,200,200);
 }
@@ -257,9 +259,6 @@ a{
         family:'Sawarabi Gothic', sans-serif;
     };
 }
-
-
-
 //image-input
 
 .input-image{
