@@ -15,8 +15,7 @@
 
 
 <%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-
-     <h2>人気の商品</h2>
+  <h2 style = "margin:20px">人気の商品</h2>
 
  <div class="row">
     <% @popular[0..2].each do |product| %>
@@ -38,9 +37,9 @@
                       <%= render "products/cart_link", product: product %>
                     </span>
                 <% else %>
-                    <%= link_to product_path(product) do%>
-                      <button type="button" class="right btn", style = "background-color: orange">追加</button>
-                    <% end %>
+                <%= link_to product_path(product.id), class: "right" do %>
+                  <i class="fas fa-cart-arrow-down fa-lg"></i>
+                <% end %>
                 <% end %>
       </div>
   </div>
@@ -49,16 +48,16 @@
      </div>
 
  <div class = "products">
-      <h2>商品一覧</h2>
+      <h2 style = "margin:20px">商品一覧</h2>
    <div>
       <%= form_tag line_up_path, method: :get do %>
      <div class="row">
-     <div class="col-3" style = "inline-block">
-        <%= select_tag(:line_up, options_for_select(line_up_list), class: "form-control", include_blank: "未選択") %>
-     </div>
-      <div class = "col-4" style = "indeline-block">
-        <%= submit_tag "並べ替える", class: "line-up-btn"%>
-      </div>
+       <div class="col-md-3 col-6" style = "inline-block">
+          <%= select_tag(:line_up, options_for_select(line_up_list), class: "form-control", include_blank: "未選択") %>
+       </div>
+        <div class = "col-md-2 col-4" style = "indeline-block">
+          <%= submit_tag "並べ替える", class: "line-up-btn"%>
+        </div>
     </div>
      <% end %>
      <div class="">

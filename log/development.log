@@ -868,3 +868,865 @@ Processing by WelcomeController#top as HTML
 Completed 200 OK in 1472ms (Views: 1457.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/products" for ::1 at 2020-07-23 00:12:19 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (719.1ms)
+  Rendered layouts/_side_bar.html.erb (0.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (59.0ms)
+  Rendered products/index.html.erb within layouts/application (1607.3ms)
+  Rendered layouts/_navigation.html.erb (7.3ms)
+  Rendered layouts/_message.html.erb (1.3ms)
+Completed 200 OK in 27990ms (Views: 27729.4ms | ActiveRecord: 47.5ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:21:11 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (17.6ms)
+  Rendered layouts/_side_bar.html.erb (2.1ms)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (39.3ms)
+  Rendered products/index.html.erb within layouts/application (136.2ms)
+  Rendered layouts/_navigation.html.erb (8.1ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 2188ms (Views: 1686.7ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:22:03 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (1302.2ms)
+  Rendered layouts/_side_bar.html.erb (5.0ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (86.2ms)
+  Rendered products/index.html.erb within layouts/application (1650.1ms)
+  Rendered layouts/_navigation.html.erb (13.9ms)
+  Rendered layouts/_message.html.erb (1.4ms)
+Completed 200 OK in 3874ms (Views: 3322.2ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:26:28 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (3.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (51.7ms)
+  Rendered layouts/_side_bar.html.erb (1.0ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (44.1ms)
+  Rendered products/index.html.erb within layouts/application (179.8ms)
+  Rendered layouts/_navigation.html.erb (13.9ms)
+  Rendered layouts/_message.html.erb (1.4ms)
+Completed 200 OK in 2389ms (Views: 2295.2ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:27:57 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (18.3ms)
+  Rendered layouts/_side_bar.html.erb (1.0ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (187.7ms)
+  Rendered products/index.html.erb within layouts/application (393.2ms)
+  Rendered layouts/_navigation.html.erb (4.7ms)
+  Rendered layouts/_message.html.erb (1.2ms)
+Completed 200 OK in 2585ms (Views: 2398.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:31:22 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (35.1ms)
+  Rendered layouts/_side_bar.html.erb (7.5ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (54.2ms)
+  Rendered products/index.html.erb within layouts/application (277.9ms)
+  Rendered layouts/_navigation.html.erb (38.9ms)
+  Rendered layouts/_message.html.erb (1.4ms)
+Completed 200 OK in 1815ms (Views: 1674.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:32:20 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (8.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (17.1ms)
+  Rendered layouts/_side_bar.html.erb (4.3ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (46.3ms)
+  Rendered products/index.html.erb within layouts/application (147.4ms)
+  Rendered layouts/_navigation.html.erb (5.2ms)
+  Rendered layouts/_message.html.erb (1.3ms)
+Completed 200 OK in 1525ms (Views: 1432.8ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:33:50 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (17.8ms)
+  Rendered layouts/_side_bar.html.erb (1.1ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (34.1ms)
+  Rendered products/index.html.erb within layouts/application (128.3ms)
+  Rendered layouts/_navigation.html.erb (5.1ms)
+  Rendered layouts/_message.html.erb (1.3ms)
+Completed 200 OK in 1371ms (Views: 1259.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:36:57 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (152.9ms)
+  Rendered layouts/_side_bar.html.erb (1.0ms)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (208.4ms)
+  Rendered products/index.html.erb within layouts/application (519.4ms)
+  Rendered layouts/_navigation.html.erb (9.7ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 1512ms (Views: 1467.5ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:37:24 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (13.2ms)
+  Rendered layouts/_side_bar.html.erb (2.5ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (32.6ms)
+  Rendered products/index.html.erb within layouts/application (112.1ms)
+  Rendered layouts/_navigation.html.erb (5.8ms)
+  Rendered layouts/_message.html.erb (3.0ms)
+Completed 200 OK in 1875ms (Views: 1199.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:38:15 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (12.9ms)
+  Rendered layouts/_side_bar.html.erb (0.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (100.3ms)
+  Rendered products/index.html.erb within layouts/application (340.8ms)
+  Rendered layouts/_navigation.html.erb (43.4ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 2778ms (Views: 2693.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:38:48 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (22.7ms)
+  Rendered layouts/_side_bar.html.erb (0.8ms)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (41.6ms)
+  Rendered products/index.html.erb within layouts/application (148.8ms)
+  Rendered layouts/_navigation.html.erb (25.0ms)
+  Rendered layouts/_message.html.erb (1.4ms)
+Completed 200 OK in 1941ms (Views: 1873.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:40:06 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.9ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (523.9ms)
+  Rendered layouts/_side_bar.html.erb (2.0ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (204.6ms)
+  Rendered products/index.html.erb within layouts/application (1336.8ms)
+  Rendered layouts/_navigation.html.erb (63.7ms)
+  Rendered layouts/_message.html.erb (1.5ms)
+Completed 200 OK in 5341ms (Views: 4485.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:43:31 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (17.0ms)
+  Rendered layouts/_side_bar.html.erb (0.9ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_cart_link.html.erb (147.3ms)
+  Rendered products/_product.html.erb (171.9ms)
+  Rendered products/index.html.erb within layouts/application (277.7ms)
+Completed 500 Internal Server Error in 417ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <% if in_basket(product) %>
+    2:   <%= link_to out_basket_path(product.id), method: :delete, remote: true, class: "right " do %>
+    3:        <i class="fas fa-shopping-cart fa-lg", style = "color:orange"></i>
+    4:   <% end %>
+  
+app/helpers/products_helper.rb:8:in `in_basket'
+app/views/products/_cart_link.html.erb:1:in `_app_views_products__cart_link_html_erb__929155219_150111820'
+app/views/products/_product.html.erb:16:in `block in _app_views_products__product_html_erb__489826918_150015180'
+app/views/products/_product.html.erb:2:in `_app_views_products__product_html_erb__489826918_150015180'
+app/views/products/index.html.erb:64:in `_app_views_products_index_html_erb__136015990_149620260'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (19.1ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.9ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (226.8ms)
+Started GET "/products" for ::1 at 2020-07-23 00:43:59 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (1.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (24.3ms)
+  Rendered layouts/_side_bar.html.erb (0.9ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_cart_link.html.erb (43.9ms)
+  Rendered products/_product.html.erb (92.5ms)
+  Rendered products/index.html.erb within layouts/application (186.8ms)
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 4.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <% if in_basket(product) %>
+    2:   <%= link_to out_basket_path(product.id), method: :delete, remote: true, class: "right " do %>
+    3:        <i class="fas fa-shopping-cart fa-lg", style = "color:orange"></i>
+    4:   <% end %>
+  
+app/helpers/products_helper.rb:8:in `in_basket'
+app/views/products/_cart_link.html.erb:1:in `_app_views_products__cart_link_html_erb__929155219_151110380'
+app/views/products/_product.html.erb:16:in `block in _app_views_products__product_html_erb__489826918_151083100'
+app/views/products/_product.html.erb:2:in `_app_views_products__product_html_erb__489826918_151083100'
+app/views/products/index.html.erb:64:in `_app_views_products_index_html_erb__136015990_150849600'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (30.2ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.3ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (614.2ms)
+Started GET "/products" for ::1 at 2020-07-23 00:44:54 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (216.2ms)
+  Rendered layouts/_side_bar.html.erb (1.8ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (6.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_cart_link.html.erb (14.5ms)
+  Rendered products/_product.html.erb (202.2ms)
+  Rendered products/index.html.erb within layouts/application (615.2ms)
+Completed 500 Internal Server Error in 805ms (ActiveRecord: 10.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <% if in_basket(product) %>
+    2:   <%= link_to out_basket_path(product.id), method: :delete, remote: true, class: "right " do %>
+    3:        <i class="fas fa-shopping-cart fa-lg", style = "color:orange"></i>
+    4:   <% end %>
+  
+app/helpers/products_helper.rb:8:in `in_basket'
+app/views/products/_cart_link.html.erb:1:in `_app_views_products__cart_link_html_erb__929155219_150899300'
+app/views/products/_product.html.erb:17:in `block in _app_views_products__product_html_erb__489826918_150784120'
+app/views/products/_product.html.erb:2:in `_app_views_products__product_html_erb__489826918_150784120'
+app/views/products/index.html.erb:64:in `_app_views_products_index_html_erb__136015990_149588220'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (68.4ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.0ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1547.6ms)
+Started GET "/products" for ::1 at 2020-07-23 00:45:20 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (11.1ms)
+  Rendered layouts/_side_bar.html.erb (1.1ms)
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_cart_link.html.erb (14.1ms)
+  Rendered products/_product.html.erb (34.6ms)
+  Rendered products/index.html.erb within layouts/application (119.7ms)
+Completed 500 Internal Server Error in 192ms (ActiveRecord: 4.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <% if in_basket(product) %>
+    2:   <%= link_to out_basket_path(product.id), method: :delete, remote: true, class: "right " do %>
+    3:        <i class="fas fa-shopping-cart fa-lg", style = "color:orange"></i>
+    4:   <% end %>
+  
+app/helpers/products_helper.rb:8:in `in_basket'
+app/views/products/_cart_link.html.erb:1:in `_app_views_products__cart_link_html_erb__929155219_157239100'
+app/views/products/_product.html.erb:17:in `block in _app_views_products__product_html_erb__489826918_157145760'
+app/views/products/_product.html.erb:2:in `_app_views_products__product_html_erb__489826918_157145760'
+app/views/products/index.html.erb:64:in `_app_views_products_index_html_erb__136015990_152281020'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (235.5ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.7ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (771.1ms)
+Started GET "/products" for ::1 at 2020-07-23 00:47:36 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (155.4ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (4.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (2389.7ms)
+  Rendered layouts/_side_bar.html.erb (9.9ms)
+  [1m[35m (39.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (1316.8ms)
+  Rendered products/index.html.erb within layouts/application (5024.4ms)
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 10009ms (Views: 8163.8ms | ActiveRecord: 201.8ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:48:56 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (14.0ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (301.5ms)
+  Rendered layouts/_side_bar.html.erb (1.3ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (127.5ms)
+  Rendered products/index.html.erb within layouts/application (1457.4ms)
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_message.html.erb (1.2ms)
+Completed 200 OK in 3498ms (Views: 3438.7ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:49:18 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (217.0ms)
+  Rendered layouts/_side_bar.html.erb (1.4ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (132.7ms)
+  Rendered products/index.html.erb within layouts/application (458.2ms)
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_message.html.erb (2.0ms)
+Completed 200 OK in 3178ms (Views: 2981.4ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/baskets/3" for ::1 at 2020-07-23 00:49:37 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"3"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 18ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/baskets/2" for ::1 at 2020-07-23 00:49:40 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"2"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 86ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:49:42 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 107ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:51:22 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (33.9ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (6.0ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (78.9ms)
+  Rendered layouts/_side_bar.html.erb (11.3ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (180.7ms)
+  Rendered products/index.html.erb within layouts/application (631.6ms)
+  Rendered layouts/_navigation.html.erb (45.4ms)
+  Rendered layouts/_message.html.erb (3.3ms)
+Completed 200 OK in 4013ms (Views: 3872.9ms | ActiveRecord: 44.1ms)
+
+
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:51:34 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 11ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:52:05 +0900
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:52:06 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Completed 500 Internal Server Error in 1830ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `new_sssion_path' for #<BasketsController:0x0000000012bb3ca0>
+Did you mean?  new_session_path
+               session_path):
+  
+app/controllers/application_controller.rb:18:in `login_user?'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (64.3ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.3ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (2.1ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (2015.0ms)
+Started GET "/products" for ::1 at 2020-07-23 00:52:13 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 1365ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `new_sssion_path' for #<BasketsController:0x0000000012e6d338>
+Did you mean?  new_session_path
+               session_path):
+  
+app/controllers/application_controller.rb:18:in `login_user?'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.6ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.7ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (8.9ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (601.1ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (178.7ms)
+  Rendered layouts/_side_bar.html.erb (4.2ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (187.9ms)
+  Rendered products/index.html.erb within layouts/application (996.0ms)
+  Rendered layouts/_navigation.html.erb (6.0ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 7595ms (Views: 4134.0ms | ActiveRecord: 40.5ms)
+
+
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:52:26 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Completed 500 Internal Server Error in 1565ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `new_sssion_path' for #<BasketsController:0x0000000011f42bd8>
+Did you mean?  new_session_path
+               session_path):
+  
+app/controllers/application_controller.rb:18:in `login_user?'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.4ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (2.3ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.8ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (1610.5ms)
+Started GET "/products" for ::1 at 2020-07-23 00:52:39 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (1.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (315.7ms)
+  Rendered layouts/_side_bar.html.erb (1.3ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (158.9ms)
+  Rendered products/index.html.erb within layouts/application (653.7ms)
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_message.html.erb (4.3ms)
+Completed 200 OK in 3246ms (Views: 2039.2ms | ActiveRecord: 26.2ms)
+
+
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:52:49 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 226ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:53:22 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (4.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (86.8ms)
+  Rendered layouts/_side_bar.html.erb (1.4ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (46.3ms)
+  Rendered products/index.html.erb within layouts/application (238.4ms)
+  Rendered layouts/_navigation.html.erb (5.7ms)
+  Rendered layouts/_message.html.erb (1.4ms)
+Completed 200 OK in 4892ms (Views: 3696.4ms | ActiveRecord: 20.9ms)
+
+
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:53:35 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Started POST "/baskets/4" for ::1 at 2020-07-23 00:53:43 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"4"}
+Redirected to http://localhost:3000/session/new
+Redirected to 
+Completed 500 Internal Server Error in 75602ms (ActiveRecord: 0.0ms)
+
+
+  
+Redirected to http://localhost:3000/session/new
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:19:in `login_user?'
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 83790ms (ActiveRecord: 0.0ms)
+
+
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.5ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (3.7ms)
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (2.1ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (784.2ms)
+Started GET "/products" for ::1 at 2020-07-23 00:57:20 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (859.0ms)
+  Rendered layouts/_side_bar.html.erb (2.0ms)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (218.2ms)
+  Rendered products/index.html.erb within layouts/application (1334.1ms)
+  Rendered layouts/_navigation.html.erb (14.3ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 4113ms (Views: 3733.8ms | ActiveRecord: 30.3ms)
+
+
+Started POST "/baskets/4" for ::1 at 2020-07-23 00:57:29 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"4"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 467ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:57:53 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (5.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (298.9ms)
+  Rendered layouts/_side_bar.html.erb (1.1ms)
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (280.9ms)
+  Rendered products/index.html.erb within layouts/application (2514.0ms)
+  Rendered layouts/_navigation.html.erb (8.4ms)
+  Rendered layouts/_message.html.erb (1.5ms)
+Completed 200 OK in 5081ms (Views: 4516.6ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 00:58:19 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (8.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (1314.7ms)
+  Rendered layouts/_side_bar.html.erb (1.4ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (166.8ms)
+  Rendered products/index.html.erb within layouts/application (1672.3ms)
+  Rendered layouts/_navigation.html.erb (7.5ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 5403ms (Views: 4111.0ms | ActiveRecord: 63.6ms)
+
+
+Started POST "/baskets/1" for ::1 at 2020-07-23 00:58:32 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"1"}
+Redirected to http://localhost:3000/
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 35ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 01:00:31 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (79.5ms)
+  Rendered layouts/_side_bar.html.erb (1.5ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (48.6ms)
+  Rendered products/index.html.erb within layouts/application (317.4ms)
+  Rendered layouts/_navigation.html.erb (5.8ms)
+  Rendered layouts/_message.html.erb (1.7ms)
+Completed 200 OK in 3293ms (Views: 2947.9ms | ActiveRecord: 14.5ms)
+
+
+Started POST "/baskets/4" for ::1 at 2020-07-23 01:00:51 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"4"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 173ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/baskets/4" for ::1 at 2020-07-23 01:00:56 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"4"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 27ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 01:03:54 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.9ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (108.3ms)
+  Rendered layouts/_side_bar.html.erb (1.4ms)
+  [1m[35m (10.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (40.0ms)
+  Rendered products/index.html.erb within layouts/application (263.3ms)
+  Rendered layouts/_navigation.html.erb (5.9ms)
+  Rendered layouts/_message.html.erb (2.2ms)
+Completed 200 OK in 2985ms (Views: 2843.7ms | ActiveRecord: 32.5ms)
+
+
+Started POST "/products/1" for ::1 at 2020-07-23 01:04:05 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/products/1"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+request_store (1.5.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.7ms)
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (283.8ms)
+Started POST "/baskets/3" for ::1 at 2020-07-23 01:04:08 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"3"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-07-23 01:04:33 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (1.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (14.4ms)
+  Rendered layouts/_side_bar.html.erb (1.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  Rendered products/_product.html.erb (26.7ms)
+  Rendered products/index.html.erb within layouts/application (94.5ms)
+  Rendered layouts/_navigation.html.erb (4.3ms)
+  Rendered layouts/_message.html.erb (1.6ms)
+Completed 200 OK in 609ms (Views: 581.2ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/baskets/2" for ::1 at 2020-07-23 01:04:37 +0900
+Processing by BasketsController#create as JS
+  Parameters: {"product_id"=>"2"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 200 OK in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products/1" for ::1 at 2020-07-23 01:04:40 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-23 01:04:40 +0900
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (10198.9ms)
+  Rendered layouts/_navigation.html.erb (5.4ms)
+  Rendered layouts/_message.html.erb (2.0ms)
+Completed 200 OK in 12482ms (Views: 12472.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/7" for ::1 at 2020-07-23 01:05:05 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"7"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :login_user? rendered or redirected
+Completed 302 Found in 40ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-23 01:05:06 +0900
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_navigation.html.erb (4.5ms)
+  Rendered layouts/_message.html.erb (1.5ms)
+Completed 200 OK in 1793ms (Views: 1783.2ms | ActiveRecord: 0.0ms)
+
+

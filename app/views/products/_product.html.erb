@@ -16,8 +16,8 @@
                     <% if current_user %>
                       <%= render "products/cart_link", product: product %>
                     <% else %>
-                      <%= link_to product_path(product) do%>
-                        <button type="button" class="right btn", style = "background-color: orange">追加</button>
+                      <%= link_to product_path(product.id), class: "right" do %>
+                        <i class="fas fa-cart-arrow-down fa-lg"></i>
                       <% end %>
                     <% end %>
                   </span>
