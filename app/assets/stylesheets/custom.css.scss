@@ -205,7 +205,10 @@ a{
 
 .line-up-btn{
   padding:5px;
-  box-shadow:2px 2px rgb(100,100,100);
+  background-color: teal;
+  border-radius:5px;
+  color:white;
+  border: solid 1px white;
 }
 // product
 
@@ -226,7 +229,6 @@ a{
     height:100px;
     overflow:hidden;
 }
-
 
 .price{
     color:red;
