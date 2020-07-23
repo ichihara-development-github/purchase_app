@@ -1,9 +1,9 @@
 <% if in_basket(product) %>
-  <%= link_to out_basket_path(product.id), method: :delete, remote: true, class: "right " do %>
+  <%= link_to out_basket_path(product.id), method: :delete, remote: true, class: "right",data: { confirm: "#{product.name}をカートから削除しました" } do %>
        <i class="fas fa-shopping-cart fa-lg", style = "color:orange"></i>
   <% end %>
 <% else %>
-  <%= link_to in_basket_path(product.id), method: :post, remote: true, class: "right" do %>
+    <%= link_to in_basket_path(product.id), method: :post, remote: true, class: "right", data: { confirm: "#{product.name}をカートに入れました"} do %>
     <i class="fas fa-cart-arrow-down fa-lg"></i>
   <% end %>
 <% end %>

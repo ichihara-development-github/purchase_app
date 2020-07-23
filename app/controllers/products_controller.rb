@@ -81,7 +81,7 @@ class ProductsController < ApplicationController
     elsif params[:line_up] == "新着順"
       @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "購入数"
-      @products = popular.paginate(page: params[:page], per_page: 8)
+      @products = Product.popular.paginate(page: params[:page], per_page: 8)
     end
     @popular = Product.popular
     render "index"
