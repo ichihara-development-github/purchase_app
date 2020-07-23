@@ -59,12 +59,15 @@ a{
 }
 
 //layouts
-
-
 .side-bar{
     width:230px;
     text-align:center
 
+}
+
+.mid-img{
+  height:270px;
+  width:100%;
 }
 .long-img{
     height:200px;
@@ -230,7 +233,7 @@ a{
 }
 
 .rank-image{
-  background-color:rgba(250,250,250,.8);
+  background-color:rgba(250,250,250,.9);
   position: absolute;
   top:0;
   left:15px;
