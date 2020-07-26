@@ -29,7 +29,6 @@ module Shared_test
     end
   end
 
-
   shared_examples "redirect to root if user has not authority" do
     it "is redirect to login form?" do
       expect(response).to redirect_to root_path

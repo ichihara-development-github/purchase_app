@@ -70,9 +70,19 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "user has not seller attribute" do
-      let!(:normal_user){create(:normal_user)}
-      before{get :management}
-      it_behaves_like "redirect to root if user is not seller"
+      let!(:has_no_store){create(:has_no_store)}
+      before do
+        login(4)
+        get :management
+      end
+
+      it "is redirect to login form?" do
+        expect(response).to redirect_to new_store_path
+      end
+
+      it "assign the danger message to flash" do
+        expect(flash[:warning]).to eq "店舗を所持していません"
+      end
     end
   end
 

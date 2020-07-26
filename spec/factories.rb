@@ -37,6 +37,7 @@ FactoryBot.define do
    email {"has_no_store@user.com"}
    password {"password"}
    seller {true}
+   address{"東京"}
   end
 
   factory :store, class: Store do
