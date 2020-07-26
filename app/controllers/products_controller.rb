@@ -10,13 +10,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def has_store?
-    unless current_user && current_user.store
-      flash[:warning] = "店舗を所持していません"
-      redirect_to new_store_path
-    end
-  end
-
   def new
    @product = Product.new
   end

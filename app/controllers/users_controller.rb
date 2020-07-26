@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :login_user?, only: [:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action -> { has_authority?(@user) }, only: [:update, :edit]
-  before_action :seller_user?, only: [:management]
+  before_action :has_store?, only: :management
+  before_action -> { has_authority?(@user) }, only: [:update, :edit, :management]
   before_action :admin_user?, only: [:index, :destroy]
 
   def set_user

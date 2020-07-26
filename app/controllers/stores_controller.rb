@@ -10,7 +10,6 @@ class StoresController < ApplicationController
     @store = Store.find(params[:id])
   end
 
-
   def new
     @store = Store.new
   end

@@ -21,9 +21,16 @@ class ApplicationController < ActionController::Base
   end
 
   def seller_user?
-    unless current_user&.admin
+    unless (current_user&.admin) or (current_user&.seller)
       flash[:danger] = 'オーナー権限がありません'
       redirect_to root_path
+    end
+  end
+
+  def has_store?
+    unless current_user && current_user.store
+      flash[:warning] = "店舗を所持していません"
+      redirect_to new_store_path
     end
   end
 
