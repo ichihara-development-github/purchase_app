@@ -63,7 +63,8 @@ function initMap(){
       (function(){
 
         var infowindow = new google.maps.InfoWindow({
-          content: "<p><%= current_user.address if current_user.address %></p><br />"+
+          content: "<p><%= current_user.address if current_user.address %></p>"+
+                     "<span class = "fas fa-home"></span>" +
                      "<span>自宅</span>"
         });
 
