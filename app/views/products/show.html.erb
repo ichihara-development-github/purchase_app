@@ -78,7 +78,7 @@
 <%= render "shared/postage_explanation" %>
 <h3>送料 ¥<%= how_much_postage(@distance) %></h3>
 
-<%= link_to "商品の編集", edit_store_path(@product) , class: "btn btn-success margin-vertical" if has_product?(@product)%>
+<%= link_to "商品の編集", edit_product_path(@product) , class: "btn btn-success margin-vertical" if has_product?(@product)%>
 
 <div class = "comment-form col-md-12">
    <h5>コメント</h5>
