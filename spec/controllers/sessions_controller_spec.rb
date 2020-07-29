@@ -48,7 +48,7 @@ RSpec.describe SessionController, type: :controller do
       end
 
       it "is redirect to loginpage" do
-        expect(response).to redirect_to new_session_path
+        expect(response).to redirect_to products_path
       end
 
       it "assign the warning message to flash" do
@@ -63,10 +63,10 @@ RSpec.describe SessionController, type: :controller do
       before{ post :guest_login}
 
       it "assign the success message to flash" do
-        expect(flash[:success]).to eq "管理者としてログインしました"
+        expect(flash[:success]).to eq "ログインしました"
       end
 
-      it "is redirect to loginpage" do
+      it "is redirect to products" do
         expect(response).to redirect_to products_path
       end
     end
