@@ -4,7 +4,7 @@ class SessionController < ApplicationController
   end
 
   def create
-    if !current_user
+    unless current_user
       user = User.find_by(email: params[:session][:email])
       if user && user.authenticate(params[:session][:password])
         login user
@@ -14,16 +14,14 @@ class SessionController < ApplicationController
         render "new"
       end
     else
-      redirect_to new_session_path
+      redirect_to products_path
       flash[:warning] = "すでに#{current_user.name}としてログインしています"
     end
-
   end
 
   def guest_login
     user = User.first
-    session[:user_id] = user.id
-    flash[:success] = "管理者としてログインしました"
+    login user
     redirect_to products_path
   end
 
