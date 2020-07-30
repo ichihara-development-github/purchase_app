@@ -9,11 +9,11 @@ module ProductsHelper
     end
 
     def categories
-      category = %w(スポーツ ファッション デジタル 生活  食品)
+       %w(スポーツ ファッション デジタル 生活  食品)
     end
 
     def line_up_list
-      line_up = %w(価格が安い 価格が高い 購入数新 着順)
+       %w(価格が安い 価格が高い 購入数新 着順)
     end
 
     def choice(search_factor)

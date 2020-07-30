@@ -9,6 +9,6 @@ module StoresHelper
     end
 
     def category
-        category = %w(食品 スポーツ ファッション デジタル ＩＴ 生活)
+        %w(食品 スポーツ ファッション デジタル ＩＴ 生活)
     end
 end
