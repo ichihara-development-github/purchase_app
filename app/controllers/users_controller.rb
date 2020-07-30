@@ -79,6 +79,8 @@ class UsersController < ApplicationController
   end
 
   def management
+    @in_basket_data = User.collect_data(current_user, Basket)
+    @purchase_data = User.collect_data(current_user, Purchase)
   end
 
   def registration

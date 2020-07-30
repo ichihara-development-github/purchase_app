@@ -20,10 +20,8 @@ class ProductsController < ApplicationController
 
     if @product.save
       users = current_user.followers
+      users.map{|user| create_notification(user, @product, "", "create") }
 
-      users.each do |user|
-        create_notification(user, @product, "", "create")
-      end
       redirect_to products_path
       flash[:success] = "商品の作成が完了しました"
     else
@@ -83,7 +81,6 @@ class ProductsController < ApplicationController
  #-------------------------search-------------------------------
 
   def search
-
     if search_params.values.all?("")
       redirect_to products_path
     else

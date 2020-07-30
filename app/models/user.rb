@@ -4,6 +4,23 @@ class User < ApplicationRecord
 
   attr_accessor :reset_token
 
+
+  def self.collect_data(user, model)
+      list = []
+      products = user.store.products
+      products.each do |product|
+        data = model.where(product_id: product.id)
+        data.each{|datum| list << datum}
+      end
+      list
+  end
+
+  def self.pay_off(data)
+      total = 0
+      data.map{|product| total += Product.find(product.product_id).price}
+      total
+  end
+
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
@@ -96,7 +113,7 @@ class User < ApplicationRecord
     end
 
     def geocode
-      res = HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=AIzaSyCMEZHcYpdKtuvZoe6Jy5_8zuVUj8G47co")
+      res = HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=AIzaSyAAWezrBjtug-O85xz84V_TYNCmv1pYxDQ")
       response = JSON.parse(res)
       self.latitude = response["results"][0]["geometry"]["location"]["lat"]
       self.longitude = response["results"][0]["geometry"]["location"]["lng"]

@@ -1,5 +1,5 @@
 <% notice_user = notification.notice_user %>
-<% notification.product ? product = notification.product : product = "" %>
+<% if notification.product then product = notification.product else product = "" end%>
 <% if notification.comment then comment = notification.comment product = notification.comment.product else comment = "" end %>
  <div href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">

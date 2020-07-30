@@ -9,11 +9,11 @@ module ProductsHelper
     end
 
     def categories
-      ["スポーツ","ファッション","デジタル","生活", "食品"]
+      category = %w(スポーツ ファッション デジタル 生活  食品)
     end
 
     def line_up_list
-      ["価格が安い","価格が高い","購入数","新着順"]
+      line_up = %w(価格が安い 価格が高い 購入数新 着順)
     end
 
     def choice(search_factor)
@@ -23,9 +23,7 @@ module ProductsHelper
 
     def select_store
         stores = {}
-        Store.all.each do |store|
-            stores.store(store.name,store.id)
-        end
+        Store.all.map{|store|stores.store(store.name,store.id) }
         stores
     end
 

@@ -11,8 +11,8 @@ module HubenyDistance
 
       dy = (lat1 - lat2).abs
       dx = (lng1 - lng2).abs
-      rx = 6378.136
-      ry = 6356.775
+      rx = 6378.136.freeze
+      ry = 6356.775.freeze
       ave = (lat1 + lat2)/2
 
       eccentricity = Math.sqrt(((rx)**2 - (ry)**2) / (rx)**2)
