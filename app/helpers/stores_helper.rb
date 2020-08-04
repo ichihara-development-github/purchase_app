@@ -3,9 +3,7 @@ module StoresHelper
   include ApplicationHelper
 
     def has_store(store)
-      if current_user.store
-        current_user.store == store
-      end
+        current_user.store == store && current_user.store
     end
 
     def category

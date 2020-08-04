@@ -13,7 +13,7 @@ module ProductsHelper
     end
 
     def line_up_list
-       %w(価格が安い 価格が高い 購入数新 着順)
+       %w(価格が安い 価格が高い 購入数 新着順)
     end
 
     def choice(search_factor)

@@ -17,8 +17,10 @@ gem 'http'
 
 gem 'gon'
 
+gem 'whenever', require: false
+
 platforms :ruby do
-  gem 'unicorn'
+  gem 'unicorn', require: false
 end
 #-------------------------------------------------------------------
 gem 'rails', '~> 5.0.0'

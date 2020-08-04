@@ -27,6 +27,8 @@ set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do

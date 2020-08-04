@@ -6,13 +6,11 @@ class User < ApplicationRecord
 
 
   def self.collect_data(user, model)
-      list = []
       products = user.store.products
       products.each do |product|
         data = model.where(product_id: product.id)
-        data.each{|datum| list << datum}
+        @list = data.map()
       end
-      list
   end
 
   def self.pay_off(data)
