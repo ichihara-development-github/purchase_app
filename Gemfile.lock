@@ -188,7 +188,7 @@ GEM
     pg (1.2.2-x64-mingw32)
     popper_js (1.16.0)
     public_suffix (4.0.3)
-    puma (3.12.4)
+    puma (3.12.6)
     rack (2.2.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -362,7 +362,7 @@ DEPENDENCIES
   mail-iso-2022-jp
   mysql2
   pg
-  puma (~> 3.0)
+  puma (~> 3.12)
   rails (~> 5.0.0)
   rails-controller-testing
   rails-i18n
