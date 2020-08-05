@@ -1,3 +1,3 @@
-every 1.day, :at => '4:40 pm' do
+every 1.day, :at => '5:30 pm' do
   runner "Basket.send_basket_count"
 end
