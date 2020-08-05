@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 
 class Line
-  TOKEN = ENV[:LINE_TOKEN]
+  TOKEN = ENV["LINE_TOKEN"]
   URL = "https://notify-api.line.me/api/notify".freeze
 
   attr_reader :notice

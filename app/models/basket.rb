@@ -1,5 +1,5 @@
 class Basket < ApplicationRecord
-  require "./app/model/Line.rb"
+  require "Line"
 
   def self.send_basket_count
     num = Basket.where("DATE(created_at) = '#{Date.today}'").count
