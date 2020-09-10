@@ -10,7 +10,7 @@ pid "tmp/pids/unicorn.pid"
 preload_app true
 
 timeout 60
-working_directory APP_PATH
+working_directory "/var/www/puurchase_app/current/"
 
 
 # log
