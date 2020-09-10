@@ -12,6 +12,7 @@ preload_app true
 timeout 60
 working_directory APP_PATH
 
+
 # log
 stderr_path "#{RAILS_ROOT}/log/unicorn_error.log"
 stdout_path "#{RAILS_ROOT}/log/unicorn_access.log"
