@@ -70,7 +70,7 @@ group :development do
 
   gem 'capistrano'
   gem 'capistrano-bundler'
-  gem 'capistrano-rails'
+  gem 'capistrano3-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
 end
