@@ -23,7 +23,7 @@ platforms :ruby do
   gem 'unicorn', require: false
 end
 #-------------------------------------------------------------------
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -68,7 +68,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails'
 
-  gem 'capistrano'
+  gem 'capistrano', '3.12.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'

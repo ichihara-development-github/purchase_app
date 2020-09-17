@@ -5,7 +5,7 @@ RAILS_ENV  = ENV['RAILS_ENV'] || 'development'
 worker_processes 3
 
 listen "/var/www/purchase_app/shared/tmp/sockets/unicorn.sock"
-pid "tmp/pids/unicorn.pid"
+pid "/var/www/purchase_app/shared/tmp/pids/unicorn.pid"
 
 preload_app true
 
