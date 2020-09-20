@@ -127,3 +127,7 @@
   INFO START 2020-09-20 18:07:05 +0900 cap production deploy
   INFO ---------------------------------------------------------------------------
  ERROR linked file /var/www/purchase_app/shared/shared/config/database.yml does not exist on 3.128.111.52
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-20 18:08:27 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ ERROR linked file /var/www/purchase_app/shared/config/secrets.yml does not exist on 3.128.111.52
