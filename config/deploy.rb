@@ -3,14 +3,16 @@ lock '3.12.0'
 set :application, 'purchase_app'
 
 set :repo_url, 'git@github.com:ichihara-development-github/purchase_app.git'
-#
-# set :deploy_to, '/var/www/rails/purchase_app'
+
+# set :deploy_to, '/var/www/purchase_app'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.3'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
+
+
 
 set :log_level, :warn
 
