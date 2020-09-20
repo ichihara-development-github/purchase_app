@@ -4,7 +4,7 @@ set :application, 'purchase_app'
 
 set :repo_url, 'git@github.com:ichihara-development-github/purchase_app.git'
 
-# set :deploy_to, '/var/www/purchase_app'
+set :deploy_to, '/var/www/purchase_app'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.3'
