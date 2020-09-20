@@ -3,9 +3,8 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "3.128.111.52", user: "ichihara", roles: %w(app web)
+server "3.128.111.52", user: "ichihara", roles: %w(app db web)
 
-set :assets_roles, [:web]
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 

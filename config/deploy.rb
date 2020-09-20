@@ -6,45 +6,56 @@ set :repo_url, 'git@github.com:ichihara-development-github/purchase_app.git'
 
 set :deploy_to, '/var/www/purchase_app'
 
-set :rbenv_type, :user
-set :rbenv_ruby, '2.6.3'
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_roles, :all
+set :branch, 'master'
 
 
-
-set :log_level, :warn
-
-# Default value for :linked_files is []
+# シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 
-# Default value for linked_dirs is []
+# シンボリックリンクをはるフォルダ。(※後述)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
-# Default value for keep_releases is 5
-set :keep_releases, 3
+# 保持するバージョンの個数(※後述)
+set :keep_releases, 5
 
-set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+# rubyのバージョン
+set :rbenv_ruby, '2.6.3'
 
-set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
-
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+#出力するログのレベル。
+set :log_level, :debug
 
 namespace :deploy do
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-end
-
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
+  desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
+  end
+
+  desc 'Create database'
+  task :db_create do
+    on roles(:db) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:create'
+        end
+      end
+    end
+  end
+
+  desc 'Run seed'
+  task :seed do
+    on roles(:app) do
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
+    end
+  end
+
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
   end
 end

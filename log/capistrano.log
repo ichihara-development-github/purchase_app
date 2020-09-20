@@ -154,3 +154,28 @@
   INFO ---------------------------------------------------------------------------
   INFO START 2020-09-20 18:44:49 +0900 cap production deploy
   INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-20 19:54:50 +0900 cap production deploy:db_create
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e52d7894] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.128.111.52
+ DEBUG [e52d7894] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [e52d7894] Finished in 3.321 seconds with exit status 0 (successful).
+ DEBUG [157990e2] Running if test ! -d /var/www/purchase_app/current; then echo "Directory does not exist '/var/www/purchase_app/current'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [157990e2] Command: if test ! -d /var/www/purchase_app/current; then echo "Directory does not exist '/var/www/purchase_app/current'" 1>&2; false; fi
+ DEBUG [157990e2] Finished in 0.714 seconds with exit status 0 (successful).
+  INFO [c04eb45a] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake db:create as ichihara@3.128.111.52
+ DEBUG [c04eb45a] Command: cd /var/www/purchase_app/current && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" RAILS_ENV="production" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake db:create )
+ DEBUG [c04eb45a] 	bundler: failed to load command: rake (/home/ichihara/.rbenv/versions/2.6.3/bin/rake)
+ DEBUG [c04eb45a] 	Bundler::GemNotFound: Could not find nokogiri-1.10.10 in any of the sources
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/spec_set.rb:91:in `block in materialize'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/spec_set.rb:85:in `map!'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/spec_set.rb:85:in `materialize'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/definition.rb:170:in `specs'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/definition.rb:237:in `specs_for'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/definition.rb:226:in `requested_specs'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/runtime.rb:108:in `block in definition_method'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/runtime.rb:20:in `setup'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler.rb:107:in `setup'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/setup.rb:20:in `<top (required)>'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'

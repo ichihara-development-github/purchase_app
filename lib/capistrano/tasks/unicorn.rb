@@ -63,7 +63,3 @@ namespace :unicorn do
     end
   end
 end
-
-
-# deploy後に実行する場合
-after 'deploy:finishing', 'mail:send'
