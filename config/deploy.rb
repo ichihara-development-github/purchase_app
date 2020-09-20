@@ -17,7 +17,7 @@ set :rbenv_roles, :all
 set :log_level, :warn
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('current/config/database.yml', 'shared/config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
