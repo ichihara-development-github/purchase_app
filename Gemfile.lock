@@ -361,6 +361,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mail-iso-2022-jp
+  mini_racer
   mysql2
   pg
   puma (~> 3.0)

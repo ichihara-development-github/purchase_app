@@ -8,6 +8,6 @@ require 'capistrano/rails/migrations'
 require 'whenever/capistrano'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-set :branch, "master"
+
 
 Dir.glob('lib/capistrano/tasks/*.rb').each { |r| import r }
