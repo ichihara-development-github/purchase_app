@@ -73,6 +73,7 @@ group :development do
   gem 'capistrano', '3.12.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
   gem 'capistrano-rbenv'
 end
 
