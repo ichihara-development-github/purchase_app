@@ -9821,3 +9821,849 @@ Tasks: TOP => assets:precompile
   INFO [cc717da2] Running /usr/bin/env echo "Branch master (at c18f03eb7394402bb4ae2662273e40b675360d06) deployed as release 20200923080953 by yoshi" >> /var/www/purchase_app/revisions.log as ichihara@3.128.111.52
  DEBUG [cc717da2] Command: cd /var/www/purchase_app/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "Branch master (at c18f03eb7394402bb4ae2662273e40b675360d06) deployed as release 20200923080953 by yoshi" >> /var/www/purchase_app/revisions.log )
   INFO [cc717da2] Finished in 0.739 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-23 17:40:23 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [705ec046] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.128.111.52
+ DEBUG [705ec046] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [705ec046] Finished in 3.049 seconds with exit status 0 (successful).
+  INFO [26efa2de] Running /usr/bin/env mkdir -p /tmp as ichihara@3.128.111.52
+ DEBUG [26efa2de] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [26efa2de] Finished in 0.635 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [4344e7b7] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.128.111.52
+ DEBUG [4344e7b7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [4344e7b7] Finished in 0.714 seconds with exit status 0 (successful).
+  INFO [915922aa] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.128.111.52
+ DEBUG [915922aa] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [915922aa] 	c982bd2ea551f0e1342c5a56e4e99985fa69d5d3	HEAD
+  INFO [915922aa] Finished in 1.000 seconds with exit status 0 (successful).
+  INFO [d6f0edb1] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared /var/www/purchase_app/releases as ichihara@3.128.111.52
+ DEBUG [d6f0edb1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared /var/www/purchase_app/releases )
+  INFO [d6f0edb1] Finished in 0.507 seconds with exit status 0 (successful).
+  INFO [7c1b291c] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared/log /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/shared/public/system /var/www/purchase_app/shared/public/assets as ichihara@3.128.111.52
+ DEBUG [7c1b291c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared/log /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/shared/public/system /var/www/purchase_app/shared/public/assets )
+  INFO [7c1b291c] Finished in 0.650 seconds with exit status 0 (successful).
+  INFO [51884e70] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared/config as ichihara@3.128.111.52
+ DEBUG [51884e70] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared/config )
+  INFO [51884e70] Finished in 0.629 seconds with exit status 0 (successful).
+ DEBUG [eb745f83] Running [ -f /var/www/purchase_app/shared/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [eb745f83] Command: [ -f /var/www/purchase_app/shared/config/settings.yml ]
+ DEBUG [eb745f83] Finished in 0.655 seconds with exit status 0 (successful).
+ DEBUG [541ab723] Running [ -f /var/www/purchase_app/current/REVISION ] as ichihara@3.128.111.52
+ DEBUG [541ab723] Command: [ -f /var/www/purchase_app/current/REVISION ]
+ DEBUG [541ab723] Finished in 0.663 seconds with exit status 0 (successful).
+ DEBUG [1328d3dd] Running /usr/bin/env cat /var/www/purchase_app/current/REVISION 2>/dev/null as ichihara@3.128.111.52
+ DEBUG [1328d3dd] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env cat /var/www/purchase_app/current/REVISION 2>/dev/null )
+ DEBUG [1328d3dd] 	c18f03eb7394402bb4ae2662273e40b675360d06
+ DEBUG [1328d3dd] Finished in 0.680 seconds with exit status 0 (successful).
+ DEBUG [e8fbeb2c] Running [ -f /var/www/purchase_app/repo/HEAD ] as ichihara@3.128.111.52
+ DEBUG [e8fbeb2c] Command: [ -f /var/www/purchase_app/repo/HEAD ]
+ DEBUG [e8fbeb2c] Finished in 0.731 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/purchase_app/repo
+ DEBUG [d77b957d] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [d77b957d] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [d77b957d] Finished in 0.509 seconds with exit status 0 (successful).
+  INFO [ce0e18c3] Running /usr/bin/env git remote set-url origin git@github.com:ichihara-development-github/purchase_app.git as ichihara@3.128.111.52
+ DEBUG [ce0e18c3] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git remote set-url origin git@github.com:ichihara-development-github/purchase_app.git )
+  INFO [ce0e18c3] Finished in 0.694 seconds with exit status 0 (successful).
+  INFO [70aaf1ee] Running /usr/bin/env git remote update --prune as ichihara@3.128.111.52
+ DEBUG [70aaf1ee] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [70aaf1ee] 	Fetching origin
+ DEBUG [70aaf1ee] 	From github.com:ichihara-development-github/purchase_app
+   c18f03e..c982bd2  master     -> master
+  INFO [70aaf1ee] Finished in 1.318 seconds with exit status 0 (successful).
+ DEBUG [c9ee5d92] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [c9ee5d92] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [c9ee5d92] Finished in 0.426 seconds with exit status 0 (successful).
+  INFO [35c380da] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040 as ichihara@3.128.111.52
+ DEBUG [35c380da] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040 )
+  INFO [35c380da] Finished in 0.693 seconds with exit status 0 (successful).
+  INFO [bf8b2095] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/purchase_app/releases/20200923084040 as ichihara@3.128.111.52
+ DEBUG [bf8b2095] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/purchase_app/releases/20200923084040 )
+  INFO [bf8b2095] Finished in 1.657 seconds with exit status 0 (successful).
+ DEBUG [8cf50eb7] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [8cf50eb7] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [8cf50eb7] Finished in 0.460 seconds with exit status 0 (successful).
+ DEBUG [fa0df914] Running /usr/bin/env git rev-list --max-count=1 master as ichihara@3.128.111.52
+ DEBUG [fa0df914] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [fa0df914] 	c982bd2ea551f0e1342c5a56e4e99985fa69d5d3
+ DEBUG [fa0df914] Finished in 0.750 seconds with exit status 0 (successful).
+ DEBUG [8e3826d8] Running if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [8e3826d8] Command: if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi
+ DEBUG [8e3826d8] Finished in 0.490 seconds with exit status 0 (successful).
+  INFO [53289e39] Running /usr/bin/env echo "c982bd2ea551f0e1342c5a56e4e99985fa69d5d3" > REVISION as ichihara@3.128.111.52
+ DEBUG [53289e39] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "c982bd2ea551f0e1342c5a56e4e99985fa69d5d3" > REVISION )
+  INFO [53289e39] Finished in 0.641 seconds with exit status 0 (successful).
+  INFO [5e9dad2a] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040/config as ichihara@3.128.111.52
+ DEBUG [5e9dad2a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040/config )
+  INFO [5e9dad2a] Finished in 0.720 seconds with exit status 0 (successful).
+ DEBUG [71a7e46e] Running [ -L /var/www/purchase_app/releases/20200923084040/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [71a7e46e] Command: [ -L /var/www/purchase_app/releases/20200923084040/config/settings.yml ]
+ DEBUG [71a7e46e] Finished in 0.707 seconds with exit status 1 (failed).
+ DEBUG [f272dcfd] Running [ -f /var/www/purchase_app/releases/20200923084040/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [f272dcfd] Command: [ -f /var/www/purchase_app/releases/20200923084040/config/settings.yml ]
+ DEBUG [f272dcfd] Finished in 0.662 seconds with exit status 1 (failed).
+  INFO [edb9c56b] Running /usr/bin/env ln -s /var/www/purchase_app/shared/config/settings.yml /var/www/purchase_app/releases/20200923084040/config/settings.yml as ichihara@3.128.111.52
+ DEBUG [edb9c56b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/config/settings.yml /var/www/purchase_app/releases/20200923084040/config/settings.yml )
+  INFO [edb9c56b] Finished in 0.694 seconds with exit status 0 (successful).
+  INFO [7579f2ed] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040 /var/www/purchase_app/releases/20200923084040/tmp /var/www/purchase_app/releases/20200923084040/vendor /var/www/purchase_app/releases/20200923084040/public as ichihara@3.128.111.52
+ DEBUG [7579f2ed] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040 /var/www/purchase_app/releases/20200923084040/tmp /var/www/purchase_app/releases/20200923084040/vendor /var/www/purchase_app/releases/20200923084040/public )
+  INFO [7579f2ed] Finished in 0.666 seconds with exit status 0 (successful).
+ DEBUG [99a8523f] Running [ -L /var/www/purchase_app/releases/20200923084040/log ] as ichihara@3.128.111.52
+ DEBUG [99a8523f] Command: [ -L /var/www/purchase_app/releases/20200923084040/log ]
+ DEBUG [99a8523f] Finished in 0.729 seconds with exit status 1 (failed).
+ DEBUG [0e464e36] Running [ -d /var/www/purchase_app/releases/20200923084040/log ] as ichihara@3.128.111.52
+ DEBUG [0e464e36] Command: [ -d /var/www/purchase_app/releases/20200923084040/log ]
+ DEBUG [0e464e36] Finished in 0.735 seconds with exit status 0 (successful).
+  INFO [d872009c] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923084040/log as ichihara@3.128.111.52
+ DEBUG [d872009c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923084040/log )
+  INFO [d872009c] Finished in 0.694 seconds with exit status 0 (successful).
+  INFO [389e9304] Running /usr/bin/env ln -s /var/www/purchase_app/shared/log /var/www/purchase_app/releases/20200923084040/log as ichihara@3.128.111.52
+ DEBUG [389e9304] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/log /var/www/purchase_app/releases/20200923084040/log )
+  INFO [389e9304] Finished in 0.749 seconds with exit status 0 (successful).
+ DEBUG [40cffa1c] Running [ -L /var/www/purchase_app/releases/20200923084040/tmp/pids ] as ichihara@3.128.111.52
+ DEBUG [40cffa1c] Command: [ -L /var/www/purchase_app/releases/20200923084040/tmp/pids ]
+ DEBUG [40cffa1c] Finished in 0.740 seconds with exit status 1 (failed).
+ DEBUG [546c470f] Running [ -d /var/www/purchase_app/releases/20200923084040/tmp/pids ] as ichihara@3.128.111.52
+ DEBUG [546c470f] Command: [ -d /var/www/purchase_app/releases/20200923084040/tmp/pids ]
+ DEBUG [546c470f] Finished in 0.696 seconds with exit status 1 (failed).
+  INFO [bd46ebac] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/releases/20200923084040/tmp/pids as ichihara@3.128.111.52
+ DEBUG [bd46ebac] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/releases/20200923084040/tmp/pids )
+  INFO [bd46ebac] Finished in 0.673 seconds with exit status 0 (successful).
+ DEBUG [49e2ee52] Running [ -L /var/www/purchase_app/releases/20200923084040/tmp/cache ] as ichihara@3.128.111.52
+ DEBUG [49e2ee52] Command: [ -L /var/www/purchase_app/releases/20200923084040/tmp/cache ]
+ DEBUG [49e2ee52] Finished in 0.904 seconds with exit status 1 (failed).
+ DEBUG [f74279eb] Running [ -d /var/www/purchase_app/releases/20200923084040/tmp/cache ] as ichihara@3.128.111.52
+ DEBUG [f74279eb] Command: [ -d /var/www/purchase_app/releases/20200923084040/tmp/cache ]
+ DEBUG [f74279eb] Finished in 0.862 seconds with exit status 0 (successful).
+  INFO [c630cfa9] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923084040/tmp/cache as ichihara@3.128.111.52
+ DEBUG [c630cfa9] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923084040/tmp/cache )
+  INFO [c630cfa9] Finished in 0.565 seconds with exit status 0 (successful).
+  INFO [d98bba1c] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/releases/20200923084040/tmp/cache as ichihara@3.128.111.52
+ DEBUG [d98bba1c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/releases/20200923084040/tmp/cache )
+  INFO [d98bba1c] Finished in 0.519 seconds with exit status 0 (successful).
+ DEBUG [6435bca4] Running [ -L /var/www/purchase_app/releases/20200923084040/tmp/sockets ] as ichihara@3.128.111.52
+ DEBUG [6435bca4] Command: [ -L /var/www/purchase_app/releases/20200923084040/tmp/sockets ]
+ DEBUG [6435bca4] Finished in 0.675 seconds with exit status 1 (failed).
+ DEBUG [c482fc18] Running [ -d /var/www/purchase_app/releases/20200923084040/tmp/sockets ] as ichihara@3.128.111.52
+ DEBUG [c482fc18] Command: [ -d /var/www/purchase_app/releases/20200923084040/tmp/sockets ]
+ DEBUG [c482fc18] Finished in 0.634 seconds with exit status 1 (failed).
+  INFO [ffe9d112] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/releases/20200923084040/tmp/sockets as ichihara@3.128.111.52
+ DEBUG [ffe9d112] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/releases/20200923084040/tmp/sockets )
+  INFO [ffe9d112] Finished in 0.691 seconds with exit status 0 (successful).
+ DEBUG [3513daa2] Running [ -L /var/www/purchase_app/releases/20200923084040/vendor/bundle ] as ichihara@3.128.111.52
+ DEBUG [3513daa2] Command: [ -L /var/www/purchase_app/releases/20200923084040/vendor/bundle ]
+ DEBUG [3513daa2] Finished in 0.690 seconds with exit status 1 (failed).
+ DEBUG [654a3eda] Running [ -d /var/www/purchase_app/releases/20200923084040/vendor/bundle ] as ichihara@3.128.111.52
+ DEBUG [654a3eda] Command: [ -d /var/www/purchase_app/releases/20200923084040/vendor/bundle ]
+ DEBUG [654a3eda] Finished in 0.682 seconds with exit status 1 (failed).
+  INFO [7b8d5d78] Running /usr/bin/env ln -s /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/releases/20200923084040/vendor/bundle as ichihara@3.128.111.52
+ DEBUG [7b8d5d78] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/releases/20200923084040/vendor/bundle )
+  INFO [7b8d5d78] Finished in 0.644 seconds with exit status 0 (successful).
+ DEBUG [65afbf13] Running [ -L /var/www/purchase_app/releases/20200923084040/public/system ] as ichihara@3.128.111.52
+ DEBUG [65afbf13] Command: [ -L /var/www/purchase_app/releases/20200923084040/public/system ]
+ DEBUG [65afbf13] Finished in 0.652 seconds with exit status 1 (failed).
+ DEBUG [ac8adf8e] Running [ -d /var/www/purchase_app/releases/20200923084040/public/system ] as ichihara@3.128.111.52
+ DEBUG [ac8adf8e] Command: [ -d /var/www/purchase_app/releases/20200923084040/public/system ]
+ DEBUG [ac8adf8e] Finished in 0.700 seconds with exit status 1 (failed).
+  INFO [32dbc4ca] Running /usr/bin/env ln -s /var/www/purchase_app/shared/public/system /var/www/purchase_app/releases/20200923084040/public/system as ichihara@3.128.111.52
+ DEBUG [32dbc4ca] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/public/system /var/www/purchase_app/releases/20200923084040/public/system )
+  INFO [32dbc4ca] Finished in 0.775 seconds with exit status 0 (successful).
+ DEBUG [3739c22c] Running [ -L /var/www/purchase_app/releases/20200923084040/public/assets ] as ichihara@3.128.111.52
+ DEBUG [3739c22c] Command: [ -L /var/www/purchase_app/releases/20200923084040/public/assets ]
+ DEBUG [3739c22c] Finished in 0.403 seconds with exit status 1 (failed).
+ DEBUG [ac68380d] Running [ -d /var/www/purchase_app/releases/20200923084040/public/assets ] as ichihara@3.128.111.52
+ DEBUG [ac68380d] Command: [ -d /var/www/purchase_app/releases/20200923084040/public/assets ]
+ DEBUG [ac68380d] Finished in 0.664 seconds with exit status 0 (successful).
+  INFO [6685f701] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923084040/public/assets as ichihara@3.128.111.52
+ DEBUG [6685f701] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923084040/public/assets )
+  INFO [6685f701] Finished in 0.816 seconds with exit status 0 (successful).
+  INFO [0ca67074] Running /usr/bin/env ln -s /var/www/purchase_app/shared/public/assets /var/www/purchase_app/releases/20200923084040/public/assets as ichihara@3.128.111.52
+ DEBUG [0ca67074] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/public/assets /var/www/purchase_app/releases/20200923084040/public/assets )
+  INFO [0ca67074] Finished in 0.775 seconds with exit status 0 (successful).
+ DEBUG [54f994a4] Running if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [54f994a4] Command: if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi
+ DEBUG [54f994a4] Finished in 0.776 seconds with exit status 0 (successful).
+  INFO [bf31e156] Running $HOME/.rbenv/bin/rbenv exec bundle config --local deployment true as ichihara@3.128.111.52
+ DEBUG [bf31e156] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local deployment true )
+ DEBUG [bf31e156] 	You are replacing the current local value of deployment, which is currently nil
+  INFO [bf31e156] Finished in 1.230 seconds with exit status 0 (successful).
+  INFO [337c4c3f] Running $HOME/.rbenv/bin/rbenv exec bundle config --local path /var/www/purchase_app/shared/bundle as ichihara@3.128.111.52
+ DEBUG [337c4c3f] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local path /var/www/purchase_app/shared/bundle )
+ DEBUG [337c4c3f] 	You are replacing the current local value of path, which is currently nil
+  INFO [337c4c3f] Finished in 0.755 seconds with exit status 0 (successful).
+  INFO [0e50aaec] Running $HOME/.rbenv/bin/rbenv exec bundle config --local without development:test as ichihara@3.128.111.52
+ DEBUG [0e50aaec] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local without development:test )
+ DEBUG [0e50aaec] 	You are replacing the current local value of without, which is currently nil
+  INFO [0e50aaec] Finished in 0.974 seconds with exit status 0 (successful).
+ DEBUG [47ffdd4f] Running if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [47ffdd4f] Command: if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi
+ DEBUG [47ffdd4f] Finished in 0.778 seconds with exit status 0 (successful).
+ DEBUG [12e13f2e] Running $HOME/.rbenv/bin/rbenv exec bundle check as ichihara@3.128.111.52
+ DEBUG [12e13f2e] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle check )
+ DEBUG [12e13f2e] 	Warning: the running version of Bundler (1.17.2) is older than the version that created the lockfile (1.17.3). We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+ DEBUG [12e13f2e] 	The Gemfile's dependencies are satisfied
+ DEBUG [12e13f2e] Finished in 1.104 seconds with exit status 0 (successful).
+  INFO The Gemfile's dependencies are satisfied, skipping installation
+ DEBUG [3a6d7c1c] Running if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [3a6d7c1c] Command: if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi
+ DEBUG [3a6d7c1c] Finished in 0.650 seconds with exit status 0 (successful).
+  INFO [cb59bf3d] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile as ichihara@3.128.111.52
+ DEBUG [cb59bf3d] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" RAILS_ENV="production" RAILS_GROUPS="" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile )
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AIO_LISTIO_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AIO_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AIO_PRIO_DELTA_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ARG_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ATEXIT_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_BASE_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_DIM_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_SCALE_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_STRING_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CHILD_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CLK_TCK
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_COLL_WEIGHTS_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_DELAYTIMER_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_EXPR_NEST_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_HOST_NAME_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_IOV_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_LINE_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_LOGIN_NAME_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_NGROUPS_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_GETGR_R_SIZE_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_GETPW_R_SIZE_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MQ_OPEN_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MQ_PRIO_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_OPEN_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ADVISORY_INFO
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BARRIERS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ASYNCHRONOUS_IO
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CLOCK_SELECTION
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CPUTIME
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_FSYNC
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_IPV6
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_JOB_CONTROL
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MAPPED_FILES
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MEMLOCK
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MEMLOCK_RANGE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MEMORY_PROTECTION
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MESSAGE_PASSING
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MONOTONIC_CLOCK
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PRIORITIZED_IO
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PRIORITY_SCHEDULING
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_RAW_SOCKETS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_READER_WRITER_LOCKS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_REALTIME_SIGNALS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_REGEXP
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SAVED_IDS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SEMAPHORES
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SHARED_MEMORY_OBJECTS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SHELL
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SPAWN
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SPIN_LOCKS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SPORADIC_SERVER
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SS_REPL_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SYNCHRONIZED_IO
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ATTR_STACKADDR
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ATTR_STACKSIZE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_CPUTIME
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PRIO_INHERIT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PRIO_PROTECT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PRIORITY_SCHEDULING
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PROCESS_SHARED
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ROBUST_PRIO_INHERIT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ROBUST_PRIO_PROTECT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_SAFE_FUNCTIONS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_SPORADIC_SERVER
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREADS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TIMEOUTS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TIMERS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_EVENT_FILTER
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_EVENT_NAME_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_INHERIT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_LOG
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_NAME_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_SYS_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_USER_EVENT_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TYPED_MEMORY_OBJECTS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_VERSION
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_ILP32_OFF32
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_ILP32_OFFBIG
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_LP64_OFF64
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_LPBIG_OFFBIG
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_ILP32_OFF32
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_ILP32_OFFBIG
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_LP64_OFF64
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_LPBIG_OFFBIG
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_C_BIND
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_C_DEV
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_CHAR_TERM
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_FORT_DEV
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_FORT_RUN
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_LOCALEDEF
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_ACCOUNTING
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_CHECKPOINT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_LOCATE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_MESSAGE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_TRACK
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_SW_DEV
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_UPE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_VERSION
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PAGE_SIZE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PAGESIZE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_DESTRUCTOR_ITERATIONS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_KEYS_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_STACK_MIN
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_THREADS_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_RE_DUP_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_RTSIG_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SEM_NSEMS_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SEM_VALUE_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SIGQUEUE_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_STREAM_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SYMLOOP_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TIMER_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TTY_NAME_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TZNAME_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_CRYPT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_ENH_I18N
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_REALTIME
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_REALTIME_THREADS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_SHM
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_STREAMS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_UNIX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_VERSION
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PHYS_PAGES
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AVPHYS_PAGES
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_NPROCESSORS_CONF
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_NPROCESSORS_ONLN
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_PATH
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFF32_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFF32_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFF32_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFFBIG_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFFBIG_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LP64_OFF64_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LP64_OFF64_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LP64_OFF64_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LPBIG_OFFBIG_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_WIDTH_RESTRICTED_ENVS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_V7_ENV
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFF32_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFF32_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFF32_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFFBIG_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFFBIG_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LP64_OFF64_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LP64_OFF64_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LP64_OFF64_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LPBIG_OFFBIG_LIBS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_WIDTH_RESTRICTED_ENVS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_V6_ENV
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_GNU_LIBC_VERSION
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_GNU_LIBPTHREAD_VERSION
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_FILESIZEBITS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_LINK_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_MAX_CANON
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_MAX_INPUT
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_NAME_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_PATH_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_PIPE_BUF
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_2_SYMLINKS
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_ALLOC_SIZE_MIN
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_INCR_XFER_SIZE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_MAX_XFER_SIZE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_MIN_XFER_SIZE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_XFER_ALIGN
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_SYMLINK_MAX
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_CHOWN_RESTRICTED
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_NO_TRUNC
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_VDISABLE
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_ASYNC_IO
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_PRIO_IO
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_SYNC_IO
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Struct::Passwd
+ DEBUG [cb59bf3d] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Struct::Group
+  INFO [cb59bf3d] Finished in 4.365 seconds with exit status 0 (successful).
+ DEBUG [d447846d] Running if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [d447846d] Command: if test ! -d /var/www/purchase_app/releases/20200923084040; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923084040'" 1>&2; false; fi
+ DEBUG [d447846d] Finished in 0.729 seconds with exit status 0 (successful).
+  INFO [64e8229d] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040/assets_manifest_backup as ichihara@3.128.111.52
+ DEBUG [64e8229d] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923084040/assets_manifest_backup )
+  INFO [64e8229d] Finished in 0.750 seconds with exit status 0 (successful).
+ DEBUG [f0c20d05] Running /usr/bin/env ls /var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest* as ichihara@3.128.111.52
+ DEBUG [f0c20d05] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ls /var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest* )
+ DEBUG [f0c20d05] 	/var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json
+ DEBUG [f0c20d05] Finished in 0.783 seconds with exit status 0 (successful).
+ DEBUG [5d3dbcb3] Running /usr/bin/env ls /var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest* as ichihara@3.128.111.52
+ DEBUG [5d3dbcb3] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ls /var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest* )
+ DEBUG [5d3dbcb3] 	/var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json
+ DEBUG [5d3dbcb3] Finished in 0.795 seconds with exit status 0 (successful).
+  INFO [a4446fb1] Running /usr/bin/env cp /var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json /var/www/purchase_app/releases/20200923084040/assets_manifest_backup as ichihara@3.128.111.52
+ DEBUG [a4446fb1] Command: cd /var/www/purchase_app/releases/20200923084040 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env cp /var/www/purchase_app/releases/20200923084040/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json /var/www/purchase_app/releases/20200923084040/assets_manifest_backup )
+  INFO [a4446fb1] Finished in 0.802 seconds with exit status 0 (successful).
+  INFO [9fe8c990] Running /usr/bin/env ln -s /var/www/purchase_app/releases/20200923084040 /var/www/purchase_app/releases/current as ichihara@3.128.111.52
+ DEBUG [9fe8c990] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/releases/20200923084040 /var/www/purchase_app/releases/current )
+  INFO [9fe8c990] Finished in 0.653 seconds with exit status 0 (successful).
+  INFO [bb831cef] Running /usr/bin/env mv /var/www/purchase_app/releases/current /var/www/purchase_app as ichihara@3.128.111.52
+ DEBUG [bb831cef] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mv /var/www/purchase_app/releases/current /var/www/purchase_app )
+  INFO [bb831cef] Finished in 0.787 seconds with exit status 0 (successful).
+ DEBUG [6e562889] Running [ -f /var/www/purchase_app/current/tmp/pids/unicorn.pid ] as ichihara@3.128.111.52
+ DEBUG [6e562889] Command: [ -f /var/www/purchase_app/current/tmp/pids/unicorn.pid ]
+ DEBUG [6e562889] Finished in 0.691 seconds with exit status 0 (successful).
+  INFO [bf8e0799] Running /usr/bin/env kill -s USR2 $(< /var/www/purchase_app/current/tmp/pids/unicorn.pid) as ichihara@3.128.111.52
+ DEBUG [bf8e0799] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env kill -s USR2 $(< /var/www/purchase_app/current/tmp/pids/unicorn.pid) )
+  INFO [bf8e0799] Finished in 0.727 seconds with exit status 0 (successful).
+ DEBUG [90493896] Running /usr/bin/env ls -x /var/www/purchase_app/releases as ichihara@3.128.111.52
+ DEBUG [90493896] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ls -x /var/www/purchase_app/releases )
+ DEBUG [90493896] 	20200923072830	20200923073126	20200923073612	20200923074430	20200923080953
+20200923084040
+ DEBUG [90493896] Finished in 0.484 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 3.128.111.52
+ DEBUG [7ef35b99] Running [ -d /var/www/purchase_app/current ] as ichihara@3.128.111.52
+ DEBUG [7ef35b99] Command: [ -d /var/www/purchase_app/current ]
+ DEBUG [7ef35b99] Finished in 0.684 seconds with exit status 0 (successful).
+ DEBUG [298338d2] Running /usr/bin/env readlink /var/www/purchase_app/current as ichihara@3.128.111.52
+ DEBUG [298338d2] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env readlink /var/www/purchase_app/current )
+ DEBUG [298338d2] 	/var/www/purchase_app/releases/20200923084040
+ DEBUG [298338d2] Finished in 0.686 seconds with exit status 0 (successful).
+  INFO [8bf12c45] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923072830 as ichihara@3.128.111.52
+ DEBUG [8bf12c45] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923072830 )
+  INFO [8bf12c45] Finished in 1.126 seconds with exit status 0 (successful).
+ DEBUG [305ef4bc] Running if test ! -d /var/www/purchase_app/releases; then echo "Directory does not exist '/var/www/purchase_app/releases'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [305ef4bc] Command: if test ! -d /var/www/purchase_app/releases; then echo "Directory does not exist '/var/www/purchase_app/releases'" 1>&2; false; fi
+ DEBUG [305ef4bc] Finished in 0.734 seconds with exit status 0 (successful).
+  INFO [e457c5eb] Running /usr/bin/env echo "Branch master (at c982bd2ea551f0e1342c5a56e4e99985fa69d5d3) deployed as release 20200923084040 by yoshi" >> /var/www/purchase_app/revisions.log as ichihara@3.128.111.52
+ DEBUG [e457c5eb] Command: cd /var/www/purchase_app/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "Branch master (at c982bd2ea551f0e1342c5a56e4e99985fa69d5d3) deployed as release 20200923084040 by yoshi" >> /var/www/purchase_app/revisions.log )
+  INFO [e457c5eb] Finished in 0.686 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-23 18:27:19 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [3d21ed0f] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.128.111.52
+ DEBUG [3d21ed0f] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [3d21ed0f] Finished in 4.832 seconds with exit status 0 (successful).
+  INFO [6880dc3a] Running /usr/bin/env mkdir -p /tmp as ichihara@3.128.111.52
+ DEBUG [6880dc3a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [6880dc3a] Finished in 0.619 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [a8aa8a81] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.128.111.52
+ DEBUG [a8aa8a81] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [a8aa8a81] Finished in 0.733 seconds with exit status 0 (successful).
+  INFO [824a94ff] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.128.111.52
+ DEBUG [824a94ff] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [824a94ff] 	c982bd2ea551f0e1342c5a56e4e99985fa69d5d3	HEAD
+  INFO [824a94ff] Finished in 0.919 seconds with exit status 0 (successful).
+  INFO [f4a4f0a9] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared /var/www/purchase_app/releases as ichihara@3.128.111.52
+ DEBUG [f4a4f0a9] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared /var/www/purchase_app/releases )
+  INFO [f4a4f0a9] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [31f8a80d] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared/log /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/shared/public/system /var/www/purchase_app/shared/public/assets as ichihara@3.128.111.52
+ DEBUG [31f8a80d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared/log /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/shared/public/system /var/www/purchase_app/shared/public/assets )
+  INFO [31f8a80d] Finished in 0.594 seconds with exit status 0 (successful).
+  INFO [9a02d8ab] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared/config as ichihara@3.128.111.52
+ DEBUG [9a02d8ab] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared/config )
+  INFO [9a02d8ab] Finished in 0.595 seconds with exit status 0 (successful).
+ DEBUG [2c22a3be] Running [ -f /var/www/purchase_app/shared/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [2c22a3be] Command: [ -f /var/www/purchase_app/shared/config/settings.yml ]
+ DEBUG [2c22a3be] Finished in 0.642 seconds with exit status 0 (successful).
+ DEBUG [a159a746] Running [ -f /var/www/purchase_app/current/REVISION ] as ichihara@3.128.111.52
+ DEBUG [a159a746] Command: [ -f /var/www/purchase_app/current/REVISION ]
+ DEBUG [a159a746] Finished in 0.616 seconds with exit status 0 (successful).
+ DEBUG [0603b9c7] Running /usr/bin/env cat /var/www/purchase_app/current/REVISION 2>/dev/null as ichihara@3.128.111.52
+ DEBUG [0603b9c7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env cat /var/www/purchase_app/current/REVISION 2>/dev/null )
+ DEBUG [0603b9c7] 	c982bd2ea551f0e1342c5a56e4e99985fa69d5d3
+ DEBUG [0603b9c7] Finished in 0.617 seconds with exit status 0 (successful).
+ DEBUG [48f3adbb] Running [ -f /var/www/purchase_app/repo/HEAD ] as ichihara@3.128.111.52
+ DEBUG [48f3adbb] Command: [ -f /var/www/purchase_app/repo/HEAD ]
+ DEBUG [48f3adbb] Finished in 0.598 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/purchase_app/repo
+ DEBUG [48f77a22] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [48f77a22] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [48f77a22] Finished in 0.389 seconds with exit status 0 (successful).
+  INFO [df6a6cb8] Running /usr/bin/env git remote set-url origin git@github.com:ichihara-development-github/purchase_app.git as ichihara@3.128.111.52
+ DEBUG [df6a6cb8] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git remote set-url origin git@github.com:ichihara-development-github/purchase_app.git )
+  INFO [df6a6cb8] Finished in 0.612 seconds with exit status 0 (successful).
+  INFO [010056a2] Running /usr/bin/env git remote update --prune as ichihara@3.128.111.52
+ DEBUG [010056a2] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [010056a2] 	Fetching origin
+  INFO [010056a2] Finished in 1.061 seconds with exit status 0 (successful).
+ DEBUG [bb62b215] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [bb62b215] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [bb62b215] Finished in 0.386 seconds with exit status 0 (successful).
+  INFO [f8607a3c] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737 as ichihara@3.128.111.52
+ DEBUG [f8607a3c] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737 )
+  INFO [f8607a3c] Finished in 0.631 seconds with exit status 0 (successful).
+  INFO [ab9246d4] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/purchase_app/releases/20200923092737 as ichihara@3.128.111.52
+ DEBUG [ab9246d4] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/purchase_app/releases/20200923092737 )
+  INFO [ab9246d4] Finished in 1.644 seconds with exit status 0 (successful).
+ DEBUG [f713cb54] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [f713cb54] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [f713cb54] Finished in 0.386 seconds with exit status 0 (successful).
+ DEBUG [9b9d23c1] Running /usr/bin/env git rev-list --max-count=1 master as ichihara@3.128.111.52
+ DEBUG [9b9d23c1] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [9b9d23c1] 	c982bd2ea551f0e1342c5a56e4e99985fa69d5d3
+ DEBUG [9b9d23c1] Finished in 0.685 seconds with exit status 0 (successful).
+ DEBUG [a77c3b42] Running if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [a77c3b42] Command: if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi
+ DEBUG [a77c3b42] Finished in 0.408 seconds with exit status 0 (successful).
+  INFO [b44cb208] Running /usr/bin/env echo "c982bd2ea551f0e1342c5a56e4e99985fa69d5d3" > REVISION as ichihara@3.128.111.52
+ DEBUG [b44cb208] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "c982bd2ea551f0e1342c5a56e4e99985fa69d5d3" > REVISION )
+  INFO [b44cb208] Finished in 0.618 seconds with exit status 0 (successful).
+  INFO [a65475ac] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737/config as ichihara@3.128.111.52
+ DEBUG [a65475ac] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737/config )
+  INFO [a65475ac] Finished in 0.595 seconds with exit status 0 (successful).
+ DEBUG [9d9b8a3d] Running [ -L /var/www/purchase_app/releases/20200923092737/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [9d9b8a3d] Command: [ -L /var/www/purchase_app/releases/20200923092737/config/settings.yml ]
+ DEBUG [9d9b8a3d] Finished in 0.608 seconds with exit status 1 (failed).
+ DEBUG [cd6a2fbf] Running [ -f /var/www/purchase_app/releases/20200923092737/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [cd6a2fbf] Command: [ -f /var/www/purchase_app/releases/20200923092737/config/settings.yml ]
+ DEBUG [cd6a2fbf] Finished in 0.617 seconds with exit status 1 (failed).
+  INFO [150f22aa] Running /usr/bin/env ln -s /var/www/purchase_app/shared/config/settings.yml /var/www/purchase_app/releases/20200923092737/config/settings.yml as ichihara@3.128.111.52
+ DEBUG [150f22aa] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/config/settings.yml /var/www/purchase_app/releases/20200923092737/config/settings.yml )
+  INFO [150f22aa] Finished in 0.596 seconds with exit status 0 (successful).
+  INFO [e5b2a4fb] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737 /var/www/purchase_app/releases/20200923092737/tmp /var/www/purchase_app/releases/20200923092737/vendor /var/www/purchase_app/releases/20200923092737/public as ichihara@3.128.111.52
+ DEBUG [e5b2a4fb] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737 /var/www/purchase_app/releases/20200923092737/tmp /var/www/purchase_app/releases/20200923092737/vendor /var/www/purchase_app/releases/20200923092737/public )
+  INFO [e5b2a4fb] Finished in 0.851 seconds with exit status 0 (successful).
+ DEBUG [11a03f99] Running [ -L /var/www/purchase_app/releases/20200923092737/log ] as ichihara@3.128.111.52
+ DEBUG [11a03f99] Command: [ -L /var/www/purchase_app/releases/20200923092737/log ]
+ DEBUG [11a03f99] Finished in 0.719 seconds with exit status 1 (failed).
+ DEBUG [9e854141] Running [ -d /var/www/purchase_app/releases/20200923092737/log ] as ichihara@3.128.111.52
+ DEBUG [9e854141] Command: [ -d /var/www/purchase_app/releases/20200923092737/log ]
+ DEBUG [9e854141] Finished in 0.673 seconds with exit status 0 (successful).
+  INFO [7e93c1cc] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923092737/log as ichihara@3.128.111.52
+ DEBUG [7e93c1cc] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923092737/log )
+  INFO [7e93c1cc] Finished in 0.626 seconds with exit status 0 (successful).
+  INFO [75d67759] Running /usr/bin/env ln -s /var/www/purchase_app/shared/log /var/www/purchase_app/releases/20200923092737/log as ichihara@3.128.111.52
+ DEBUG [75d67759] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/log /var/www/purchase_app/releases/20200923092737/log )
+  INFO [75d67759] Finished in 0.639 seconds with exit status 0 (successful).
+ DEBUG [370060ba] Running [ -L /var/www/purchase_app/releases/20200923092737/tmp/pids ] as ichihara@3.128.111.52
+ DEBUG [370060ba] Command: [ -L /var/www/purchase_app/releases/20200923092737/tmp/pids ]
+ DEBUG [370060ba] Finished in 0.653 seconds with exit status 1 (failed).
+ DEBUG [5fa9e3a2] Running [ -d /var/www/purchase_app/releases/20200923092737/tmp/pids ] as ichihara@3.128.111.52
+ DEBUG [5fa9e3a2] Command: [ -d /var/www/purchase_app/releases/20200923092737/tmp/pids ]
+ DEBUG [5fa9e3a2] Finished in 0.639 seconds with exit status 1 (failed).
+  INFO [57a9c5b0] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/releases/20200923092737/tmp/pids as ichihara@3.128.111.52
+ DEBUG [57a9c5b0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/releases/20200923092737/tmp/pids )
+  INFO [57a9c5b0] Finished in 0.643 seconds with exit status 0 (successful).
+ DEBUG [81209839] Running [ -L /var/www/purchase_app/releases/20200923092737/tmp/cache ] as ichihara@3.128.111.52
+ DEBUG [81209839] Command: [ -L /var/www/purchase_app/releases/20200923092737/tmp/cache ]
+ DEBUG [81209839] Finished in 0.599 seconds with exit status 1 (failed).
+ DEBUG [5692cf8c] Running [ -d /var/www/purchase_app/releases/20200923092737/tmp/cache ] as ichihara@3.128.111.52
+ DEBUG [5692cf8c] Command: [ -d /var/www/purchase_app/releases/20200923092737/tmp/cache ]
+ DEBUG [5692cf8c] Finished in 0.607 seconds with exit status 0 (successful).
+  INFO [b07bfe30] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923092737/tmp/cache as ichihara@3.128.111.52
+ DEBUG [b07bfe30] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923092737/tmp/cache )
+  INFO [b07bfe30] Finished in 0.626 seconds with exit status 0 (successful).
+  INFO [0c3efb6d] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/releases/20200923092737/tmp/cache as ichihara@3.128.111.52
+ DEBUG [0c3efb6d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/releases/20200923092737/tmp/cache )
+  INFO [0c3efb6d] Finished in 0.653 seconds with exit status 0 (successful).
+ DEBUG [2cce60ee] Running [ -L /var/www/purchase_app/releases/20200923092737/tmp/sockets ] as ichihara@3.128.111.52
+ DEBUG [2cce60ee] Command: [ -L /var/www/purchase_app/releases/20200923092737/tmp/sockets ]
+ DEBUG [2cce60ee] Finished in 0.635 seconds with exit status 1 (failed).
+ DEBUG [78cf531d] Running [ -d /var/www/purchase_app/releases/20200923092737/tmp/sockets ] as ichihara@3.128.111.52
+ DEBUG [78cf531d] Command: [ -d /var/www/purchase_app/releases/20200923092737/tmp/sockets ]
+ DEBUG [78cf531d] Finished in 0.605 seconds with exit status 1 (failed).
+  INFO [e23f40ad] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/releases/20200923092737/tmp/sockets as ichihara@3.128.111.52
+ DEBUG [e23f40ad] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/releases/20200923092737/tmp/sockets )
+  INFO [e23f40ad] Finished in 0.651 seconds with exit status 0 (successful).
+ DEBUG [a290e481] Running [ -L /var/www/purchase_app/releases/20200923092737/vendor/bundle ] as ichihara@3.128.111.52
+ DEBUG [a290e481] Command: [ -L /var/www/purchase_app/releases/20200923092737/vendor/bundle ]
+ DEBUG [a290e481] Finished in 0.639 seconds with exit status 1 (failed).
+ DEBUG [9b7dbc2e] Running [ -d /var/www/purchase_app/releases/20200923092737/vendor/bundle ] as ichihara@3.128.111.52
+ DEBUG [9b7dbc2e] Command: [ -d /var/www/purchase_app/releases/20200923092737/vendor/bundle ]
+ DEBUG [9b7dbc2e] Finished in 0.607 seconds with exit status 1 (failed).
+  INFO [db35db51] Running /usr/bin/env ln -s /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/releases/20200923092737/vendor/bundle as ichihara@3.128.111.52
+ DEBUG [db35db51] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/releases/20200923092737/vendor/bundle )
+  INFO [db35db51] Finished in 0.695 seconds with exit status 0 (successful).
+ DEBUG [293dc579] Running [ -L /var/www/purchase_app/releases/20200923092737/public/system ] as ichihara@3.128.111.52
+ DEBUG [293dc579] Command: [ -L /var/www/purchase_app/releases/20200923092737/public/system ]
+ DEBUG [293dc579] Finished in 0.675 seconds with exit status 1 (failed).
+ DEBUG [8f85c5f2] Running [ -d /var/www/purchase_app/releases/20200923092737/public/system ] as ichihara@3.128.111.52
+ DEBUG [8f85c5f2] Command: [ -d /var/www/purchase_app/releases/20200923092737/public/system ]
+ DEBUG [8f85c5f2] Finished in 0.704 seconds with exit status 1 (failed).
+  INFO [37a6b947] Running /usr/bin/env ln -s /var/www/purchase_app/shared/public/system /var/www/purchase_app/releases/20200923092737/public/system as ichihara@3.128.111.52
+ DEBUG [37a6b947] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/public/system /var/www/purchase_app/releases/20200923092737/public/system )
+  INFO [37a6b947] Finished in 0.668 seconds with exit status 0 (successful).
+ DEBUG [6df55c25] Running [ -L /var/www/purchase_app/releases/20200923092737/public/assets ] as ichihara@3.128.111.52
+ DEBUG [6df55c25] Command: [ -L /var/www/purchase_app/releases/20200923092737/public/assets ]
+ DEBUG [6df55c25] Finished in 0.619 seconds with exit status 1 (failed).
+ DEBUG [15a0e22d] Running [ -d /var/www/purchase_app/releases/20200923092737/public/assets ] as ichihara@3.128.111.52
+ DEBUG [15a0e22d] Command: [ -d /var/www/purchase_app/releases/20200923092737/public/assets ]
+ DEBUG [15a0e22d] Finished in 0.620 seconds with exit status 0 (successful).
+  INFO [b1f68a71] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923092737/public/assets as ichihara@3.128.111.52
+ DEBUG [b1f68a71] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923092737/public/assets )
+  INFO [b1f68a71] Finished in 0.641 seconds with exit status 0 (successful).
+  INFO [319720a7] Running /usr/bin/env ln -s /var/www/purchase_app/shared/public/assets /var/www/purchase_app/releases/20200923092737/public/assets as ichihara@3.128.111.52
+ DEBUG [319720a7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/public/assets /var/www/purchase_app/releases/20200923092737/public/assets )
+  INFO [319720a7] Finished in 0.617 seconds with exit status 0 (successful).
+ DEBUG [78284a7d] Running if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [78284a7d] Command: if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi
+ DEBUG [78284a7d] Finished in 0.601 seconds with exit status 0 (successful).
+  INFO [48ef7de6] Running $HOME/.rbenv/bin/rbenv exec bundle config --local deployment true as ichihara@3.128.111.52
+ DEBUG [48ef7de6] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local deployment true )
+ DEBUG [48ef7de6] 	You are replacing the current local value of deployment, which is currently nil
+  INFO [48ef7de6] Finished in 0.805 seconds with exit status 0 (successful).
+  INFO [ac6ab2b7] Running $HOME/.rbenv/bin/rbenv exec bundle config --local path /var/www/purchase_app/shared/bundle as ichihara@3.128.111.52
+ DEBUG [ac6ab2b7] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local path /var/www/purchase_app/shared/bundle )
+ DEBUG [ac6ab2b7] 	You are replacing the current local value of path, which is currently nil
+  INFO [ac6ab2b7] Finished in 0.812 seconds with exit status 0 (successful).
+  INFO [ecede6b3] Running $HOME/.rbenv/bin/rbenv exec bundle config --local without development:test as ichihara@3.128.111.52
+ DEBUG [ecede6b3] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local without development:test )
+ DEBUG [ecede6b3] 	You are replacing the current local value of without, which is currently nil
+  INFO [ecede6b3] Finished in 0.767 seconds with exit status 0 (successful).
+ DEBUG [ec25235a] Running if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [ec25235a] Command: if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi
+ DEBUG [ec25235a] Finished in 0.644 seconds with exit status 0 (successful).
+ DEBUG [6103d44e] Running $HOME/.rbenv/bin/rbenv exec bundle check as ichihara@3.128.111.52
+ DEBUG [6103d44e] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle check )
+ DEBUG [6103d44e] 	Warning: the running version of Bundler (1.17.2) is older than the version that created the lockfile (1.17.3). We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+ DEBUG [6103d44e] 	The Gemfile's dependencies are satisfied
+ DEBUG [6103d44e] Finished in 0.945 seconds with exit status 0 (successful).
+  INFO The Gemfile's dependencies are satisfied, skipping installation
+ DEBUG [2b0d9144] Running if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [2b0d9144] Command: if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi
+ DEBUG [2b0d9144] Finished in 0.676 seconds with exit status 0 (successful).
+  INFO [916f6b38] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile as ichihara@3.128.111.52
+ DEBUG [916f6b38] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" RAILS_ENV="production" RAILS_GROUPS="" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile )
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AIO_LISTIO_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AIO_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AIO_PRIO_DELTA_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ARG_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ATEXIT_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_BASE_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_DIM_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_SCALE_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BC_STRING_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CHILD_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CLK_TCK
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_COLL_WEIGHTS_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_DELAYTIMER_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_EXPR_NEST_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_HOST_NAME_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_IOV_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_LINE_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_LOGIN_NAME_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_NGROUPS_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_GETGR_R_SIZE_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_GETPW_R_SIZE_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MQ_OPEN_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MQ_PRIO_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_OPEN_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ADVISORY_INFO
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_BARRIERS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_ASYNCHRONOUS_IO
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CLOCK_SELECTION
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_CPUTIME
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_FSYNC
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_IPV6
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_JOB_CONTROL
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MAPPED_FILES
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MEMLOCK
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MEMLOCK_RANGE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MEMORY_PROTECTION
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MESSAGE_PASSING
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_MONOTONIC_CLOCK
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PRIORITIZED_IO
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PRIORITY_SCHEDULING
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_RAW_SOCKETS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_READER_WRITER_LOCKS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_REALTIME_SIGNALS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_REGEXP
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SAVED_IDS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SEMAPHORES
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SHARED_MEMORY_OBJECTS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SHELL
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SPAWN
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SPIN_LOCKS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SPORADIC_SERVER
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SS_REPL_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SYNCHRONIZED_IO
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ATTR_STACKADDR
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ATTR_STACKSIZE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_CPUTIME
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PRIO_INHERIT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PRIO_PROTECT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PRIORITY_SCHEDULING
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_PROCESS_SHARED
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ROBUST_PRIO_INHERIT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_ROBUST_PRIO_PROTECT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_SAFE_FUNCTIONS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_SPORADIC_SERVER
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREADS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TIMEOUTS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TIMERS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_EVENT_FILTER
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_EVENT_NAME_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_INHERIT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_LOG
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_NAME_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_SYS_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TRACE_USER_EVENT_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TYPED_MEMORY_OBJECTS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_VERSION
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_ILP32_OFF32
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_ILP32_OFFBIG
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_LP64_OFF64
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V7_LPBIG_OFFBIG
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_ILP32_OFF32
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_ILP32_OFFBIG
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_LP64_OFF64
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_V6_LPBIG_OFFBIG
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_C_BIND
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_C_DEV
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_CHAR_TERM
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_FORT_DEV
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_FORT_RUN
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_LOCALEDEF
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_ACCOUNTING
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_CHECKPOINT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_LOCATE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_MESSAGE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_PBS_TRACK
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_SW_DEV
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_UPE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_2_VERSION
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PAGE_SIZE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PAGESIZE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_DESTRUCTOR_ITERATIONS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_KEYS_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_STACK_MIN
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_THREAD_THREADS_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_RE_DUP_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_RTSIG_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SEM_NSEMS_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SEM_VALUE_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SIGQUEUE_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_STREAM_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_SYMLOOP_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TIMER_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TTY_NAME_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_TZNAME_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_CRYPT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_ENH_I18N
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_REALTIME
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_REALTIME_THREADS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_SHM
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_STREAMS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_UNIX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_XOPEN_VERSION
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_PHYS_PAGES
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_AVPHYS_PAGES
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_NPROCESSORS_CONF
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::SC_NPROCESSORS_ONLN
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_PATH
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFF32_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFF32_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFF32_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFFBIG_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_ILP32_OFFBIG_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LP64_OFF64_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LP64_OFF64_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LP64_OFF64_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_LPBIG_OFFBIG_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V7_WIDTH_RESTRICTED_ENVS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_V7_ENV
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFF32_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFF32_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFF32_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFFBIG_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_ILP32_OFFBIG_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LP64_OFF64_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LP64_OFF64_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LP64_OFF64_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_LPBIG_OFFBIG_LIBS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_POSIX_V6_WIDTH_RESTRICTED_ENVS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_V6_ENV
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_GNU_LIBC_VERSION
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::CS_GNU_LIBPTHREAD_VERSION
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_FILESIZEBITS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_LINK_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_MAX_CANON
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_MAX_INPUT
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_NAME_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_PATH_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_PIPE_BUF
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_2_SYMLINKS
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_ALLOC_SIZE_MIN
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_INCR_XFER_SIZE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_MAX_XFER_SIZE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_MIN_XFER_SIZE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_REC_XFER_ALIGN
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_SYMLINK_MAX
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_CHOWN_RESTRICTED
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_NO_TRUNC
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_VDISABLE
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_ASYNC_IO
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_PRIO_IO
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Etc::PC_SYNC_IO
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Struct::Passwd
+ DEBUG [916f6b38] 	/home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/x86_64-linux/etc.so: warning: already initialized constant Struct::Group
+  INFO [916f6b38] Finished in 3.290 seconds with exit status 0 (successful).
+ DEBUG [b289da26] Running if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [b289da26] Command: if test ! -d /var/www/purchase_app/releases/20200923092737; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923092737'" 1>&2; false; fi
+ DEBUG [b289da26] Finished in 0.606 seconds with exit status 0 (successful).
+  INFO [fab93cef] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737/assets_manifest_backup as ichihara@3.128.111.52
+ DEBUG [fab93cef] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923092737/assets_manifest_backup )
+  INFO [fab93cef] Finished in 0.597 seconds with exit status 0 (successful).
+ DEBUG [a54bc358] Running /usr/bin/env ls /var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest* as ichihara@3.128.111.52
+ DEBUG [a54bc358] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ls /var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest* )
+ DEBUG [a54bc358] 	/var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json
+ DEBUG [a54bc358] Finished in 0.617 seconds with exit status 0 (successful).
+ DEBUG [7e93b32b] Running /usr/bin/env ls /var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest* as ichihara@3.128.111.52
+ DEBUG [7e93b32b] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ls /var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest* )
+ DEBUG [7e93b32b] 	/var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json
+ DEBUG [7e93b32b] Finished in 0.643 seconds with exit status 0 (successful).
+  INFO [3cac4d6b] Running /usr/bin/env cp /var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json /var/www/purchase_app/releases/20200923092737/assets_manifest_backup as ichihara@3.128.111.52
+ DEBUG [3cac4d6b] Command: cd /var/www/purchase_app/releases/20200923092737 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env cp /var/www/purchase_app/releases/20200923092737/public/assets/.sprockets-manifest-645ed68a59a733f8d752b58cc0547d37.json /var/www/purchase_app/releases/20200923092737/assets_manifest_backup )
+  INFO [3cac4d6b] Finished in 0.662 seconds with exit status 0 (successful).
+  INFO [ab1eb092] Running /usr/bin/env ln -s /var/www/purchase_app/releases/20200923092737 /var/www/purchase_app/releases/current as ichihara@3.128.111.52
+ DEBUG [ab1eb092] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/releases/20200923092737 /var/www/purchase_app/releases/current )
+  INFO [ab1eb092] Finished in 0.650 seconds with exit status 0 (successful).
+  INFO [e0cef145] Running /usr/bin/env mv /var/www/purchase_app/releases/current /var/www/purchase_app as ichihara@3.128.111.52
+ DEBUG [e0cef145] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mv /var/www/purchase_app/releases/current /var/www/purchase_app )
+  INFO [e0cef145] Finished in 0.641 seconds with exit status 0 (successful).
+ DEBUG [514ed9ff] Running [ -f /var/www/purchase_app/current/tmp/pids/unicorn.pid ] as ichihara@3.128.111.52
+ DEBUG [514ed9ff] Command: [ -f /var/www/purchase_app/current/tmp/pids/unicorn.pid ]
+ DEBUG [514ed9ff] Finished in 0.627 seconds with exit status 0 (successful).
+  INFO [b9d329df] Running /usr/bin/env kill -s USR2 $(< /var/www/purchase_app/current/tmp/pids/unicorn.pid) as ichihara@3.128.111.52
+ DEBUG [b9d329df] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env kill -s USR2 $(< /var/www/purchase_app/current/tmp/pids/unicorn.pid) )
+  INFO [b9d329df] Finished in 0.451 seconds with exit status 0 (successful).
+ DEBUG [22ca1f0e] Running /usr/bin/env ls -x /var/www/purchase_app/releases as ichihara@3.128.111.52
+ DEBUG [22ca1f0e] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ls -x /var/www/purchase_app/releases )
+ DEBUG [22ca1f0e] 	20200923073126	20200923073612	20200923074430	20200923080953	20200923084040
+20200923092737
+ DEBUG [22ca1f0e] Finished in 0.392 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 3.128.111.52
+ DEBUG [2ab0650a] Running [ -d /var/www/purchase_app/current ] as ichihara@3.128.111.52
+ DEBUG [2ab0650a] Command: [ -d /var/www/purchase_app/current ]
+ DEBUG [2ab0650a] Finished in 0.606 seconds with exit status 0 (successful).
+ DEBUG [bd8f317d] Running /usr/bin/env readlink /var/www/purchase_app/current as ichihara@3.128.111.52
+ DEBUG [bd8f317d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env readlink /var/www/purchase_app/current )
+ DEBUG [bd8f317d] 	/var/www/purchase_app/releases/20200923092737
+ DEBUG [bd8f317d] Finished in 0.634 seconds with exit status 0 (successful).
+  INFO [88d66462] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923073126 as ichihara@3.128.111.52
+ DEBUG [88d66462] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923073126 )
+  INFO [88d66462] Finished in 1.012 seconds with exit status 0 (successful).
+ DEBUG [bccafdd8] Running if test ! -d /var/www/purchase_app/releases; then echo "Directory does not exist '/var/www/purchase_app/releases'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [bccafdd8] Command: if test ! -d /var/www/purchase_app/releases; then echo "Directory does not exist '/var/www/purchase_app/releases'" 1>&2; false; fi
+ DEBUG [bccafdd8] Finished in 0.611 seconds with exit status 0 (successful).
+  INFO [0b41a5ef] Running /usr/bin/env echo "Branch master (at c982bd2ea551f0e1342c5a56e4e99985fa69d5d3) deployed as release 20200923092737 by yoshi" >> /var/www/purchase_app/revisions.log as ichihara@3.128.111.52
+ DEBUG [0b41a5ef] Command: cd /var/www/purchase_app/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "Branch master (at c982bd2ea551f0e1342c5a56e4e99985fa69d5d3) deployed as release 20200923092737 by yoshi" >> /var/www/purchase_app/revisions.log )
+  INFO [0b41a5ef] Finished in 0.597 seconds with exit status 0 (successful).
