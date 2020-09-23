@@ -6,8 +6,6 @@ set :repo_url, 'git@github.com:ichihara-development-github/purchase_app.git'
 
 set :deploy_to, '/var/www/purchase_app'
 
-set :branch, 'master'
-
 
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
