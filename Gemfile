@@ -77,7 +77,6 @@ group :development do
 end
 
 group :production do
-  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   gem 'pg'
 end
 
