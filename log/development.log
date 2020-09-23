@@ -36670,3 +36670,315 @@ DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is depr
 DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_one :store, class_name: 'Store'` (called from <class:User> at C:/Users/yoshi/production_deploy_purchase_app/purchase_app/app/models/user.rb:68)
   [1m[36mUser Load (21.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" LIMIT ?[0m  [["LIMIT", 11]]
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Users/yoshi/production_deploy_purchase_app/purchase_app/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_one :store, class_name: 'Store'` (called from <class:User> at C:/Users/yoshi/production_deploy_purchase_app/purchase_app/app/models/user.rb:68)
+Started GET "/products" for ::1 at 2020-09-23 20:17:31 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (46.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "baskets" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("products"."price") FROM "products" INNER JOIN "baskets" ON "products"."id" = "baskets"."product_id" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered layouts/_side_bar.html.erb (321.5ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.8ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (94.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.5ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (514.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (4.7ms)
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.0ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (64.9ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.0ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (5.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.0ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (5.5ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.5ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 4], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (7.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 5], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (5.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 6], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (5.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.5ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 7], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (5.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 8], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (7.2ms)
+  Rendered products/_product.html.erb (710.7ms)
+  Rendered products/index.html.erb within layouts/application (6434.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mNotification Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "notifications" WHERE "notifications"."passive_user_id" = ? AND "notifications"."checked" = ? LIMIT ?[0m  [["passive_user_id", 3], ["checked", "f"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (1316.9ms)
+  Rendered layouts/_message.html.erb (1.7ms)
+Completed 200 OK in 8835ms (Views: 8677.0ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&category=&min=&max=&store_id=&commit=%E3%81%93%E3%81%AE%E6%9D%A1%E4%BB%B6%E3%81%A7%E6%A4%9C%E7%B4%A2" for ::1 at 2020-09-23 20:17:51 +0900
+Processing by ProductsController#search as HTML
+  Parameters: {"utf8"=>"✓", "category"=>"", "min"=>"", "max"=>"", "store_id"=>"", "commit"=>"この条件で検索"}
+Unpermitted parameters: :utf8, :commit
+Redirected to http://localhost:3000/products
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-09-23 20:17:51 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (9.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "baskets" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("products"."price") FROM "products" INNER JOIN "baskets" ON "products"."id" = "baskets"."product_id" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered layouts/_side_bar.html.erb (22.5ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.6ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (7.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.6ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (30.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.7ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (35.5ms)
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  [1m[36mCACHE User Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.0ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (175.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.0ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (12.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.1ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (46.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 4], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (348.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 5], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (84.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.5ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 6], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (13.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 7], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (8.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 8], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (15.8ms)
+  Rendered products/_product.html.erb (992.6ms)
+  Rendered products/index.html.erb within layouts/application (1313.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mNotification Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "notifications" WHERE "notifications"."passive_user_id" = ? AND "notifications"."checked" = ? LIMIT ?[0m  [["passive_user_id", 3], ["checked", "f"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (883.5ms)
+  Rendered layouts/_message.html.erb (4.0ms)
+Completed 200 OK in 2946ms (Views: 2859.9ms | ActiveRecord: 14.7ms)
+
+
+Started DELETE "/baskets/3" for ::1 at 2020-09-23 20:18:01 +0900
+Processing by BasketsController#destroy as JS
+  Parameters: {"product_id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.7ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.7ms)[0m  [1m[31mDELETE FROM "baskets" WHERE "baskets"."id" = ?[0m  [["id", 721]]
+  [1m[35m (43.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering baskets/destroy.js.erb
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (519.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "baskets" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("products"."price") FROM "products" INNER JOIN "baskets" ON "products"."id" = "baskets"."product_id" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered layouts/_side_bar.html.erb (598.0ms)
+  Rendered baskets/destroy.js.erb (1279.2ms)
+Completed 200 OK in 2111ms (Views: 1336.4ms | ActiveRecord: 52.8ms)
+
+
+Started GET "/line_up?utf8=%E2%9C%93&line_up=%E4%BE%A1%E6%A0%BC%E3%81%8C%E5%AE%89%E3%81%84&commit=%E4%B8%A6%E3%81%B9%E6%9B%BF%E3%81%88%E3%82%8B" for ::1 at 2020-09-23 20:18:08 +0900
+Processing by ProductsController#line_up as HTML
+  Parameters: {"utf8"=>"✓", "line_up"=>"価格が安い", "commit"=>"並べ替える"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "purchases"."product_id" FROM "purchases" GROUP BY "purchases"."product_id" ORDER BY count(product_id) desc[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (2, 3, 1)[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "products"."category" FROM "products"[0m
+  [1m[36mStore Load (1.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered products/_search_form.html.erb (11.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "baskets" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("products"."price") FROM "products" INNER JOIN "baskets" ON "products"."id" = "baskets"."product_id" WHERE "baskets"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered layouts/_side_bar.html.erb (17.6ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.7ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (6.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (1.1ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (46.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.8ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (480.5ms)
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."price" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.1ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (80.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.0ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (254.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.5ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 8], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (24.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 9], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (23.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.5ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 10], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (20.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.6ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 11], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (15.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Basket Load (0.0ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 3], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (4.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBasket Load (0.4ms)[0m  [1m[34mSELECT  "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? AND "baskets"."product_id" = ? LIMIT ?[0m  [["user_id", 3], ["product_id", 7], ["LIMIT", 1]]
+  Rendered products/_cart_link.html.erb (4.8ms)
+  Rendered products/_product.html.erb (1410.6ms)
+  Rendered products/index.html.erb within layouts/application (2559.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mNotification Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "notifications" WHERE "notifications"."passive_user_id" = ? AND "notifications"."checked" = ? LIMIT ?[0m  [["passive_user_id", 3], ["checked", "f"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (890.4ms)
+  Rendered layouts/_message.html.erb (1.1ms)
+Completed 200 OK in 4109ms (Views: 4081.8ms | ActiveRecord: 14.3ms)
+
+
