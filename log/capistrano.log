@@ -10667,3 +10667,211 @@ Tasks: TOP => assets:precompile
   INFO [0b41a5ef] Running /usr/bin/env echo "Branch master (at c982bd2ea551f0e1342c5a56e4e99985fa69d5d3) deployed as release 20200923092737 by yoshi" >> /var/www/purchase_app/revisions.log as ichihara@3.128.111.52
  DEBUG [0b41a5ef] Command: cd /var/www/purchase_app/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "Branch master (at c982bd2ea551f0e1342c5a56e4e99985fa69d5d3) deployed as release 20200923092737 by yoshi" >> /var/www/purchase_app/revisions.log )
   INFO [0b41a5ef] Finished in 0.597 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-23 18:38:05 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [c10755a5] Running [ -d $HOME/.rbenv/versions/2.6.3 ] as ichihara@3.128.111.52
+ DEBUG [c10755a5] Command: [ -d $HOME/.rbenv/versions/2.6.3 ]
+ DEBUG [c10755a5] Finished in 4.700 seconds with exit status 0 (successful).
+  INFO [458d30a3] Running /usr/bin/env mkdir -p /tmp as ichihara@3.128.111.52
+ DEBUG [458d30a3] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [458d30a3] Finished in 3.096 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 0.0%
+  INFO Uploading /tmp/git-ssh-purchase_app-production-yoshi.sh 100.0%
+  INFO [e475fab8] Running /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh as ichihara@3.128.111.52
+ DEBUG [e475fab8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-purchase_app-production-yoshi.sh )
+  INFO [e475fab8] Finished in 1.223 seconds with exit status 0 (successful).
+  INFO [383026e9] Running /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD as ichihara@3.128.111.52
+ DEBUG [383026e9] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git ls-remote git@github.com:ichihara-development-github/purchase_app.git HEAD )
+ DEBUG [383026e9] 	1cfc69b78abfc290caa8ad3429e969c297e10ae1	HEAD
+  INFO [383026e9] Finished in 0.995 seconds with exit status 0 (successful).
+  INFO [3f17d266] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared /var/www/purchase_app/releases as ichihara@3.128.111.52
+ DEBUG [3f17d266] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared /var/www/purchase_app/releases )
+  INFO [3f17d266] Finished in 0.585 seconds with exit status 0 (successful).
+  INFO [8091299a] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared/log /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/shared/public/system /var/www/purchase_app/shared/public/assets as ichihara@3.128.111.52
+ DEBUG [8091299a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared/log /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/shared/public/system /var/www/purchase_app/shared/public/assets )
+  INFO [8091299a] Finished in 0.539 seconds with exit status 0 (successful).
+  INFO [720e7719] Running /usr/bin/env mkdir -p /var/www/purchase_app/shared/config as ichihara@3.128.111.52
+ DEBUG [720e7719] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/shared/config )
+  INFO [720e7719] Finished in 1.592 seconds with exit status 0 (successful).
+ DEBUG [266fa4e6] Running [ -f /var/www/purchase_app/shared/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [266fa4e6] Command: [ -f /var/www/purchase_app/shared/config/settings.yml ]
+ DEBUG [266fa4e6] Finished in 0.591 seconds with exit status 0 (successful).
+ DEBUG [e9c6b8c5] Running [ -f /var/www/purchase_app/current/REVISION ] as ichihara@3.128.111.52
+ DEBUG [e9c6b8c5] Command: [ -f /var/www/purchase_app/current/REVISION ]
+ DEBUG [e9c6b8c5] Finished in 0.832 seconds with exit status 0 (successful).
+ DEBUG [338431cd] Running /usr/bin/env cat /var/www/purchase_app/current/REVISION 2>/dev/null as ichihara@3.128.111.52
+ DEBUG [338431cd] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env cat /var/www/purchase_app/current/REVISION 2>/dev/null )
+ DEBUG [338431cd] 	c982bd2ea551f0e1342c5a56e4e99985fa69d5d3
+ DEBUG [338431cd] Finished in 0.730 seconds with exit status 0 (successful).
+ DEBUG [e569e20b] Running [ -f /var/www/purchase_app/repo/HEAD ] as ichihara@3.128.111.52
+ DEBUG [e569e20b] Command: [ -f /var/www/purchase_app/repo/HEAD ]
+ DEBUG [e569e20b] Finished in 0.711 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/purchase_app/repo
+ DEBUG [439aabea] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [439aabea] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [439aabea] Finished in 0.911 seconds with exit status 0 (successful).
+  INFO [b3f91ed4] Running /usr/bin/env git remote set-url origin git@github.com:ichihara-development-github/purchase_app.git as ichihara@3.128.111.52
+ DEBUG [b3f91ed4] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git remote set-url origin git@github.com:ichihara-development-github/purchase_app.git )
+  INFO [b3f91ed4] Finished in 0.587 seconds with exit status 0 (successful).
+  INFO [6a032ef9] Running /usr/bin/env git remote update --prune as ichihara@3.128.111.52
+ DEBUG [6a032ef9] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [6a032ef9] 	Fetching origin
+ DEBUG [6a032ef9] 	From github.com:ichihara-development-github/purchase_app
+   c982bd2..1cfc69b  master     -> master
+  INFO [6a032ef9] Finished in 1.641 seconds with exit status 0 (successful).
+ DEBUG [287cd5d2] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [287cd5d2] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [287cd5d2] Finished in 0.462 seconds with exit status 0 (successful).
+  INFO [75045d4e] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923105706 as ichihara@3.128.111.52
+ DEBUG [75045d4e] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923105706 )
+  INFO [75045d4e] Finished in 0.673 seconds with exit status 0 (successful).
+  INFO [6be8900c] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/purchase_app/releases/20200923105706 as ichihara@3.128.111.52
+ DEBUG [6be8900c] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/purchase_app/releases/20200923105706 )
+  INFO [6be8900c] Finished in 1.666 seconds with exit status 0 (successful).
+ DEBUG [1aa7d5af] Running if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [1aa7d5af] Command: if test ! -d /var/www/purchase_app/repo; then echo "Directory does not exist '/var/www/purchase_app/repo'" 1>&2; false; fi
+ DEBUG [1aa7d5af] Finished in 0.442 seconds with exit status 0 (successful).
+ DEBUG [ac535112] Running /usr/bin/env git rev-list --max-count=1 master as ichihara@3.128.111.52
+ DEBUG [ac535112] Command: cd /var/www/purchase_app/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-purchase_app-production-yoshi.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [ac535112] 	1cfc69b78abfc290caa8ad3429e969c297e10ae1
+ DEBUG [ac535112] Finished in 0.600 seconds with exit status 0 (successful).
+ DEBUG [72d399be] Running if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [72d399be] Command: if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi
+ DEBUG [72d399be] Finished in 0.491 seconds with exit status 0 (successful).
+  INFO [54ea3de9] Running /usr/bin/env echo "1cfc69b78abfc290caa8ad3429e969c297e10ae1" > REVISION as ichihara@3.128.111.52
+ DEBUG [54ea3de9] Command: cd /var/www/purchase_app/releases/20200923105706 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "1cfc69b78abfc290caa8ad3429e969c297e10ae1" > REVISION )
+  INFO [54ea3de9] Finished in 0.706 seconds with exit status 0 (successful).
+  INFO [3d97e310] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923105706/config as ichihara@3.128.111.52
+ DEBUG [3d97e310] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923105706/config )
+  INFO [3d97e310] Finished in 0.601 seconds with exit status 0 (successful).
+ DEBUG [6411b7e3] Running [ -L /var/www/purchase_app/releases/20200923105706/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [6411b7e3] Command: [ -L /var/www/purchase_app/releases/20200923105706/config/settings.yml ]
+ DEBUG [6411b7e3] Finished in 0.724 seconds with exit status 1 (failed).
+ DEBUG [b6f80d72] Running [ -f /var/www/purchase_app/releases/20200923105706/config/settings.yml ] as ichihara@3.128.111.52
+ DEBUG [b6f80d72] Command: [ -f /var/www/purchase_app/releases/20200923105706/config/settings.yml ]
+ DEBUG [b6f80d72] Finished in 0.689 seconds with exit status 1 (failed).
+  INFO [83a43caf] Running /usr/bin/env ln -s /var/www/purchase_app/shared/config/settings.yml /var/www/purchase_app/releases/20200923105706/config/settings.yml as ichihara@3.128.111.52
+ DEBUG [83a43caf] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/config/settings.yml /var/www/purchase_app/releases/20200923105706/config/settings.yml )
+  INFO [83a43caf] Finished in 0.647 seconds with exit status 0 (successful).
+  INFO [8c595440] Running /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923105706 /var/www/purchase_app/releases/20200923105706/tmp /var/www/purchase_app/releases/20200923105706/vendor /var/www/purchase_app/releases/20200923105706/public as ichihara@3.128.111.52
+ DEBUG [8c595440] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env mkdir -p /var/www/purchase_app/releases/20200923105706 /var/www/purchase_app/releases/20200923105706/tmp /var/www/purchase_app/releases/20200923105706/vendor /var/www/purchase_app/releases/20200923105706/public )
+  INFO [8c595440] Finished in 0.568 seconds with exit status 0 (successful).
+ DEBUG [1645e0fe] Running [ -L /var/www/purchase_app/releases/20200923105706/log ] as ichihara@3.128.111.52
+ DEBUG [1645e0fe] Command: [ -L /var/www/purchase_app/releases/20200923105706/log ]
+ DEBUG [1645e0fe] Finished in 0.717 seconds with exit status 1 (failed).
+ DEBUG [a5acc6dd] Running [ -d /var/www/purchase_app/releases/20200923105706/log ] as ichihara@3.128.111.52
+ DEBUG [a5acc6dd] Command: [ -d /var/www/purchase_app/releases/20200923105706/log ]
+ DEBUG [a5acc6dd] Finished in 0.717 seconds with exit status 0 (successful).
+  INFO [9a482bcd] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923105706/log as ichihara@3.128.111.52
+ DEBUG [9a482bcd] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923105706/log )
+  INFO [9a482bcd] Finished in 0.695 seconds with exit status 0 (successful).
+  INFO [e1eeecbd] Running /usr/bin/env ln -s /var/www/purchase_app/shared/log /var/www/purchase_app/releases/20200923105706/log as ichihara@3.128.111.52
+ DEBUG [e1eeecbd] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/log /var/www/purchase_app/releases/20200923105706/log )
+  INFO [e1eeecbd] Finished in 0.594 seconds with exit status 0 (successful).
+ DEBUG [81ea7628] Running [ -L /var/www/purchase_app/releases/20200923105706/tmp/pids ] as ichihara@3.128.111.52
+ DEBUG [81ea7628] Command: [ -L /var/www/purchase_app/releases/20200923105706/tmp/pids ]
+ DEBUG [81ea7628] Finished in 0.644 seconds with exit status 1 (failed).
+ DEBUG [6cfbba2c] Running [ -d /var/www/purchase_app/releases/20200923105706/tmp/pids ] as ichihara@3.128.111.52
+ DEBUG [6cfbba2c] Command: [ -d /var/www/purchase_app/releases/20200923105706/tmp/pids ]
+ DEBUG [6cfbba2c] Finished in 0.709 seconds with exit status 1 (failed).
+  INFO [ba620c72] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/releases/20200923105706/tmp/pids as ichihara@3.128.111.52
+ DEBUG [ba620c72] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/pids /var/www/purchase_app/releases/20200923105706/tmp/pids )
+  INFO [ba620c72] Finished in 0.802 seconds with exit status 0 (successful).
+ DEBUG [fd0fb4ed] Running [ -L /var/www/purchase_app/releases/20200923105706/tmp/cache ] as ichihara@3.128.111.52
+ DEBUG [fd0fb4ed] Command: [ -L /var/www/purchase_app/releases/20200923105706/tmp/cache ]
+ DEBUG [fd0fb4ed] Finished in 0.623 seconds with exit status 1 (failed).
+ DEBUG [243fb5d2] Running [ -d /var/www/purchase_app/releases/20200923105706/tmp/cache ] as ichihara@3.128.111.52
+ DEBUG [243fb5d2] Command: [ -d /var/www/purchase_app/releases/20200923105706/tmp/cache ]
+ DEBUG [243fb5d2] Finished in 0.658 seconds with exit status 0 (successful).
+  INFO [1fc80ecb] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923105706/tmp/cache as ichihara@3.128.111.52
+ DEBUG [1fc80ecb] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923105706/tmp/cache )
+  INFO [1fc80ecb] Finished in 0.419 seconds with exit status 0 (successful).
+  INFO [b1b73cdf] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/releases/20200923105706/tmp/cache as ichihara@3.128.111.52
+ DEBUG [b1b73cdf] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/cache /var/www/purchase_app/releases/20200923105706/tmp/cache )
+  INFO [b1b73cdf] Finished in 0.798 seconds with exit status 0 (successful).
+ DEBUG [6b9359b0] Running [ -L /var/www/purchase_app/releases/20200923105706/tmp/sockets ] as ichihara@3.128.111.52
+ DEBUG [6b9359b0] Command: [ -L /var/www/purchase_app/releases/20200923105706/tmp/sockets ]
+ DEBUG [6b9359b0] Finished in 0.616 seconds with exit status 1 (failed).
+ DEBUG [f9579d8d] Running [ -d /var/www/purchase_app/releases/20200923105706/tmp/sockets ] as ichihara@3.128.111.52
+ DEBUG [f9579d8d] Command: [ -d /var/www/purchase_app/releases/20200923105706/tmp/sockets ]
+ DEBUG [f9579d8d] Finished in 0.709 seconds with exit status 1 (failed).
+  INFO [6b69b418] Running /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/releases/20200923105706/tmp/sockets as ichihara@3.128.111.52
+ DEBUG [6b69b418] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/tmp/sockets /var/www/purchase_app/releases/20200923105706/tmp/sockets )
+  INFO [6b69b418] Finished in 0.722 seconds with exit status 0 (successful).
+ DEBUG [7909f531] Running [ -L /var/www/purchase_app/releases/20200923105706/vendor/bundle ] as ichihara@3.128.111.52
+ DEBUG [7909f531] Command: [ -L /var/www/purchase_app/releases/20200923105706/vendor/bundle ]
+ DEBUG [7909f531] Finished in 0.737 seconds with exit status 1 (failed).
+ DEBUG [75920b9d] Running [ -d /var/www/purchase_app/releases/20200923105706/vendor/bundle ] as ichihara@3.128.111.52
+ DEBUG [75920b9d] Command: [ -d /var/www/purchase_app/releases/20200923105706/vendor/bundle ]
+ DEBUG [75920b9d] Finished in 0.674 seconds with exit status 1 (failed).
+  INFO [8851ce9d] Running /usr/bin/env ln -s /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/releases/20200923105706/vendor/bundle as ichihara@3.128.111.52
+ DEBUG [8851ce9d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/vendor/bundle /var/www/purchase_app/releases/20200923105706/vendor/bundle )
+  INFO [8851ce9d] Finished in 0.707 seconds with exit status 0 (successful).
+ DEBUG [0fafac2d] Running [ -L /var/www/purchase_app/releases/20200923105706/public/system ] as ichihara@3.128.111.52
+ DEBUG [0fafac2d] Command: [ -L /var/www/purchase_app/releases/20200923105706/public/system ]
+ DEBUG [0fafac2d] Finished in 1.115 seconds with exit status 1 (failed).
+ DEBUG [30da7c76] Running [ -d /var/www/purchase_app/releases/20200923105706/public/system ] as ichihara@3.128.111.52
+ DEBUG [30da7c76] Command: [ -d /var/www/purchase_app/releases/20200923105706/public/system ]
+ DEBUG [30da7c76] Finished in 0.634 seconds with exit status 1 (failed).
+  INFO [0a8319ac] Running /usr/bin/env ln -s /var/www/purchase_app/shared/public/system /var/www/purchase_app/releases/20200923105706/public/system as ichihara@3.128.111.52
+ DEBUG [0a8319ac] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/public/system /var/www/purchase_app/releases/20200923105706/public/system )
+  INFO [0a8319ac] Finished in 0.593 seconds with exit status 0 (successful).
+ DEBUG [9a5ceaa3] Running [ -L /var/www/purchase_app/releases/20200923105706/public/assets ] as ichihara@3.128.111.52
+ DEBUG [9a5ceaa3] Command: [ -L /var/www/purchase_app/releases/20200923105706/public/assets ]
+ DEBUG [9a5ceaa3] Finished in 1.021 seconds with exit status 1 (failed).
+ DEBUG [141ba7ea] Running [ -d /var/www/purchase_app/releases/20200923105706/public/assets ] as ichihara@3.128.111.52
+ DEBUG [141ba7ea] Command: [ -d /var/www/purchase_app/releases/20200923105706/public/assets ]
+ DEBUG [141ba7ea] Finished in 0.722 seconds with exit status 0 (successful).
+  INFO [a633d864] Running /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923105706/public/assets as ichihara@3.128.111.52
+ DEBUG [a633d864] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env rm -rf /var/www/purchase_app/releases/20200923105706/public/assets )
+  INFO [a633d864] Finished in 0.612 seconds with exit status 0 (successful).
+  INFO [b84f0d26] Running /usr/bin/env ln -s /var/www/purchase_app/shared/public/assets /var/www/purchase_app/releases/20200923105706/public/assets as ichihara@3.128.111.52
+ DEBUG [b84f0d26] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env ln -s /var/www/purchase_app/shared/public/assets /var/www/purchase_app/releases/20200923105706/public/assets )
+  INFO [b84f0d26] Finished in 0.679 seconds with exit status 0 (successful).
+ DEBUG [42255671] Running if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [42255671] Command: if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi
+ DEBUG [42255671] Finished in 0.676 seconds with exit status 0 (successful).
+  INFO [dda7b9e5] Running $HOME/.rbenv/bin/rbenv exec bundle config --local deployment true as ichihara@3.128.111.52
+ DEBUG [dda7b9e5] Command: cd /var/www/purchase_app/releases/20200923105706 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local deployment true )
+ DEBUG [dda7b9e5] 	You are replacing the current local value of deployment, which is currently nil
+  INFO [dda7b9e5] Finished in 0.849 seconds with exit status 0 (successful).
+  INFO [2162ce3c] Running $HOME/.rbenv/bin/rbenv exec bundle config --local path /var/www/purchase_app/shared/bundle as ichihara@3.128.111.52
+ DEBUG [2162ce3c] Command: cd /var/www/purchase_app/releases/20200923105706 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local path /var/www/purchase_app/shared/bundle )
+ DEBUG [2162ce3c] 	You are replacing the current local value of path, which is currently nil
+  INFO [2162ce3c] Finished in 1.325 seconds with exit status 0 (successful).
+  INFO [733a799a] Running $HOME/.rbenv/bin/rbenv exec bundle config --local without development:test as ichihara@3.128.111.52
+ DEBUG [733a799a] Command: cd /var/www/purchase_app/releases/20200923105706 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle config --local without development:test )
+ DEBUG [733a799a] 	You are replacing the current local value of without, which is currently nil
+  INFO [733a799a] Finished in 1.222 seconds with exit status 0 (successful).
+ DEBUG [71054092] Running if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [71054092] Command: if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi
+ DEBUG [71054092] Finished in 0.724 seconds with exit status 0 (successful).
+ DEBUG [f21cc4d7] Running $HOME/.rbenv/bin/rbenv exec bundle check as ichihara@3.128.111.52
+ DEBUG [f21cc4d7] Command: cd /var/www/purchase_app/releases/20200923105706 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; $HOME/.rbenv/bin/rbenv exec bundle check )
+ DEBUG [f21cc4d7] 	Warning: the running version of Bundler (1.17.2) is older than the version that created the lockfile (1.17.3). We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+ DEBUG [f21cc4d7] 	The Gemfile's dependencies are satisfied
+ DEBUG [f21cc4d7] Finished in 1.036 seconds with exit status 0 (successful).
+  INFO The Gemfile's dependencies are satisfied, skipping installation
+ DEBUG [ddfe73a5] Running if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi as ichihara@3.128.111.52
+ DEBUG [ddfe73a5] Command: if test ! -d /var/www/purchase_app/releases/20200923105706; then echo "Directory does not exist '/var/www/purchase_app/releases/20200923105706'" 1>&2; false; fi
+ DEBUG [ddfe73a5] Finished in 0.666 seconds with exit status 0 (successful).
+  INFO [46ba5ea1] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile as ichihara@3.128.111.52
+ DEBUG [46ba5ea1] Command: cd /var/www/purchase_app/releases/20200923105706 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" RAILS_ENV="production" RAILS_GROUPS="" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile )
+ DEBUG [46ba5ea1] 	bundler: failed to load command: rake (/var/www/purchase_app/shared/bundle/ruby/2.6.0/bin/rake)
+ DEBUG [46ba5ea1] 	Bundler::ProductionError: You are trying to install in deployment mode after changing
+your Gemfile. Run `bundle install` elsewhere and add the
+updated Gemfile.lock to version control.
+
+If this is a development machine, remove the /var/www/purchase_app/releases/20200923105706/Gemfile freeze 
+by running `bundle config --delete deployment`.
+
+You have deleted from the Gemfile:
+* wdm (>= 0.1.0)
+
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/definition.rb:466:in `ensure_equivalent_gemfile_and_lockfile'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/runtime.rb:13:in `setup'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler.rb:107:in `setup'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/bundler/setup.rb:20:in `<top (required)>'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /home/ichihara/.rbenv/versions/2.6.3/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
