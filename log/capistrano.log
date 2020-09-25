@@ -14843,3 +14843,12 @@ You have deleted from the Gemfile:
   INFO [3b903624] Running /usr/bin/env echo "Branch master (at b545457be6d3eb5ae04bb302e88f89ed25cbaff0) deployed as release 20200923145705 by yoshi" >> /var/www/purchase_app/revisions.log as ichihara@3.128.111.52
  DEBUG [3b903624] Command: cd /var/www/purchase_app/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.6.3" ; /usr/bin/env echo "Branch master (at b545457be6d3eb5ae04bb302e88f89ed25cbaff0) deployed as release 20200923145705 by yoshi" >> /var/www/purchase_app/revisions.log )
   INFO [3b903624] Finished in 0.575 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-25 12:11:47 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-25 12:14:42 +0900 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-25 12:35:00 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
