@@ -4,14 +4,13 @@ RAILS_ENV  = ENV['RAILS_ENV'] || 'development'
 
 worker_processes 3
 
-listen "/var/www/purchase_app/shared/tmp/sockets/unicorn.sock"
-pid "/var/www/purchase_app/shared/tmp/pids/unicorn.pid"
+listen "/tmp/unicorn.sock"
+pid "tmp/pids/unicorn.pid"
 
 preload_app true
 
 timeout 60
 working_directory APP_PATH
-
 
 # log
 stderr_path "#{RAILS_ROOT}/log/unicorn_error.log"
