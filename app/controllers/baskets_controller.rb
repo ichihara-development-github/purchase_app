@@ -35,14 +35,14 @@ class BasketsController < ApplicationController
         @product = Product.find(params[:format])
         Basket.create(user_id: current_user.id, product_id: @product.id)
         flash[:success] = "カートに追加しました"
-        redirect_to :back
+        redirect_to product_path(@product)
     end
 
     def delete
         @basket = Basket.find_by(user_id: current_user.id, product_id: params[:format])
         @basket.destroy
         flash[:success] = "カートにから削除しました"
-        redirect_to :back
+        redirect_to baskets_path
     end
 
 end

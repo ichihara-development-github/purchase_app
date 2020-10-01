@@ -5,18 +5,31 @@ class User < ApplicationRecord
   attr_accessor :reset_token
 
 
-  def self.collect_data(user, model)
+  def self.collect_baskets(user)
+      @data = []
       products = user.store.products
       products.each do |product|
-        data = model.where(product_id: product.id)
-        @list = data.map()
+        @data += product.baskets
       end
+      @data
+  end
+
+  def self.collect_purchases(user)
+      @data = []
+      products = user.store.products
+      products.each do |product|
+
+        @data += product.purchases
+      end
+      @data
   end
 
   def self.pay_off(data)
-      total = 0
-      data.map{|product| total += Product.find(product.product_id).price}
-      total
+    total = 0
+    data.each do |datum|
+        total += Product.where(id: datum.product_id).sum(:price)
+    end
+    total
   end
 
   def authenticated?(attribute, token)
@@ -65,7 +78,7 @@ class User < ApplicationRecord
 
 #-------------------------------------------------------------------------
 
-  has_one :store, dependent: :destroy, class_name: Store
+  has_one :store, dependent: :destroy, class_name: "Store"
   has_many :payment, dependent: :nullify
   has_many :baskets, dependent: :destroy
   has_many :considering_products, through: :baskets, source: :product

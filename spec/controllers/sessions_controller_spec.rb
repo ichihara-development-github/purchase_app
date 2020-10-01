@@ -88,7 +88,9 @@ RSpec.describe SessionController, type: :controller do
 
   describe "delete destroy" do
 
-    before{delete :destroy,id: 1}
+    before do
+      delete :destroy,params: {id: 1}
+    end
 
     context "user has logged in as guest account" do
       it "is user_id in session deleted?" do

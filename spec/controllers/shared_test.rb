@@ -101,7 +101,7 @@ module Shared_test
     context "user has logged in" do
       before do
         login(1)
-        get :show, id: obj.id
+        get :show, params: {id: obj.id}
       end
 
       it "assign the requested object to @object" do
@@ -114,7 +114,9 @@ module Shared_test
     end
 
     context "user has not logged in" do
-      before { get :show, id: obj.id}
+      before do
+        get :show, params: {id: obj.id}
+      end
       it_behaves_like "redirect to loginpage if user has not logged in"
     end
   end
@@ -126,7 +128,7 @@ module Shared_test
        context "user is admin and" do
          before do
            login(1)
-           get :edit, id: obj.id
+           get :edit, params: {id: obj.id}
          end
 
          it "assign the requested object to @object" do
@@ -140,7 +142,9 @@ module Shared_test
        end
 
        context "user is not admin" do
-         before{ get :edit, id: obj.id}
+         before do
+           get :edit, params: {id: obj.id}
+         end
          it_behaves_like "redirect to root if user has not authority"
        end
 

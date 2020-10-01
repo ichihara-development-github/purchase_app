@@ -16,7 +16,7 @@ RSpec.describe StoresController, type: :controller do
 
         before do
           login(1)
-          get :edit, id: store.id
+          get :edit, params: {id: store.id}
         end
 
         it "assign the requested object to @object" do
@@ -30,7 +30,9 @@ RSpec.describe StoresController, type: :controller do
       end
 
     context "user has not authority" do
-      before{get :edit, id: store.id}
+      before do
+        get :edit, params: {id: store.id}
+      end
       it_behaves_like "redirect to root if user is not seller"
     end
   end

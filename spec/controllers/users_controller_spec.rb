@@ -23,11 +23,11 @@ RSpec.describe UsersController, type: :controller do
         it "Was it removed in the database" do
           expect{
           delete :destroy,
-          id: normal_user}.to change(User, :count).by(-1)
+          params: {id: normal_user}}.to change(User, :count).by(-1)
         end
 
         it "assign the danger message to flash" do
-          delete :destroy,id: normal_user
+          delete :destroy,params: {id: normal_user}
           expect(flash[:success]).to eq "ユーザーを削除しました"
         end
 
@@ -38,11 +38,11 @@ RSpec.describe UsersController, type: :controller do
         it "Was not removed in the database" do
           expect{
           delete :destroy,
-          id: admin_user}.to change(User, :count).by(0)
+          params: {id: admin_user}}.to change(User, :count).by(0)
         end
 
         it "assign the danger message to flash" do
-          delete :destroy,id: admin_user
+          delete :destroy,params: {id: admin_user}
           expect(flash[:warning]).to eq "自分と管理者は削除できません"
         end
 
@@ -51,7 +51,9 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "current_user is not admin" do
-      before{delete :destroy, id: normal_user}
+      before do
+        delete :destroy, params: {id: normal_user}
+      end
       it_behaves_like "redirect to root if user is not admin"
     end
   end

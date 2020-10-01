@@ -92,6 +92,14 @@ a{
     cursor: pointer
 }
 
+.dropdown-item{
+  font:{
+      size:26px;
+      weight:bold;
+      font-family: 'M PLUS 1p', sans-serif;
+  };
+}
+
 .slide-toggle{
     position:relative;
 

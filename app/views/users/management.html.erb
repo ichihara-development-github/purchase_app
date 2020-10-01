@@ -1,10 +1,5 @@
- <h2>これまでの売り上げ</h2>
+<h2>これまでの売り上げ</h2>
       <h3><%= @purchase_data.count %>点</h3>
-       <h3>合計: ¥<%= User.pay_off(@purchase_data)  %></h3>
-
-
-  <div class = "display-400">
-    <div class = "container">
      <table class="table table-striped">
   <thead>
     <tr class = "table-success">
@@ -27,8 +22,7 @@
      <% end %>
   </tbody>
  </table>
- </div>
- </div>
+
  <h2>見込み売り上げ</h2>
       <h3><%= @in_basket_data.count %>点</h3>
        <h3>合計: ¥<%= User.pay_off(@in_basket_data) %></h3>
@@ -59,4 +53,3 @@
   </tbody>
 </table>
 </div>
-</table>
