@@ -1,0 +1,5 @@
+<span>
+  <% evaluation_avarage(product).to_i.times do |i|%><i class="fas fa-star" style = "color:orange"></i><% end %>
+  <% unless evaluation_avarage(product).modulo(1) == 0%><i class="fas fa-star-half" style = "color:orange"></i><% end %>
+  <%= link_to evaluations_path id: product.id do %>(<%= product.evaluations.count %>) <% end %>
+</span>

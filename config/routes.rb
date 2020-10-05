@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'evaluations/index'
+
+  get 'evaluations/new'
+
+  get 'evaluations/create'
+
+  get 'evaluations/edit'
+
+  get 'evaluations/update'
+
+  get 'evaluations/destroy'
+
  root to: "welcome#top"
 
  post "login", to: "session#create"
@@ -38,7 +50,7 @@ Rails.application.routes.draw do
  resources :purchases, only: [:new, :create]
  resources :notifications, only: [:index]
  resources :relationships, only: [:create, :destroy]
- resources :addresses, only: [:create, :destroy]
+ resources :evaluations
 
  resources :users do
     member do

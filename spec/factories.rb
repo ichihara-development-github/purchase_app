@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :evaluation do
+    star { 1 }
+    comment { "MyString" }
+  end
+
 
   factory :user, class: User do
     id {1}

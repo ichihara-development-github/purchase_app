@@ -11,7 +11,7 @@
                 <%= link_to product_path(product) do %>
                     <h5 ="card-title"><%= product.name %></h5>
                 <% end %>
-                <span>¥<%= product.price %></span>
+                <span style = "color:red">¥<%= product.price %></span><br />
                   <span class = "product-basket-<%= product.id %>" >
                     <% if current_user %>
                       <%= render "products/cart_link", product: product %>
@@ -21,6 +21,7 @@
                       <% end %>
                     <% end %>
                   </span>
+                  <span><%= render "evaluations/star", product: product%></span>
               </div>
       </div>
       </div>

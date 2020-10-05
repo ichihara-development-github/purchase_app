@@ -73,6 +73,10 @@ class ProductsController < ApplicationController
       @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "購入数"
       @products = Product.popular.paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "レビュー件数"
+      @products = Product.has_many_reviews.paginate(page: params[:page], per_page: 8)
+    elsif params[:line_up] == "レビュー平均"
+      @products = Product.products_review_avarage.paginate(page: params[:page], per_page: 8)
     end
     @popular = Product.popular
     render "index"

@@ -87,6 +87,9 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :evaluations, dependent: :destroy
+  has_many :reviewed_products, through: :evaluations, source: :product
+
   #notification
   has_many :active_notifications, class_name: "Notification", foreign_key: "active_user_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification",foreign_key:  "passive_user_id", dependent: :destroy

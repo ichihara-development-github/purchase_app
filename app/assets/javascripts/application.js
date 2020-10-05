@@ -16,38 +16,40 @@
 // require turbolinks
 //= require_tree .
 
+require "raty"
+
 $(function(){
-   
+
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()
     });
-    
-    
+
+
     $(".dropdown-log").on("click", function(){
         $(this).next(".purchacelog").slideToggle()
     });
-    
+
     $(".fade-menu-toggle").on("click", function(){
         $(this).next(".fade-menu").fadeToggle()
     });
-    
+
     $('.slide-menu-toggle').on("click", function(){
-  
+
   if($(this).hasClass('active')) {
-    $(this).removeClass('active'); 
-    $(".slide-menu").removeClass('open'); 
-    
+    $(this).removeClass('active');
+    $(".slide-menu").removeClass('open');
+
   } else {
-    $(this).addClass('active'); 
+    $(this).addClass('active');
     $(".slide-menu").addClass('open');
   }
 });
 
-var headersHeight = $('header').outerHeight(); 
-$('.main').css('padding-top', headersHeight + 'px'); 
+var headersHeight = $('header').outerHeight();
+$('.main').css('padding-top', headersHeight + 'px');
 $('.slide-menu').css('margin-top', headersHeight + 'px');
 
-  
+
 
 
 var style = {

@@ -41,6 +41,14 @@ class Product < ApplicationRecord
      Product.find(Purchase.group(:product_id).order('count(product_id) desc').pluck(:product_id))
    end
 
+   def self.has_many_reviews
+     Product.find(Evaluation.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+   end
+
+   def self.products_review_avarage
+     Product.find(Evaluation.group(:product_id).order('avg(star) desc').pluck(:product_id))
+   end
+
   belongs_to :store
 
   has_many :baskets, dependent: :destroy
@@ -50,7 +58,12 @@ class Product < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :evaluations, dependent: :destroy
+
   has_many :notifications, dependent: :destroy
+
+  has_many :evaluations, dependent: :destroy
+  has_many :reviewer, through: :evaluations, source: :user
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true

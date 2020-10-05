@@ -45,7 +45,7 @@ class PurchasesController < ApplicationController
 
          current_user.baskets.destroy_all
          flash[:success] = "購入が完了しました"
-         redirect_to products_path
+         redirect_to evaluations_path()
         end
 
      rescue Stripe::CardError => e

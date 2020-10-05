@@ -34,6 +34,13 @@
 
     <div class = "container">
      <h1 class="display-5"><%= @product.name %></h1>
+     <%= render "evaluations/star", product: @product %><span style = "font-weight:bold"><%= evaluation_avarage(@product) %>
+     <% if has_evaluation?(@product) %>
+      <%= link_to "評価を編集", evaluations_edit_path(id: @product.id) %>
+     <% else %>
+      <%= link_to "評価をつける", evaluations_new_path(id: @product.id) %>
+     <% end %>
+     </span>
      <span class = "right price" >¥ <%= @product.price %></span>
       <blockquote class="blockquote text-left">
        <p><%= simple_format(@product.description) %></p>

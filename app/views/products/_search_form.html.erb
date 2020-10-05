@@ -20,11 +20,9 @@
     </div>
     <div class = "row">
       <div class = "col-md-3">
-      <label for="exampleFormControlSelect1">店舗で選ぶ</label>
+      <label>店舗で選ぶ</label>
        <%= select_tag("store_id", options_for_select(select_store), :class => "form-control", :include_blank => true) %><br>
       </div>
-
-    </div>
   </div>
     <%= submit_tag "この条件で検索", :class => "btn btn-primary col-md-4" %><br><br>
    <% end %>
@@ -38,7 +36,6 @@
         </div>
         <% end %>
       </div>
-
   </div>
   </div>
     </div>
