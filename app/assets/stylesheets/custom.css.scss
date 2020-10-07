@@ -58,6 +58,10 @@ a{
     padding:0 5px;
 }
 
+.col-4.pd-5{
+    padding:0 5px;
+}
+
 //layouts
 .side-bar{
     width:230px;
@@ -95,7 +99,6 @@ a{
 .dropdown-item{
   font:{
       size:26px;
-      weight:bold;
       font-family: 'M PLUS 1p', sans-serif;
   };
 }
@@ -228,6 +231,10 @@ a{
   border: solid 1px white;
 }
 // product
+//
+// .products{
+//     background-color:rgb(240,240,240);
+// }
 
 .production-feature-image{
     position: relative;

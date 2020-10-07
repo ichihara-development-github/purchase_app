@@ -1,4 +1,4 @@
-<div class="product">
+<div class="products">
 
   <div class = "row">
       <div class = "col-lg-9">
@@ -19,7 +19,7 @@
 
  <div class="row">
     <% @popular[0..2].zip(1..3) do |product,i| %>
-  <div class="col-md-4 margin-vertical">
+  <div class="col-md-4 pd-5 margin-vertical">
     <div class="shadow">
       <% if product.main_image.present?%>
         <%= image_tag product.main_image, class: "rank mid-img"%>
@@ -38,6 +38,7 @@
                     <span class = "product-basket-<%= product.id %>">
                       <%= render "products/cart_link", product: product %>
                     </span>
+                    <span><%= render "evaluations/star", product: product%></span>
                 <% else %>
                 <%= link_to product_path(product.id), class: "right" do %>
                   <i class="fas fa-cart-arrow-down fa-lg"></i>
@@ -49,7 +50,7 @@
     <% end %>
      </div>
 
- <div class = "products">
+ <div class = "">
       <h2 style = "margin:20px">商品一覧</h2>
    <div>
       <%= form_tag line_up_path, method: :get do %>
