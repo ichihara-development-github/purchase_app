@@ -10,13 +10,15 @@ class EvaluationsController < ApplicationController
     @evaluation = Evaluation.find(params[:id])
   end
 
-  def set_productp
+  def set_product
     @product = Product.find(params[:id])
   end
 
   def user_has_not_reviewed?
-     redirect_to root_path if current_user.reviewed_products.include?(@product)
-     flash[:danger] = "すでにレビューを作成しています"
+    if current_user.reviewed_products.include?(@product)
+       redirect_to root_path
+       flash[:danger] = "すでにレビューを作成しています"
+     end
   end
 
   def user_has_reviewed?
@@ -40,7 +42,7 @@ class EvaluationsController < ApplicationController
     if @evaluation.save
       create_notification(@product.store.user, @product, "", "evaluate")
       redirect_to evaluations_path(id: @product.id)
-      flash[:success] = "星#{params[:star]}の評価をつけました"
+      flash[:success] = "星#{@evaluation.star}の評価をつけました"
     else
       flash[:error_messages] = @evaluation.errors.full_messages
       render "new"

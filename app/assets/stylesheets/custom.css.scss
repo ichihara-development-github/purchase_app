@@ -123,6 +123,11 @@ a{
   transition: all .5s;
 }
 
+#star img{
+  height:24px;
+  width:24px;
+}
+
 .slide-menu.open {
    transform: translateX(0);
 }
