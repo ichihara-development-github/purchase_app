@@ -16,9 +16,9 @@ class EvaluationsController < ApplicationController
 
   def user_has_not_reviewed?
     if current_user.reviewed_products.include?(@product)
-       redirect_to root_path
-       flash[:danger] = "すでにレビューを作成しています"
-     end
+      redirect_to root_path
+      flash[:danger] = "すでにレビューを作成しています"
+    end
   end
 
   def user_has_reviewed?
