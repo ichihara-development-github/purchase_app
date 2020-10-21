@@ -1,0 +1,5 @@
+<% unless current_user.baskets.count == 0 %>
+  <span class = "notice-icon center">
+   <%= current_user.baskets.count %>
+  </span>
+<% end %>

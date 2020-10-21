@@ -42,6 +42,15 @@
      <% end %>
      </span>
      <span class = "right price" >¥ <%= @product.price %></span>
+     <div style = "height:60px;margin:15px 0">
+       <ul class="d-md-block d-lg-none">
+           <li>
+             <%= link_to compare_path(name: @product.name), class:"compare-list", style: "background-color:orange" do %>
+             Amazonと比較する
+             <% end %>
+           </li>
+         </ul>
+     </div>
       <blockquote class="blockquote text-left">
        <p><%= simple_format(@product.description) %></p>
       </blockquote>
@@ -106,12 +115,11 @@
 </div>
 </div>
 
-<div class = "col-lg-3">
-  <div class =  "side-bar-wrapper">
-      <%= render "layouts/side_bar" %>
+<div class = "d-none d-lg-block ">
+  <div class =  "side-bar-wrapper" style = "position:fixed">
+    <%= render "layouts/side_bar" %>
   </div>
 </div>
-
 
 
 <div class = "container margin-vertical">

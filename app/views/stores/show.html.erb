@@ -27,10 +27,11 @@
          <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
          <% end %>
       </div>
-       <div class = "col-lg-3">
-          <div class =  "side-bar-wrapper">
-            <%= render "layouts/side_bar" %>
-           </div>
+       <div style = "position:fixed">
+         <div class =  "col-md-3">
+           <%= render "layouts/side_bar" %>
+          </div>
+
       </div>
      </div>
 </div>

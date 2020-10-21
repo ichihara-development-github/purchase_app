@@ -21,15 +21,18 @@ class ProductsController < ApplicationController
     if @product.save
       users = current_user.followers
       users.map{|user| create_notification(user, @product, "", "create") }
-
-      redirect_to products_path
       flash[:success] = "商品の作成が完了しました"
+      redirect_to products_path
     else
       flash[:error_messages] = @product.errors.full_messages
       render "new"
     end
+    send_input
   end
 
+  def send_input
+      Product.send_input_request(@product.name)
+  end
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 8)
@@ -51,7 +54,6 @@ class ProductsController < ApplicationController
 
   def update
     flash[:error_messages] = @product.errors.full_messages unless  @product.update(product_params)
-
     flash[:success] = "商品を編集しました"
     redirect_to product_path(@product)
   end
@@ -108,6 +110,15 @@ class ProductsController < ApplicationController
           @popular = Product.popular
           render "index"
         end
+    end
+
+    #------------------------compare---------------------
+
+    def compare
+      name = params[:name]
+      token = ENV['TOKEN']
+      res = Product.send_get_request(name)
+      render json: res["average"], adapter: :json
     end
 
 

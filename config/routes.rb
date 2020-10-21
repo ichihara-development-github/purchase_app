@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
  delete "notifications", to: "notifications#destroy"
 
+ get "compare", to: "products#compare"
+
  resources :users
  resources :password_resets, only: [:new, :create, :edit, :update]
  resources :session, only: [:new, :destroy]
