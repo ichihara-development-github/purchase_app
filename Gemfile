@@ -15,8 +15,6 @@ gem 'mysql2'
 gem 'geocoder'
 gem 'http'
 
-gem 'gon'
-
 gem 'whenever', require: false
 
 platforms :ruby do
@@ -26,6 +24,8 @@ end
 gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
+
+gem 'sidekiq'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
