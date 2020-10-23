@@ -60,6 +60,7 @@ group :development, :test do
   gem 'sqlite3', '~>1.3.13'
 end
 
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
@@ -74,6 +75,8 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+
+  gem 'capistrano-sidekiq', require: false
 end
 
 group :production do

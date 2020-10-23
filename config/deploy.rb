@@ -26,6 +26,11 @@ set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 
+set :rbenv_map_bins, fetch(:rbenv_map_bins).to_a.concat(%w(rake gem bundle ruby rails puma pumactl sidekiq sidekiqctl))
+set :init_system, :systemd
+
+
+
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do

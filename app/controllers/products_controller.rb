@@ -22,17 +22,14 @@ class ProductsController < ApplicationController
       users = current_user.followers
       users.map{|user| create_notification(user, @product, "", "create") }
       flash[:success] = "商品の作成が完了しました"
-      redirect_to products_path
+      redirect_to @product
+      PriceWorker.perform_async(@product.name)
     else
       flash[:error_messages] = @product.errors.full_messages
       render "new"
     end
-    send_input
   end
 
-  def send_input
-      Product.send_input_request(@product.name)
-  end
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 8)
