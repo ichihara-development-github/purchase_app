@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
       users.map{|user| create_notification(user, @product, "", "create") }
       flash[:success] = "商品の作成が完了しました"
       redirect_to @product
-      PriceWorker.perform_async(@product.name)
+      PriceWorker.(@product.name)
     else
       flash[:error_messages] = @product.errors.full_messages
       render "new"
