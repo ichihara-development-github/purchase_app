@@ -44,8 +44,8 @@
      <span class = "right price" >¥ <%= @product.price %></span>
      <div style = "height:60px;margin:15px 0">
        <ul class="d-md-block d-lg-none">
-           <li>
-             <%= link_to compare_path(name: @product.name), class:"compare-list", style: "background-color:orange" do %>
+           <li class = "compare_amazon">
+             <%= link_to compare_path(name: @product.name),remote: true, class:"compare-list", style: "background-color:orange" do %>
              Amazonと比較する
              <% end %>
            </li>
@@ -91,10 +91,12 @@
 
 </table>
 
+<div class="center">
+  <%= link_to "商品の編集", edit_product_path(@product) , class: "btn btn-success margin-vertical col-8" if has_product?(@product)%>
+</div>
+
 <%= render "shared/postage_explanation" %>
 <h3>送料 ¥<%= how_much_postage(@distance) %></h3>
-
-<%= link_to "商品の編集", edit_product_path(@product) , class: "btn btn-success margin-vertical" if has_product?(@product)%>
 
 <div class = "comment-form col-md-12">
    <h5>コメント</h5>
@@ -124,9 +126,12 @@
 
 <div class = "container margin-vertical">
 <h3>その他の商品</h3>
-<% other_products = @product.store.products.where.not(id: @product.id) %>
+<% other_products = @product.store.products.where.not(id: @product.id).paginate(page: params[:page], per_page: 8) %>
 <%= render "products/product", obj: other_products %>
 </div>
+
+ <%= will_paginate other_products , :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
 
 
  </div>

@@ -2,16 +2,16 @@
 
 <div class = "side-bar margin-vertical">
     <ul class="list-group">
-        <li class="list-group-item center">
+        <li class="list-group-item">
           カート内:　<span class = "price">¥<%= current_user.considering_products.sum(:price)%></span>
         </li>
-        <li class="list-group-item center" style = "background-color:orange">
-          <%= link_to compare_path(name: "name", token: "dfmakjaj") do %>
+        <li class="list-group-item compare_amazon" style = "background-color:orange">
+          <%= link_to compare_path(name: @product.name), remote: true do %>
           Amazonと比較する
           <% end %>
         </li>
         <li class="list-group-item center" style = "background-color:red">
-          <%= link_to compare_path(name: "name", token: "dfmakjaj") do %>
+          <%= link_to compare_path(name: "name", token: "password") do %>
           楽天と比較する
           <% end %>
         </li>

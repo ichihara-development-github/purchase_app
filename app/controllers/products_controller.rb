@@ -17,13 +17,12 @@ class ProductsController < ApplicationController
   def create
      @store = current_user.store
      @product = @store.products.build(product_params)
-
     if @product.save
       users = current_user.followers
       users.map{|user| create_notification(user, @product, "", "create") }
       flash[:success] = "商品の作成が完了しました"
       redirect_to @product
-      PriceWorker.(@product.name)
+      Product.input_request(@product.name)
     else
       flash[:error_messages] = @product.errors.full_messages
       render "new"
@@ -50,15 +49,28 @@ class ProductsController < ApplicationController
   end
 
   def update
-    flash[:error_messages] = @product.errors.full_messages unless  @product.update(product_params)
-    flash[:success] = "商品を編集しました"
-    redirect_to product_path(@product)
+    old_name = @product.name
+    if @product.update(product_params)
+      name = @product.name
+      flash[:success] = "商品を編集しました"
+      redirect_to product_path(@product)
+      Product.update_request(old_name, name)
+    else
+      flash[:error_messages] = @product.errors.full_messages
+      render "edit"
+    end
   end
 
   def destroy
-    @product.destroy
-    flash[:success] = "削除しました"
-    redirect_to edit_products_path
+    name = @product.name
+    if @product.destroy
+      flash[:success] = "削除しました"
+      redirect_to edit_products_path
+      Product.delete_request(name)
+    else
+      flash[:error_messages] = @product.errors.full_messages
+      render "edit_product"
+    end
   end
 
   #----------------------line up------------------------------
@@ -114,8 +126,11 @@ class ProductsController < ApplicationController
     def compare
       name = params[:name]
       token = ENV['TOKEN']
-      res = Product.send_get_request(name)
-      render json: res["average"], adapter: :json
+      @price = Product.send_get_request(name)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
 
