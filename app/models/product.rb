@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   require 'json'
 
   AUTHENTICATION_TOKEN = ENV['AUTHENTICATION_TOKEN']
-  URL = "http://localhost:3001"
+  URL = " https://comparison-products-api-heroku.herokuapp.com/"
 
     def self.search(sp)
        if sp
