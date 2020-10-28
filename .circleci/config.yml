@@ -56,12 +56,12 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-  # Rubocop_correction:
-  #   executor: default
-  #   steps:
-  #     - setup_bundler_and_cache
-  #     - run:
-  #       command: bundle exec rubocop -a
+  Rubocop_correction:
+    executor: default
+    steps:
+      - setup_bundler_and_cache
+      - run:
+          command: bundle exec rubocop -a
   RuboCop_test:
     executor: default
     steps:
@@ -95,9 +95,9 @@ workflows:
   build_test_and_deploy:
     jobs:
       - build
-      # - Rubocop_correction:
-      #     requires:
-      #       - build
+      - Rubocop_correction:
+          requires:
+            - build
       - RuboCop_test:
           requires:
             - build
@@ -108,4 +108,4 @@ workflows:
           requires:
             - RuboCop_test
             - Rspec_test
-            # - Rubocop_correction
+            - Rubocop_correction
