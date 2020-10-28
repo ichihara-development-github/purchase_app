@@ -6,6 +6,9 @@
 #
 default: &default
   adapter: sqlite3
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST']>
   pool: 5
   timeout: 5000
 
@@ -29,5 +32,3 @@ production:
   charset: utf8
   database: purchase_app_db
   host: purchase-app-rds.ckbaeqyxwuvr.us-east-2.rds.amazonaws.com
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
