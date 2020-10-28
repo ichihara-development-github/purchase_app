@@ -8,6 +8,8 @@
 <div class="products">
 
 <%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+<% if @popular.present? %>
   <h2 style = "margin:20px">人気の商品</h2>
  <div class="row">
     <% @popular[0..2].zip(1..3) do |product,i| %>
@@ -41,6 +43,8 @@
   </div>
     <% end %>
      </div>
+
+<% end %>
 
      </div>
 
