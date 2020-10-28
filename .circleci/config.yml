@@ -97,7 +97,7 @@ workflows:
       - build
       - Rubocop_correction:
           requires:
-            -build
+            - build
       - RuboCop_test:
           requires:
             - build
