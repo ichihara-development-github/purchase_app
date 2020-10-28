@@ -66,8 +66,7 @@ class PurchasesController < ApplicationController
       rescue => e
         flash.now[:danger] = "エラーが発生しました#{e.message}"
         render "new"
-      end
-
+    end
   end
 
 end
