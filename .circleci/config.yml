@@ -69,7 +69,7 @@ jobs:
       - run:
           command: bundle exec rubocop --fail-level w --display-only-fail-level-offenses
 
-  Rspec test:
+  Rspec_test:
     executor: default
     steps:
       - setup_bundler_and_cache
@@ -101,7 +101,7 @@ workflows:
       - RuboCop_test:
           requires:
             - build
-      - Rspec test:
+      - Rspec_test:
           requires:
             - build
       - deploy:
