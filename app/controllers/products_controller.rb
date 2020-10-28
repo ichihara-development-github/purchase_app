@@ -125,7 +125,6 @@ class ProductsController < ApplicationController
 
     def compare
       name = params[:name]
-      token = ENV['TOKEN']
       @price = Product.send_get_request(name)
       respond_to do |format|
         format.html

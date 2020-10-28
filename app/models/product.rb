@@ -63,7 +63,7 @@ class Product < ApplicationRecord
      http = Net::HTTP.new(uri.host, uri.port)
      req = Net::HTTP::Post.new(uri.request_uri)
      req.set_form_data(data)
-     res = http.request(req)
+     http.request(req)
    end
 
    def self.update_request(old_name, name)
@@ -73,7 +73,7 @@ class Product < ApplicationRecord
      http = Net::HTTP.new(uri.host, uri.port)
      req = Net::HTTP::Patch.new(uri.request_uri)
      req.set_form_data(data)
-     res = http.request(req)
+     http.request(req)
    end
 
    def self.delete_request(name)
@@ -83,7 +83,7 @@ class Product < ApplicationRecord
      http = Net::HTTP.new(uri.host, uri.port)
      req = Net::HTTP::Delete.new(uri.request_uri)
      req.set_form_data(data)
-     res = http.request(req)
+     http.request(req)
    end
 
 
