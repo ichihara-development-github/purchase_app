@@ -108,3 +108,4 @@ workflows:
           requires:
             - RuboCop_test
             - Rspec_test
+            - Rubocop_correction
