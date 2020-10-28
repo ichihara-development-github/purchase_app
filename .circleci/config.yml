@@ -106,5 +106,5 @@ workflows:
             - build
       - deploy:
           requires:
-            - RuboCop
+            - RuboCop_test
             - Rspec_test
