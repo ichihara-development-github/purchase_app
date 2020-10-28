@@ -10,7 +10,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
-  host: localhost
+  host: 127.0.0.1
 
 development:
   <<: *default
@@ -21,10 +21,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: 'root'
-  password: ''
-  port: 3306
-  host: '127.0.0.1'
+  database: db/test.sqlite3
+
 
 
 production:
@@ -34,3 +32,5 @@ production:
   charset: utf8
   database: purchase_app_db
   host: purchase-app-rds.ckbaeqyxwuvr.us-east-2.rds.amazonaws.com
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
