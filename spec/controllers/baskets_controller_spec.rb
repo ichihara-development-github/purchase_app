@@ -36,6 +36,7 @@ RSpec.describe BasketsController, type: :controller do
 
     it "Was it saved in the database" do
       expect{
+        FactoryBot.create(:product)
         post :create, params: {product_id: 1}, xhr: true
       }.to change(Basket, :count).by(1)
     end

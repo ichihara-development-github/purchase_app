@@ -13,7 +13,7 @@ FactoryBot.define do
     seller {true}
     admin{true}
     store_id {1}
-    address{"東京"}
+    address{"Tokyo"}
   end
 
   factory :user2, class: User do
@@ -23,7 +23,7 @@ FactoryBot.define do
     password{ "password"}
     seller {true}
     admin{ true}
-    address{ "東京"}
+    address{ "Tokyo"}
   end
 
 
@@ -33,7 +33,7 @@ FactoryBot.define do
    name { "normal_user"}
    email {"normal_user@user.com"}
    password {"password"}
-   address{ "東京"}
+   address{ "Tokyo"}
   end
 
   factory :has_no_store, class: User do
@@ -42,7 +42,7 @@ FactoryBot.define do
    email {"has_no_store@user.com"}
    password {"password"}
    seller {true}
-   address{"東京"}
+   address{"Tokyo"}
   end
 
   factory :store, class: Store do
@@ -67,7 +67,7 @@ FactoryBot.define do
     name  {"product2"}
     price  {1000}
     description  {"This is the product2"}
-    category {"食品"}
+    category {"food"}
     main_image  {"p"}
   end
 
