@@ -8,9 +8,8 @@ executors:
           DB_HOST: 127.0.0.1
       - image: circleci/mysql:5.6
         environment:
-          MYSQL_DATABASE: circle_ci_test
-          DB_USERNAME: 'root'
-          DB_PASSWORD: 'password'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          MYSQL_ROOT_HOST: '%'
 
 
 
@@ -44,6 +43,7 @@ jobs:
       - setup_bundler_and_cache
 
       # Database setup
+      - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 

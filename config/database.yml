@@ -22,10 +22,6 @@ test:
   <<: *default
   database: db/test.sqlite3
   adapter: sqlite3
-  host: localhost
-
-
-
 
 production:
   <<: *default
