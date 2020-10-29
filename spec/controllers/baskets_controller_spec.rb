@@ -4,6 +4,9 @@ require "./spec/controllers/shared_test"
 RSpec.describe BasketsController, type: :controller do
 
   include Shared_test
+  FactoryBot.create(:user) unless User.any?
+  FactoryBot.create(:store) unless Store.any?
+  FactoryBot.create(:product) unless Product.any?
 
   let(:user){User.first}
 
@@ -36,7 +39,6 @@ RSpec.describe BasketsController, type: :controller do
 
     it "Was it saved in the database" do
       expect{
-        FactoryBot.create(:product)
         post :create, params: {product_id: 1}, xhr: true
       }.to change(Basket, :count).by(1)
     end

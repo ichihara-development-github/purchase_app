@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20201004064029) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -138,7 +139,6 @@ ActiveRecord::Schema.define(version: 20201004064029) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.index ["store_id"], name: "index_users_on_store_id"
   end
 
 end

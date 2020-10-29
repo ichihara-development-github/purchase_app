@@ -4,8 +4,6 @@ require 'rails_helper'
 RSpec.describe ProductsController, type: :controller do
 
     include Shared_test
-    FactoryBot.create(:user) unless User.any?
-    FactoryBot.create(:store) unless Store.any?
 
     shared_examples "searched products are not found" do
       it "assign the danger message to flash" do
@@ -151,7 +149,7 @@ RSpec.describe ProductsController, type: :controller do
               end
 
               it "is rendering index templates" do
-                expect(response).to render_template("index")
+                expect(response).to redirect_to products_path
               end
 
             end
@@ -166,7 +164,7 @@ RSpec.describe ProductsController, type: :controller do
               end
 
               it "is rendering index templates" do
-                expect(response).to render_template("index")
+                expect(response).to redirect_to products_path
               end
 
             end
