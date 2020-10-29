@@ -7,11 +7,9 @@ executors:
           RAILS_ENV: test
       - image: circleci/mysql:5.6
         environment:
-
-          MYSQL_DATABASE: ci_test
+          MYSQL_DATABASE: circle_ci_test
           MYSQL_HOST: 127.0.0.1
-          MYSQL_ROOT_HOST: '%'
-          
+
 
     working_directory: ~/repo
 
