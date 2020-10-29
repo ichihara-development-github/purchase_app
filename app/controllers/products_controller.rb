@@ -105,6 +105,7 @@ class ProductsController < ApplicationController
         redirect_to products_path
       else
         @popular = Product.popular
+        flash[:success] = "#{@products.count}件の商品が見つかりました"
         render "index"
       end
     end

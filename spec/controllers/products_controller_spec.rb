@@ -141,7 +141,7 @@ RSpec.describe ProductsController, type: :controller do
 
             context "search by stores" do
               before do
-                get :search, params: {category: "食品"}
+                get :search, params: {category: "food"}
               end
 
               it "it assign the found product to @product" do
@@ -149,14 +149,14 @@ RSpec.describe ProductsController, type: :controller do
               end
 
               it "is rendering index templates" do
-                expect(response).to redirect_to products_path
+                expect(response).to render_template "index"
               end
 
             end
 
             context "search by multiple condition" do
               before do
-                get :search, params: {category: "食品", max: 2000, store_id: 1}
+                get :search, params: {category: "food", max: 2000, store_id: 1}
               end
 
               it "it assign the found product to @product" do
@@ -164,7 +164,7 @@ RSpec.describe ProductsController, type: :controller do
               end
 
               it "is rendering index templates" do
-                expect(response).to redirect_to products_path
+                expect(response).to render_template "index"
               end
 
             end
