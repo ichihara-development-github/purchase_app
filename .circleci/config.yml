@@ -4,14 +4,17 @@ executors:
     docker:
       - image: circleci/ruby:2.5-node-browsers
         environment:
-          RAILS_ENV: 'test'
+          BUNDLER_VERSION: 2.0.1
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: 'root'
+          DB_PASSWORD: 'rootpass'
 
       - image: circleci/mysql:5.7.22
         environment:
-          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          - MYSQL_ROOT_HOST: '%'
-
-
+          MYSQL_DATABASE: 'ci_test'
+          MYSQL_USER: 'root'
+          MYSQL_ROOT_PASSWORD: 'rootpass'
 
     working_directory: ~/repo
 
