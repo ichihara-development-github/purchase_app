@@ -99,9 +99,8 @@ class Product < ApplicationRecord
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
       req.set_form_data(data)
-
       res = http.request(req)
-      JSON.parse(res.body)
+      return JSON.parse(res.body)
    end
 
 #-------------------------------------------compare-------------------------------------------
