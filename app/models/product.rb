@@ -61,6 +61,7 @@ class Product < ApplicationRecord
      data = {"name": name, "AUTHENTICATION_TOKEN": AUTHENTICATION_TOKEN}
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
+     http.use_ssl = true
      req = Net::HTTP::Post.new(uri.request_uri)
      req.set_form_data(data)
      http.request(req)
@@ -71,6 +72,7 @@ class Product < ApplicationRecord
      data = {"old_name": old_name, "name": name, "AUTHENTICATION_TOKEN": AUTHENTICATION_TOKEN}
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
+     http.use_ssl = true
      req = Net::HTTP::Patch.new(uri.request_uri)
      req.set_form_data(data)
      http.request(req)
@@ -81,6 +83,7 @@ class Product < ApplicationRecord
      data = {"name": name, "AUTHENTICATION_TOKEN": AUTHENTICATION_TOKEN}
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
+     http.use_ssl = true
      req = Net::HTTP::Delete.new(uri.request_uri)
      req.set_form_data(data)
      http.request(req)
@@ -93,6 +96,7 @@ class Product < ApplicationRecord
       uri = URI.parse(url)
 
       http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
       req.set_form_data(data)
 
