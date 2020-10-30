@@ -58,7 +58,7 @@ class Product < ApplicationRecord
 
    def self.input_request(name)
      url = "#{URL}/price/new"
-     data = {"name": name, "AUTHENTICATION_TOKEN": AUTHENTICATION_TOKEN}
+     data = {"name": name, "token": AUTHENTICATION_TOKEN}
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
@@ -69,7 +69,7 @@ class Product < ApplicationRecord
 
    def self.update_request(old_name, name)
      url = "#{URL}/price"
-     data = {"old_name": old_name, "name": name, "AUTHENTICATION_TOKEN": AUTHENTICATION_TOKEN}
+     data = {"old_name": old_name, "name": name, "token": AUTHENTICATION_TOKEN}
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
@@ -80,7 +80,7 @@ class Product < ApplicationRecord
 
    def self.delete_request(name)
      url = "#{URL}/price"
-     data = {"name": name, "AUTHENTICATION_TOKEN": AUTHENTICATION_TOKEN}
+     data = {"name": name, "token": AUTHENTICATION_TOKEN}
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
@@ -92,7 +92,7 @@ class Product < ApplicationRecord
 
    def self.send_get_request(name)
       url = "#{URL}/price"
-      data = {"name": name, "AUTHENTICATION_TOKEN": AUTHENTICATION_TOKEN}
+      data = {"name": name, "token": AUTHENTICATION_TOKEN}
       uri = URI.parse(url)
 
       http = Net::HTTP.new(uri.host, uri.port)
