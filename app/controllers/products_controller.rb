@@ -1,6 +1,8 @@
 require 'will_paginate/array'
 
 class ProductsController < ApplicationController
+    prepend_before_action -> {check_captcha("products")}, only: :create
+
     before_action :has_store?, only: [:new, :edit_products]
     before_action :login_user?, only: [:show]
     before_action :set_product, only: [:show, :edit, :update, :destroy]
@@ -39,6 +41,8 @@ class ProductsController < ApplicationController
     @comment = Comment.new
     @comments = @product.comments.order(created_at: "DESC")
     @distance = distance(current_user.latitude, current_user.longitude, @product.store.latitude, @product.store.longitude)
+
+    @price = Product.send_get_request(@product.name)
   end
 
   def edit_products

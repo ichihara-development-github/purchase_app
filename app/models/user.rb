@@ -4,7 +4,6 @@ class User < ApplicationRecord
 
   attr_accessor :reset_token
 
-
   def self.collect_baskets(user)
       @data = []
       products = user.store.products

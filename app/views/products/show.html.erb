@@ -44,10 +44,8 @@
      <span class = "right price" >¥ <%= @product.price %></span>
      <div style = "height:60px;margin:15px 0">
        <ul class="d-md-block d-lg-none">
-           <li class = "compare_amazon">
-             <%= link_to compare_path(name: @product.name),remote: true, class:"compare-list", style: "background-color:orange" do %>
-             Amazonと比較する
-             <% end %>
+           <li class = "">
+             <%= render "display_prices"%>
            </li>
          </ul>
      </div>

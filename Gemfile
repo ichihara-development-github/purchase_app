@@ -9,6 +9,8 @@ gem 'will_paginate-bootstrap4'
 gem 'carrierwave'
 gem 'fog-aws'
 
+gem 'recaptcha'
+
 gem 'mail-iso-2022-jp'
 gem 'mysql2'
 

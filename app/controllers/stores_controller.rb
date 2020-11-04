@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
 
+  prepend_before_action :check_captcha, only: :create
+
   before_action :login_user?, only: [:show]
   before_action :seller_user?, only: [:new, :edit]
   before_action :set_store, only: [:show, :edit, :update, :destroy]
