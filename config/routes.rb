@@ -1,20 +1,5 @@
 Rails.application.routes.draw do
-
-  require 'sidekiq/web'
-  mount Sidekiq::Web, at: "/sidekiq"
-
-  get 'evaluations/index'
-
-  get 'evaluations/new'
-
-  get 'evaluations/create'
-
-  get 'evaluations/edit'
-
-  get 'evaluations/update'
-
-  get 'evaluations/destroy'
-
+  
  root to: "welcome#top"
 
  post "login", to: "session#create"
