@@ -63,7 +63,6 @@ class ApplicationController < ActionController::Base
 protected
 
 def check_captcha(object)
-
   redirect_to "/#{object}/new" unless verify_recaptcha
 end
 
