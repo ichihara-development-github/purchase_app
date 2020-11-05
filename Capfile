@@ -8,7 +8,6 @@ require 'capistrano/rails/migrations'
 require 'whenever/capistrano'
 require 'capistrano3/unicorn'
 
-require 'capistrano/sidekiq'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 
