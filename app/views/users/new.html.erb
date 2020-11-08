@@ -1,3 +1,4 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <%= form_for(@user,maltipart: true) do |f| %>
 <div class= "col-md-10 middle">
 
@@ -14,7 +15,7 @@
       <%= f.text_field :password_confirmation,required: true, type: "password", class: "password-form form-control"%><br />
 
       <div class="margin-vertical">
-        <%= recaptcha_tags %>
+        <div class="g-recaptcha" data-sitekey="<%= ENV['RECAPTCHA_SITE_KEY'] %>"></div>
       </div>
   </div>
 
