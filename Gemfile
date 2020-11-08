@@ -9,7 +9,7 @@ gem 'will_paginate-bootstrap4'
 gem 'carrierwave'
 gem 'fog-aws'
 
-gem 'recaptcha'
+gem 'recaptcha', require: "recaptcha/rails"
 
 gem 'mail-iso-2022-jp'
 gem 'mysql2'
