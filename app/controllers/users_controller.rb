@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  include Recaptchable
-
   prepend_before_action -> {check_captcha("users")}, only: :create
   before_action :login_user?, only: [:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
