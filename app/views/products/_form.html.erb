@@ -70,7 +70,7 @@
             <%= f.select(:category, options_for_select(categories), class: "form-control", id: "exampleFormControlSelect1", include_blank: "未選択", selected: "生活") %><br>
           </div>
           <div class="margin-vertical">
-            <%= render "shared/recaptcha" unless @product.id %>
+            <%= render "shared/recaptcha" %>
           </div>
          <div class = "form-group center">
           <%= f.submit "商品を保存", class: "btn btn-primary" %>

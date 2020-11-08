@@ -27,12 +27,6 @@
          <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
          <% end %>
       </div>
-       <div style = "position:fixed">
-         <div class =  "col-md-3">
-           <%= render "layouts/side_bar" %>
-          </div>
-
-      </div>
      </div>
 </div>
 
@@ -40,3 +34,5 @@
      <h2>商品一覧</h2>
      <%= render "products/product", obj: @products %>
 </div>
+
+<%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>

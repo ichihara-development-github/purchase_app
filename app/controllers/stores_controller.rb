@@ -42,7 +42,7 @@ class StoresController < ApplicationController
 
 
   def show
-    @products = @store.products
+    @products = @store.products.paginate(page: params[:page], per_page: 8)
     @distance = distance(current_user.latitude, current_user.longitude, @store.latitude, @store.longitude)
   end
 
