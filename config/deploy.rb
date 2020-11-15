@@ -10,6 +10,7 @@ set :rbenv_ruby, '2.6.3'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
+set :repo_url, "git@github.com:YOUR_GITHUB_ACCOUNT/qiitaApp.git"
 
 set :log_level, :warn
 
@@ -34,6 +35,16 @@ namespace :deploy do
     end
   end
 end
+
+namespace :deploy do
+       after :restart, :clear_cache do
+       on roles(:web), in: :groups, limit: 3, wait: 10 do
+         within current_path do
+           execute :rake, 'tmp:cache:clear'
+         end
+       end
+     end
+   end
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
