@@ -8,7 +8,7 @@
   <p><%= simple_format(evaluation.comment) %></p>
   <div class="right">
     <% if current_user.evaluations.include?(evaluation)%>
-      <span class = ""><%= link_to "編集", evaluations_edit_path(id: evaluation.id) %></span>
+      <span class = ""><%= link_to "編集", edit_evaluation_path(id: evaluation.id) %></span>
       <span class = ""><%= link_to "削除", evaluation_path(id: evaluation.id), method: :delete %></span>
     <% end %>
   </div><br />

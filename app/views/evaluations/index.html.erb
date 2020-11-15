@@ -6,7 +6,7 @@
 
 <% if @evaluations.count == 0 %>
   <p>この商品に評価はまだありません<br />
-    <%= link_to "評価をつける", evaluations_new_path(id: @product.id) %></p>
+    <%= link_to "評価をつける", new_evaluation_path(id: @product.id) %></p>
 <% else %>
   <%= render @evaluations %>
 <% end %>
