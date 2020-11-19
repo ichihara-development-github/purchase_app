@@ -22,7 +22,7 @@ commands:
   setup_bundler_and_cache:
     steps:
       - checkout
-      # Download and c ache dependencies
+      # Download and cache dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
