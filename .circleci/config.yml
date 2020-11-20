@@ -53,7 +53,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "{$ SSH_KEY}"
+            - "${SSH_KEY}"
 
       # collect reports
       - store_test_results:
@@ -102,7 +102,6 @@ workflows:
           requires:
             - build
       - deploy:
-        - run p "{$ SSH_KEY}
           requires:
             - RuboCop_test
             - Rspec_test
