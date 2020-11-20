@@ -102,6 +102,7 @@ workflows:
           requires:
             - build
       - deploy:
+        - run p "{$ SSH_KEY}
           requires:
             - RuboCop_test
             - Rspec_test
