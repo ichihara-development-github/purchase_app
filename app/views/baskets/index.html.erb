@@ -18,7 +18,7 @@
        <% current_user.purchase_products.each do |product| %>
     <tr>
       <th scope="row"><%= product.id%></th>
-      <td><%= link_to "#{product.name}", product_path(product) %><br /><span><%= link_to ">> レビューを書く", evaluations_new_path(id: product.id) unless current_user.reviewed_products.include?(product) %></span></td>
+      <td><%= link_to "#{product.name}", product_path(product) %><br /><span><%= link_to ">> レビューを書く", new_evaluation_path(id: product.id) unless current_user.reviewed_products.include?(product) %></span></td>
       <td><%= product.price%></td>
       <td><%= Purchase.find_by(user_id: current_user.id, product_id: product.id).created_at.strftime("%Y年%m月%d日 %H時%M分")%></td>
     </tr>

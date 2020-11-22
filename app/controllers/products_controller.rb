@@ -41,7 +41,6 @@ class ProductsController < ApplicationController
     @comment = Comment.new
     @comments = @product.comments.order(created_at: "DESC")
     @distance = distance(current_user.latitude, current_user.longitude, @product.store.latitude, @product.store.longitude)
-
     @price = Product.send_get_request(@product.name)
   end
 
