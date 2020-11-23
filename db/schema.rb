@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201004064029) do
+ActiveRecord::Schema.define(version: 20201123102145) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer "user_id"
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count"
     t.index ["product_id"], name: "index_baskets_on_product_id"
     t.index ["user_id"], name: "index_baskets_on_user_id"
   end
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(version: 20201004064029) do
     t.string "main_image"
     t.string "sub_image1"
     t.string "sub_image2"
+    t.integer "count"
     t.index ["store_id"], name: "index_products_on_store_id"
   end
 
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 20201004064029) do
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count"
     t.index ["product_id"], name: "index_purchases_on_product_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
@@ -120,7 +123,7 @@ ActiveRecord::Schema.define(version: 20201004064029) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.index ["user_id"], name: "index_stores_on_user_id"
+    t.integer "count"
   end
 
   create_table "users", force: :cascade do |t|
@@ -139,6 +142,7 @@ ActiveRecord::Schema.define(version: 20201004064029) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.index ["store_id"], name: "index_users_on_store_id"
   end
 
 end

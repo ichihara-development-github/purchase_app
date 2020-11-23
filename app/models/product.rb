@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   AUTHENTICATION_TOKEN = ENV['AUTHENTICATION_TOKEN']
   URL = "https://comparison-products-api-heroku.herokuapp.com/"
 
+  after_initialize :set_default
+
     def self.search(sp)
        if sp
            sp.reject! { |_key, value| value.empty? }
@@ -132,4 +134,10 @@ class Product < ApplicationRecord
   mount_uploader :main_image, ImageUploader
   mount_uploader :sub_image1, ImageUploader
   mount_uploader :sub_image2, ImageUploader
+
+  private
+
+  def set_default
+    self.count ||= 1
+  end
 end

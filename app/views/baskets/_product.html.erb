@@ -1,16 +1,18 @@
-<% obj.each do |product| %>
+<% obj.each do |basket| %>
    <div class="col-md-10 margin-vertical basket-wrapper">
-      <%= image_tag product.main_image,style: "width:30%",class: "left card-img" %>
+      <%= image_tag basket.product.main_image,style: "width:30%",class: "left card-img" %>
       <div class = "basket-container right">
-          <h4 class = "right">¥ <%= product.price %></h4>
+        <div class="right">
+            <h4 class = "right">¥ <%= basket.product.price %></h4>
+            <h5 class = "">×<%= basket.count %></h5>
+        </div>
           <div calss = "container">
-          <%= link_to product_path(product) do %>
-              <h4><%= product.name %></h4>
+          <%= link_to product_path(basket.product) do %>
+              <h4><%= basket.product.name %></h4>
           <% end %>
-             <p><%= product.description %></p>
+             <p><%= basket.product.description %></p>
           </div>
-          <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" %>
-
+          <%= link_to "削除", basket_delete_path(basket.product), method: :post, class: "right btn btn-danger" %>
      </div>
     </div>
 <% end %>

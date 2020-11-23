@@ -36,19 +36,19 @@
            <h5>商品合計 ¥<%= basket_sum %></h5>
            <h5>+ 送料 <%= postage %></h5><br />
            <%= render "shared/postage_explanation" %><br />
+            <div class="row basket-index">
+            <%= render "product", obj: @baskets %>
+           </div>
+
            合計:<h3 style = "color:red"> ¥<%= basket_sum + postage %></h3>
         <% end %>
        </div>
     <div class = "right">
-      <% if current_user.baskets.exists? %>
+      <% if @baskets.exists? %>
          <%= link_to "レジに進む", new_purchase_path, class: "accounting-btn" %>
       <% else %>
          <p>商品をカートに追加してください</p>
       <% end %>
      </div>
-
- <div class="row basket-index">
- <%= render "product", obj: @products %>
-</div>
 
  </div>

@@ -7,7 +7,7 @@ module BasketsHelper
 
 
     def basket_count
-        current_user.considering_products.count
+        current_user.baskets.sum(:count)
     end
 
     def postage
@@ -30,7 +30,11 @@ module BasketsHelper
     end
 
     def basket_sum
-      current_user.considering_products.sum(:price)
+      some = 0
+      current_user.baskets.each do |basket|
+        some += basket.product.price * basket.count
+      end
+      some
     end
 
 end

@@ -37,10 +37,9 @@ class PurchasesController < ApplicationController
          )
          payment.save!
 
-         @products = current_user.considering_products
-         @products.each do |product|
-           current_user.purchases.create(product_id: product.id)
-           create_notification(product.store.user, product, "", "purchase")
+         current_user.baskets.each do |basket|
+           current_user.purchases.create(product_id: basket.products.id,count: basket.count)
+           create_notification(basket.produts.store.user, basket.produts, "", "purchase")
          end
 
          current_user.baskets.destroy_all

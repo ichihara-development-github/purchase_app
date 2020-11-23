@@ -67,7 +67,11 @@
           </div>
           <div class = "col-md-3">
             <label for="exampleFormControlSelect1">カテゴリー</label>
-            <%= f.select(:category, options_for_select(categories), class: "form-control", id: "exampleFormControlSelect1", include_blank: "未選択", selected: "生活") %><br>
+            <%= f.select(:category, options_for_select(categories), class: "form-control", include_blank: "未選択", selected: "生活") %><br>
+          </div>
+          <div class = " col-md-3 right">
+            <label for="exampleFormControlSelect1">在庫</label>
+            <%= f.integer_field :count, required: true, class: "form-control") %><br>
           </div>
           <div class="margin-vertical">
             <%= render "shared/recaptcha" %>
