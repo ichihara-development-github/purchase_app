@@ -38,13 +38,15 @@ class PurchasesController < ApplicationController
          payment.save!
 
          current_user.baskets.each do |basket|
-           current_user.purchases.create(product_id: basket.products.id,count: basket.count)
-           create_notification(basket.produts.store.user, basket.produts, "", "purchase")
+           product = basket.product
+           current_user.purchases.create(product_id: products.id,count: basket.count)
+           product.count -= basket.count
+           create_notification(produts.store.user, produts, "", "purchase")
          end
 
          current_user.baskets.destroy_all
          flash[:success] = "購入が完了しました"
-         redirect_to evaluations_path()
+         redirect_to evaluations_path
         end
 
      rescue Stripe::CardError => e
