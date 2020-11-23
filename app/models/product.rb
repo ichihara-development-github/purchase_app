@@ -93,13 +93,15 @@ class Product < ApplicationRecord
 
 
    def self.send_get_request(name)
+     p "0"
       url = "#{URL}/price"
       data = {"name": name, "token": AUTHENTICATION_TOKEN}
+      p "1"
       puts "---------------------------------------\n
-            #{AUTHENTICATION_TOKEN}
+            #{AUTHENTICATION_TOKEN} /n
             -----------------------------------------"
       uri = URI.parse(url)
-
+      p "2"
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
