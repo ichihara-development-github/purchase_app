@@ -1,6 +1,6 @@
  <div class = "margin-vertical">
  <span class = "dropdown-toggle right"> 購入履歴</span>
- <div class = "display-400 row" style = "clear:both;display:non">
+ <div class = "display-400 row" style = "clear:both;display:none">
   <% @purchases.each do |datum| %>
    <%= render "basket",  basket: datum, obj: "purchase" %>
   <% end %>
