@@ -60,9 +60,14 @@
           <button type="button" class="right btn btn-secondary",>カートから出す</button>
         <% end %>
       <% else %>
-        <%= link_to basket_add_path(@product), method: :post do %>
-          <button type="button" class="right btn", style = "background-color: orange">カートへ追加<i class = "fas fa-cart-arrow-down"></i></button>
+      <div class="right">
+        <%= form_for @basket, url: basket_add_path,method: :post do |f| %>
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <span><%= f.select :count, (1..@product.count).map{|i| i}, {}, class: "form-control" %></span><br />
+          <%= f.submit "カートへ追加",class: "right btn", style: "background-color: orange" %>
         <% end %>
+      </div>
       <% end %>
     </div>
 

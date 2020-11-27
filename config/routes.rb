@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
  root to: "welcome#top"
 
  post "login", to: "session#create"
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
  resources :stores
  resources :products
  resources :comments, only: [:create, :destroy]
- resources :baskets, only: [:index]
+ resources :baskets, only: [:index, :update]
  resources :purchases, only: [:new, :create]
  resources :notifications, only: [:index]
  resources :relationships, only: [:create, :destroy]

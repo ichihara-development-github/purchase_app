@@ -5,11 +5,6 @@ module BasketsHelper
   include ApplicationHelper
   include HubenyDistance
 
-
-    def basket_count
-        current_user.baskets.sum(:count)
-    end
-
     def postage
       products = current_user.considering_products
       stores = []

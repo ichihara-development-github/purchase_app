@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
 
   def new
-    @products = current_user.considering_products
+    @baskets = current_user.baskets
   end
 
 
@@ -22,7 +22,7 @@ class PurchasesController < ApplicationController
            description: "商品の購入",
            currency: "jpy",
            receipt_email: params[:stripe_email],
-           #falseだと仮払い
+
            capture: true)
 
           payment = current_user.payment.build(
@@ -38,10 +38,16 @@ class PurchasesController < ApplicationController
          payment.save!
 
          current_user.baskets.each do |basket|
-           product = basket.product
-           current_user.purchases.create(product_id: products.id,count: basket.count)
-           product.count -= basket.count
-           create_notification(produts.store.user, produts, "", "purchase")
+         product = basket.product
+           if  product.count > basket.count
+             flash[:waring] = "#{product.name}の在庫が不足しています。"
+             redirect_to baskets_path
+             return false
+           else
+             product.count -= basket.count
+             current_user.purchases.create(product_id: products.id,count: basket.count)
+             create_notification(produts.store.user, produts, "", "purchase")
+           end
          end
 
          current_user.baskets.destroy_all
@@ -68,6 +74,9 @@ class PurchasesController < ApplicationController
         flash.now[:danger] = "エラーが発生しました#{e.message}"
         render "new"
     end
+  end
+
+  def check_product_stocks
   end
 
 end

@@ -9,15 +9,19 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 //= require jquery
+//= require jquery.turbolinks
 //= require bootstrap
-//= require jquery_ujs
-// require turbolinks
+//= require rails-ujs
+//= require turbolinks
 //= require_tree .
 //= require "raty"
 
 $(function(){
+
+    $(".update-input-form").on("change", function(){
+      Rails.fire($(this).closest("form")[0], 'submit');
+    });
 
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()

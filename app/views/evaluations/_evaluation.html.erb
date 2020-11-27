@@ -4,7 +4,7 @@
   </span>
   <span><%= evaluation.star %></span><br />
   <span style = "font-weight:bold"><%= link_to user_path(evaluation.user)do %><%= evaluation.user.name %><% end %></span>
-  <p><%= evaluation.created_at %></p>
+  <p><%= evaluation.created_at.strftime("%m月%d日 %H時%M分") %></p>
   <p><%= simple_format(evaluation.comment) %></p>
   <div class="right">
     <% if current_user.evaluations.include?(evaluation)%>

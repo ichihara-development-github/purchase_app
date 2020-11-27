@@ -57,7 +57,7 @@
       </li>
 
       <li class = "nav-item notice">
-        <%= link_to baskets_path, class: "nav-link" do %>
+        <%= link_to baskets_path, class: "nav-link", data: {"turbolinks" => false} do %>
          <span class="fas fa-shopping-cart fa-2x", style = "color:white; margin 10px"></span>
          <% end %>
          <span id = "baskets_count"><%= render "layouts/baskets_count" %></span>
@@ -75,7 +75,7 @@
             <li class="nav-item active pd-10 slide-item">
               <%= link_to  "商品一覧",products_path, style: "color:white"%>
             </li>
-            <% if current_user.seller? %>
+            <% if current_user.seller? || current_user.admin? %>
               <li>
                 <a href = "#" class="nav-link fade-menu-toggle slide-item">
                 　管理メニュー▾

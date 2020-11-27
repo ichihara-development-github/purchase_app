@@ -16,4 +16,9 @@ module ApplicationHelper
         1000
       end
     end
+
+    def basket_count
+        current_user.baskets.sum(:count)
+    end
+
 end

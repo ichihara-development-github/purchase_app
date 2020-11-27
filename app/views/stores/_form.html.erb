@@ -39,7 +39,7 @@
                <%= render "shared/recaptcha" unless @store.id %>
              </div>
              <div class = "form-group">
-              <%= f.submit "保存", class: "btn btn-primary col-md-4"%>
+              <%= f.submit "保存", class: "btn btn-primary col-md-4", data: { disable_with: "送信中..." }%>
              </div>
         </div>
     <% end %>
