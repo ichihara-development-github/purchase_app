@@ -14,7 +14,9 @@
       <%= f.label "パスワードの確認" %><span style = "color:red">*</span>
       <%= f.text_field :password_confirmation,required: true, type: "password", class: "password-form form-control"%><br />
 
-      <%= render "shared/recaptcha" %>
+      <div class="margin-vertical">
+        <%= render "shared/recaptcha" %>
+      </div>
   </div>
 
   <div class="col-md-6 middle">
