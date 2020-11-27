@@ -113,7 +113,7 @@
 
   <ul class = "navbar-nav list-group list-group-horizontal">
     <li class = "btn btn-light"><%= link_to "ログイン", new_session_path %></li>
-    <li class = "btn"><%= link_to "新規登録", new_user_path, style: "color:white" %> </li>
+    <li class = "btn"><%= link_to "新規登録", new_user_path, style: "color:white", data: {"turbolinks" => false}  %> </li>
   </ul>
 
   <% end %>
