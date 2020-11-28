@@ -1,7 +1,7 @@
 <% product = basket.product%>
    <div class="col-md-10 margin-vertical basket-wrapper">
      <% if product.main_image.present? %>
-         <%= image_tag product.main_image,style:"width:30%",class: "left card-img" %>
+         <%= image_tag product.main_image, style:"width:30%",class: "left card-img" %>
       <% else %>
        <img class="left card-img" style = "width:30%" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
      <% end %>
