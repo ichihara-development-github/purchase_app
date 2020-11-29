@@ -9,17 +9,19 @@
         <div class="right">
           <div class="right">
             <h4 style = "font-color:red">¥ <%= product.price %></h4>
-            <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
-            <span>
+            <div>
               <% if obj == "basket" %>
-               <%= f.select :count, (1..product.count).map{|i| i}, {}, class: "form-control update-input-form"%>
+                <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
+                 <%= f.select :count, (1..product.count).map{|i| i}, {}, class: "form-control update-input-form"%>
+                 <% f.submit %>
+                <% end %>
              <% else %>
-               ×　<%= basket.count %>
+               ×　<%= basket.count %><br />
+              <div class="margin-vertical">
+                <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+              </div>
              <% end %>
-           </span><br />
-             <% f.submit %>
-             <span><%= @notification %></span>
-            <% end %>
+           </div><br />
             <div class="pd">
               <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless obj == "purchase"%>
             </div>

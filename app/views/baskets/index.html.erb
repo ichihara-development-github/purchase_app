@@ -3,7 +3,6 @@
  <div class = "display-400 row purchacelog" style = "clear:both;display:none">
   <% @purchases.each do |datum| %>
    <%= render "basket",  basket: datum, obj: "purchase" %>
-   <span><%= datum.created_at.strftime("%Y年%m月%d日 %H時%M分") %></span>
   <% end %>
  </div>
 
