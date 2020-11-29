@@ -25,13 +25,13 @@
     <ul class="nav list-group-horizontal">
       <% if current_user.seller? || current_user.admin? %>
       <li class="nav-item dropdown d-md-block d-none">
-        <a class="nav-link dropdown-toggle" href = "#" id="navbarDropdownMenuLink" style = "color:white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href = "#" style = "color:white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           管理メニュー
         </a>
         <div class="dropdown-menu">
           <% if current_user.store %>
             <%= link_to "#{current_user.store.name}の編集",edit_store_path(current_user.store), class: "dropdown-item" %>
-            <a class="dropdown-item" href="#"><%= link_to "商品新規作成", new_product_path, class: "dropdown-item", data: {"turbolinks" => false}  %></a>
+            <a class="dropdown-item" href="#><%= link_to "商品新規作成", new_product_path, class: "dropdown-item", data: {"turbolinks" => false}  %></a>
             <% if current_user.store.products %>
               <a class="dropdown-item" href="#"><%= link_to "商品編集", edit_products_path, class: "dropdown-item" %></a>
             <% end %>
@@ -77,7 +77,7 @@
             </li>
             <% if current_user.seller? || current_user.admin? %>
               <li>
-                <a href = "#" class="nav-link fade-menu-toggle slide-item">
+                <a  href = "#"  class="nav-link fade-menu-toggle slide-item"  data-toggle="dropdown" >
                 　管理メニュー▾
                 </a>
                 <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
