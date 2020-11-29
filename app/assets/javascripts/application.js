@@ -19,13 +19,14 @@
 
 $(function(){
 
+    $(".dropdown-toggle").click(function(){
+        $(this).next(".dropdown-menu").fadeToggle()
+    });
+// update basket quatient
     $(".update-input-form").on("change", function(){
       Rails.fire($(this).closest("form")[0], 'submit');
     });
 
-    $(".dropdown-toggle").click(function(){
-        $(this).next(".dropdown-menu").fadeToggle()
-    });
 
 
     $(".dropdown-log").on("click", function(){
