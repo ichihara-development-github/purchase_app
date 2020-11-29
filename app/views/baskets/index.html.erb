@@ -1,8 +1,9 @@
  <div class = "margin-vertical">
- <span class = "dropdown-toggle right"> 購入履歴 </span>
- <div class = "display-400 row" style = "clear:both;display:none">
+ <span class = "dropdown-toggle dropdown-log right"> 購入履歴 </span>
+ <div class = "display-400 row purchacelog" style = "clear:both;display:none">
   <% @purchases.each do |datum| %>
    <%= render "basket",  basket: datum, obj: "purchase" %>
+   <span><%= datum.created_at.strftime("%Y年%m月%d日 %H時%M分") %></span>
   <% end %>
  </div>
 
@@ -18,7 +19,9 @@
            <div class="row basket-index">
             <%= render @baskets, obj: "basket" %>
            </div>
-           合計:<h3 style = "color:red"> ¥<%= basket_sum + postage %></h3>
+           <div id ="basket_sum">
+            <%= render "basket_sum"%>
+           </div>
         <% end %>
        </div>
     <div class = "right">

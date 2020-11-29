@@ -28,9 +28,10 @@
 
     <h3 style = "color:red; font-weight:bold">合計: ¥<%= basket_sum + postage %></h3>
   </div>
+  <% end %>
 
    <div class="row basket-index">
-  
+
    <%= render @baskets, obj: "purchase" %>
   </div>
   <span><%= link_to "買い物かごに戻る   ↩", baskets_path, class: "pd-10 btn btn-success" %></span>
@@ -38,7 +39,7 @@
 
   <script>
   var handler = StripeCheckout.configure({
-      key: "<%= ENV["publishable_key"] %>",
+      key: "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>",
       locale : "auto",
       currency: "jpy",
       panelLabel: "商品の購入",
@@ -59,5 +60,4 @@
   })
 
   </script>
-<% end %>
 </div>

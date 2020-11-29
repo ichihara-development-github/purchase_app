@@ -7,6 +7,8 @@ class PurchasesController < ApplicationController
 
   def create
 
+    @baskets = current_user.baskets
+
     begin
        ActiveRecord::Base.transaction do
 
@@ -25,7 +27,7 @@ class PurchasesController < ApplicationController
 
            capture: true)
 
-          payment = current_user.payment.build(
+        payment = current_user.payment.build(
          email:                             customer.email,
          description:                       charge.description,
          currency:                          charge.currency,
@@ -39,20 +41,20 @@ class PurchasesController < ApplicationController
 
          current_user.baskets.each do |basket|
          product = basket.product
-           if  product.count > basket.count
+           if  product.count < basket.count
              flash[:waring] = "#{product.name}の在庫が不足しています。"
              redirect_to baskets_path
              return false
            else
              product.count -= basket.count
-             current_user.purchases.create(product_id: products.id,count: basket.count)
-             create_notification(produts.store.user, produts, "", "purchase")
+             current_user.purchases.create(product_id: product.id,count: basket.count)
+             create_notification(product.store.user, product, "", "purchase")
            end
          end
 
          current_user.baskets.destroy_all
          flash[:success] = "購入が完了しました"
-         redirect_to evaluations_path
+         redirect_to baskets_path
         end
 
      rescue Stripe::CardError => e
