@@ -26,7 +26,7 @@
        </div>
     <div class = "right">
       <% if @baskets.exists? %>
-         <%= link_to "レジに進む", new_purchase_path, class: "accounting-btn" %>
+         <%= link_to "レジに進む", new_purchase_path, class: "accounting-btn", data: {"turbolinks" => false}  %>
       <% else %>
          <p>商品をカートに追加してください</p>
       <% end %>

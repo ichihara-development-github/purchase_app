@@ -31,7 +31,7 @@ class PurchasesController < ApplicationController
          email:                             customer.email,
          description:                       charge.description,
          currency:                          charge.currency,
-         customer_id:                       customer.id,
+         customer_id:                       current_user.id,
          charge_id:                         charge.id,
          payment_date:                      Time.current,
          commission:                        (charge.amount * 0.036).round,
