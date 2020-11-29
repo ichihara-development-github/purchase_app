@@ -76,23 +76,18 @@ card.addEventListener("change", function(event) {
 stripe.confirmCardPayment(clientSecret, {
   payment_method: {
     card: card,
-    billing_details: {
-      name: 'Jenny Rosen'
-    }
+    // billing_details: {
+    //   name: 'Jenny Rosen'
+    // }
   },
   setup_future_usage: 'off_session'
 }).then(function(result) {
   if (result.error) {
-    // Show error to your customer
+
     console.log(result.error.message);
   } else {
     if (result.paymentIntent.status === 'succeeded') {
-      // Show a success message to your customer
-      // There's a risk of the customer closing the window before callback execution
-      // Set up a webhook or plugin to listen for the payment_intent.succeeded event
-      // to save the card to a Customer
 
-      // The PaymentMethod ID can be found on result.paymentIntent.payment_method
     }
   }
 });
@@ -101,11 +96,10 @@ stripe.confirmCardPayment(intent.client_secret, {
   payment_method: intent.last_payment_error.payment_method.id
 }).then(function(result) {
   if (result.error) {
-    // Show error to your customer
+
     console.log(result.error.message);
   } else {
     if (result.paymentIntent.status === 'succeeded') {
-      // The payment is complete!
     }
   }
 })
