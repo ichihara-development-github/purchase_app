@@ -27,8 +27,6 @@ $(function(){
       Rails.fire($(this).closest("form")[0], 'submit');
     });
 
-
-
     $(".dropdown-log").on("click", function(){
         $(this).next(".purchacelog").slideToggle()
     });
@@ -103,6 +101,6 @@ stripe.confirmCardPayment(intent.client_secret, {
     if (result.paymentIntent.status === 'succeeded') {
     }
   }
-})
+});
 
-})
+});

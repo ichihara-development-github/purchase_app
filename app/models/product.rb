@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   require 'json'
 
   AUTHENTICATION_TOKEN = ENV['AUTHENTICATION_TOKEN']
-  URL = "https://comparison-products-api-heroku.herokuapp.com/"
+  URL = "https://comparison-products-api-heroku.herokuapp.com"
 
   after_initialize :set_default
 

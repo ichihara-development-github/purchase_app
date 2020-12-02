@@ -41,8 +41,8 @@
       <%= link_to "評価をつける", new_evaluation_path(id: @product.id) %>
      <% end %>
      </span>
-     <span class = "right price" >¥ <%= @product.price %></span>
-     <div style = "height:60px;margin:15px 0">
+     <span class = "right price" >¥ <%= @product.price %></span><br />
+     <div style = "height:60px;">
        <ul class="d-md-block d-lg-none">
            <li class = "">
              <%= render "display_prices"%>
