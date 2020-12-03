@@ -9,5 +9,5 @@
       <li>最高価格: <%= @price["max"] %></li>
       <li>最低価格: <%= @price["min"] %></li>
     </ul>
-    <span >この商品はAmazonの平均と比べて ¥<%= diff %> <%= text %>です。</span>
+    <span >この商品はAmazonの平均と比べて ¥<%= diff.abs %> <%= text %>です。</span>
 </div>
