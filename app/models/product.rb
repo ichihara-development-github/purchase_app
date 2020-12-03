@@ -101,6 +101,7 @@ class Product < ApplicationRecord
       req = Net::HTTP::Get.new(uri.request_uri)
       req.set_form_data(data)
       res = http.request(req)
+      p "----------------------#{data} ahs sent-------------------------"
       return JSON.parse(res.body)
    end
 

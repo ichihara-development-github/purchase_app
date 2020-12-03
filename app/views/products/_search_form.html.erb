@@ -31,8 +31,8 @@
         <div class = "col-md-10">
         <%= form_tag(free_search_path, method: :get) do %>
         <div class = "row cen">
-          <%= text_field_tag :free_word,"",:class => "form-control col-md-4", :placeholder => "フリーワード"%>
-          <%= button_tag '<i class="fa fa-search"></i>'.html_safe, class: "btn btn-primary" %>
+          <%= text_field_tag :free_word,"",:class => "form-control col-8", :placeholder => "フリーワード"%>
+          <%= button_tag '<i class="fa fa-search"></i>'.html_safe, class: "btn btn-primary", style: "margin:0 10px" %>
         </div>
         <% end %>
       </div>

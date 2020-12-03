@@ -42,12 +42,8 @@
      <% end %>
      </span>
      <span class = "right price" >¥ <%= @product.price %></span><br />
-     <div style = "height:60px;">
-       <ul class="d-md-block d-lg-none">
-           <li class = "">
-             <%= render "display_prices"%>
-           </li>
-         </ul>
+     <div class = "margin-vertical">
+       <%= render "display_prices" if @price %>
      </div>
       <blockquote class="blockquote text-left">
        <p><%= simple_format(@product.description) %></p>
