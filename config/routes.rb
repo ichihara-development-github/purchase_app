@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
  get "store_management", to: "users#management"
 
- get"line_up", to: "products#line_up"
+ get "line_up", to: "products#line_up"
+
+ get "compare_price", to: "products#compare"
 
  get "search", to: "products#search"
  get "free_search", to: "products#free_search"
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
  resources :password_resets, only: [:new, :create, :edit, :update]
  resources :session, only: [:new, :destroy]
  resources :stores
- resources :products
+ resources :products, except: [:compare]
  resources :comments, only: [:create, :destroy]
  resources :baskets, only: [:index, :update]
  resources :purchases, only: [:new, :create]

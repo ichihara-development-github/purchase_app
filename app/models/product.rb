@@ -4,8 +4,10 @@ class Product < ApplicationRecord
   require 'uri'
   require 'json'
 
-  AUTHENTICATION_TOKEN = ENV['AUTHENTICATION_TOKEN']
-  URL = "https://comparison-products-api-heroku.herokuapp.com"
+  CRUD_API_KEY = "7AAXLaF1tG3Qpcs6nP5Uq8cGXv0L62cr4RGPraZN"
+  STEPFUNC_API_KEY = "OESTN1THvV3Hx4t2nBAm98WW9926uzdd7R0dcoo9"
+
+  URL = "https://260g56ts98.execute-api.us-east-2.amazonaws.com/crud"
 
   after_initialize :set_default
 
@@ -29,9 +31,7 @@ class Product < ApplicationRecord
             sp.each do |key, value|
                 @result = @result.where("#{key}": "#{value}")
             end
-
            return @result
-
        end
     end
 
@@ -59,49 +59,51 @@ class Product < ApplicationRecord
    end
 
    def self.input_request(name)
-     url = "#{URL}/price/new"
-     data = {"name": name, "token": AUTHENTICATION_TOKEN}
+     url = "https://wpt6sy2360.execute-api.us-east-2.amazonaws.com/default"
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Post.new(uri.request_uri)
-     req.set_form_data(data)
-     http.request(req)
+     headers = {"Content-Type" => "application/json", "x-api-key" => STEPFUNC_API_KEY}
+     data = {"source" => "other", "name" => ["#{name}"]}.to_json
+     req.initialize_http_header(headers)
+     res = http.request(req, data)
+     return JSON.parse(res.body)
    end
 
    def self.update_request(old_name, name)
-     url = "#{URL}/price"
-     data = {"old_name": old_name, "name": name, "token": AUTHENTICATION_TOKEN}
+     url = "#{URL}?oldname=#{old_name}&name=#{name}"
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Patch.new(uri.request_uri)
-     req.set_form_data(data)
+     headers = {'x-api-key' => CRUD_API_KEY, "Content-Type" => "application/json"}
+     req.initialize_http_header(headers)
      http.request(req)
    end
 
    def self.delete_request(name)
-     url = "#{URL}/price"
-     data = {"name": name, "token": AUTHENTICATION_TOKEN}
+     url = "#{URL}?name=#{name}"
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Delete.new(uri.request_uri)
-     req.set_form_data(data)
-     http.request(req)
+     headers = {'x-api-key' => CRUD_API_KEY, "Content-Type" => "application/json"}
+     req.initialize_http_header(headers)
+     res = http.request(req)
+     return JSON.parse(res.body)
    end
 
 
    def self.send_get_request(name)
-      url = "#{URL}/price"
-      data = {"name": name, "token": AUTHENTICATION_TOKEN}
+      url = "#{URL}?name=#{name}"
       uri = URI.parse(url)
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
-      req.set_form_data(data)
+      headers = {'x-api-key' => CRUD_API_KEY, "Content-Type" => "application/json"}
+      req.initialize_http_header(headers)
       res = http.request(req)
-      p "----------------------#{data} ahs sent-------------------------"
       return JSON.parse(res.body)
    end
 

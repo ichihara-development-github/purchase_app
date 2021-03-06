@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
     before_action :has_store?, only: [:new, :edit_products]
     before_action :login_user?, only: [:show]
-    before_action :set_product, only: [:show, :edit, :update, :destroy]
+    before_action :set_product, only: [:show, :edit, :update, :destroy, :compare]
     before_action -> { has_authority?(@product.store.user) }, only: [:edit, :update, :destroy]
 
   def set_product
@@ -22,9 +22,9 @@ class ProductsController < ApplicationController
     if @product.save
       users = current_user.followers
       users.map{|user| create_notification(user, @product, "", "create") }
+      Product.input_request(@product.name)
       flash[:success] = "商品の作成が完了しました"
       redirect_to @product
-      Product.input_request(@product.name)
     else
       flash[:error_messages] = @product.errors.full_messages
       render "new"
@@ -42,7 +42,6 @@ class ProductsController < ApplicationController
     @basket = Basket.new
     @comments = @product.comments.order(created_at: "DESC")
     @distance = distance(current_user.latitude, current_user.longitude, @product.store.latitude, @product.store.longitude)
-    @price = Product.send_get_request(@product.name)
   end
 
   def edit_products
@@ -129,8 +128,7 @@ class ProductsController < ApplicationController
     #------------------------compare---------------------
 
     def compare
-      name = params[:name]
-      @price = Product.send_get_request(name)
+      @prices = Product.send_get_request(@product.name)["body"]
       respond_to do |format|
         format.html
         format.js
@@ -138,9 +136,10 @@ class ProductsController < ApplicationController
     end
 
 
+
   private
   def product_params
-    params.require(:product).permit(:name,:description, :price, :category, :main_image, :sub_image1, :sub_image2 )
+    params.require(:product).permit(:name,:description, :price, :category,:count, :main_image, :sub_image1, :sub_image2 )
   end
 
   def search_params

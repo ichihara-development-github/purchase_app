@@ -1,1 +1,1 @@
-$(".compare_amazon").html('<%= j (render "compare/display_prices") %>');
+$("#compare").html('<%= j (render "display_prices", product: @product, prices: @prices) %>');

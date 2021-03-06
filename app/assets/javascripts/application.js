@@ -22,6 +22,10 @@ $(function(){
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()
     });
+
+    $("#compare").click(function(){
+        $(this).next(".margin-vertical").fadeToggle()
+    });
 // update basket quatient
     $(".update-input-form").on("change", function(){
       Rails.fire($(this).closest("form")[0], 'submit');

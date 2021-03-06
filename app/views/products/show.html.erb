@@ -42,8 +42,8 @@
      <% end %>
      </span>
      <span class = "right price" >¥ <%= @product.price %></span><br />
-     <div class = "margin-vertical">
-       <%= render "display_prices" if @price %>
+     <div id = "compare">
+       <%= link_to "価格を比較する", compare_path(id: @product), id: "compare", class: "btn btn-success", remote: :true %>
      </div>
       <blockquote class="blockquote text-left">
        <p><%= simple_format(@product.description) %></p>
