@@ -1,0 +1,16 @@
+<% if current_user %>
+
+<div class = "side-bar margin-vertical">
+    <ul class="list-group">
+        <li class="list-group-item">
+          カート内:　<span class = "price">¥<%= current_user.considering_products.sum(:price)%></span>
+        </li>
+        <li class="list-group-item compare_amazon" style = "background-color:orange">
+          <%= link_to compare_path(name: @product.name), remote: true do %>
+          Amazonと比較する
+          <% end %>
+        </li>
+      </ul>
+ </div>
+
+<% end %>

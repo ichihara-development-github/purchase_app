@@ -1,0 +1,15 @@
+<% @comments.each do |comment| %>
+ <div href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= link_to user_path(comment.user) do %><%= comment.user.name %><% end %></h5>
+     <small><%= comment.created_at.strftime("%m月%d日 %H時%M分") %></small>
+     
+    </div>
+    <span class = "right">
+      <% if comment.user == current_user %>
+      <%= link_to "削除", comment_path(comment), method: :delete, class: "btn btn-outline-danger", remote: true %>
+      <% end %>
+    </span>
+    <p class="mb-1"><%= comment.content %></p>
+  </div>
+<% end %>

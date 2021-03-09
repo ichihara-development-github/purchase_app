@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-12">
+    <section class="stats">
+      <%= render 'shared/statistics' %>
+    </section>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate %>
+    <% end %>
+      </div>
+</div>

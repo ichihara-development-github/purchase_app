@@ -1,0 +1,15 @@
+<%= will_paginate @notifications, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+<%= link_to notifications_path, method: :delete, class: "right" do %>
+    <i class="fas fa-trash" style="color: red;"></i>
+    <span>すべて削除</span>
+<% end %>
+<h3 >通知</h3>
+
+<% if @notifications.exists? %>
+    <div class="users-index">
+        <%= render @notifications %>
+    </div>
+<% else %>
+    <p>現在通知はありません</p>
+<% end %>

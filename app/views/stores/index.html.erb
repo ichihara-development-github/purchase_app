@@ -1,0 +1,27 @@
+<div class = "margin-vertical center">
+    <% if current_user %>
+<% unless current_user.seller? %>
+   <%= link_to "オーナ登録はこちら", registration_path ,class: "btn btn-warning btn-lg btn-block" %>
+    <% end %>
+    <% end %>
+</div>
+
+
+ <div class="row">
+    <% @stores.each do |store| %>
+  <div class="col-md-6 margin-vertical">
+    <div class="card">
+        <% if store.top_image.present? %>
+            <%= image_tag store.top_image ,class: "img-fluid", style: "height:350px"%>
+        <% else %>
+            <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+        <% end %>
+      <div class="card-body">
+            <h5 class="card-title"><%= store.name %></h5>
+            <p class="card-text"><%= store.description %></p>
+        <%= link_to "Go Shop", store_path(store), class: "btn btn-primary" %>
+    </div>
+  </div>
+  </div>
+    <% end %>
+     </div>

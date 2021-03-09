@@ -1,0 +1,33 @@
+<div class = "margin-vertical">
+<% unless current_user.seller? %>
+   <%= link_to "オーナ登録はこちら", registration_path ,class: "btn btn-warning btn-lg btn-block" %>
+<% end %>
+
+<div class = "container center">
+    <% if @user.profile_image.present? %>
+        <%= image_tag @user.profile_image, class: "img-thumbnail", style: "width: 200px; border-radius: 1000px" %>
+    <% else %>
+        <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 200px; border-radius: 1000px" alt="Something">
+    <% end %>
+    <h2><%= @user.name %></h2>
+    <h5><%= @user.introduce %></h5>
+
+    <div class="statistics">
+      <%= render "shared/statistics"%>
+    </div>
+
+    <div class="margin-vertical">
+      <%= render "follow_form" if current_user %>
+    </div>
+    <div class = "margin-vertical">
+        <% if @user.store %>
+            <h5><%= link_to store_path(@user.store) do %><%= @user.store.name %><% end %>　運営者</h5>
+        <% end %>
+    </div>
+
+    <% if @user == current_user %>
+        <%= link_to "プロフィルの編集", edit_user_path(@user) , class: "btn btn-success"%>
+    <% end %>
+</div>
+
+</div>

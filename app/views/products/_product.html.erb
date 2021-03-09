@@ -1,0 +1,29 @@
+<div class="row">
+    <% obj.each do |product| %>
+      <div class="col-6 col-md-3 pd-5  margin-vertical">
+        <div class="shadow">
+            <% if product.main_image.present? %>
+              <%= image_tag product.main_image , class: "long-img"%>
+             <% else %>
+              <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+            <% end %>
+              <div class="card-body">
+                <%= link_to product_path(product) do %>
+                    <h5 ="card-title"><%= product.name %></h5>
+                <% end %>
+                <span style = "color:red">¥<%= product.price %></span><br />
+                  <span class = "product-basket-<%= product.id %>" >
+                    <% if current_user %>
+                      <%= render "products/cart_link", product: product %>
+                    <% else %>
+                      <%= link_to product_path(product.id), class: "right" do %>
+                        <i class="fas fa-cart-arrow-down fa-lg"></i>
+                      <% end %>
+                    <% end %>
+                  </span>
+                  <span><%= render "evaluations/star", product: product%></span>
+              </div>
+      </div>
+      </div>
+    <% end %>
+</div>

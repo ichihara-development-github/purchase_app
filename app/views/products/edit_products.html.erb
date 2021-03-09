@@ -1,0 +1,25 @@
+
+<div class = "container">
+    <table class="table table-striped">
+  <thead>
+    <tr class = "table-primary">
+      <th scope="col">商品名</th>
+      <th scope="col">価格</th>
+      <th scope="col">アクション</th>
+    </tr>
+  </thead>
+   <tbody>
+       <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td>
+        <%= link_to edit_product_path(product),class: "btn btn-outline-success" do %><span class = "fa fa-edit"></span><% end %>
+        <%= link_to product_path(product),method: :delete, data: {confirm: "本当に削除しますか？"},class: "btn btn-outline-danger" do %><span class = "fa fa-trash"></span><% end %>
+      </td>
+    </tr>
+     <% end %>
+  </tbody>
+</table>
+
+</div>

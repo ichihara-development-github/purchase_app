@@ -1,0 +1,63 @@
+<div>
+    <%= form_tag purchases_path ,method: :post, id: "payForm" do %>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <%= hidden_field_tag "stripeToken" %>
+     <%= hidden_field_tag "stripe_email" %>
+    <%= hidden_field_tag 'amount', basket_sum + postage %>
+  <%= hidden_field_tag "user_id", current_user.id %>
+
+  <%= render "shared/explanation" %>
+
+  <div class="margin-vertical center">
+    <button id = "btn-pay" type = "button" class = "col-sm-6 btn btn-primary"> 以下の内容で支払いをする</button>
+  </div>
+<div>
+  <h3 style = "border-bottom: inset 2px gray">お客様情報</h3>
+  <div class="margin-vertical pd-10" style = "border:solid 1px gray">
+    <h5>お客様名:　<%= current_user.name%></h5>
+    <h5>お届け先:　<%= current_user.address %></h5>
+    <h5>ご連絡先:　<%= current_user.email %></h5>
+  </div>
+
+  <h3 style = "border-bottom: inset 2px gray">購入情報</h3>
+  <div class="margin-vertical">
+    <h4><%= basket_count %>点</h4>
+    <h4>商品合計 ¥<%= basket_sum %></h4>
+    <h4>+ 送料 <%= postage %></h4><br />
+
+    <h3 style = "color:red; font-weight:bold">合計: ¥<%= basket_sum + postage %></h3>
+  </div>
+  <% end %>
+
+   <div class="row basket-index">
+
+   <%= render @baskets, obj: "purchase" %>
+  </div>
+  <span><%= link_to "買い物かごに戻る   ↩", baskets_path, class: "pd-10 btn btn-success" %></span>
+</div>
+
+  <script>
+  var handler = StripeCheckout.configure({
+      key: "pk_test_2v156SVNBLBLZenKyVYrwmXx00dNIuZgoO",
+      locale : "auto",
+      currency: "jpy",
+      panelLabel: "商品の購入",
+      allowRemember: true,
+      token: function(token, arg){
+          document.getElementById("stripeToken").value = token.id;
+          document.getElementById("stripe_email").value = token.email;
+          document.getElementById("payForm").submit();
+      }
+  });
+
+  document.getElementById("btn-pay").addEventListener("click", function(e){
+      handler.open({
+          description: "ご購入のお支払い",
+          amount: document.getElementById("amount").value
+      });
+      e.preventDefault();
+  })
+
+  </script>
+</div>

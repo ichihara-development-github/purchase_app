@@ -1,0 +1,9 @@
+<% unless current_user == @user %>
+<div id = "following_form">
+  <% if current_user.following?(@user) %>
+    <%= render "remove_btn" %>
+  <% else %>
+    <%= render "follow_btn"%>
+    <% end %>
+</div>
+<% end %>

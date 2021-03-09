@@ -1,0 +1,13 @@
+<% diff = @price["average"] - @product.price %>
+<% diff > 0 ? text = "安い"
+   : diff < 0 ? text = "高い"
+   :  "同価格" %>
+<div class="compare_amazon">
+  <h4>Amazon との比較</h4>
+    <ul class = "">
+      <li style  = "font-weight:bold">平均値: <%= @price["average"] %></li>
+      <li>最高価格: <%= @price["max"] %></li>
+      <li>最低価格: <%= @price["min"] %></li>
+    </ul>
+    <span >この商品はAmazonの平均と比べて ¥<%= diff.abs %> <%= text %>です。</span>
+</div>

@@ -1,0 +1,72 @@
+  <div class = "row">
+      <div class = "col-lg-9">
+    <%= render "search_form"%>
+    </div>
+</div>
+
+
+<div class="products">
+
+<%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+<% if @popular.present? %>
+  <h2 style = "margin:20px">人気の商品</h2>
+ <div class="row">
+    <% @popular[0..2].zip(1..3) do |product,i| %>
+  <div class="col-md-4 pd-5 margin-vertical">
+    <div class="shadow">
+      <% if product.main_image.present?%>
+        <%= image_tag product.main_image, class: "rank mid-img"%>
+        <%= image_tag "rank#{i}.png", class: "rank-image" %>
+      <% else %>
+        <img class="mid-img rank" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="no-image">
+        <%= image_tag "rank#{i}.png", class: "rank-image" %>
+      <% end %>
+      <div class="card-body">
+          <span><%= link_to product_path(product) do %>
+            <h4 class="card-title"><%= product.name %></h4>
+          <% end %></span>
+            <div class = "description"><%= product.description %></div>
+            <span>¥<%= product.price%></span>
+              <% if current_user %>
+                    <span class = "product-basket-<%= product.id %>">
+                      <%= render "products/cart_link", product: product %>
+                    </span>
+                    <span><%= render "evaluations/star", product: product%></span>
+                <% else %>
+                <%= link_to product_path(product.id), class: "right" do %>
+                  <i class="fas fa-cart-arrow-down fa-lg"></i>
+                <% end %>
+                <% end %>
+      </div>
+  </div>
+  </div>
+    <% end %>
+     </div>
+
+<% end %>
+
+     </div>
+
+ <div class = "">
+      <h2 style = "margin:20px">商品一覧</h2>
+   <div>
+      <%= form_tag line_up_path, method: :get do %>
+     <div class="row">
+       <div class="col-md-3 col-6" style = "inline-block">
+          <%= select_tag(:line_up, options_for_select(line_up_list), class: "form-control", include_blank: "未選択") %>
+       </div>
+        <div class = "col-md-2 col-4" style = "indeline-block">
+          <%= submit_tag "並べ替える", class: "line-up-btn"%>
+        </div>
+    </div>
+     <% end %>
+     <div class="">
+        <%= render "product", obj: @products %>
+     </div>
+    </div>
+</div>
+
+ <%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+</div>

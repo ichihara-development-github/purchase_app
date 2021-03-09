@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Purchase App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "http://js.stripe.com/v3/"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <%= csrf_meta_tags %>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <%= favicon_link_tag "favicon.ico" %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application','data-turbolinks-track': 'reload' %>
+
+
+  </head>
+
+  <body>
+
+  <%= javascript_tag do %>
+
+
+$(function(){
+
+
+ $(function(){
+  $(".upfile").change(function(e){
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    var output= $(this).parents(".middle").find("img").attr("id")
+
+    reader.onload = (function(file, id){
+      return function(e){
+        $("#" + id ).attr("src", e.target.result);
+        $("#" + id ).attr("title", file.name);
+      };
+    })(file, output);
+
+    reader.readAsDataURL(file);
+
+  });
+});
+
+    $(".dropdown-toggle").click(function(){
+        $(this).next(".dropdown-menu").fadeToggle()
+    });
+
+
+    $(".dropdown-log").on("click", function(){
+        $(this).next(".purchaselog").slideToggle()
+    });
+
+    $(".fade-menu-toggle").on("click", function(){
+        $(this).next(".fade-menu").fadeToggle()
+    });
+
+    $('.slide-menu-toggle').on("click", function(){
+     $(".slide-menu").toggleClass("open");
+  })
+
+  //パスワードフォーム
+  $("#password-icon-toggle").on("click",function() {
+
+    $(this).toggleClass("fa-eye-slash");
+
+    var form = $(".password-form");
+
+    // type切替
+    if (form.attr("type") == "password") {
+      form.attr("type", "text");
+    } else {
+      form.attr("type", "password");
+    }
+    });
+
+    //image_input
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#production_image").change(function(){
+        readURL(this);
+    });
+
+    var headersHeight = $('header').outerHeight();
+    $('.main').css('padding-top', headersHeight + 'px');
+    $('.slide-menu').css('margin-top', headersHeight + 'px');
+
+});
+
+    <% end %>
+
+     <%= render "layouts/navigation" %>
+        <div class = "main container" style = "margin-top: 40px">
+         <div class="flash-message-space">
+            <%= render "layouts/message" %>
+         </div>
+           <%= yield %>
+        </div>
+
+  </body>
+</html>

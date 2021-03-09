@@ -1,0 +1,41 @@
+<% product = basket.product%>
+   <div class="col-md-10 basket-wrapper">
+     <div class="row">
+       <div class="col-sm-4">
+         <% if product.main_image.present? %>
+             <%= image_tag product.main_image,class: "left card-img", style: "max-width:300px;"%>
+          <% else %>
+           <img class="left card-img"  style = "max-width:400px" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+         <% end %>
+       </div>
+        <div class = "basket-container col-sm-8">
+          <div style = "float:left">
+            <%= link_to product_path(product) do %>
+                <h4><%= product.name %></h4>
+            <% end %>
+             <p class = "display-200"><%= product.description %></p>
+             <span>店舗:　<%= link_to store_path(product.store) do %><%= product.store.name %><% end %></span>
+          </div>
+            <div class="right">
+              <h4 style = "font-color:red">¥ <%= product.price %></h4>
+              <div>
+                <% if obj == "basket" %>
+                  <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
+                   <%= f.select :count, (1..product.count).map{|i| i}, {}, class: "form-control update-input-form"%>
+                   <% f.submit %>
+                  <% end %>
+               <% else %>
+                 ×　<%= basket.count ||= 1%><br />
+                <div class="margin-vertical">
+                  <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+                </div>
+               <% end %>
+             </div><br />
+              <div class="pd">
+                <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless obj == "purchase"%>
+              </div>
+            </div>
+       </div>
+     </div>
+
+    </div>

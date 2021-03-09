@@ -1,0 +1,38 @@
+<% unless current_user.seller? %>
+   <%= link_to "オーナ登録はこちら", registration_path ,class: "btn btn-warning btn-lg btn-block" %>
+<% end %>
+
+<div class = "container center">
+    <div class = "row">
+      <div class = "col-lg-9">
+          <h2><%= @store.name %></h2>
+          <div class="margin-vertical">
+          <% if @store.top_image.present? %>
+              <%= image_tag @store.top_image, class: "wide-img" %>
+          <% else %>
+              <img class="wide-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+          <% end %>
+          </div>
+          <div class="">
+            <h5><%= @store.description %></h5>
+          </div>
+          <div class="middle">
+            <%= render "shared/map" if @store.address.present? %>
+            <%= @store.address %>
+          </div>
+          <p><%= current_user.address %>まで<%= @distance.round(2) %> km</p>
+          <h3>送料　¥<%= how_much_postage(@distance)%></h3><br />
+          <%= render "shared/postage_explanation" %>
+         <% if has_store(@store) %>
+         <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
+         <% end %>
+      </div>
+     </div>
+</div>
+
+ <div class = "container">
+     <h2>商品一覧</h2>
+     <%= render "products/product", obj: @products %>
+</div>
+
+<%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>

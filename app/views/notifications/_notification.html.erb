@@ -1,0 +1,21 @@
+<% notice_user = notification.notice_user %>
+<% if notification.product then product = notification.product else product = "" end %>
+<% if notification.comment then comment = notification.comment product = notification.comment.product else comment = "" end %>
+ <div href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <span class = "">
+        <% if notice_user.profile_image.present? %>
+         <%= image_tag notice_user.profile_image, class: "img-thumbnail", style: "width: 80px; border-radius: 1000px" %>
+        <% else %>
+          <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 100px; border-radius: 1000px" alt="Something">
+        <% end %>
+      </span>
+      <div class="col-10">
+        <h5 class="mb-1">
+          <%= link_to user_path(notice_user) do %><%= notice_user.name %><% end %>が
+          <%= render "#{notification.action}", product: product, comment: comment %>
+        </h5>
+        <midium class ="right"><%= notification.created_at.strftime("%m月%d日 %H時%M分") %></midium>
+    </div>
+  </div>
+  </div>

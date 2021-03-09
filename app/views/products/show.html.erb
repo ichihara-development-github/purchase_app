@@ -1,0 +1,136 @@
+<div class = "row">
+
+  <div class = "col-lg-9">
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval = "5000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <% if @product.main_image.present? %>
+           <%= image_tag @product.main_image, class: "d-block w-100", style: "height:400px; width:90%"%>
+          <% else %>
+            <img class="long-img" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+          <% end %>
+        </div>
+        <% if @product.sub_image1.present? %>
+          <div class="carousel-item middle">
+             <%= image_tag @product.sub_image1, class: "d-block w-100", style: "height:400px; width:90%" %>
+          </div>
+        <% end %>
+        <% if @product.sub_image2.present? %>
+          <div class="carousel-item">
+            <%= image_tag @product.sub_image2, class: "d-block w-100", style: "height:400px; width:90%" %>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <div class = "container">
+     <h1 class="display-5"><%= @product.name %></h1>
+     <%= render "evaluations/star", product: @product %><span style = "font-weight:bold"><%= evaluation_avarage(@product) %>
+     <% if has_evaluation?(@product) %>
+      <%= link_to "評価を編集", edit_evaluation_path(id: @product.id) %>
+     <% else %>
+      <%= link_to "評価をつける", new_evaluation_path(id: @product.id) %>
+     <% end %>
+     </span>
+     <span class = "right price" >¥ <%= @product.price %></span><br />
+     <div class = "margin-vertical">
+       <%= render "display_prices" if @price %>
+     </div>
+      <blockquote class="blockquote text-left">
+       <p><%= simple_format(@product.description) %></p>
+      </blockquote>
+    </div>
+
+    <div class = "margin-vertical">
+      <% if in_basket(@product) %>
+        <%= link_to basket_delete_path(@product), method: :post do %>
+          <button type="button" class="right btn btn-secondary",>カートから出す</button>
+        <% end %>
+      <% else %>
+      <div class="right">
+        <%= form_for @basket, url: basket_add_path,method: :post do |f| %>
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <span><%= f.select :count, (1..@product.count).map{|i| i}, {}, class: "form-control" %></span><br />
+          <%= f.submit "カートへ追加",class: "right btn", style: "background-color: orange" %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <table class="table ">
+  <tbody>
+    <tr>
+      <td><h5>出品店舗</h5></td>
+      <td><%= link_to store_path(@product.store)do %><%= @product.store.name%><% end %></td>
+    </tr>
+    <tr>
+      <td><h5>出品者</h5></td>
+      <td><%= link_to user_path(@product.store.user) do %><%= @product.store.user.name%><% end %></td>
+    </tr>
+    <tr>
+      <td><h5>カテゴリー</h5></td>
+      <td><%= @product.category? ? @product.category : "カテゴリーなし" %></td>
+    </tr>
+    <tr>
+      <td><h5>出品日</h5></td>
+      <td><%= @product.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+<div class="center">
+  <%= link_to "商品の編集", edit_product_path(@product) , class: "btn btn-success margin-vertical col-8" if has_product?(@product)%>
+</div>
+
+<%= render "shared/postage_explanation" %>
+<h3>送料 ¥<%= how_much_postage(@distance) %></h3>
+
+<div class = "comment-form col-md-12">
+   <h5>コメント</h5>
+   <%= form_for @comment, method: :post, remote: true do |f| %>
+   <%= f.hidden_field :id, :value => @product.id %>
+   <div class = "margin-vertical">
+     <div class="form-group">
+      <%= f.text_area :content ,class: "form-control", rows:"4" %>
+     </div>
+      <%= f.submit  "投稿", class: "btn btn-primary"%>
+   </div>
+   <% end %>
+  <div class="list-group">
+  <div class = "comment-index">
+    <%= render "comments/comment" %>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class = "d-none d-lg-block ">
+  <div class =  "side-bar-wrapper" style = "position:fixed">
+    <%= render "layouts/side_bar" %>
+  </div>
+</div>
+
+
+<div class = "container margin-vertical">
+<h3>その他の商品</h3>
+<% other_products = @product.store.products.where.not(id: @product.id).paginate(page: params[:page], per_page: 8) %>
+<%= render "products/product", obj: other_products %>
+</div>
+
+ <%= will_paginate other_products , :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+
+
+ </div>

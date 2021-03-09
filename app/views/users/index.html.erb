@@ -1,0 +1,24 @@
+<h3>ユーザー一覧</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr class = "table-success">
+      <th scope="col">ユーザー名</th>
+      <th scope="col">email</th>
+      <th scope="col">アクション</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user_path(user) do %><%= user.name %><% end %></td>
+      <td><%= user.email%></td>
+      <td>
+        <% unless (current_user == user) or user.admin%>
+          <%= link_to user_path(user),method: :delete,class: "btn btn-danger", data: {confirm: "本当に削除しますか？"} do%><span class = "fa fa-trash"></span><% end %>
+        <% end %>
+      </td>
+    </tr>
+     <% end %>
+  </tbody>
+</table>

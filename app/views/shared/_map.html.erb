@@ -1,0 +1,89 @@
+
+<div id = "map">
+
+
+</div>
+
+<style>
+#map{
+  height: 350px;
+}
+</style>
+
+<script>
+
+function initMap(){
+
+      //初期表示位置
+      var latlng = new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>);
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: latlng
+
+      });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+      var circleOptions = {
+        center: latlng,
+        fillColor: 'red',
+        fillOpacity: 0.2,
+        map: map,
+        radius: 10000,
+        strokeColor: 'red',
+        strokeOpacity: 0.5,
+        strokeWeight: 0.5
+    };
+
+      var cityCircle = new google.maps.Circle(circleOptions);
+
+      (function(){
+
+        var infowindow = new google.maps.InfoWindow({
+          content: "<img src = '<%= @store.top_image if @store.top_image %>' style = 'width:100%'><br />"+
+                   "<a href='<%= store_path(@store) %>' style = 'font-size: 20px'><%= @store.name %></a><br />"+
+                   "<p><%= @store.address %></p>",
+                   maxWidth: 220
+
+        });
+
+        var marker = new google.maps.Marker({
+          position:{lat: <%= @store.latitude %> , lng: <%= @store.longitude %> },
+          map: map,
+          title: "<%= @store.address if @store.address %>",
+          animation: google.maps.Animation.DROP
+        });
+
+        marker.addListener("click", function(){
+          infowindow.open(map, marker);
+        });
+      })();
+
+      (function(){
+
+        var infowindow = new google.maps.InfoWindow({
+          content: "<p><%= current_user.address if current_user.address %></p>"+
+                     "<span class = 'fas fa-home fa-lg'></span>" +
+                     "<span>自宅</span>"
+        });
+
+
+        var marker = new google.maps.Marker({
+          position:{lat: <%= current_user.latitude %> , lng: <%= current_user.longitude %> },
+          map: map,
+          animation: google.maps.Animation.DROP
+        });
+
+        marker.addListener("click", function(){
+          infowindow.open(map, marker);
+        });
+
+      })();
+
+
+
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAWezrBjtug-O85xz84V_TYNCmv1pYxDQ&callback=initMap&language=ja"></script>

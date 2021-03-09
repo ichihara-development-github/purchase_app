@@ -1,0 +1,6 @@
+<div class = "container">
+    <%= render "form" %>
+    <div class="center pd">
+      <%= link_to "この商品を削除する", product_path(@product),method: :delete, data: {confirm: "本当に削除しますか？"},class: "btn btn-danger" %>
+    </div>
+</div>

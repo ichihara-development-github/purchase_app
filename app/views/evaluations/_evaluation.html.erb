@@ -1,0 +1,15 @@
+<div class="evaluation-feed">
+  <span><% evaluation.star.to_i.times do |i|%><i class="fas fa-star" style = "color:orange"></i><% end %>
+    <% unless evaluation.star.modulo(1) == 0%><i class="fas fa-star-half" style = "color:orange"></i><% end %>
+  </span>
+  <span><%= evaluation.star %></span><br />
+  <span style = "font-weight:bold"><%= link_to user_path(evaluation.user)do %><%= evaluation.user.name %><% end %></span>
+  <p><%= evaluation.created_at.strftime("%m月%d日 %H時%M分") %></p>
+  <p><%= simple_format(evaluation.comment) %></p>
+  <div class="right">
+    <% if current_user.evaluations.include?(evaluation)%>
+      <span class = ""><%= link_to "編集", edit_evaluation_path(id: evaluation.id) %></span>
+      <span class = ""><%= link_to "削除", evaluation_path(id: evaluation.id), method: :delete %></span>
+    <% end %>
+  </div><br />
+</div>

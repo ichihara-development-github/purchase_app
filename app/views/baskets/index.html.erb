@@ -1,0 +1,34 @@
+ <div class = "margin-vertical">
+ <span class = "dropdown-toggle dropdown-log right"> 購入履歴 </span>
+ <div class = "display-300 row purchacelog" style = "clear:both;display:none">
+  <% @purchases.each do |datum| %>
+   <%= render "basket",  basket: datum, obj: "purchase" %>
+  <% end %>
+ </div>
+
+</div>
+
+<div class = "container">
+     <div class = "margin-vertical">
+         <% unless @products.blank? %>
+           <h5><%= basket_count %>点</h5>
+           <h5>商品合計 ¥<%= basket_sum %></h5>
+           <h5>+ 送料 <%= postage %></h5><br />
+           <%= render "shared/postage_explanation" %><br />
+           <div class="row basket-index">
+            <%= render @baskets, obj: "basket" %>
+           </div>
+           <div id ="basket_sum">
+            <%= render "basket_sum"%>
+           </div>
+        <% end %>
+       </div>
+    <div class = "right">
+      <% if @baskets.exists? %>
+         <%= link_to "レジに進む", new_purchase_path, class: "accounting-btn", data: {"turbolinks" => false}  %>
+      <% else %>
+         <p>商品をカートに追加してください</p>
+      <% end %>
+     </div>
+
+ </div>
