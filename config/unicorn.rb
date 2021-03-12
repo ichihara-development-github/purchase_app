@@ -7,6 +7,7 @@ worker_processes 3
 listen "/var/www/purchase_app/shared/tmp/sockets/unicorn.sock"
 pid "tmp/pids/unicorn.pid"
 
+
 preload_app true
 
 timeout 60
