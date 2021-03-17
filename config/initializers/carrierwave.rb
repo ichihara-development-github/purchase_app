@@ -18,5 +18,4 @@ if Rails.env.production?
     end
 
     CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
-
 end
