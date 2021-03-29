@@ -80,17 +80,17 @@ class ProductsController < ApplicationController
 
   def line_up
     if params[:line_up] == "価格が安い"
-      @products = $products.order(price: "ASC").paginate(page: params[:page], per_page: 8)
+      $products = @product = $products.order(price: "ASC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "価格が高い"
-      @products = $products.order(price: "DESC").paginate(page: params[:page], per_page: 8)
+      $products = @product = $products.order(price: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "新着順"
-      @products = $products.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
+      $products = @product = $products.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "購入数"
-      @products = $products.popular.paginate(page: params[:page], per_page: 8)
+      $products = @product = $products.popular.paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "レビュー件数"
-      @products = $products.has_many_reviews.paginate(page: params[:page], per_page: 8)
+      $products = @product = $products.has_many_reviews.paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "レビュー平均"
-      @products = $products.products_review_avarage.paginate(page: params[:page], per_page: 8)
+      $products = @product = $products.products_review_avarage.paginate(page: params[:page], per_page: 8)
     end
 
     respond_to do |format|
