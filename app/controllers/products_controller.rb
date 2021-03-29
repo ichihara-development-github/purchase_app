@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.paginate(page: params[:page], per_page: 8)
+    $products = @products = Product.paginate(page: params[:page], per_page: 8)
     @popular = Product.popular
   end
 
@@ -80,9 +80,9 @@ class ProductsController < ApplicationController
 
   def line_up
     if params[:line_up] == "価格が安い"
-      @products = Product.order(price: "ASC").paginate(page: params[:page], per_page: 8)
+      @products = $products.order(price: "ASC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "価格が高い"
-      @products = Product.order(price: "DESC").paginate(page: params[:page], per_page: 8)
+      @products = $products.order(price: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "新着順"
       @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "購入数"
@@ -93,7 +93,10 @@ class ProductsController < ApplicationController
       @products = Product.products_review_avarage.paginate(page: params[:page], per_page: 8)
     end
     @popular = Product.popular
-    render "index"
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
  #-------------------------search-------------------------------
@@ -102,7 +105,7 @@ class ProductsController < ApplicationController
     if search_params.values.all?("")
       redirect_to products_path
     else
-      @products = Product.search(search_params).paginate(page: params[:page], per_page: 10)
+      @products = $products = Product.search(search_params).paginate(page: params[:page], per_page: 10)
       if @products.blank?
         flash[:warning] = "マッチする商品が見つかりませんでした"
         redirect_to products_path
@@ -134,7 +137,6 @@ class ProductsController < ApplicationController
         format.js
       end
     end
-
 
 
   private

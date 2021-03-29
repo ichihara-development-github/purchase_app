@@ -4,6 +4,7 @@
         <div class = "col-md-4 center">
            <h4>メインイメージ</h4>
             <div class = "middle">
+              <%= hidden_field :all, Product.all %>
               <% if @product.main_image.present? %>
                 <%= image_tag @product.main_image, class: "input-image", id: "main_img_output"%>
               <% else %>

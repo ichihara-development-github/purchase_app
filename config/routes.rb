@@ -10,10 +10,11 @@ Rails.application.routes.draw do
  get "registration", to: "users#registration"
  post "payment", to: "users#payment"
  get "complete_payment", to: "users#complete_payment"
+ post "hoge", to: "products#hoge"
 
  get "store_management", to: "users#management"
 
- get "line_up", to: "products#line_up"
+ post "line_up", to: "products#line_up"
 
  get "compare_price", to: "products#compare"
 

@@ -4,34 +4,32 @@ class Product < ApplicationRecord
   require 'uri'
   require 'json'
 
-  CRUD_API_KEY = "7AAXLaF1tG3Qpcs6nP5Uq8cGXv0L62cr4RGPraZN"
-  STEPFUNC_API_KEY = "OESTN1THvV3Hx4t2nBAm98WW9926uzdd7R0dcoo9"
+  CRUD_API_KEY = ""
+  STEPFUNC_API_KEY = ""
 
-  URL = "https://260g56ts98.execute-api.us-east-2.amazonaws.com/crud"
+  URL = ""
 
   after_initialize :set_default
 
     def self.search(sp)
        if sp
            sp.reject! { |_key, value| value.empty? }
-
            if sp[:min] or sp[:max]
                if sp[:min]
-                   @result = Product.where("price >  ?", sp[:min])
+                   @products = Product.where("price >  ?", sp[:min])
                    sp.reject! { |key, _value | key["min"] }
                end
                if sp[:max]
-                    @result = Product.where("price <  ?", sp[:max])
+                    @products = Product.where("price <  ?", sp[:max])
                     sp.reject! { |key, _value | key["max"]}
                end
            else
-              @result = Product
+              @products = Product
            end
-
             sp.each do |key, value|
-                @result = @result.where("#{key}": "#{value}")
+                @products = @products.where("#{key}": "#{value}")
             end
-           return @result
+            @products
        end
     end
 
