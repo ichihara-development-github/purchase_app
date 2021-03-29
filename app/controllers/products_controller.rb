@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    $products = @products = Product.paginate(page: params[:page], per_page: 8)
+    $products = @product = Product.paginate(page: params[:page], per_page: 8)
     @popular = Product.popular
   end
 
@@ -84,15 +84,15 @@ class ProductsController < ApplicationController
     elsif params[:line_up] == "価格が高い"
       @products = $products.order(price: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "新着順"
-      @products = Product.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
+      @products = $products.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "購入数"
-      @products = Product.popular.paginate(page: params[:page], per_page: 8)
+      @products = $products.popular.paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "レビュー件数"
-      @products = Product.has_many_reviews.paginate(page: params[:page], per_page: 8)
+      @products = $products.has_many_reviews.paginate(page: params[:page], per_page: 8)
     elsif params[:line_up] == "レビュー平均"
-      @products = Product.products_review_avarage.paginate(page: params[:page], per_page: 8)
+      @products = $products.products_review_avarage.paginate(page: params[:page], per_page: 8)
     end
-    @popular = Product.popular
+
     respond_to do |format|
       format.html
       format.js
