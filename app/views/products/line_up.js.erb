@@ -1,1 +1,3 @@
 $(".products-index").html('<%= j (render "product", obj: @products) %>');
+$(".products-paginate").html('');
+$(".line-up-message").html('<%= j (render "message", message: @message) %>');

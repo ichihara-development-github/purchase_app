@@ -33,7 +33,8 @@ class ProductsController < ApplicationController
 
 
   def index
-    $products = @products = Product.paginate(page: params[:page], per_page: 8)
+    $products = Product.all
+    @products = $products.paginate(page: params[:page], per_page: 8)
     @popular = Product.popular
   end
 
@@ -80,18 +81,21 @@ class ProductsController < ApplicationController
 
   def line_up
     if params[:line_up] == "価格が安い"
-       @products = $products.order(price: "ASC").paginate(page: params[:page], per_page: 8)
+       @products = $products.order(price: "ASC")
     elsif params[:line_up] == "価格が高い"
-       @products = $products.order(price: "DESC").paginate(page: params[:page], per_page: 8)
+       @products = $products.order(price: "DESC")
     elsif params[:line_up] == "新着順"
-       @products = $products.order(created_at: "DESC").paginate(page: params[:page], per_page: 8)
+       @products = $products.order(created_at: "DESC")
     elsif params[:line_up] == "購入数"
-       @products = $products.popular.paginate(page: params[:page], per_page: 8)
+       @products = $products.popular rescue $products
+       @message = "購入された商品がありません"
     elsif params[:line_up] == "レビュー件数"
-       @products = $products.has_many_reviews.paginate(page: params[:page], per_page: 8)
+       @products = $products.has_many_reviews
+       @message = "評価された商品がありません"
     elsif params[:line_up] == "レビュー平均"
-       @products = $products.products_review_avarage.paginate(page: params[:page], per_page: 8)
+       @products = $products.products_review_avarage
     end
+
 
     respond_to do |format|
       format.html
@@ -105,20 +109,22 @@ class ProductsController < ApplicationController
     if search_params.values.all?("")
       redirect_to products_path
     else
-      @products = $products = Product.search(search_params).paginate(page: params[:page], per_page: 10)
-      if @products.blank?
+      $products = Product.search(search_params)
+      @products = $products.paginate(page: params[:page], per_page: 8)
+      if $products.blank?
         flash[:warning] = "マッチする商品が見つかりませんでした"
         redirect_to products_path
       else
         @popular = Product.popular
-        flash.now[:success] = "#{@products.count}件の商品が見つかりました"
+        flash.now[:success] = "#{$products.count}件の商品が見つかりました"
         render "index"
       end
     end
   end
 
     def free_search
-        @products = Product.free_search(params[:free_word]).paginate(page: params[:page], per_page: 10)
+        $products = Product.free_search(params[:free_word])
+        @products = $products.paginate(page: params[:page], per_page: 8)
         if @products.blank?
           flash[:warning] = "マッチする商品が見つかりませんでした"
           redirect_to products_path

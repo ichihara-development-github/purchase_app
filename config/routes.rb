@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
  get "store_management", to: "users#management"
 
- post "line_up", to: "products#line_up"
+ get "line_up", to: "products#line_up"
 
  get "compare_price", to: "products#compare"
 

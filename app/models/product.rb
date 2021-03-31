@@ -92,7 +92,6 @@ class Product < ApplicationRecord
      return JSON.parse(res.body)
    end
 
-
    def self.send_get_request(name)
       url = "#{URL}?name=#{name}"
       uri = URI.parse(url)
