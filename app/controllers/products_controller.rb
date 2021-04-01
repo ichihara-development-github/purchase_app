@@ -80,22 +80,22 @@ class ProductsController < ApplicationController
   #----------------------line up------------------------------
 
   def line_up
-    if params[:line_up] == "価格が安い"
-       @products = $products.order(price: "ASC")
-    elsif params[:line_up] == "価格が高い"
-       @products = $products.order(price: "DESC")
-    elsif params[:line_up] == "新着順"
-       @products = $products.order(created_at: "DESC")
-    elsif params[:line_up] == "購入数"
-       @products = $products.popular rescue $products
-       @message = "購入された商品がありません"
-    elsif params[:line_up] == "レビュー件数"
-       @products = $products.has_many_reviews
-       @message = "評価された商品がありません"
-    elsif params[:line_up] == "レビュー平均"
-       @products = $products.products_review_avarage
-    end
+    @message = ""
 
+    case params[:line_up]
+    when  "価格が安い" then
+       @products = $products.order(price: "ASC")
+    when  "価格が高い" then
+       @products = $products.order(price: "DESC")
+    when  "新着順" then
+       @products = $products.order(created_at: "DESC")
+    when  "購入数" then
+      @products = line_up_popular
+    when  "レビュー件数" then
+       @products = line_up_evaluation_count
+    when  "レビュー平均" then
+       @products = line_up_evaluation_average
+    end
 
     respond_to do |format|
       format.html
@@ -153,5 +153,30 @@ class ProductsController < ApplicationController
   def search_params
     params.permit(:min, :max, :store_id, :category)
   end
+
+  def line_up_popular
+    begin $products.popular
+    rescue
+      @message = "購入された商品がありません"
+      $products
+    end
+  end
+
+  def line_up_evaluation_count
+    begin $products.has_many_reviews
+    rescue
+      @message = "評価された商品がありません"
+      $products
+    end
+  end
+
+  def line_up_evaluation_average
+    begin $products.products_review_avarage
+    rescue
+       @message = "評価された商品がありません"
+       $products
+    end
+  end
+
 
 end

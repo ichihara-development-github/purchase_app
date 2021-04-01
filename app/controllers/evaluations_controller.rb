@@ -1,6 +1,7 @@
 class EvaluationsController < ApplicationController
 
   before_action :set_evaluation, only: [:edit, :update, :destroy]
+  before_action :login_user?, only: [:new]
   before_action :user_has_not_reviewed?, only: [:new, :create]
   before_action :user_has_reviewed?, only: [:edit, :update, :destroy]
   before_action :set_product, only: [:new, :index]
