@@ -26,9 +26,7 @@ end
 #-------------------------------------------------------------------
 gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
-# Use Puma as the app server
-
-gem 'mimemagic', '~> 0.3.0'
+# Use Puma as the app serve
 
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -62,6 +60,11 @@ group :development, :test do
   gem 'rspec-rails', '~>3.6'
   gem 'spring-commands-rspec'
   gem 'sqlite3', '~>1.3.13'
+end
+
+group :production do
+  gem 'mimemagic', '0.3.9'
+
 end
 
 group :development do
