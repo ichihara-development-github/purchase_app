@@ -16,7 +16,7 @@ class Product < ApplicationRecord
            sp.reject! { |_key, value| value.empty? }
            if sp[:min] or sp[:max]
                if sp[:min]
-                   @products = Product.where("price =>  ?", sp[:min])
+                   @products = Product.where("price >=  ?", sp[:min])
                    sp.reject! { |key, _value | key["min"] }
                end
                if sp[:max]

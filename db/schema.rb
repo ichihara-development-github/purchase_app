@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20201123102145) do
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "count"
+    t.integer "count", default: 1
     t.index ["product_id"], name: "index_baskets_on_product_id"
     t.index ["user_id"], name: "index_baskets_on_user_id"
   end
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20201123102145) do
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "count"
+    t.integer "count", default: 5
     t.index ["product_id"], name: "index_purchases_on_product_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20201123102145) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.integer "count"
+    t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -142,7 +142,6 @@ ActiveRecord::Schema.define(version: 20201123102145) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.index ["store_id"], name: "index_users_on_store_id"
   end
 
 end
