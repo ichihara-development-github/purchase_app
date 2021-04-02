@@ -93,7 +93,6 @@ class ProductsController < ApplicationController
       @products = line_up_popular
     when  "レビュー件数" then
        @products = line_up_evaluation_count
-       debugger
     when  "レビュー平均" then
        @products = line_up_evaluation_average
     end
