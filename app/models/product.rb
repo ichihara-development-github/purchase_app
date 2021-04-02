@@ -45,7 +45,7 @@ class Product < ApplicationRecord
    end
 
    def self.popular(arg=Product)
-     product_ids = Purchase.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+     product_ids = Purchase.group(:product_id).order('count(product_id) desc').pluck(:product_id)
      arg.where(id: product_ids).order(['field(id, ?)', product_ids] )
    end
 
@@ -55,7 +55,7 @@ class Product < ApplicationRecord
    end
 
    def self.products_review_avarage(arg=Product)
-     product_ids = Evaluation.group(:product_id).order('avg(star) desc').pluck(:product_id))
+     product_ids = Evaluation.group(:product_id).order('avg(star) desc').pluck(:product_id)
      arg.where(id: product_ids).order(['field(id, ?)', product_ids] )
    end
 
