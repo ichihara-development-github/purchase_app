@@ -93,6 +93,7 @@ class ProductsController < ApplicationController
       @products = line_up_popular
     when  "レビュー件数" then
        @products = line_up_evaluation_count
+       debugger
     when  "レビュー平均" then
        @products = line_up_evaluation_average
     end
@@ -155,7 +156,7 @@ class ProductsController < ApplicationController
   end
 
   def line_up_popular
-    begin $products.popular
+    begin Product.popular($products)
     rescue
       @message = "購入された商品がありません"
       $products
@@ -163,7 +164,7 @@ class ProductsController < ApplicationController
   end
 
   def line_up_evaluation_count
-    begin $products.has_many_reviews
+    begin  Product.has_many_reviews($products)
     rescue
       @message = "評価された商品がありません"
       $products
@@ -171,7 +172,7 @@ class ProductsController < ApplicationController
   end
 
   def line_up_evaluation_average
-    begin $products.products_review_avarage
+    begin Product.products_review_avarage($products)
     rescue
        @message = "評価された商品がありません"
        $products

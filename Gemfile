@@ -64,7 +64,6 @@ end
 
 group :production do
   gem 'mimemagic', '0.3.9'
-
 end
 
 group :development do

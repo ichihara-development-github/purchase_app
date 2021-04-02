@@ -16,11 +16,11 @@ class Product < ApplicationRecord
            sp.reject! { |_key, value| value.empty? }
            if sp[:min] or sp[:max]
                if sp[:min]
-                   @products = Product.where("price >  ?", sp[:min])
+                   @products = Product.where("price =>  ?", sp[:min])
                    sp.reject! { |key, _value | key["min"] }
                end
                if sp[:max]
-                    @products = Product.where("price <  ?", sp[:max])
+                    @products = Product.where("price <=  ?", sp[:max])
                     sp.reject! { |key, _value | key["max"]}
                end
            else
@@ -44,16 +44,19 @@ class Product < ApplicationRecord
         end
    end
 
-   def self.popular
-     Product.find(Purchase.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+   def self.popular(arg=Product)
+     product_ids = Purchase.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+     arg.where(id: product_ids).order(['field(id, ?)', product_ids] )
    end
 
-   def self.has_many_reviews
-     Product.find(Evaluation.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+   def self.has_many_reviews(arg=Product)
+     product_ids = Evaluation.group(:product_id).order('count(product_id) desc').pluck(:product_id)
+     arg.where(id: product_ids).order(['field(id, ?)', product_ids] )
    end
 
-   def self.products_review_avarage
-     Product.find(Evaluation.group(:product_id).order('avg(star) desc').pluck(:product_id))
+   def self.products_review_avarage(arg=Product)
+     product_ids = Evaluation.group(:product_id).order('avg(star) desc').pluck(:product_id))
+     arg.where(id: product_ids).order(['field(id, ?)', product_ids] )
    end
 
    def self.input_request(name)
