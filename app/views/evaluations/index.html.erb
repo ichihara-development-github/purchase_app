@@ -1,12 +1,8 @@
 <h2><%= link_to @product.name, product_path(@product) %>のレビュー一覧</h2><br />
 
 <%= image_tag @product.main_image, class: "d-block w-100", style: "height:400px; width:90%" if @product.main_image.present?%>
+<%  ev = evaluation_avarage(@product) %>
+<h3>平均評価 <%= (ev**2 / ev) == ev ? ev : "評価がありません" %></h3>
 
-<h3>平均評価 <%= evaluation_avarage(@product) %></h3>
-
-<% if @evaluations.count == 0 %>
-  <p>この商品に評価はまだありません<br />
-    <%= link_to "評価をつける", new_evaluation_path(id: @product.id) %></p>
-<% else %>
-  <%= render @evaluations %>
-<% end %>
+<%= link_to "評価を付ける", new_evaluation_path(id: @product.id) unless (current_user && current_user.evaluations.include?(@product.evaluations)) %>
+<%= render @evaluations %>

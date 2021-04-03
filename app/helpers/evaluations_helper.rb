@@ -1,4 +1,5 @@
 module EvaluationsHelper
+
   def evaluation_avarage(product)
      product.evaluations.average(:star).round(1)
   end

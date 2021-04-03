@@ -7,7 +7,7 @@
   <p><%= evaluation.created_at.strftime("%m月%d日 %H時%M分") %></p>
   <p><%= simple_format(evaluation.comment) %></p>
   <div class="right">
-    <% if current_user.evaluations.include?(evaluation)%>
+    <% if current_user && current_user.evaluations.include?(evaluation) %>
       <span class = ""><%= link_to "編集", edit_evaluation_path(id: evaluation.id) %></span>
       <span class = ""><%= link_to "削除", evaluation_path(id: evaluation.id), method: :delete %></span>
     <% end %>
