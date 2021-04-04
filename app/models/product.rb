@@ -4,12 +4,11 @@ class Product < ApplicationRecord
   require 'uri'
   require 'json'
 
-  CRUD_API_KEY = ""
-  STEPFUNC_API_KEY = ""
+  CRUD_API_KEY = ENV["CRUD_API_KEY"]
+  STEPFUNC_API_KEY = ENV["STEPFUNC_API_KEY"]
 
-  URL = ""
-
-  after_initialize :set_default
+  CRUD_URL = ENV["CRUD_URL"]
+  INPUT_URL = ENV["INPUT_URL"]
 
     def self.search(sp)
        if sp
@@ -60,8 +59,8 @@ class Product < ApplicationRecord
    end
 
    def self.input_request(name)
-     url = "https://wpt6sy2360.execute-api.us-east-2.amazonaws.com/default"
-     uri = URI.parse(url)
+
+     uri = URI.parse(INPUT_URL)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Post.new(uri.request_uri)
@@ -73,7 +72,7 @@ class Product < ApplicationRecord
    end
 
    def self.update_request(old_name, name)
-     url = "#{URL}?oldname=#{old_name}&name=#{name}"
+     url = "#{CRUD_URL}?oldname=#{old_name}&name=#{name}"
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
@@ -84,7 +83,7 @@ class Product < ApplicationRecord
    end
 
    def self.delete_request(name)
-     url = "#{URL}?name=#{name}"
+     url = "#{CRUD_URL}?name=#{name}"
      uri = URI.parse(url)
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
@@ -96,7 +95,7 @@ class Product < ApplicationRecord
    end
 
    def self.send_get_request(name)
-      url = "#{URL}?name=#{name}"
+      url = "#{CRUD_URL}?name=#{name}"
       uri = URI.parse(url)
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
@@ -133,10 +132,4 @@ class Product < ApplicationRecord
   mount_uploader :main_image, ImageUploader
   mount_uploader :sub_image1, ImageUploader
   mount_uploader :sub_image2, ImageUploader
-
-  private
-
-  def set_default
-    self.count ||= 1
-  end
 end

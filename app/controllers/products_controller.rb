@@ -81,7 +81,6 @@ class ProductsController < ApplicationController
 
   def line_up
     @message = ""
-
     case params[:line_up]
     when  "価格が安い" then
        @products = $products.order(price: "ASC")
@@ -90,7 +89,7 @@ class ProductsController < ApplicationController
     when  "新着順" then
        @products = $products.order(created_at: "DESC")
     when  "購入数" then
-      @products = line_up_popular
+       @products = line_up_popular
     when  "レビュー件数" then
        @products = line_up_evaluation_count
     when  "レビュー平均" then
