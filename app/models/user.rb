@@ -1,7 +1,6 @@
 class User < ApplicationRecord
 
   before_save :downcase_email
-
   attr_accessor :reset_token
 
   def self.collect_baskets(user)
@@ -17,7 +16,6 @@ class User < ApplicationRecord
       @data = []
       products = user.store.products
       products.each do |product|
-
         @data += product.purchases
       end
       @data

@@ -1,5 +1,5 @@
-<% if  proeduct.count == 0 %>
-  <h2>現在在庫は在りません</h2>
+<% if  product.count == 0 %>
+  <h3 style = "color:red">現在在庫は在りません</h3>
 <% elsif in_basket(product) %>
   <%= link_to out_basket_path(product.id), method: :delete, remote: true, class: "right",data: { confirm: "#{product.name}をカートから削除しました" } do %>
        <i class="fas fa-shopping-cart fa-lg", style = "color:orange"></i>

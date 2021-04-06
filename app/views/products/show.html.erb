@@ -52,7 +52,7 @@
 
     <div class = "margin-vertical">
       <% if  @product.count == 0 %>
-        <h2>現在在庫は在りません</h2>
+        <h3 style = "color:red">現在在庫は在りません</h3>
       <% elsif in_basket(@product) %>
         <%= link_to basket_delete_path(@product), method: :post do %>
           <button type="button" class="right btn btn-secondary",>カートから出す</button>

@@ -10,8 +10,7 @@ class PurchasesController < ApplicationController
 
     begin
        ActiveRecord::Base.transaction do
-
-         redirect_to purchases_new_path unless check_product_stocks
+         return redirect_to new_purchase_path unless check_product_stocks
 
        #決済------------------------------
          customer = Stripe::Customer.create(
@@ -45,8 +44,8 @@ class PurchasesController < ApplicationController
          redirect_to baskets_path
         end
 
-     rescue Stripe::CardError => e
-       flash[:danger] = "決済中にエラーが発生しました #{e.message}"
+       rescue Stripe::CardError => e
+         flash[:danger] = "決済中にエラーが発生しました #{e.message}"
 
       rescue Stripe::InvalidRequestError => e
         flash.now[:danger] = "InvalidRequestError#{e.message}"
@@ -69,14 +68,15 @@ class PurchasesController < ApplicationController
   def check_product_stocks
     @baskets.each do |basket|
       product = basket.product
-      stocks = product.count -= basket.count
+      stocks = product.count - basket.count
       if  stocks < 0
-        flash[:waring] = "#{product.name}の在庫が不足しています。"
+        flash[:danger] = "#{product.name}の在庫が不足しています。"
         return false
       else
         Product.update(count: stocks)
         current_user.purchases.create(product_id: product.id,count: basket.count)
         create_notification(product.store.user, product, "", "purchase")
+        create_notification(product.store.user, product, "", "sold") if count == 0
       end
     end
   end
