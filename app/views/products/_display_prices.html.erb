@@ -1,7 +1,7 @@
 <% if prices.is_a?(String) %>
   <div class="compare_amazon"><%= prices %></div>
 <% elsif prices["Average"] == 0 %>
-  <div class="compare_amazon">こちらの名前の商品は比較できませんでした。</div>
+  <div class="compare_amazon">こちらの商品は比較できませんでした。</div>
 <% else %>
   <% prices.each do |price| %>
   <% average = price["Average"]
