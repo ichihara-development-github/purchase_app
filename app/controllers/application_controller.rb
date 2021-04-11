@@ -1,8 +1,27 @@
 require './lib/hubeny_distance'
 
+
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
+  
   include HubenyDistance
+
+  before_action :validate_signature, except: [:new, :create]
+
+  def validate_signature
+    body = request.body.read
+    signature = request.env['HTTP_X_LINE_SIGNATURE']
+    unless client.validate_signature(body, signature)
+      error 400 do 'Bad Request' end
+    end
+  end
+
+  def client
+    @client ||= Line::Bot::Client.new { |config|
+      config.channel_secret = ENV["LINE_SECRET"]
+      config.channel_token = ENV["LINE_TOKEN"]
+    }
+  end
 
   def current_user
     @current_user = User.find(session[:user_id]) if session[:user_id]

@@ -8,6 +8,10 @@ gem 'will_paginate-bootstrap4'
 
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'aws-ses' , '~> 0.6'
+gem 'aws-sdk-rails'
+
+gem 'line-bot-api'
 
 gem 'recaptcha', require: "recaptcha/rails"
 
@@ -59,7 +63,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~>3.6'
   gem 'spring-commands-rspec'
-  gem 'sqlite3', '~>1.3.13'
+  gem 'sqlite3'
 end
 
 group :production do

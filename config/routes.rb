@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'linebot/calback'
+
+  get 'linebot/push'
+
  root to: "welcome#top"
 
  post "login", to: "session#create"
@@ -13,13 +17,14 @@ Rails.application.routes.draw do
 
  get "store_management", to: "users#management"
 
- get "line_up", to: "products#line_up"
-
  get "compare_price", to: "products#compare"
 
+ # search & linup
  get "search", to: "products#search"
  get "free_search", to: "products#free_search"
+ get "line_up", to: "products#line_up"
 
+ # add cart
  post "basket_add", to: "baskets#add"
  post "basket_delete", to: "baskets#delete"
 
@@ -30,7 +35,11 @@ Rails.application.routes.draw do
 
  delete "notifications", to: "notifications#destroy"
 
+ # aws api
  get "compare", to: "products#compare"
+
+ # line-bot
+ post "/callback", to: "linebot#callback"
 
  resources :users
  resources :password_resets, only: [:new, :create, :edit, :update]

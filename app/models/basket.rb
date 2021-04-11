@@ -1,5 +1,4 @@
 class Basket < ApplicationRecord
-  require "Line"
 
   after_initialize :set_default
 
