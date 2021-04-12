@@ -1,4 +1,3 @@
-require 'line/bot'
 class LinebotController < ApplicationController
 
   def callback
