@@ -10,12 +10,19 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           user_id = event["source"]["userId"]
-          message = {
-          type: 'text',
-          text: "hoge"
-        }
-        client.reply_message(event['replyToken'], message)
-        push(user_id)
+          if check_line_user(user_id)
+            client.reply_message(event['replyToken'], message)
+          else
+            message = {
+              "type": "text",
+              "text": "こんにちは！\n
+                   purchase_appへようこそ！"
+
+              end
+            }
+            client.reply_message(event['replyToken'], message)
+            client.reply_message(event['replyToken'], sticker_list("thanks"))
+          end
           # push(user_id)
           # @profile = get_line_UserProfile(user_id)
           # if check_line_user(user_id)
