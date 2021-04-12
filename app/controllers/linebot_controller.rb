@@ -9,12 +9,13 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          # user_id = event["source"]["userId"]
+          user_id = event["source"]["userId"]
           message = {
           type: 'text',
           text: "hoge"
         }
         client.reply_message(event['replyToken'], message)
+        push(user_id)
           # push(user_id)
           # @profile = get_line_UserProfile(user_id)
           # if check_line_user(user_id)
