@@ -2,10 +2,6 @@ require 'line/bot'
 
 class LinebotController < ApplicationController
 
-  def check_line_user(id)
-    return false if User.find(line_id: id)
-  end
-
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
@@ -28,17 +24,6 @@ class LinebotController < ApplicationController
       end
     end
   end
-
-  def push(id)
-    message={
-            "type": 'sticker',
-            "packageId": " 6359",
-            "stickerId": "11069856"
-           }
-        response = client.push_message(id, message)
-  end
-
-
 private
 # response = client.get_profile(user_id)
 # case response

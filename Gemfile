@@ -21,6 +21,8 @@ gem 'mysql2'
 gem 'geocoder'
 gem 'http'
 
+gem 'listen', '~> 3.0.5'
+
 gem 'whenever', require: false
 
 platforms :ruby do
@@ -71,7 +73,6 @@ group :production do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console'

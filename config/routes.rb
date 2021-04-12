@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'linebot/calback'
-
-  get 'linebot/push'
-
  root to: "welcome#top"
 
  post "login", to: "session#create"

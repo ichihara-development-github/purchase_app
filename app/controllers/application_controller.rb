@@ -3,10 +3,12 @@ require './lib/hubeny_distance'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  
+
   include HubenyDistance
 
   before_action :validate_signature, except: [:new, :create]
+
+  #----------------------------line-config--------------------------
 
   def validate_signature
     body = request.body.read
@@ -23,8 +25,14 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  #----------------------------check-user------------------------
+
   def current_user
     @current_user = User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def check_line_user(id)
+    return false if User.find(line_id: id)
   end
 
   def login(user)
@@ -32,6 +40,7 @@ class ApplicationController < ActionController::Base
     flash[:success] = 'ログインしました'
   end
 
+  #----------------------------check-authority------------------------
   def login_user?
     unless current_user
       redirect_to new_session_path
@@ -67,6 +76,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #----------------------------notification------------------------
   def create_notification(user, product, comment, action)
     unless current_user == user
       notification = current_user.active_notifications.new(
@@ -78,6 +88,24 @@ class ApplicationController < ActionController::Base
       notification.save
     end
   end
+
+  def push(id)
+    message={
+            "type": 'sticker',
+            "packageId": " 6359",
+            "stickerId": "11069856"
+           }
+   client.push_message(id, message)
+  end
+
+  def message_templates(act)
+    case act
+    when "purchase"
+    when "fallow"
+    end
+  end
+
+
 
 protected
 
