@@ -1,5 +1,5 @@
 require './lib/hubeny_distance'
-
+require 'line/bot'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
@@ -89,21 +89,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def push(id)
-    message={
-            "type": 'sticker',
-            "packageId": " 6359",
-            "stickerId": "11069856"
-           }
-   client.push_message(id, message)
-  end
-
-  def message_templates(act)
-    case act
-    when "purchase"
-    when "fallow"
-    end
-  end
+  # def push(id)
+  #   message={
+  #           "type": 'sticker',
+  #           "packageId": " 6359",
+  #           "stickerId": "11069856"
+  #          }
+  #  client.push_message(id, message)
+  # end
+  #
+  # def message_templates(act)
+  #   case act
+  #   when "purchase"
+  #   when "fallow"
+  #   end
+  # end
 
 
 
