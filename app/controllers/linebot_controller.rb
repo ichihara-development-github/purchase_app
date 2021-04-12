@@ -1,5 +1,75 @@
 class LinebotController < ApplicationController
 
+  def menu_template
+    {
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+      "type": "carousel",
+      "columns": [
+          {
+            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+            "imageBackgroundColor": "#FFFFFF",
+            "title": "this is menu",
+            "text": "description",
+            "defaultAction": {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "http://example.com/page/123"
+            },
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "Buy",
+                    "data": "action=buy&itemid=111"
+                },
+                {
+                    "type": "postback",
+                    "label": "Add to cart",
+                    "data": "action=add&itemid=111"
+                },
+                {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/111"
+                }
+            ]
+          },
+          {
+            "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
+            "imageBackgroundColor": "#000000",
+            "title": "this is menu",
+            "text": "description",
+            "defaultAction": {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "http://example.com/page/222"
+            },
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "Buy",
+                    "data": "action=buy&itemid=222"
+                },
+                {
+                    "type": "postback",
+                    "label": "Add to cart",
+                    "data": "action=add&itemid=222"
+                },
+                {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/222"
+                }
+            ]
+          }
+      ],
+      "imageAspectRatio": "rectangle",
+      "imageSize": "cover"
+  }
+}
+  end
+
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
@@ -9,36 +79,9 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          if event.message["text"].include?("1")
-            message = {
-              "↓↓メールアドレスとパスワードを入力↓↓\n
-            　  1. 登録する\n"
-            }
+            message = menu_template
             client.reply_message(event['replyToken'], message)
-          end
-          user_id = event["source"]["userId"]
-          if check_line_user(user_id)
-            message = {
-              "↓↓番号を選択↓↓\n
-            　  1. 登録する\n"
-            }
-            client.reply_message(event['replyToken'], message)
-          else
-            message = {
-              "type": "text",
-              "text": "こんにちは！\n
-                   purchase_appへようこそ！\n
-                   ↓↓番号を選択↓↓\n
-                    1. 開成駅→会社（シャトルバス）\n
-                    2. 会社→開成駅（シャトルバス）\n
-                    3. 電車の運行状況\n
-                    4. 会社周辺の天気\n
-                    5. 東京の天気\n\n
-                    ※半角数字でお願いします。"
-
-              end
-            }
-            client.reply_message(event['replyToken'], message)
+            # user_id = event["source"]["userId"]
             client.reply_message(event['replyToken'], sticker_list("thanks"))
           end
           # push(user_id)
