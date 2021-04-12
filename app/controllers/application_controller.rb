@@ -101,7 +101,6 @@ class ApplicationController < ActionController::Base
       # end
       # client.push_message(user.line_id, message)
       # client.push_message(user.line_id, sticket_list("congratulation"))
-      end
     end
   end
 
