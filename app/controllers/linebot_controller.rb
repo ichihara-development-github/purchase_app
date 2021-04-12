@@ -1,4 +1,4 @@
-
+require 'line/bot'
 class LinebotController < ApplicationController
 
   def callback
@@ -13,7 +13,7 @@ class LinebotController < ApplicationController
           # user_id = event["source"]["userId"]
           message = {
           type: 'text',
-          text: "hoge
+          text: "hoge"
         }
         client.reply_message(event['replyToken'], message)
           # push(user_id)
