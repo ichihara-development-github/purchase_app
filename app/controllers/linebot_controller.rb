@@ -12,7 +12,7 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           user_id = event["source"]["userId"]
-          push user_id
+          push(user_id)
           # @profile = get_line_UserProfile(user_id)
           # if check_line_user(user_id)
           #   send_menue
@@ -53,7 +53,5 @@ end
 def send_menu
 end
 
-
-end
 
 end
