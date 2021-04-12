@@ -9,14 +9,32 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
+          if event.message["text"].include?("1")
+            message = {
+              "↓↓メールアドレスとパスワードを入力↓↓\n
+            　  1. 登録する\n"
+            }
+            client.reply_message(event['replyToken'], message)
+          end
           user_id = event["source"]["userId"]
           if check_line_user(user_id)
+            message = {
+              "↓↓番号を選択↓↓\n
+            　  1. 登録する\n"
+            }
             client.reply_message(event['replyToken'], message)
           else
             message = {
               "type": "text",
               "text": "こんにちは！\n
-                   purchase_appへようこそ！"
+                   purchase_appへようこそ！\n
+                   ↓↓番号を選択↓↓\n
+                    1. 開成駅→会社（シャトルバス）\n
+                    2. 会社→開成駅（シャトルバス）\n
+                    3. 電車の運行状況\n
+                    4. 会社周辺の天気\n
+                    5. 東京の天気\n\n
+                    ※半角数字でお願いします。"
 
               end
             }
