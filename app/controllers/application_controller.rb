@@ -87,20 +87,20 @@ class ApplicationController < ActionController::Base
       notification.product_id = product.id if product.present?
       notification.comment_id = comment.id if comment.present?
       notification.save
-      case action
-      when "purchase"
-        message = {
-          "type": "text"
-          "text": "#{current_user.name}が #{product.name}を購入しました。 \n"
-        }
-      when "fallow"
-        message = {
-          "type": "text"
-          "text": "#{current_user.name}が あなたをフォローしました。 \n"
-        }
-      end
-      client.push_message(user.line_id, message)
-      client.push_message(user.line_id, sticket_list("congratulation"))
+      # case action
+      # when "purchase"
+      #   message = {
+      #     "type": "text"
+      #     "text": "#{current_user.name}が#{product.name}を購入しました。\n"
+      #   }
+      # when "fallow"
+      #   message = {
+      #     "type": "text"
+      #     "text": "#{current_user.name}が あなたをフォローしました。 \n"
+      #   }
+      # end
+      # client.push_message(user.line_id, message)
+      # client.push_message(user.line_id, sticket_list("congratulation"))
       end
     end
   end
