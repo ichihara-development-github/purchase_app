@@ -83,7 +83,7 @@ class LinebotController < ApplicationController
             client.reply_message(event['replyToken'], message)
             # user_id = event["source"]["userId"]
             client.reply_message(event['replyToken'], sticker_list("thanks"))
-          end
+        end
           # push(user_id)
           # @profile = get_line_UserProfile(user_id)
           # if check_line_user(user_id)
@@ -95,7 +95,7 @@ class LinebotController < ApplicationController
         end
       end
     end
-  end
+
 private
 # response = client.get_profile(user_id)
 # case response
