@@ -8,31 +8,31 @@ class LinebotController < ApplicationController
       "type": "carousel",
       "columns": [
           {
-            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+            "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
             "imageBackgroundColor": "#FFFFFF",
-            "title": "this is menu",
+            "title": "管理者メニュー",
             "text": "description",
             "defaultAction": {
                 "type": "uri",
-                "label": "View detail",
-                "uri": "http://example.com/page/123"
+                "label": "サイトへ >>",
+                "uri": "https://ichihara-purchase-app.com/session/new"
             },
             "actions": [
                 {
                     "type": "postback",
-                    "label": "Buy",
+                    "label": "売上確認",
                     "data": "action=buy&itemid=111"
                 },
                 {
                     "type": "postback",
-                    "label": "Add to cart",
-                    "data": "action=add&itemid=111"
+                    "label": "テスト",
+                    "data": "action=user_id=22"
                 },
                 {
                     "type": "uri",
-                    "label": "View detail",
-                    "uri": "http://example.com/page/111"
-                }
+                    "label": "サイトへ >>",
+                     "uri": "https://ichihara-purchase-app.com/session/new"
+                },
             ]
           },
           {
