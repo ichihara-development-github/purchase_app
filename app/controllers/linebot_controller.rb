@@ -1,9 +1,7 @@
 require './lib/line_templates'
-require './lib/line_templates'
 
 class LinebotController < ApplicationController
 
-  include LineTemplates
   include LineTemplates
 
   def callback
@@ -28,7 +26,7 @@ class LinebotController < ApplicationController
          }
         client.reply_message(event['replyToken'], message)
       end
-      when Line::Bot::Event::
+    when Line::Bot::Event
         case event.type
         when "postback"
           client.reply_message(event['replyToken'], sticker_list("thanks"))
