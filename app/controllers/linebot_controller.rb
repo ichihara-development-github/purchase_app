@@ -1,80 +1,15 @@
+require './lib/line_templates.rb'
+
 class LinebotController < ApplicationController
 
-  def menu_template
-    {
-  "type": "template",
-  "altText": "this is a carousel template",
-  "template": {
-      "type": "carousel",
-      "columns": [
-          {
-            "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
-            "imageBackgroundColor": "#FFFFFF",
-            "title": "管理者メニュー",
-            "text": "description",
-            "defaultAction": {
-                "type": "uri",
-                "label": "サイトへ >>",
-                "uri": "https://ichihara-purchase-app.com/session/new"
-            },
-            "actions": [
-                {
-                    "type": "postback",
-                    "label": "売上確認",
-                    "data": "action=buy&itemid=111"
-                },
-                {
-                    "type": "postback",
-                    "label": "テスト",
-                    "data": "action=user_id=22"
-                },
-                {
-                    "type": "uri",
-                    "label": "サイトへ >>",
-                     "uri": "https://ichihara-purchase-app.com/session/new"
-                },
-            ]
-          },
-          {
-            "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
-            "imageBackgroundColor": "#000000",
-            "title": "this is menu",
-            "text": "description",
-            "defaultAction": {
-                "type": "uri",
-                "label": "View detail",
-                "uri": "http://example.com/page/222"
-            },
-            "actions": [
-                {
-                    "type": "postback",
-                    "label": "Buy",
-                    "data": "action=buy&itemid=222"
-                },
-                {
-                    "type": "postback",
-                    "label": "Add to cart",
-                    "data": "action=add&itemid=222"
-                },
-                {
-                    "type": "uri",
-                    "label": "View detail",
-                    "uri": "http://example.com/page/222"
-                }
-            ]
-          }
-      ],
-      "imageAspectRatio": "rectangle",
-      "imageSize": "cover"
-  }
-}
-  end
+  include LineTemplates
 
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
 
-    case event[0].type
+    case events[0].type
+      @line_user = User.find_by(line_id: events[0]["source"]["userId"])
     when "postback"
       client.reply_message(event['replyToken'], sticker_list("thanks"))
       client.reply_message(event['replyToken'], "#{events[1].data}")
