@@ -15,43 +15,26 @@ class LinebotController < ApplicationController
 
     events.each do |event|
 
-      case event
-      when Line::Bot::Event::Message
+      case event.type
+      when Line::Bot::Event::Message::Text
+        @line_user = User.find_by(line_id: event["source"]["userId"])
         case event.type
-        when Line::Bot::Event::MessageType::Text
-          message = {
-            type: 'text',
-            text: response
-          }
-          client.reply_message(event['replyToken'], message)
-        when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
-          response = client.get_message_content(event.message['id'])
-          tf = Tempfile.open("content")
-          tf.write(response.body)
+        when "message"
+          client.reply_message(event['replyToken'], menu_template)
         end
+      when Line::Bot::Event::MessageType::Image
+        message = {
+           type: 'text',
+           text: "thanks photo"
+         }
+        client.reply_message(event['replyToken'], message)
+      when Line::Bot::Event
+          case event["type"]
+          when "postback"
+            client.reply_message(event['replyToken'], sticker_list("thanks"))
+            client.reply_message(event['replyToken'], "#{event["postback"]["data"]}")
+          end
       end
-
-    # when Line::Bot::Event::Message
-      # case event
-      # when Line::Bot::Event::Message
-      #   @line_user = User.find_by(line_id: event["source"]["userId"])
-      #   case event.type
-      #   when "message"
-      #     client.reply_message(event['replyToken'], menu_template)
-      #   end
-      # when Line::Bot::Event::MessageType::Image
-      #   message = {
-      #      type: 'text',
-      #      text: "thanks photo"
-      #    }
-      #   client.reply_message(event['replyToken'], message)
-      # when Line::Bot::Event
-      #     case event.type
-      #     when "postback"
-      #       client.reply_message(event['replyToken'], sticker_list("thanks"))
-      #       client.reply_message(event['replyToken'], "#{events[1].data}")
-      #     end
-      # end
     end
   end
         # case event.type
