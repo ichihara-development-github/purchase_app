@@ -25,7 +25,6 @@ class LinebotController < ApplicationController
            text: "thanks photo"
          }
         client.reply_message(event['replyToken'], message)
-      end
       when Line::Bot::Event
           case event.type
           when "postback"
@@ -34,6 +33,7 @@ class LinebotController < ApplicationController
           end
       end
     end
+  end
         # case event.type
         # when Line::Bot::Event::MessageType::Text
         #     message = menu_template
@@ -52,7 +52,7 @@ class LinebotController < ApplicationController
           #   client.reply_message(event['replyToken'], message)
           # end
 
-private
+
 # response = client.get_profile(user_id)
 # case response
 # when Net::HTTPSuccess then
