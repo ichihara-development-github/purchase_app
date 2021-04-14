@@ -104,18 +104,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def push(id)
-
-  end
-  #
-  # def message_templates(act)
-  #   case act
-  #   when "purchase"
-  #   when "fallow"
-  #   end
-  # end
-
-
 
 protected
 
