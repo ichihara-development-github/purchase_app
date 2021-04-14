@@ -8,9 +8,10 @@ class LinebotController < ApplicationController
     body = request.body.read
     events = client.parse_events_from(body)
     event = events[0]
+    p "--------------------------#{event}------------------------"
 
-    case events.type
-      @line_user = User.find_by(line_id: events[0]["source"]["userId"])
+    case event.type
+      @line_user = User.find_by(line_id: event"source"]["userId"])
     when "postback"
       client.reply_message(event['replyToken'], sticker_list("thanks"))
       client.reply_message(event['replyToken'], "#{events[1].data}")

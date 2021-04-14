@@ -2,7 +2,7 @@ require './lib/hubeny_distance'
 require 'line/bot'
 
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+  protect_from_forgery :except => [:callback]
 
   include HubenyDistance
   #
