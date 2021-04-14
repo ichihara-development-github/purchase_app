@@ -11,14 +11,17 @@ class LinebotController < ApplicationController
     p "--------------------------#{event}------------------------"
 
     events.each do |event|
+      @line_user = User.find_by(line_id: event["source"]["userId"])
       case event.type
-        @line_user = User.find_by(line_id: event["source"]["userId"])
       when "postback"
         client.reply_message(event['replyToken'], sticker_list("thanks"))
         client.reply_message(event['replyToken'], "#{events[1].data}")
       # when Line::Bot::Event::Message
       when "message"
         client.reply_message(event['replyToken'], menu_template)
+      end
+    end
+  end
         # case event.type
         # when Line::Bot::Event::MessageType::Text
         #     message = menu_template
@@ -36,9 +39,6 @@ class LinebotController < ApplicationController
           #   message = send_greeting
           #   client.reply_message(event['replyToken'], message)
           # end
-        end
-      end
-end
 
 private
 # response = client.get_profile(user_id)
