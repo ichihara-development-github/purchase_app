@@ -35,7 +35,7 @@ class LinebotController < ApplicationController
         #   client.reply_message(event['replyToken'], message)
         # end
       end
-    end
+end
 
 private
 # response = client.get_profile(user_id)
