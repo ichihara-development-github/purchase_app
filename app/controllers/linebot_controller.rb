@@ -22,7 +22,7 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::MessageType::Image
         client.reply_message(event['replyToken'], {"type":"text", "text": "thanks image"})
       end
-      when
+      when Line::Bot::Event::
         case event.type
         when "postback"
           client.reply_message(event['replyToken'], sticker_list("thanks"))
