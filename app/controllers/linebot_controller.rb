@@ -1,4 +1,4 @@
-require './lib/line_templates.rb'
+require './lib/line_templates'
 
 class LinebotController < ApplicationController
 
