@@ -26,15 +26,14 @@ class LinebotController < ApplicationController
          }
         client.reply_message(event['replyToken'], message)
       end
-    when Line::Bot::Event
-        case event.type
-        when "postback"
-          client.reply_message(event['replyToken'], sticker_list("thanks"))
-          client.reply_message(event['replyToken'], "#{events[1].data}")
-        end
+      when Line::Bot::Event
+          case event.type
+          when "postback"
+            client.reply_message(event['replyToken'], sticker_list("thanks"))
+            client.reply_message(event['replyToken'], "#{events[1].data}")
+          end
       end
     end
-  end
         # case event.type
         # when Line::Bot::Event::MessageType::Text
         #     message = menu_template
@@ -64,22 +63,5 @@ private
 # else
 #   p "#{response.code} #{response.body}"
 # end
-
-def get_line_UserProfile(user_id)
-  response  = client.get_profile(user_id)
-  case response
-  when Net::HTTPSuccess then
-    contact = JSON.parse(response.body)
-  else
-    p "#{response.code} #{response.body}"
-  end
-end
-
-def send_greeting
-
-end
-
-def send_menu
-end
 
 end
