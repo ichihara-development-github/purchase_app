@@ -1,7 +1,9 @@
 require './lib/line_templates'
+require './lib/line_templates'
 
 class LinebotController < ApplicationController
 
+  include LineTemplates
   include LineTemplates
 
   def callback
@@ -20,7 +22,11 @@ class LinebotController < ApplicationController
           client.reply_message(event['replyToken'], menu_template)
         end
       when Line::Bot::Event::MessageType::Image
-        client.reply_message(event['replyToken'], {"type":"text", "text": "thanks image"})
+        message = {
+           type: 'text',
+           text: "thanks photo"
+         }
+        client.reply_message(event['replyToken'], message)
       end
       when Line::Bot::Event::
         case event.type
