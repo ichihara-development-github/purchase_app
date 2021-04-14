@@ -7,18 +7,27 @@ class LinebotController < ApplicationController
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
-    event = events[0]
-    p "--------------------------#{event}------------------------"
+
+    p "--------------------------#{ menu_template}------------------------"
 
     events.each do |event|
-      @line_user = User.find_by(line_id: event["source"]["userId"])
-      case event.type
-      when "postback"
-        client.reply_message(event['replyToken'], sticker_list("thanks"))
-        client.reply_message(event['replyToken'], "#{events[1].data}")
-      # when Line::Bot::Event::Message
-      when "message"
-        client.reply_message(event['replyToken'], menu_template)
+    # when Line::Bot::Event::Message
+      case event
+      when Line::Bot::Event::Message
+        @line_user = User.find_by(line_id: event["source"]["userId"])
+        case event.type
+        when "message"
+          client.reply_message(event['replyToken'], menu_template)
+        end
+      when Line::Bot::Event::MessageType::Image
+        client.reply_message(event['replyToken'], {"type":"text", "text": "thanks image"})
+      end
+      when
+        case event.type
+        when "postback"
+          client.reply_message(event['replyToken'], sticker_list("thanks"))
+          client.reply_message(event['replyToken'], "#{events[1].data}")
+        end
       end
     end
   end
@@ -68,6 +77,5 @@ end
 
 def send_menu
 end
-
 
 end
