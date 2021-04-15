@@ -11,9 +11,6 @@ class LinebotController < ApplicationController
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
-
-    puts "--------------------------#{menu_template}------------------------"
-
     events.each do |event|
       line_id = event["source"]["userId"]
       @line_user = User.find_by(line_id: line_id)
@@ -25,7 +22,7 @@ class LinebotController < ApplicationController
 
       case event.type
       when Line::Bot::Event::MessageType::Text
-        case　event.message['text']
+        case event.message['text']
         when "簡単検索"
         when "メニュー"
           client.reply_message(event['replyToken'], menu_template)
@@ -37,6 +34,4 @@ class LinebotController < ApplicationController
       end
     end
   end
-  "OK"
-
 end
