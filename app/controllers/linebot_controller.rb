@@ -25,45 +25,18 @@ class LinebotController < ApplicationController
 
       case event.type
       when Line::Bot::Event::MessageType::Text
-        client.reply_message(event['replyToken'], menu_template)
+        case
+        when "簡単検索"
+        when "メニュー"
+          client.reply_message(event['replyToken'], menu_template)
+        else
+          client.reply_message(event['replyToken'], default_message)
+        end
       when Line::Bot::Event::MessageType::Image
-        message = {
-           type: 'text',
-           text: "thanks photo"
-         }
-        client.reply_message(event['replyToken'], message)
         client.reply_message(event['replyToken'], sticker_list("thanks"))
       end
     end
   end
-        # case event.type
-        # when Line::Bot::Event::MessageType::Text
-        #     message = menu_template
-        #     client.reply_message(event['replyToken'], message)
-        # when Line::Bot::Event::MessageType::Image
-        #     client.reply_message(event['replyToken'], sticker_list("thanks"))
-        #     # user_id = event["source"]["userId"]
-        #     # client.reply_message(event['replyToken'], sticker_list("thanks"))
-        # end
-          # push(user_id)
-          # @profile = get_line_UserProfile(user_id)
-          # if check_line_user(user_id)
-          #   send_menue
-          # else
-          #   message = send_greeting
-          #   client.reply_message(event['replyToken'], message)
-          # end
-
-
-# response = client.get_profile(user_id)
-# case response
-# when Net::HTTPSuccess then
-#   contact = JSON.parse(response.body)
-#   user_name = contact['displayName']
-#   p contact['pictureUrl']
-#   p contact['statusMessage']
-# else
-#   p "#{response.code} #{response.body}"
-# end
+  "OK"
 
 end

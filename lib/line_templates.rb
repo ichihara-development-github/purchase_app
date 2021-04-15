@@ -1,5 +1,15 @@
 module LineTemplates
 
+  def default_message
+    {
+      "type": "text",
+      "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/　\n
+              【簡単検索】: 店舗オーナー専用メニューを開きます \n
+              【店舗検索】: 店舗オーナー専用メニューを開きます \n
+              【メニュー】: 店舗オーナー専用メニューを開きます \n"
+    }
+  end
+
   def menu_template
     {
       "type": "template",
