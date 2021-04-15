@@ -18,7 +18,7 @@ class LinebotController < ApplicationController
       case event
       when Line::Bot::Event::Postback
         client.reply_message(event['replyToken'], sticker_list("thanks"))
-        client.reply_message(event['replyToken'], "#{event["postback"]["data"]}")
+        client.reply_message(event['replyToken'], "#{events[1]["postback"]["data"]}")
       end
 
       case event.type
