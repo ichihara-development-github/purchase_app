@@ -30,7 +30,6 @@ module LineTemplates
                     },
                 ]
               },
-              "#{ower_menu_template}"
 
           ],
           "imageAspectRatio": "rectangle",
