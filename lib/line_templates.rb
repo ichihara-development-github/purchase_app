@@ -26,12 +26,12 @@ module LineTemplates
                     {
                         "type": "postback",
                         "label": "Buy",
-                        "data": "action=buy&itemid=111"
+                        "data": "hoge"
                     },
                     {
                         "type": "postback",
                         "label": "Add to cart",
-                        "data": "action=add&itemid=111"
+                        "data": "hoge"
                     },
                     {
                         "type": "uri",

@@ -25,7 +25,7 @@ class LinebotController < ApplicationController
 
       case event.type
       when Line::Bot::Event::MessageType::Text
-        case
+        case　event.message['text']
         when "簡単検索"
         when "メニュー"
           client.reply_message(event['replyToken'], menu_template)
