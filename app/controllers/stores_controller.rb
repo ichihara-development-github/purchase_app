@@ -16,6 +16,10 @@ class StoresController < ApplicationController
     @store = Store.new
   end
 
+  def map_index
+    gon.studios = Store.all
+  end
+
   def create
    if current_user.store
       redirect_to root_path

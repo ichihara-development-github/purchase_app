@@ -12,6 +12,7 @@ Rails.application.routes.draw do
  get "complete_payment", to: "users#complete_payment"
 
  get "store_management", to: "users#management"
+ get "map_index", to: "stores#map_index"
 
  get "compare_price", to: "products#compare"
 

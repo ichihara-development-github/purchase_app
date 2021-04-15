@@ -16,24 +16,19 @@ class LinebotController < ApplicationController
     events.each do |event|
 
       case event.type
-      when Line::Bot::Event::Message::Text
+      when Line::Bot::Event::MessageType::Text
         @line_user = User.find_by(line_id: event["source"]["userId"])
-        case event.type
-        when "message"
           client.reply_message(event['replyToken'], menu_template)
-        end
       when Line::Bot::Event::MessageType::Image
         message = {
            type: 'text',
            text: "thanks photo"
          }
         client.reply_message(event['replyToken'], message)
-      when Line::Bot::Event
-          case event["type"]
-          when "postback"
-            client.reply_message(event['replyToken'], sticker_list("thanks"))
-            client.reply_message(event['replyToken'], "#{event["postback"]["data"]}")
-          end
+        client.reply_message(event['replyToken'], sticker_list("thanks"))
+      when Line::Bot::Event::Postback
+        client.reply_message(event['replyToken'], sticker_list("thanks"))
+        client.reply_message(event['replyToken'], "#{event["postback"]["data"]}")
       end
     end
   end
