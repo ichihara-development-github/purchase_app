@@ -4,7 +4,8 @@ class LinebotController < ApplicationController
 
   include LineTemplates
 
-  def push
+  def create_message(hoge)
+    "hoge" + hoge
   end
 
   def callback
@@ -14,11 +15,12 @@ class LinebotController < ApplicationController
     puts "--------------------------#{menu_template}------------------------"
 
     events.each do |event|
-      @line_user = User.find_by(line_id: event["source"]["userId"])
+      line_id = event["source"]["userId"]
+      @line_user = User.find_by(line_id: line_id)
       case event
       when Line::Bot::Event::Postback
         client.reply_message(event['replyToken'], sticker_list("thanks"))
-        client.reply_message(event['replyToken'], "#{events[1]["postback"]["data"]}")
+        client.push_message(line_id, create_message(["postback"]["data"]))
       end
 
       case event.type
