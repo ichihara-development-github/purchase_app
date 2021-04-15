@@ -70,7 +70,7 @@ module LineTemplates
       } if @line_user
   end
 
-  def serach_result_template
+  def search_result_template
     {
     "type": "template",
     "altText": "this is a carousel template",
