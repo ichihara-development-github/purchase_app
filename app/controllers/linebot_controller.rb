@@ -23,8 +23,7 @@ class LinebotController < ApplicationController
 
       case event.type
       when Line::Bot::Event::MessageType::Text
-        message = menu_template
-        client.reply_message(event['replyToken'], message)
+        client.reply_message(event['replyToken'], menu_template)
       when Line::Bot::Event::MessageType::Image
         message = {
            type: 'text',
