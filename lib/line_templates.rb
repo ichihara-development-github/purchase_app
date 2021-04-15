@@ -2,36 +2,34 @@ module LineTemplates
 
   def menu_template
     {
-"type": "template",
-"altText": "this is a carousel template",
-"template": {
-    "type": "carousel",
-    "columns": [
-        {
-          "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
-          "imageBackgroundColor": "#FFFFFF",
-          "title": "メニュー",
-          "text": "description",
-          "actions": [
+      "type": "template",
+      "altText": "this is a carousel template",
+      "template": {
+          "type": "carousel",
+          "columns": [
               {
-                  "type": "postback",
-                  "label": "Buy",
-                  "data": "action=buy&itemid=111"
-              },
-              {
-                  "type": "postback",
-                  "label": "Add to cart",
-                  "data": "action=add&itemid=111"
-              },
-              {
-                  "type": "uri",
-                  "label": "サイトへ",
-                  "uri": "https://ichihara-purchase-app.com/session/new"
-              }
-          ]
-        },
-        ower_menu_template
-
+                "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
+                "imageBackgroundColor": "#FFFFFF",
+                "title": "メニュー",
+                "text": "description",
+                "actions": [
+                    {
+                        "type": "postback",
+                        "label": "Buy",
+                        "data": "action=buy&itemid=111"
+                    },
+                    {
+                        "type": "postback",
+                        "label": "Add to cart",
+                        "data": "action=add&itemid=111"
+                    },
+                    {
+                        "type": "uri",
+                        "label": "サイトへ",
+                        "uri": "https://ichihara-purchase-app.com/session/new"
+                    }
+              ]
+         }
     ],
     "imageAspectRatio": "rectangle",
     "imageSize": "cover"
@@ -67,7 +65,7 @@ module LineTemplates
                  "uri": "https://ichihara-purchase-app.com/session/new"
             },
         ]
-      } if @line_user
+      }
   end
 
   def search_result_template
