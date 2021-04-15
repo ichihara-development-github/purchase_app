@@ -4,10 +4,6 @@ class LinebotController < ApplicationController
 
   include LineTemplates
 
-  def create_message(hoge)
-    "hoge" + hoge
-  end
-
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
@@ -17,7 +13,8 @@ class LinebotController < ApplicationController
       case event
       when Line::Bot::Event::Postback
         client.reply_message(event['replyToken'], sticker_list("thanks"))
-        client.push_message(line_id, create_message(["postback"]["data"]))
+        message = {"type": "text", "text": event["postback"]["data"]}
+        client.push_message(line_id, message))
       end
 
       case event.type
@@ -33,5 +30,6 @@ class LinebotController < ApplicationController
         client.reply_message(event['replyToken'], sticker_list("thanks"))
       end
     end
+    head :ok
   end
 end
