@@ -36,14 +36,10 @@ class ApplicationController < ActionController::Base
     return false if User.find(line_id: id)
   end
 
-  def login(user)
-    session[:user_id] = user.id
-    flash[:success] = 'ログインしました'
-  end
-
   #----------------------------check-authority------------------------
   def login_user?
     unless current_user
+      set_access_url
       redirect_to new_session_path
       flash[:warning] = 'Loginが必要です'
     end
@@ -109,6 +105,4 @@ protected
 
 def check_captcha(object)
   # redirect_to "/#{object}/new" unless verify_recaptcha
-end
-
 end

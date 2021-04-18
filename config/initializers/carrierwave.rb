@@ -14,7 +14,6 @@ if Rails.env.production?
 
         config.fog_directory = "purchase-app-backet"
         config.asset_host = 'https://purchase-app-backet.s3.amazonaws.com'
-        config.asset_host = Settings.url
     end
 
     CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
