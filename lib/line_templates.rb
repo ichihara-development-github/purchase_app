@@ -5,7 +5,7 @@ module LineTemplates
   def default_message
     {
       "type": "text",
-      "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/
+      "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
       /n【簡単検索】: 店舗オーナー専用メニューを開きます
       /n【店舗検索】: 店舗オーナー専用メニューを開きます
       /n【メニュー】: 店舗オーナー専用メニューを開きます"
@@ -82,6 +82,8 @@ module LineTemplates
 
   def stocks_template
     product = Product.first
+    p(IMAGE_PATH + product.main_image.path)
+
 
     {
   "type": "template",
@@ -93,8 +95,8 @@ module LineTemplates
             "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
             "action": {
               "type": "postback",
-              "label": "#{product.name}",
-              "data": "name=hoge"
+              "label": "#{product.stock}",
+              "data": "update_stocks"
             }
           }
       ]
@@ -128,5 +130,29 @@ module LineTemplates
     }
   }
   end
+
+  def sticker_list(type)
+    case type
+    when "thanks"
+      {
+              "type": 'sticker',
+              "packageId": " 6359",
+              "stickerId": "11069856"
+             }
+    when "congratulation"
+      {
+              "type": 'sticker',
+              "packageId": "1070",
+              "stickerId": "17844"
+             }
+    when "sorry"
+      {
+              "type": 'sticker',
+              "packageId": "6136",
+              "stickerId": "10551383"
+             }
+    end
+  end
+
 
 end

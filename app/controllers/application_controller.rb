@@ -111,30 +111,4 @@ def check_captcha(object)
   # redirect_to "/#{object}/new" unless verify_recaptcha
 end
 
-private
-
-def sticker_list(type)
-  case type
-  when "thanks"
-    {
-            "type": 'sticker',
-            "packageId": " 6359",
-            "stickerId": "11069856"
-           }
-  when "congratulation"
-    {
-            "type": 'sticker',
-            "packageId": "1070",
-            "stickerId": "17844"
-           }
-  when "sorry"
-    {
-            "type": 'sticker',
-            "packageId": "6136",
-            "stickerId": "10551383"
-           }
-  end
-end
-
-
 end
