@@ -90,7 +90,7 @@ module LineTemplates
             "imageUrl": "https://example.com/bot/images/item1.jpg",
             "action": {
               "type": "postback",
-              "label": "#{product.name}"
+              "label": "#{product.name}",
               "data": "name=hoge"
             }
           },
