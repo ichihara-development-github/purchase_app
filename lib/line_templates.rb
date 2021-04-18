@@ -1,12 +1,14 @@
 module LineTemplates
 
+  IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com/"
+
   def default_message
     {
       "type": "text",
-      "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/　\n
-      【簡単検索】: 店舗オーナー専用メニューを開きます \n
-      【店舗検索】: 店舗オーナー専用メニューを開きます \n
-      【メニュー】: 店舗オーナー専用メニューを開きます \n"
+      "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/
+      /n【簡単検索】: 店舗オーナー専用メニューを開きます
+      /n【店舗検索】: 店舗オーナー専用メニューを開きます
+      /n【メニュー】: 店舗オーナー専用メニューを開きます"
     }
   end
 
@@ -88,7 +90,7 @@ module LineTemplates
       "type": "image_carousel",
       "columns": [
           {
-            "imageUrl": "https://example.com/bot/images/item1.jpg",
+            "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
             "action": {
               "type": "postback",
               "label": "#{product.name}",
