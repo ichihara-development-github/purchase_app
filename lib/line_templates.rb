@@ -93,7 +93,7 @@ module LineTemplates
               "label": "#{product.name}",
               "data": "name=hoge"
             }
-          },
+          }
       ]
   }
 }
