@@ -79,13 +79,14 @@ module LineTemplates
   end
 
   def stocks_template
+    product = Product.first
+
     {
   "type": "template",
   "altText": "this is a image carousel template",
   "template": {
       "type": "image_carousel",
       "columns": [
-          @products.each do |prodcut|
           {
             "imageUrl": "https://example.com/bot/images/item1.jpg",
             "action": {
