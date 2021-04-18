@@ -5,6 +5,7 @@ class LinebotController < ApplicationController
   include LineTemplates
 
   def callback
+    @products = Product.all
     body = request.body.read
     events = client.parse_events_from(body)
     events.each do |event|
@@ -14,13 +15,14 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Postback
         client.reply_message(event['replyToken'], sticker_list("thanks"))
         message = {"type": "text", "text": event["postback"]["data"]}
-        client.push_message(line_id, message))
+        client.push_message(line_id, message)
       end
 
       case event.type
       when Line::Bot::Event::MessageType::Text
         case event.message['text']
         when "簡単検索"
+          client.reply_message(event['replyToken'], stocks_template)
         when "メニュー"
           client.reply_message(event['replyToken'], menu_template)
         else

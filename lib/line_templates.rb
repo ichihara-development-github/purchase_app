@@ -4,9 +4,9 @@ module LineTemplates
     {
       "type": "text",
       "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/　\n
-              【簡単検索】: 店舗オーナー専用メニューを開きます \n
-              【店舗検索】: 店舗オーナー専用メニューを開きます \n
-              【メニュー】: 店舗オーナー専用メニューを開きます \n"
+      【簡単検索】: 店舗オーナー専用メニューを開きます \n
+      【店舗検索】: 店舗オーナー専用メニューを開きます \n
+      【メニュー】: 店舗オーナー専用メニューを開きます \n"
     }
   end
 
@@ -66,7 +66,7 @@ module LineTemplates
             },
             {
                 "type": "postback",
-                "label": "テスト",
+                "label": "在庫変更",
                 "data": "action=user_id=22"
             },
             {
@@ -76,6 +76,27 @@ module LineTemplates
             },
         ]
       }
+  end
+
+  def stocks_template
+    {
+  "type": "template",
+  "altText": "this is a image carousel template",
+  "template": {
+      "type": "image_carousel",
+      "columns": [
+          @products.each do |prodcut|
+          {
+            "imageUrl": "https://example.com/bot/images/item1.jpg",
+            "action": {
+              "type": "postback",
+              "label": "#{product.name}"
+              "data": "name=hoge"
+            }
+          },
+      ]
+  }
+}
   end
 
   def search_result_template
