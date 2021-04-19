@@ -100,7 +100,7 @@ module LineTemplates
           "columns": list
       }
      }
-     return list
+     
    end
 
   def search_result_template
