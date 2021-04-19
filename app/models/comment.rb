@@ -25,7 +25,7 @@ class Comment < ApplicationRecord
           "columns": list
       }
      }
-  hoge
+  list
   end
   belongs_to :user
   belongs_to :product
