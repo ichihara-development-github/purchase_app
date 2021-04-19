@@ -81,26 +81,27 @@ module LineTemplates
   end
 
   def stocks_template
-    product = Product.first
-    p(IMAGE_PATH + product.main_image.path)
-
-
+    products = Product.first
+    list = []
+    User.first.products.each do |product|
+      list.append({
+      "imageUrl": "#{IMAGE_PATH + product.main_image.path}",
+      "action": {
+        "type": "postback",
+        "label": "#{product.name}\n現在在庫: #{product.count}",
+        "data": "update_stocks&id = #{product.id}"
+      })
+    }
+    end
     {
-  "type": "template",
-  "altText": "this is a image carousel template",
-  "template": {
-      "type": "image_carousel",
-      "columns": [
-          {
-            "imageUrl": "#{IMAGE_PATH + product.main_image.path}",
-            "action": {
-              "type": "postback",
-              "label": "現在在庫: #{product.count}",
-              "data": "update_stocks"
-            }
-          }
-      ]
-  }
+      "type": "template",
+      "altText": "this is a image carousel template",
+      "template": {
+          "type": "image_carousel",
+          "columns": [
+              "#{list}"
+          ]
+      }
 }
   end
 
