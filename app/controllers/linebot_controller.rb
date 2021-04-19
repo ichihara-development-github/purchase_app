@@ -12,11 +12,12 @@ class LinebotController < ApplicationController
       @line_user = User.find_by(line_id: line_id)
       case event
       when Line::Bot::Event::Postback
-        case event["postback"]["data"]
+        case event["postback"]["data"]["action"]
+        when "display_products_stocks"
+            client.reply_message(event['replyToken'], stocks_template)
         when "update_stocks"
-            client.reply_message(event['replyToken'], {"type": "text", "text":"updated!"})
-        when "hoge"
-            client.reply_message(event['replyToken'], sticker_list("thanks"))
+          @product = Product.find(event["postback"]["data"]["id"])
+            Postback.update_stocks()
         when "fuga"
           client.reply_message(event['replyToken'], sticker_list("thanks"))
           message = {"type": "text", "text": event["postback"]["data"]}

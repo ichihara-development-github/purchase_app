@@ -69,7 +69,7 @@ module LineTemplates
             {
                 "type": "postback",
                 "label": "在庫変更",
-                "data": "action=user_id=22"
+                "data": "action=display_products_stocks"
             },
             {
                 "type": "uri",
@@ -87,8 +87,8 @@ module LineTemplates
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
         "type": "postback",
-        "label": "#{proeuct.name}\n#{product.count}",
-        "data": "hoge"
+        "label": "#{product.name}\n#{product.count}",
+        "data": "action=update_stocks&id=#{product.id}"
        }
       })
     end
