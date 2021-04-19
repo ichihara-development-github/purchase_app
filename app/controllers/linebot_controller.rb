@@ -30,7 +30,7 @@ class LinebotController < ApplicationController
 
       case event.type
       when Line::Bot::Event::MessageType::Text
-        case .message['text'].class
+        case event.message['text'].class
         when Numeric
           Postback.update_stocks(event.message['text'])
         end
