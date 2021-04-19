@@ -6,9 +6,9 @@ module LineTemplates
     {
       "type": "text",
       "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
-      /n【簡単検索】: 店舗オーナー専用メニューを開きます
-      /n【店舗検索】: 店舗オーナー専用メニューを開きます
-      /n【メニュー】: 店舗オーナー専用メニューを開きます"
+      \n【簡単検索】: 店舗オーナー専用メニューを開きます
+      \n【店舗検索】: 店舗オーナー専用メニューを開きます
+      \n【メニュー】: 店舗オーナー専用メニューを開きます"
     }
   end
 
@@ -95,7 +95,7 @@ module LineTemplates
             "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
             "action": {
               "type": "postback",
-              "label": "#{product.stock}",
+              "label": "#{product.count}",
               "data": "update_stocks"
             }
           }
