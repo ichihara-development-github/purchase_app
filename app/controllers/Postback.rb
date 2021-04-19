@@ -5,5 +5,4 @@ module Postback
     @product.update(stock: num)
   end
 
-  def
 end
