@@ -90,14 +90,14 @@ module LineTemplates
         "label": "#{product.name}\n現在在庫: #{product.count}",
         "data": "hoge"
        }
-      })
+      }.with_indifferent_access)
     end
     {
       "type": "template",
       "altText": "this is a image carousel template",
       "template": {
           "type": "image_carousel",
-          "columns": list.with_indifferent_access
+          "columns": list
       }
      }
 
