@@ -108,7 +108,7 @@ protected
   end
 
   def redirect_after_login(default)
-    redirect_to(session[:forwarding_url] ||= default)
+    redirect_to(session[:fowarding_url] ||= default)
     session.delete(:fowarding_url)
   end
 
