@@ -31,7 +31,6 @@ class LinebotController < ApplicationController
           end
         end
       when Line::Bot::Event::Postback
-        client.push_message(line_id, {"type": "text", "text": "変更後の在庫数を半角で入力して下さい"})
         case event["postback"]["data"]
         when "display_products_stocks"
           client.reply_message(event['replyToken'], stocks_template)

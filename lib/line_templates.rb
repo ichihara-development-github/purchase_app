@@ -89,8 +89,8 @@ module LineTemplates
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
         "type": "postback",
-        "label": "在庫 #{product.count}; #{product.name} ",
-        "data": "update_stocks"
+        "label": "#{product.count}個 #{product.name} ",
+        "data": "action=update_stocks"
        }
       }.with_indifferent_access)
     end
