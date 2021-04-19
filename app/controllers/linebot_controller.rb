@@ -18,9 +18,10 @@ class LinebotController < ApplicationController
         when "hoge"
             client.reply_message(event['replyToken'], sticker_list("thanks"))
         when "fuga"
-        client.reply_message(event['replyToken'], sticker_list("thanks"))
-        message = {"type": "text", "text": event["postback"]["data"]}
-        client.push_message(line_id, message)
+          client.reply_message(event['replyToken'], sticker_list("thanks"))
+          message = {"type": "text", "text": event["postback"]["data"]}
+          client.push_message(line_id, message)
+        end
       end
 
       case event.type

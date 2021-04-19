@@ -27,13 +27,13 @@ module LineTemplates
                 "actions": [
                     {
                         "type": "postback",
-                        "label": "Buy",
+                        "label": "hoge",
                         "data": "hoge"
                     },
                     {
                         "type": "postback",
-                        "label": "Add to cart",
-                        "data": "hoge"
+                        "label": "fuga",
+                        "data": "fuga"
                     },
                     {
                         "type": "uri",
