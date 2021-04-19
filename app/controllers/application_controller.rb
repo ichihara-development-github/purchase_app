@@ -105,6 +105,7 @@ protected
 
   def set_access_url
     session[:fowarding_url] = request.original_url if request.get?
+    p session[:fowarding_url] 
   end
 
   def redirect_after_login(default)
