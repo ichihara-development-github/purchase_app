@@ -7,6 +7,7 @@ class SessionController < ApplicationController
   def login(user)
     session[:user_id] = user.id
     flash[:success] = 'ログインしました'
+    redirect_after_login(default)
   end
 
   def create
@@ -28,7 +29,6 @@ class SessionController < ApplicationController
   def guest_login
     user = User.first
     login user
-    redirect_to products_path
   end
 
   def guest_user_login
@@ -40,7 +40,6 @@ class SessionController < ApplicationController
       session[:guest_id] = user.id
     end
     login user
-    redirect_to products_path
   end
 
 

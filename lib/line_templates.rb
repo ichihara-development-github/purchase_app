@@ -90,8 +90,8 @@ module LineTemplates
         "type": "postback",
         "label": "#{product.name}\n現在在庫: #{product.count}",
         "data": "update_stocks&id = #{product.id}"
+       }
       })
-    }
     end
     {
       "type": "template",
