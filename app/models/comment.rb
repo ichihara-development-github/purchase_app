@@ -23,7 +23,6 @@ class Comment < ApplicationRecord
       "template": {
           "type": "image_carousel",
           "columns": list
-          ]
       }
      }
   hoge

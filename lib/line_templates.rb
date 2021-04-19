@@ -97,10 +97,10 @@ module LineTemplates
       "altText": "this is a image carousel template",
       "template": {
           "type": "image_carousel",
-          "columns": list
+          "columns": list.with_indifferent_access
       }
      }
-     
+
    end
 
   def search_result_template
