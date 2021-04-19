@@ -10,7 +10,7 @@ class LinebotController < ApplicationController
     events = client.parse_events_from(body)
     events.each do |event|
       line_id = event["source"]["userId"]
-      @line_user = User.find_by(line_id: line_id) || ""
+      @line_user = User.find_by(line_id: line_id)
       case event
       when Line::Bot::Event::Postback
         case event["postback"]["data"]["action"]
