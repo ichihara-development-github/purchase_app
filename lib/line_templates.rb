@@ -83,7 +83,7 @@ module LineTemplates
   def stocks_template
     products = Product.first
     list = []
-    User.first.products.each do |product|
+    User.first.store.products.each do |product|
       list.append({
       "imageUrl": "#{IMAGE_PATH + product.main_image.path}",
       "action": {
