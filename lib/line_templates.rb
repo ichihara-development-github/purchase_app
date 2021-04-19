@@ -81,7 +81,6 @@ module LineTemplates
   end
 
   def stocks_template
-    products = Product.first
     list = []
     User.first.store.products.each do |product|
       list.append({
@@ -89,7 +88,7 @@ module LineTemplates
       "action": {
         "type": "postback",
         "label": "#{product.name}\n現在在庫: #{product.count}",
-        "data": "update_stocks&id = #{product.id}"
+        "data": "hoge"
        }
       })
     end
