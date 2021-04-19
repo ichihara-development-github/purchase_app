@@ -83,7 +83,7 @@ module LineTemplates
   def stocks_template
     list = []
     User.first.store.products.each do |product|
-      list.append({
+      list.push({
       "imageUrl": "#{IMAGE_PATH}/#{ product.main_image.path}",
       "action": {
         "type": "postback",
