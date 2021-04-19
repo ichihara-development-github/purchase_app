@@ -6,9 +6,9 @@ module LineTemplates
     {
       "type": "text",
       "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
-      \n【簡単検索】: 店舗オーナー専用メニューを開きます
-      \n【店舗検索】: 店舗オーナー専用メニューを開きます
-      \n【メニュー】: 店舗オーナー専用メニューを開きます"
+      \n【簡単検索】:\n店舗オーナー専用メニューを開きます
+      \n【店舗検索】:\n店舗オーナー専用メニューを開きます
+      \n【メニュー】:\n店舗オーナー専用メニューを開きます"
     }
   end
 
@@ -92,10 +92,10 @@ module LineTemplates
       "type": "image_carousel",
       "columns": [
           {
-            "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
+            "imageUrl": "#{IMAGE_PATH + product.main_image.path}",
             "action": {
               "type": "postback",
-              "label": "#{product.count}",
+              "label": "現在在庫: #{product.count}",
               "data": "update_stocks"
             }
           }
