@@ -91,7 +91,6 @@ module LineTemplates
         "data": "hoge"
        }
       }.with_indifferent_access)
-      debugger
     end
     {
       "type": "template",
