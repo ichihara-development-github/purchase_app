@@ -87,10 +87,10 @@ module LineTemplates
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
         "type": "postback",
-        "label": product.count,
+        "label": "#{proeuct.name}\n#{product.count}",
         "data": "hoge"
        }
-      }.with_indifferent_access)
+      })
     end
     {
       "type": "template",
