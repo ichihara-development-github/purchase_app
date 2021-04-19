@@ -1,6 +1,6 @@
 module LineTemplates
 
-  IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com/"
+  IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
 
   def default_message
     {
@@ -85,7 +85,7 @@ module LineTemplates
     list = []
     User.first.store.products.each do |product|
       list.append({
-      "imageUrl": "#{IMAGE_PATH + product.main_image.path}",
+      "imageUrl": "#{IMAGE_PATH}/#{ product.main_image.path}",
       "action": {
         "type": "postback",
         "label": "#{product.name}\n現在在庫: #{product.count}",
