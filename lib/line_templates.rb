@@ -13,40 +13,42 @@ module LineTemplates
   end
 
   def menu_template
+    templates = [
+      {
+        "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
+        "imageBackgroundColor": "#FFFFFF",
+        "title": "メニュー",
+        "text": "description",
+        "actions": [
+            {
+                "type": "postback",
+                "label": "hoge",
+                "data": "hoge"
+            },
+            {
+                "type": "postback",
+                "label": "fuga",
+                "data": "fuga"
+            },
+            {
+                "type": "uri",
+                "label": "サイトへ",
+                "uri": "https://ichihara-purchase-app.com/session/new"
+            }
+        ]
+      }
+    ]
+    templates.push ower_menu_template if @line_user.store
     {
-      "type": "template",
-      "altText": "this is a carousel template",
-      "template": {
-          "type": "carousel",
-          "columns": [
-              {
-                "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
-                "imageBackgroundColor": "#FFFFFF",
-                "title": "メニュー",
-                "text": "description",
-                "actions": [
-                    {
-                        "type": "postback",
-                        "label": "hoge",
-                        "data": "hoge"
-                    },
-                    {
-                        "type": "postback",
-                        "label": "fuga",
-                        "data": "fuga"
-                    },
-                    {
-                        "type": "uri",
-                        "label": "サイトへ",
-                        "uri": "https://ichihara-purchase-app.com/session/new"
-                    }
-              ]
-         }
-    ],
-    "imageAspectRatio": "rectangle",
-    "imageSize": "cover"
-}
-}
+          "type": "template",
+          "altText": "this is a carousel template",
+          "template": {
+              "type": "carousel",
+              "columns": templates,
+        "imageAspectRatio": "rectangle",
+        "imageSize": "cover"
+    }
+    }
   end
 
   def ower_menu_template
@@ -87,7 +89,7 @@ module LineTemplates
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
         "type": "postback",
-        "label": "#{product.name} \n 在庫:#{product.count}",
+        "label": "#{product.name}"+"\n 在庫:"+"#{product.count}",
         "data": "action=update_stocks&id=#{product.id}"
        }
       })

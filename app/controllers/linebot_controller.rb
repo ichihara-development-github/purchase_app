@@ -17,8 +17,10 @@ class LinebotController < ApplicationController
         when "display_products_stocks"
           client.reply_message(event['replyToken'], stocks_template)
         when "update_stocks"
+          p event["postback"]["data"]
+          client.reply_message(event['replyToken'], sticker_list("thanks"))
           @product = Product.find(event["postback"]["data"]["id"])
-          client.push_message(line_id, {"type": "text", "text": "変更後の在庫数を入力して下さい"})
+          client.push_message(line_id, {"type": "text", "text": "変更後の在庫数を半角で入力して下さい"})
         when "fuga"
           client.reply_message(event['replyToken'], sticker_list("thanks"))
           message = {"type": "text", "text": event["postback"]["data"]}
