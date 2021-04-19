@@ -38,7 +38,7 @@ module LineTemplates
         ]
       }
     ]
-    templates.push ower_menu_template if @line_user.store
+    templates.push ower_menu_template if !!@line_user.store
     {
           "type": "template",
           "altText": "this is a carousel template",
@@ -89,7 +89,7 @@ module LineTemplates
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
         "type": "postback",
-        "label": "#{product.name}"+"\n 在庫:"+"#{product.count}",
+        "label": "#{product.count}",
         "data": "action=update_stocks&id=#{product.id}"
        }
       })
