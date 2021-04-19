@@ -84,13 +84,14 @@ module LineTemplates
     list = []
     User.first.store.products.each do |product|
       list.push({
-      "imageUrl": "#{IMAGE_PATH}/#{ product.main_image.path}",
+      "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
         "type": "postback",
-        "label": "#{product.name}\n現在在庫: #{product.count}",
+        "label": product.count,
         "data": "hoge"
        }
       }.with_indifferent_access)
+      debugger
     end
     {
       "type": "template",
