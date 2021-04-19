@@ -7,7 +7,7 @@ class SessionController < ApplicationController
   def login(user)
     session[:user_id] = user.id
     flash[:success] = 'ログインしました'
-    redirect_after_login(default)
+    redirect_after_login(root_path)
   end
 
   def create

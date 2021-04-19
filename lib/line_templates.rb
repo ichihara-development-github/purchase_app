@@ -102,8 +102,8 @@ module LineTemplates
               "#{list}"
           ]
       }
-}
-  end
+     }
+   end
 
   def search_result_template
     {
