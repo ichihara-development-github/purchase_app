@@ -29,6 +29,7 @@ class LinebotController < ApplicationController
           else
             client.reply_message(event['replyToken'], default_message)
           end
+        end
       end
       when Line::Bot::Event::Postback
         case event["postback"]["data"]["action"]
