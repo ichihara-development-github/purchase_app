@@ -31,14 +31,13 @@ class LinebotController < ApplicationController
           end
         end
       when Line::Bot::Event::Postback
-        case event["postback"]["data"]["action"]
+        client.push_message(line_id, {"type": "text", "text": "変更後の在庫数を半角で入力して下さい"})
+        case event["postback"]["data"]
         when "display_products_stocks"
           client.reply_message(event['replyToken'], stocks_template)
         when "update_stocks"
-          p event["postback"]["data"]
-          client.reply_message(event['replyToken'], sticker_list("thanks"))
-          @product = Product.find(event["postback"]["data"]["id"])
           client.push_message(line_id, {"type": "text", "text": "変更後の在庫数を半角で入力して下さい"})
+          @product = Product.find(event["postback"]["data"]["id"])
         when "fuga"
           client.reply_message(event['replyToken'], sticker_list("thanks"))
           message = {"type": "text", "text": event["postback"]["data"]}
@@ -47,4 +46,5 @@ class LinebotController < ApplicationController
       end
     end
     head :ok
+end
 end
