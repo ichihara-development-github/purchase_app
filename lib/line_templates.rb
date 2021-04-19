@@ -38,7 +38,7 @@ module LineTemplates
         ]
       }
     ]
-    templates.push ower_menu_template if !!@line_user.store
+    templates.push ower_menu_template if (@line_user and @line_user.store)
     {
           "type": "template",
           "altText": "this is a carousel template",
