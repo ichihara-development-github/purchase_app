@@ -100,8 +100,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
 protected
+
+
+  def set_access_url
+    session[:fowarding_url] = request.original_url if request.get?
+  end
+
+  def redirect_after_login(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+
 
 def check_captcha(object)
   # redirect_to "/#{object}/new" unless verify_recaptcha
