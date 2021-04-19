@@ -97,15 +97,10 @@ module LineTemplates
       "altText": "this is a image carousel template",
       "template": {
           "type": "image_carousel",
-          "columns": [
-            "imageUrl": "#{IMAGE_PATH}/#{ Product.first.main_image.path}",
-            "action": {
-            "type": "postback",
-            "label": "hoge",
-            "data": "hoge"
-           }]
+          "columns": list
       }
      }
+     return list
    end
 
   def search_result_template
