@@ -12,6 +12,24 @@ class LinebotController < ApplicationController
       line_id = event["source"]["userId"]
       @line_user = User.find_by(line_id: line_id)
       case event
+      when Line::Bot::Event::Message
+        case event.type
+        when Line::Bot::Event::MessageType::Image
+          client.reply_message(event['replyToken'], sticker_list("thanks"))
+        when Line::Bot::Event::MessageType::Text
+          case event.message['text'].class
+          when Numeric
+            Postback.update_stocks(event.message['text'])
+          end
+          case event.message['text']
+          when "簡単検索"
+            client.reply_message(event['replyToken'], stocks_template)
+          when "メニュー"
+            client.reply_message(event['replyToken'], menu_template)
+          else
+            client.reply_message(event['replyToken'], default_message)
+          end
+      end
       when Line::Bot::Event::Postback
         case event["postback"]["data"]["action"]
         when "display_products_stocks"
@@ -26,24 +44,6 @@ class LinebotController < ApplicationController
           message = {"type": "text", "text": event["postback"]["data"]}
           client.push_message(line_id, message)
         end
-      end
-
-      case event.type
-      when Line::Bot::Event::MessageType::Text
-        case event.message['text'].class
-        when Numeric
-          Postback.update_stocks(event.message['text'])
-        end
-        case event.message['text']
-        when "簡単検索"
-          client.reply_message(event['replyToken'], stocks_template)
-        when "メニュー"
-          client.reply_message(event['replyToken'], menu_template)
-        else
-          client.reply_message(event['replyToken'], default_message)
-        end
-      when Line::Bot::Event::MessageType::Image
-        client.reply_message(event['replyToken'], sticker_list("thanks"))
       end
     end
     head :ok
