@@ -90,7 +90,7 @@ module LineTemplates
       "action": {
         "type": "postback",
         "label": "現在在庫: #{product.count}",
-        "data": "action=update_stocks&id=#{product.id}"
+        "data": "update_stocks"
        }
       }.with_indifferent_access)
     end

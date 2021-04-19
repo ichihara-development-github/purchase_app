@@ -30,7 +30,6 @@ class LinebotController < ApplicationController
             client.reply_message(event['replyToken'], default_message)
           end
         end
-      end
       when Line::Bot::Event::Postback
         case event["postback"]["data"]["action"]
         when "display_products_stocks"
@@ -48,5 +47,4 @@ class LinebotController < ApplicationController
       end
     end
     head :ok
-  end
 end
