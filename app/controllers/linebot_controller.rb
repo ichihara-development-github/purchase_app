@@ -31,7 +31,7 @@ class LinebotController < ApplicationController
           end
         end
       when Line::Bot::Event::Postback
-        client.push_message(line_id, {"type": "text", "text":"#{event.data}"})
+        client.push_message(line_id, {"type": "text", "text":"#{event["postback"]["data"]}")
         case event["postback"]["data"]
         when "action=display_products_stocks"
           client.reply_message(event['replyToken'], stocks_template)
