@@ -31,13 +31,13 @@ class LinebotController < ApplicationController
           end
         end
         when Line::Bot::Event::Postback
-          if event["postback"]["data"].include("display_products_stocks")
+          if event["postback"]["data"].include?("display_products_stocks")
             client.reply_message(event['replyToken'], stocks_template)
-          elsif event["postback"]["data"].includ("update_stocks")
+          elsif event["postback"]["data"].include?("update_stocks")
             client.push_message(line_id,event["postback"]["data"].sub(/action=update_stocks&id=/,""))
             client.push_message(line_id, {"type": "text", "text":"変更後の個数を入力して下さい"})
             @product = Product.find(event["postback"]["data"].sub(/action=update_stocks&id=/,""))
-          elsif event["postback"]["data"].includ("fuga")
+          elsif event["postback"]["data"].include?("fuga")
             client.reply_message(event['replyToken'], sticker_list("thanks"))
             message = {"type": "text", "text": event["postback"]["data"]}
             client.push_message(line_id, message)

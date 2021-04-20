@@ -22,12 +22,17 @@ module LineTemplates
         "actions": [
             {
                 "type": "postback",
-                "label": "hoge",
+                "label": "商品検索",
                 "data": "hoge"
             },
             {
+                "type": "uri",
+                "label": "カート確認",
+                "uri": "https://ichihara-purchase-app.com/session/new"
+            },
+            {
                 "type": "postback",
-                "label": "fuga",
+                "label": "今すぐ購入",
                 "data": "fuga"
             },
             {
@@ -56,7 +61,7 @@ module LineTemplates
         "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
         "imageBackgroundColor": "#FFFFFF",
         "title": "管理者メニュー",
-        "text": "description",
+        "text": "LINEから行える管理メニューです",
         "defaultAction": {
             "type": "uri",
             "label": "サイトへ >>",
@@ -66,7 +71,7 @@ module LineTemplates
             {
                 "type": "postback",
                 "label": "売上確認",
-                "data": "action=buy&itemid=111"
+                "data": "check_total_proceeds"
             },
             {
                 "type": "postback",
