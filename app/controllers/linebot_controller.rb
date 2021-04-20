@@ -17,9 +17,11 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Image
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         when Line::Bot::Event::MessageType::Text
+          client.push_message(line_id, {"type": "text", "text":event.message['text'].class})
           case event.message['text'].class
           when Numeric
             Postback.update_stocks(event.message['text'])
+
           end
           case event.message['text']
           when "簡単検索"
