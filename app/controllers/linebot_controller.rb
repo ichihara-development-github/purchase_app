@@ -18,8 +18,10 @@ class LinebotController < ApplicationController
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         when Line::Bot::Event::MessageType::Text
           case event.message['text']
-          when "#{1..1000}"
-            Postback.update_stocks(event.message['text'])
+          when 1..1000
+              client.reply_message(event['replyToken'], sticker_list("thanks"))
+            message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
+            client.push_message(line_id, message)
           when "簡単検索"
             client.reply_message(event['replyToken'], stocks_template)
           when "メニュー"
@@ -32,9 +34,9 @@ class LinebotController < ApplicationController
           if event["postback"]["data"].include?("display_products_stocks")
             client.reply_message(event['replyToken'], stocks_template)
           elsif event["postback"]["data"].include?("update_stocks")
-            @product = Product.find(event["postback"]["data"].sub("action=update_stocks&id=",""))
+            $product = Product.find(1)
             client.push_message(line_id,event["postback"]["data"].sub("action=update_stocks&id=",""))
-            client.push_message(line_id,@product.name)
+            client.push_message(line_id,$product.name)
             client.push_message(line_id, {"type": "text", "text":"変更後の個数を入力して下さい"})
           elsif event["postback"]["data"].include?("fuga")
             client.reply_message(event['replyToken'], sticker_list("thanks"))

@@ -3,6 +3,7 @@ module LineTemplates
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
 
   def default_message
+    $product = nil
     {
       "type": "text",
       "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
