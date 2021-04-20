@@ -19,6 +19,11 @@ module LineTemplates
         "imageBackgroundColor": "#FFFFFF",
         "title": "メニュー",
         "text": "description",
+        "defaultAction": {
+            "type": "uri",
+            "label": "サイトへ >>",
+            "uri": "https://ichihara-purchase-app.com/session/new"
+        },
         "actions": [
             {
                 "type": "postback",
@@ -37,7 +42,7 @@ module LineTemplates
             },
             {
                 "type": "uri",
-                "label": "サイトへ",
+                "label": "オーナー登録画面へ",
                 "uri": "https://ichihara-purchase-app.com/session/new"
             }
         ]
@@ -82,7 +87,7 @@ module LineTemplates
                 "type": "uri",
                 "label": "サイトへ >>",
                  "uri": "https://ichihara-purchase-app.com/session/new"
-            },
+            }
         ]
       }
   end
@@ -94,7 +99,7 @@ module LineTemplates
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
         "type": "postback",
-        "label": "#{product.count}"+"個;"+"#{product.name}",
+        "label": "#{product.count} "+"#{product.name}",
         "data": "action=update_stocks&id=#{product.id}"
        }
       }.with_indifferent_access)

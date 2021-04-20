@@ -17,13 +17,9 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Image
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         when Line::Bot::Event::MessageType::Text
-          client.push_message(line_id, {"type": "text", "text":event.message['text'].class})
-          case event.message['text'].class
-          when Numeric
-            Postback.update_stocks(event.message['text'])
-
-          end
           case event.message['text']
+          when "#{1..1000}"
+            Postback.update_stocks(event.message['text'])
           when "簡単検索"
             client.reply_message(event['replyToken'], stocks_template)
           when "メニュー"
@@ -36,9 +32,10 @@ class LinebotController < ApplicationController
           if event["postback"]["data"].include?("display_products_stocks")
             client.reply_message(event['replyToken'], stocks_template)
           elsif event["postback"]["data"].include?("update_stocks")
-            client.push_message(line_id,event["postback"]["data"].sub(/action=update_stocks&id=/,""))
+            @product = Product.find(event["postback"]["data"].sub("action=update_stocks&id=",""))
+            client.push_message(line_id,event["postback"]["data"].sub("action=update_stocks&id=",""))
+            client.push_message(line_id,@product.name)
             client.push_message(line_id, {"type": "text", "text":"変更後の個数を入力して下さい"})
-            @product = Product.find(event["postback"]["data"].sub(/action=update_stocks&id=/,""))
           elsif event["postback"]["data"].include?("fuga")
             client.reply_message(event['replyToken'], sticker_list("thanks"))
             message = {"type": "text", "text": event["postback"]["data"]}
