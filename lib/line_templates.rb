@@ -20,11 +20,11 @@ module LineTemplates
         "imageBackgroundColor": "#FFFFFF",
         "title": "メニュー",
         "text": "description",
-        "defaultAction": {
-            "type": "uri",
-            "label": "サイトへ >>",
-            "uri": "https://ichihara-purchase-app.com/session/new"
-        },
+        # "defaultAction": {
+        #     "type": "uri",
+        #     "label": "サイトへ >>",
+        #     "uri": "https://ichihara-purchase-app.com/session/new"
+        # },
         "actions": [
             {
                 "type": "postback",
@@ -32,9 +32,9 @@ module LineTemplates
                 "data": "hoge"
             },
             {
-                "type": "uri",
-                "label": "カート確認",
-                "uri": "https://ichihara-purchase-app.com/session/new"
+              "type": "postback",
+              "label": "カート確認",
+              "data": "action=check_baskets"
             },
             {
                 "type": "postback",
@@ -49,7 +49,7 @@ module LineTemplates
         ]
       }
     ]
-    templates.push ower_menu_template if !!(@line_user and @line_user.store)
+    # templates.push ower_menu_template if !!(@line_user and @line_user.store)
     {
           "type": "template",
           "altText": "this is a carousel template",
@@ -75,9 +75,9 @@ module LineTemplates
         },
         "actions": [
             {
-                "type": "postback",
-                "label": "売上確認",
-                "data": "action=check_total_proceeds"
+              "type": "postback",
+              "label": "売り上げ確認",
+              "data": "action=check_total_proceeds"
             },
             {
                 "type": "postback",
@@ -116,7 +116,40 @@ module LineTemplates
 
    end
 
-  def search_result_template
+   def baskets_template
+     baskets = []
+     @line_user.baskets.each do |basket|
+       baskets.push(
+       {
+         "thumbnailImageUrl": "#{IMAGE_PATH}/#{basket.product.main_image.path}",
+         "imageBackgroundColor": "#000000",
+         "title": "#{basket.product.name}",
+         "text": "#{basket.product.description}",
+         "actions": [
+             {
+                 "type": "postback",
+                 "label": "購入する",
+                 "data": "action=purchase"
+             },
+         ]
+       },
+     )
+   end
+
+     {
+     "type": "template",
+     "altText": "this is a carousel template",
+     "template": {
+         "type": "carousel",
+         "columns": baskets,
+         "imageAspectRatio": "rectangle",
+         "imageSize": "cover"
+     }
+   }
+   end
+   end
+
+  def search_result_templat
     {
     "type": "template",
     "altText": "this is a carousel template",

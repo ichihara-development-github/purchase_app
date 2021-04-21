@@ -3,6 +3,7 @@ class User < ApplicationRecord
   before_save :downcase_email
   attr_accessor :reset_token
 
+
   def self.collect_baskets(user)
       @data = []
       products = user.store.products
