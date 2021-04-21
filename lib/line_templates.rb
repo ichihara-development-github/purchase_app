@@ -19,12 +19,12 @@ module LineTemplates
         "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
         "imageBackgroundColor": "#FFFFFF",
         "title": "メニュー",
-        "text": "description",
-        # "defaultAction": {
-        #     "type": "uri",
-        #     "label": "サイトへ >>",
-        #     "uri": "https://ichihara-purchase-app.com/session/new"
-        # },
+        "text": "LINEから簡単に実行できるメニューです",
+        "defaultAction": {
+            "type": "uri",
+            "label": "サイトへ >>",
+            "uri": "https://ichihara-purchase-app.com/session/new"
+        },
         "actions": [
             {
                 "type": "postback",
@@ -49,7 +49,7 @@ module LineTemplates
         ]
       }
     ]
-    # templates.push ower_menu_template if !!(@line_user and @line_user.store)
+    templates.push ower_menu_template if !!(@line_user and @line_user.store)
     {
           "type": "template",
           "altText": "this is a carousel template",
@@ -134,7 +134,7 @@ module LineTemplates
          ]
        },
      )
-   end
+     end
 
      {
      "type": "template",
@@ -146,7 +146,6 @@ module LineTemplates
          "imageSize": "cover"
      }
    }
-   end
    end
 
   def search_result_templat
