@@ -17,7 +17,7 @@
       <td><%= link_to product_path(product) do %><%= product.name %><% end %></td>
       <td><%= product.price %></td>
       <td><%= datum.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
-       <td><%= link_to user_path(user) do %><%= user.name %><% end %></td>
+      <td><%= link_to user_path(user) do %><%= user.name %><% end %></td>
     </tr>
      <% end %>
   </tbody>
@@ -25,8 +25,8 @@
 
  <h2>見込み売り上げ</h2>
       <h3><%= @in_basket_data.count %>点</h3>
-       <h3>合計: ¥<%= User.pay_off(@in_basket_data) %></h3>
-<div class = "display-400">
+      <h3>合計: ¥<%= User.pay_off(@in_basket_data) %></h3>
+ <div class = "display-400">
      <div class = "container">
          現在検討中
      </div>

@@ -77,7 +77,7 @@ module LineTemplates
             {
                 "type": "postback",
                 "label": "売上確認",
-                "data": "check_total_proceeds"
+                "data": "action=check_total_proceeds"
             },
             {
                 "type": "postback",

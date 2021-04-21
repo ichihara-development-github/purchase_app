@@ -18,7 +18,7 @@ class LinebotController < ApplicationController
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         when Line::Bot::Event::MessageType::Text
           case event.message['text']
-          when 1..1000
+          when (1..1000).to_s
               client.reply_message(event['replyToken'], sticker_list("thanks"))
             message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
             client.push_message(line_id, message)
@@ -41,6 +41,9 @@ class LinebotController < ApplicationController
           elsif event["postback"]["data"].include?("fuga")
             client.reply_message(event['replyToken'], sticker_list("thanks"))
             message = {"type": "text", "text": event["postback"]["data"]}
+            client.push_message(line_id, message)
+          elsif event["postback"]["data"].include?("check_total_proceeds")
+            message = Postback.check_total_proceeds
             client.push_message(line_id, message)
           end
         end
