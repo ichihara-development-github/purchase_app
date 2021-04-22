@@ -15,7 +15,6 @@ class SessionController < ApplicationController
       user = User.find_by(email: params[:session][:email])
       if user && user.authenticate(params[:session][:password])
         login user
-        redirect_to products_path
       else
         flash[:warning] = "メールアドレスとパスワードが一致しません"
         render "new"
