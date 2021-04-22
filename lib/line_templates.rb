@@ -41,15 +41,10 @@ module LineTemplates
                 "label": "今すぐ購入",
                 "data": "fuga"
             },
-            {
-                "type": "uri",
-                "label": "オーナー登録画面へ",
-                "uri": "https://ichihara-purchase-app.com/registration"
-            }
         ]
       }
     ]
-    # templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
+    templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
 
     {
           "type": "template",
@@ -64,16 +59,24 @@ module LineTemplates
   end
 
   def ower_menu_template
+    {
+      "thumbnailImageUrl": "#{IMAGE_PATH}/#{basket.product.main_image.path}",
+      "imageBackgroundColor": "#000000",
+      "title": "#{basket.product.name}",
+      "text": "#{basket.product.description}",
+      "actions": [
+          {
+              "type": "postback",
+              "label": "購入する",
+              "data": "action=purchase&id=#{basket.product.id}"
+          },
+      ]
+    }
       {
         "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
         "imageBackgroundColor": "#FFFFFF",
         "title": "管理者メニュー",
         "text": "LINEから行える管理メニューです",
-        "defaultAction": {
-            "type": "uri",
-            "label": "サイトへ >>",
-            "uri": "https://ichihara-purchase-app.com/session/new"
-        },
         "actions": [
             {
               "type": "postback",
@@ -86,8 +89,8 @@ module LineTemplates
                 "data": "action=display_products_stocks"
             },
             {
-                "type": "商品価格変更",
-                "label": "サイトへ >>",
+                "type": "uri",
+                "label": "商品価格変更",
                  "uri": "https://ichihara-purchase-app.com/session/new"
             },
         ]
@@ -127,6 +130,11 @@ module LineTemplates
          "imageBackgroundColor": "#000000",
          "title": "#{basket.product.name}",
          "text": "#{basket.product.description}",
+         "defaultAction": {
+             "type": "uri",
+             "label": "カートへ",
+             "uri": "https://ichihara-purchase-app.com/baskets"
+         },
          "actions": [
              {
                  "type": "postback",
