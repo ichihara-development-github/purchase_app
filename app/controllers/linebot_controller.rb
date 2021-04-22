@@ -49,8 +49,7 @@ class LinebotController < ApplicationController
           elsif event["postback"]["data"].include?("check_baskets")
             client.push_message(line_id, baskets_template)
           elsif event["postback"]["data"].include?("purchase")
-            client.push_message(line_id,event["postback"]["data"].sub("action=purchase&id=",""))
-            Postback.purchase(event["postback"]["data"].sub("action=purchase&id=",""))
+            client.push_message(line_id,Postback.purchase(event["postback"]["data"].sub("action=purchase&id=","")))
           end
         end
     end

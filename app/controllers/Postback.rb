@@ -20,7 +20,10 @@ module Postback
   end
 
   def purchase(id)
-    
+    {
+     "type": "text",
+      "text": id
+    }
   end
 
 end
