@@ -28,7 +28,7 @@ class LinebotController < ApplicationController
           when "メニュー"
             client.reply_message(event['replyToken'], menu_template)
           else
-            client.reply_message(event['replyToken'], default_message)
+            client.reply_message(event['replyToken'], baskets_template)
           end
         end
         when Line::Bot::Event::Postback

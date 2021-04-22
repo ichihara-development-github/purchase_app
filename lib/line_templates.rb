@@ -6,10 +6,10 @@ module LineTemplates
     $product = nil
     {
       "type": "text",
-      "text": "以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
-      \n【簡単検索】:\n店舗オーナー専用メニューを開きます
-      \n【店舗検索】:\n店舗オーナー専用メニューを開きます
-      \n【メニュー】:\n店舗オーナー専用メニューを開きます"
+      "text": "こんにちは#{@line_user.name}さん \n 以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
+      \n【簡単検索】:店舗オーナー専用メニューを開きます
+      \n【店舗検索】:店舗オーナー専用メニューを開きます
+      \n【メニュー】:店舗オーナー専用メニューを開きます"
     }
   end
 
@@ -49,7 +49,8 @@ module LineTemplates
         ]
       }
     ]
-    templates.push ower_menu_template if !!(@line_user and @line_user.store)
+    templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
+
     {
           "type": "template",
           "altText": "this is a carousel template",
@@ -85,7 +86,7 @@ module LineTemplates
                 "data": "action=display_products_stocks"
             },
             {
-                "type": "uri",
+                "type": "商品価格変更",
                 "label": "サイトへ >>",
                  "uri": "https://ichihara-purchase-app.com/session/new"
             }
@@ -105,6 +106,7 @@ module LineTemplates
        }
       }.with_indifferent_access)
     end
+
     {
       "type": "template",
       "altText": "this is a image carousel template",
@@ -118,9 +120,9 @@ module LineTemplates
 
    def baskets_template
      baskets = []
+
      User.first.baskets.each do |basket|
-       baskets.push(
-       {
+       baskets.push({
          "thumbnailImageUrl": "#{IMAGE_PATH}/#{basket.product.main_image.path}",
          "imageBackgroundColor": "#000000",
          "title": "#{basket.product.name}",
@@ -130,12 +132,11 @@ module LineTemplates
                  "type": "postback",
                  "label": "購入する",
                  "data": "action=purchase"
-             }
+             },
          ]
        }
      )
      end
-
      {
      "type": "template",
      "altText": "this is a carousel template",
