@@ -95,7 +95,7 @@ module LineTemplates
 
   def stocks_template
     list = []
-    User.first.store.products.each do |product|
+    @line_user.store.products.each do |product|
       list.push({
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
@@ -118,7 +118,7 @@ module LineTemplates
 
    def baskets_template
      baskets = []
-     @line_user.baskets.each do |basket|
+     User.first.baskets.each do |basket|
        baskets.push(
        {
          "thumbnailImageUrl": "#{IMAGE_PATH}/#{basket.product.main_image.path}",
@@ -130,9 +130,9 @@ module LineTemplates
                  "type": "postback",
                  "label": "購入する",
                  "data": "action=purchase"
-             },
+             }
          ]
-       },
+       }
      )
      end
 

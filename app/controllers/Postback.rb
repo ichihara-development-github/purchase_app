@@ -11,12 +11,11 @@ module Postback
       counts += product.purchases.sum(:count)
       total += (product.price * counts)
     end
-    messsage = {
+     {
       "type": "text",
        "text": "現在売り上げ: #{total}\n
        売上個数: #{counts}\n
        平均単価: #{total/counts}"
-
      }
   end
 
