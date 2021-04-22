@@ -19,4 +19,8 @@ module Postback
      }
   end
 
+  def purchase(id)
+    
+  end
+
 end

@@ -28,7 +28,7 @@ class LinebotController < ApplicationController
           when "メニュー"
             client.reply_message(event['replyToken'], menu_template)
           else
-            client.reply_message(event['replyToken'], baskets_template)
+            client.reply_message(event['replyToken'], default_message)
           end
         end
         when Line::Bot::Event::Postback
@@ -49,7 +49,8 @@ class LinebotController < ApplicationController
           elsif event["postback"]["data"].include?("check_baskets")
             client.push_message(line_id, baskets_template)
           elsif event["postback"]["data"].include?("purchase")
-            Postback.purchase
+            client.push_message(line_id,event["postback"]["data"].sub("action=purchase&id=",""))
+            Postback.purchase(event["postback"]["data"].sub("action=purchase&id=",""))
           end
         end
     end

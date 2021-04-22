@@ -22,8 +22,8 @@ module LineTemplates
         "text": "LINEから簡単に実行できるメニューです",
         "defaultAction": {
             "type": "uri",
-            "label": "サイトへ >>",
-            "uri": "https://ichihara-purchase-app.com/session/new"
+            "label": "オーナー登録画面へ",
+            "uri": "https://ichihara-purchase-app.com/registration"
         },
         "actions": [
             {
@@ -44,12 +44,12 @@ module LineTemplates
             {
                 "type": "uri",
                 "label": "オーナー登録画面へ",
-                "uri": "https://ichihara-purchase-app.com/session/new"
+                "uri": "https://ichihara-purchase-app.com/registration"
             }
         ]
       }
     ]
-    templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
+    # templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
 
     {
           "type": "template",
@@ -89,7 +89,7 @@ module LineTemplates
                 "type": "商品価格変更",
                 "label": "サイトへ >>",
                  "uri": "https://ichihara-purchase-app.com/session/new"
-            }
+            },
         ]
       }
   end
@@ -131,7 +131,7 @@ module LineTemplates
              {
                  "type": "postback",
                  "label": "購入する",
-                 "data": "action=purchase"
+                 "data": "action=purchase&id=#{basket.product.id}"
              },
          ]
        }
