@@ -1,4 +1,6 @@
 require './lib/line_templates'
+require './lib/postback'
+
 
 class LinebotController < ApplicationController
 
