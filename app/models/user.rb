@@ -124,12 +124,5 @@ class User < ApplicationRecord
       self.email = email.downcase
     end
 
-    def geocode
-      res = HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=AIzaSyAAWezrBjtug-O85xz84V_TYNCmv1pYxDQ")
-      response = JSON.parse(res)
-      self.latitude = response["results"][0]["geometry"]["location"]["lat"]
-      self.longitude = response["results"][0]["geometry"]["location"]["lng"]
-    end
-
 
 end
