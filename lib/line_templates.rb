@@ -72,7 +72,7 @@ module LineTemplates
                 "label": "今すぐ購入",
                 "data": "fuga"
             },
-        ]
+        ],
       }
     ]
     templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
@@ -142,37 +142,37 @@ module LineTemplates
    def baskets_template
      baskets = []
 
-     User.first.baskets.each do |basket|
-       baskets.push({
-         "thumbnailImageUrl": "#{IMAGE_PATH}/#{basket.product.main_image.path}",
-         "imageBackgroundColor": "#000000",
-         "title": "#{basket.product.name}",
-         "text": "#{basket.product.description}",
-         "defaultAction": {
-             "type": "uri",
-             "label": "カートへ",
-             "uri": "https://ichihara-purchase-app.com/baskets"
-         },
-         "actions": [
-             {
-                 "type": "postback",
-                 "label": "購入する",
-                 "data": "action=purchase&id=#{basket.product.id}"
-             },
-         ]
+       User.first.baskets.each do |basket|
+         baskets.push({
+           "thumbnailImageUrl": "#{IMAGE_PATH}/#{basket.product.main_image.path}",
+           "imageBackgroundColor": "#000000",
+           "title": "#{basket.product.name}",
+           "text": "#{basket.product.description}",
+           "defaultAction": {
+               "type": "uri",
+               "label": "カートへ",
+               "uri": "https://ichihara-purchase-app.com/baskets"
+           },
+           "actions": [
+               {
+                   "type": "postback",
+                   "label": "購入する",
+                   "data": "action=purchase&id=#{basket.product.id}"
+               },
+           ]
+         }
+       )
+       end
+       {
+       "type": "template",
+       "altText": "this is a carousel template",
+       "template": {
+           "type": "carousel",
+           "columns": baskets,
+           "imageAspectRatio": "rectangle",
+           "imageSize": "cover"
        }
-     )
-     end
-     {
-     "type": "template",
-     "altText": "this is a carousel template",
-     "template": {
-         "type": "carousel",
-         "columns": baskets,
-         "imageAspectRatio": "rectangle",
-         "imageSize": "cover"
      }
-   }
    end
 
   def search_result_templat
