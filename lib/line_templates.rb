@@ -36,7 +36,7 @@ module LineTemplates
     $product = nil
     {
       "type": "text",
-      "text": "こんにちは#{line_user.name}さん \n 以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
+      "text": "こんにちは#{@line_user.name}さん \n 以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
       \n【簡単検索】:
       \n【店舗検索】:位置情報から送料無料の店舗を検索
       \n【メニュー】:簡単メニューを開きます"
@@ -74,7 +74,7 @@ module LineTemplates
         ]
       }
     ]
-    templates.push(ower_menu_template) if !!(line_user and line_user.store)
+    templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
 
     {
           "type": "template",
@@ -116,7 +116,7 @@ module LineTemplates
 
   def stocks_template
     list = []
-    line_user.store.products.each do |product|
+    @line_user.store.products.each do |product|
       list.push({
       "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
       "action": {
