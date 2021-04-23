@@ -16,7 +16,7 @@ module LineTemplates
         "label": "#{store.name}",
         "uri": "https://ichihara-purchase-app.com/store/#{store.id}"
        }
-     }.with_indifferent_access if distance(latitude, longitude, store.latitude, store.longitude) < 5
+     }.with_indifferent_access) if distance(latitude, longitude, store.latitude, store.longitude) < 5
    end
 
    {
