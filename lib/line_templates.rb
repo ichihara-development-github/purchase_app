@@ -1,12 +1,34 @@
-require './lib/hubeny_distance'
+require './app/helpers/baskets_helper'
 
 module LineTemplates
 
-　include HubenyDistance
+　include BasketsHelper
 
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
+
   def search_store(longitude, latitude)
-    distance(@line_user.latitude,@line_user.longitude,latitude,longitude)
+    stores = []
+    Store.all.each do |store|
+      stores.push({
+      "imageUrl": "#{IMAGE_PATH}/#{store.top_image.path}",
+      "action": {
+        "type": "uri",
+        "label": "#{store.name}",
+        "uri": "https://ichihara-purchase-app.com/store/#{store.id}"
+       }
+     }.with_indifferent_access if distance(latitude, longitude, store.latitude, store.longitude) < 5
+   end
+
+   {
+     "type": "template",
+     "altText": "this is a image carousel template",
+     "template": {
+         "type": "image_carousel",
+         "columns": stores
+     }
+    }
+
+
 
   end
 

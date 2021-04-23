@@ -68,7 +68,6 @@ function initMap(){
                      "<span>自宅</span>"
         });
 
-
         var marker = new google.maps.Marker({
           position:{lat: <%= current_user.latitude %> , lng: <%= current_user.longitude %> },
           map: map,
