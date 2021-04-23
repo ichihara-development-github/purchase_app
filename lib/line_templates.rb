@@ -8,28 +8,34 @@ module LineTemplates
 
   def search_store(latitude, longitude)
     stores = []
+
     Store.all.each do |store|
+
       stores.push({
-      "imageUrl": "#{IMAGE_PATH}/#{store.top_image.path}",
-      "action": {
-        "type": "uri",
-        "label": "#{store.name}",
-        "uri": "https://ichihara-purchase-app.com/store/#{store.id}"
-       }
-     }.with_indifferent_access) if distance(latitude, longitude, store.latitude, store.longitude) < 5
-   end
+        "thumbnailImageUrl": "#{IMAGE_PATH}/#{store.top_image.path}",
+        "imageBackgroundColor": "#000000",
+        "title": "#{store.name}",
+        "text": "#{store.description}",
+        "actions": [
+            {
+                "type": "uri",
+                "label": "店舗へ",
+                "uri": "https://ichihara-purchase-app.com/store/#{store.id}"
+            },
+        ]
+      }) if distance(latitude, longitude, store.latitude, store.longitude) < 5
+    end
 
-   {
-     "type": "template",
-     "altText": "this is a image carousel template",
-     "template": {
-         "type": "image_carousel",
-         "columns": stores
-     }
+    {
+    "type": "template",
+    "altText": "this is a carousel template",
+    "template": {
+        "type": "carousel",
+        "columns": stores,
+        "imageAspectRatio": "rectangle",
+        "imageSize": "cover"
     }
-
-
-
+  }
   end
 
   def default_message
