@@ -20,7 +20,7 @@ module LineTemplates
             {
                 "type": "uri",
                 "label": "店舗へ",
-                "uri": "https://ichihara-purchase-app.com/store/#{store.id}"
+                "uri": "https://ichihara-purchase-app.com/stores/#{store.id}"
             },
         ]
       }) if distance(latitude, longitude, store.latitude, store.longitude) < 5
@@ -98,9 +98,9 @@ module LineTemplates
         "text": "LINEから行える管理メニューです",
         "actions": [
             {
-              "type": "postback",
-              "label": "売り上げ確認",
-              "data": "action=check_total_proceeds"
+                "type": "postback",
+                "label": "売り上げ確認",
+                "data": "action=check_total_proceeds"
             },
             {
                 "type": "postback",
