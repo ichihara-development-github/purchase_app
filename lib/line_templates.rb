@@ -50,6 +50,7 @@ module LineTemplates
   end
 
   def menu_template
+
     templates = [
       {
         "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
@@ -63,16 +64,16 @@ module LineTemplates
         },
         "actions": [
             {
-              "type": "postback",
-              "label": "カート確認",
-              "data": "action=check_baskets"
+                "type": "postback",
+                "label": "カート確認",
+                "data": "action=check_baskets"
             },
             {
                 "type": "postback",
                 "label": "今すぐ購入",
                 "data": "fuga"
-            },
-        ],
+            }
+        ]
       }
     ]
     templates.push(ower_menu_template) if !!(@line_user and @line_user.store)
@@ -110,7 +111,7 @@ module LineTemplates
                 "type": "uri",
                 "label": "商品価格変更",
                  "uri": "https://ichihara-purchase-app.com/session/new"
-            },
+            }
         ]
       }
   end
