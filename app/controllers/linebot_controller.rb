@@ -1,4 +1,4 @@
-require './lib/@line_templates'
+require './lib/line_templates'
 require './lib/postback'
 
 

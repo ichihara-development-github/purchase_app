@@ -6,7 +6,7 @@ module LineTemplates
 
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
 
-  def search_store(longitude, latitude)
+  def search_store(latitude, longitude)
     stores = []
     Store.all.each do |store|
       stores.push({
@@ -56,11 +56,6 @@ module LineTemplates
             "uri": "https://ichihara-purchase-app.com/registration"
         },
         "actions": [
-            # {
-            #     "type": "postback",
-            #     "label": "",
-            #     "data": "hoge"
-            # },
             {
               "type": "postback",
               "label": "カート確認",
