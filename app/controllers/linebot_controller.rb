@@ -15,11 +15,11 @@ class LinebotController < ApplicationController
       # @@line_user = User.find_by(@line_id: @line_id)
       @line_user = User.first
       case event
-      when  Line::Bot::Event::MessageType::Location
-        message = search_store(event["message"]["latitude"], event["message"]["longitude"])
-        client.push_message(@line_id, message)
       when Line::Bot::Event::Message
         case event.type
+        when  Line::Bot::Event::MessageType::Location
+          message = search_store(event["message"]["latitude"], event["message"]["longitude"])
+          client.push_message(@line_id, message)
         when Line::Bot::Event::MessageType::Image
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         when Line::Bot::Event::MessageType::Text
