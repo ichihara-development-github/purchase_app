@@ -13,7 +13,7 @@ class LinebotController < ApplicationController
     events.each do |event|
       line_id = event["source"]["userId"]
       # @line_user = User.find_by(line_id: line_id)
-      @line_user = User.first
+      line_user = User.first
       case event
       when  Line::Bot::Event::MessageType::Location
         search_store(event["message"]["latitude"], event["message"]["longitude"])
@@ -48,7 +48,7 @@ class LinebotController < ApplicationController
             message = {"type": "text", "text": event["postback"]["data"]}
             client.push_message(line_id, message)
           elsif event["postback"]["data"].include?("check_total_proceeds")
-            message = Postback.check_total_proceeds(@line_user)
+            message = Postback.check_total_proceeds(line_user)
             client.push_message(line_id, message)
           elsif event["postback"]["data"].include?("check_baskets")
             client.push_message(line_id, baskets_template)
