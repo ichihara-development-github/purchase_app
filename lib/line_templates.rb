@@ -1,15 +1,13 @@
+require './lib/hubeny_distance'
+
 module LineTemplates
+
+　include HubenyDistance
 
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
   def search_store(longitude, latitude)
-    uri = URI("http://express.heartrails.com/api/json")
-    uri.query = URI.encode_www_form({
-    method: "getStations",
-      x: longitude,
-      y: latitude
-    })
-    res = Net::HTTP.get_response(uri)
-    JSON.parse(res.body)["response"]["station"]
+    distance(@line_user.latitude,@line_user.longitude,latitude,longitude)
+
   end
 
   def default_message

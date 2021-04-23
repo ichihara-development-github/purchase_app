@@ -16,7 +16,7 @@ class LinebotController < ApplicationController
       @line_user = User.first
       case event
       when  Line::Bot::Event::MessageType::Location
-        search_store(event["message"]["longitude"], event["message"]["latitude"])
+        search_store(event["message"]["latitude"], event["message"]["longitude"])
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Image
