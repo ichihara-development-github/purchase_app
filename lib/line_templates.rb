@@ -1,15 +1,25 @@
 module LineTemplates
 
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
+  def stations(longitude, latitude)
+    uri = URI("http://express.heartrails.com/api/json")
+    uri.query = URI.encode_www_form({
+    method: "getStations",
+      x: longitude,
+      y: latitude
+    })
+    res = Net::HTTP.get_response(uri)
+    JSON.parse(res.body)["response"]["station"]
+  end
 
   def default_message
     $product = nil
     {
       "type": "text",
       "text": "こんにちは#{@line_user.name}さん \n 以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
-      \n【簡単検索】:店舗オーナー専用メニューを開きます
-      \n【店舗検索】:店舗オーナー専用メニューを開きます
-      \n【メニュー】:店舗オーナー専用メニューを開きます"
+      \n【簡単検索】:
+      \n【店舗検索】:位置情報から送料無料の店舗を検索
+      \n【メニュー】:簡単メニューを開きます"
     }
   end
 
@@ -28,7 +38,7 @@ module LineTemplates
         "actions": [
             {
                 "type": "postback",
-                "label": "商品検索",
+                "label": "住所変更",
                 "data": "hoge"
             },
             {
@@ -170,6 +180,25 @@ module LineTemplates
     }
   }
   end
+
+  def send_location_template
+  {
+    "type": "template",
+    "altText": "位置検索中",
+    "template": {
+        "type": "buttons",
+        "title": "店舗を検索してみる",
+        "text": "位置情報を送信しますか？",
+        "actions": [
+            {
+              "type": "uri",
+              "label": "位置情報を送る",
+              "uri": "line://nv/location"
+            }
+        ]
+    }
+  }
+end
 
   def sticker_list(type)
     case type

@@ -5,17 +5,17 @@ module Postback extend self
     $product.update(stock: num)
   end
 
-  def check_total_proceeds
+  def check_total_proceeds(user)
     counts = total = 0
-    @line_user.store.products.each do |product|
+    user.store.products.each do |product|
       counts += product.purchases.sum(:count)
       total += (product.price * counts)
     end
      {
       "type": "text",
-       "text": "現在売り上げ: #{total}\n
-       売上個数: #{counts}\n
-       平均単価: #{total/counts}"
+       "text": "_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_ \n
+       現在売り上げ: #{total}\n 売上個数: #{counts}\n 平均単価: #{total/counts}
+       /_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/\n"
      }
   end
 
@@ -23,7 +23,7 @@ module Postback extend self
     product = Product.find(id)
     {
      "type": "text",
-      "text": "#{product.name}の購入が完了しました"
+     "text": "#{product.name}の購入が完了しました"
     }
   end
 

@@ -15,6 +15,8 @@ class LinebotController < ApplicationController
       # @line_user = User.find_by(line_id: line_id)
       @line_user = User.first
       case event
+      when  Line::Bot::Event::MessageType::Location
+        search_store(event["message"]["longitude"], event["message"]["latitude"])
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Image
@@ -26,7 +28,9 @@ class LinebotController < ApplicationController
             message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
             client.push_message(line_id, message)
           when "簡単検索"
-            client.reply_message(event['replyToken'], stocks_template)
+            client.reply_message(event['replyToken'], "簡単検索")
+          when "店舗検索"
+            client.reply_message(event['replyToken'], send_location_template)
           when "メニュー"
             client.reply_message(event['replyToken'], menu_template)
           else
@@ -44,7 +48,7 @@ class LinebotController < ApplicationController
             message = {"type": "text", "text": event["postback"]["data"]}
             client.push_message(line_id, message)
           elsif event["postback"]["data"].include?("check_total_proceeds")
-            message = Postback.check_total_proceeds
+            message = Postback.check_total_proceeds(line_user)
             client.push_message(line_id, message)
           elsif event["postback"]["data"].include?("check_baskets")
             client.push_message(line_id, baskets_template)
