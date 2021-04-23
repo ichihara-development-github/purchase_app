@@ -2,7 +2,7 @@ require './app/helpers/baskets_helper'
 
 module LineTemplates
 
-　include BasketsHelper
+  include BasketsHelper
 
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
 
