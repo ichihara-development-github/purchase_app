@@ -38,8 +38,6 @@ class LinebotController < ApplicationController
             client.reply_message(event['replyToken'], stocks_template)
           elsif event["postback"]["data"].include?("update_stocks")
             $product = Product.find(1)
-            client.push_message(line_id,event["postback"]["data"].sub("action=update_stocks&id=",""))
-            client.push_message(line_id,$product.name)
             client.push_message(line_id, {"type": "text", "text":"変更後の個数を入力して下さい"})
           elsif event["postback"]["data"].include?("fuga")
             client.reply_message(event['replyToken'], sticker_list("thanks"))

@@ -59,19 +59,6 @@ module LineTemplates
   end
 
   def ower_menu_template
-    {
-      "thumbnailImageUrl": "#{IMAGE_PATH}/#{basket.product.main_image.path}",
-      "imageBackgroundColor": "#000000",
-      "title": "#{basket.product.name}",
-      "text": "#{basket.product.description}",
-      "actions": [
-          {
-              "type": "postback",
-              "label": "購入する",
-              "data": "action=purchase&id=#{basket.product.id}"
-          },
-      ]
-    }
       {
         "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
         "imageBackgroundColor": "#FFFFFF",

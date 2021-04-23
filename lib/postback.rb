@@ -1,4 +1,4 @@
-module Postback
+module Postback extend self
 
   def update_stocks(num)
     return false unless $product
@@ -20,9 +20,10 @@ module Postback
   end
 
   def purchase(id)
+    product = Product.find(id)
     {
      "type": "text",
-      "text": id
+      "text": "#{product.name}の購入が完了しました"
     }
   end
 
