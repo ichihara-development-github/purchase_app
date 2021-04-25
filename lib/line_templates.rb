@@ -26,7 +26,7 @@ module LineTemplates
       }) if distance(latitude, longitude, store.latitude, store.longitude) < 5
     end
 
-    return {"type": "text", "text": "近くの店舗はありませんでした。"}if stores.blank
+    return {"type": "text", "text": "近くの店舗はありませんでした。"}if stores.empty?
 
     {
     "type": "template",
@@ -100,22 +100,22 @@ module LineTemplates
         "imageBackgroundColor": "#FFFFFF",
         "title": "管理者メニュー",
         "text": "LINEから行える管理メニューです",
-        "defaultAction": {
-            "type": "uri",
-            "label": "オーナー登録画面へ",
-            "uri": "https://ichihara-purchase-app.com/registration"
-        },
         "actions": [
             {
                 "type": "postback",
-                "label": "カート確認",
-                "data": "action=check_baskets"
+                "label": "在庫変更",
+                "data": "action=display_products_stocks"
             },
             {
                 "type": "postback",
-                "label": "今すぐ購入",
-                "data": "fuga"
+                "label": "価格変更",
+                "data": "action=check_total_proceeds"
             }
+            {
+                "type": "postback",
+                "label": "売上確認",
+                "data": "check_total_proceeds"
+            },
         ]
       }
   end
