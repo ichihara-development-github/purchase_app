@@ -106,21 +106,21 @@ module LineTemplates
             "uri": "https://ichihara-purchase-app.com/registration"
         },
         "actions": [
-          {
-              "type": "postback",
-              "label": "在庫変更",
-              "data": "action=display_products_stocks"
-          },
-          {
-              "type": "postback",
-              "label": "価格変更",
-              "data": "action=check_total_proceeds"
-          },
-          {
-              "type": "postback",
-              "label": "売上確認",
-              "data": "check_total_proceeds"
-          }
+            {
+                "type": "postback",
+                "label": "在庫変更",
+                "data": "action=display_products_stocks"
+            },
+            {
+                "type": "postback",
+                "label": "価格変更",
+                "data": "action=check_total_proceeds"
+            },
+            {
+                "type": "postback",
+                "label": "売上確認",
+                "data": "check_total_proceeds"
+            }
         ]
       }
   end
