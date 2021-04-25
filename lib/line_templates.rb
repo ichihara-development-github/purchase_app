@@ -29,14 +29,14 @@ module LineTemplates
     return {"type": "text", "text": "近くの店舗はありませんでした。"}if stores.blank
 
     {
-      "type": "template",
-      "altText": "this is a carousel template",
-      "template": {
-          "type": "carousel",
-          "columns": stores,
-          "imageAspectRatio": "rectangle",
-          "imageSize": "cover"
-        }
+    "type": "template",
+    "altText": "this is a carousel template",
+    "template": {
+        "type": "carousel",
+        "columns": stores,
+        "imageAspectRatio": "rectangle",
+        "imageSize": "cover"
+      }
     }
   end
 
@@ -94,29 +94,30 @@ module LineTemplates
   end
 
   def ower_menu_template
-    {
-      "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
-      "imageBackgroundColor": "#FFFFFF",
-      "title": "メニュー",
-      "text": "LINEから簡単に実行できるメニューです",
-      "defaultAction": {
-          "type": "uri",
-          "label": "オーナー登録画面へ",
-          "uri": "https://ichihara-purchase-app.com/registration"
-      },
-      "actions": [
-          {
-              "type": "postback",
-              "label": "カート確認",
-              "data": "action=check_baskets"
-          },
-          {
-              "type": "postback",
-              "label": "今すぐ購入",
-              "data": "fuga"
-          }
-      ]
-    }
+
+      {
+        "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
+        "imageBackgroundColor": "#FFFFFF",
+        "title": "管理者メニュー",
+        "text": "LINEから行える管理メニューです",
+        "defaultAction": {
+            "type": "uri",
+            "label": "オーナー登録画面へ",
+            "uri": "https://ichihara-purchase-app.com/registration"
+        },
+        "actions": [
+            {
+                "type": "postback",
+                "label": "カート確認",
+                "data": "action=check_baskets"
+            },
+            {
+                "type": "postback",
+                "label": "今すぐ購入",
+                "data": "fuga"
+            }
+        ]
+      }
   end
 
   def stocks_template
