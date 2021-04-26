@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
  # line-bot
  post "/callback", to: "linebot#callback"
+ get "/link_line_form", to: "linebot#link_line_form"
 
  resources :users
  resources :password_resets, only: [:new, :create, :edit, :update]

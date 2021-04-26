@@ -16,7 +16,7 @@ module LineTemplates
             "actions": [{
                 "type": "uri",
                 "label": "アカウント連携",
-                "uri": "https://ichihara-purchase-app.com//link_line_form?linkToken=#{link_token}"
+                "uri": "https://ichihara-purchase-app.com/link_line_form?linkToken=#{link_token}"
             }]
       }
     }
