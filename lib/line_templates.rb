@@ -6,7 +6,7 @@ module LineTemplates
 
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
 
-  def link_line_template
+  def link_line_template(link_token)
     {
     "type": "template",
     "altText": "this is a link line template",

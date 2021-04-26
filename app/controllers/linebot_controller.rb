@@ -17,6 +17,7 @@ class LinebotController < ApplicationController
     req.initialize_http_header(headers)
     res = http.request(req)
     return false unless res.class == Net::HTTPOK
+    @link_token = JSON.parse(res.body)["linkToken"]
   end
 
   def link_line_form
@@ -59,7 +60,7 @@ class LinebotController < ApplicationController
             message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
             client.push_message(@line_id, message)
           when "LINE連携"
-            client.reply_message(event['replyToken'], link_line_template) if line_link(@line_id)
+            client.reply_message(event['replyToken'], link_line_template(@link_token)) if link_line(@line_id)
           when "店舗検索"
             client.reply_message(event['replyToken'], send_location_template)
           when "メニュー"
