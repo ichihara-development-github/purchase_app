@@ -7,6 +7,36 @@ class LinebotController < ApplicationController
   include LineTemplates
   include Postback
 
+  def link_line(userId)
+    url = "https://api.line.me/v2/bot/user/#{userId}/linkToken"
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    req = Net::HTTP::Post.new(uri.request_uri)
+    headers = {"Authorization" => "Bearer #{ENV["LINE_TOKEN"]}", "Content-Type" => "application/json"}
+    req.initialize_http_header(headers)
+    res = http.request(req)
+    return false unless res.class == Net::HTTPOK
+  end
+
+  def link_line_form
+    # {
+    # "type": "template",
+    # "altText": "this is a link line template",
+    # "template": {
+    #     "type": "buttons",
+    #         "text": "アカウントを連携",
+    #         "actions": [{
+    #             "type": "uri",
+    #             "label": "アカウント連携",
+    #             "uri": "https://ichihara-purchase-app.com//link_line_form?linkToken=#{link_token}"
+    #         }]
+    #   }
+    # }
+    # https://access.line.me/dialog/bot/accountLink?linkToken={link token}&nonce={nonce}
+
+  end
+
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
@@ -28,8 +58,8 @@ class LinebotController < ApplicationController
               client.reply_message(event['replyToken'], sticker_list("thanks"))
             message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
             client.push_message(@line_id, message)
-          when "簡単検索"
-            client.reply_message(event['replyToken'], "簡単検索")
+          when "LINE連携"
+            client.reply_message(event['replyToken'], link_line_template) if line_link(@line_id)
           when "店舗検索"
             client.reply_message(event['replyToken'], send_location_template)
           when "メニュー"

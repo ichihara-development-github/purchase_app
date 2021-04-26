@@ -6,6 +6,22 @@ module LineTemplates
 
   IMAGE_PATH = "https://purchase-app-backet.s3.amazonaws.com"
 
+  def link_line_template
+    {
+    "type": "template",
+    "altText": "this is a link line template",
+    "template": {
+        "type": "buttons",
+            "text": "アカウントを連携",
+            "actions": [{
+                "type": "uri",
+                "label": "アカウント連携",
+                "uri": "https://ichihara-purchase-app.com//link_line_form?linkToken=#{link_token}"
+            }]
+      }
+    }
+  end
+
   def search_store(latitude, longitude)
     stores = []
 

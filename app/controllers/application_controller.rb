@@ -32,8 +32,12 @@ class ApplicationController < ActionController::Base
     @current_user = User.find(session[:user_id]) if session[:user_id]
   end
 
+  def line_user?(user_id)
+    return false unless current_user.line_id
+  end
+
   def check_line_user(id)
-    return false if User.find(line_id: id)
+    return false unless User.find(line_id: id)
   end
 
   #----------------------------check-authority------------------------
@@ -105,7 +109,7 @@ protected
 
   def set_access_url
     session[:fowarding_url] = request.original_url if request.get?
-    p session[:fowarding_url] 
+    p session[:fowarding_url]
   end
 
   def redirect_after_login(default)
