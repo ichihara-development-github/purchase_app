@@ -21,6 +21,7 @@ class LinebotController < ApplicationController
   end
 
   def link_line_form
+    @link_token = params[:link_token]
     # {
     # "type": "template",
     # "altText": "this is a link line template",
@@ -35,6 +36,13 @@ class LinebotController < ApplicationController
     #   }
     # }
     # https://access.line.me/dialog/bot/accountLink?linkToken={link token}&nonce={nonce}
+
+  end
+
+  def line_login
+    Linenonce.create(user_id: current_user.id,nonce: "hogehogehogehogehogehoge")
+    url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:link_token]}&nonce=hogehogehogehogehogehoge"
+    redirect_to url
 
   end
 

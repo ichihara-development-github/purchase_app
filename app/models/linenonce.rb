@@ -1,0 +1,2 @@
+class Linenonce < ApplicationRecord
+end
