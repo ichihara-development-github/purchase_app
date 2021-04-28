@@ -247,6 +247,12 @@ module LineTemplates
   }
 end
 
+def hello_message_template(user)
+  user =
+  {"type": "text",
+   "text": "こんにちは#{user.name}さん!\n"}
+end
+
   def sticker_list(type)
     case type
     when "thanks"

@@ -42,7 +42,7 @@ class LinebotController < ApplicationController
   def line_login
     user = User.find_by(email: params[:line_session][:email])
     if user && user.authenticate(params[:line_session][:password])
-      Linenonce.create(user_id: current_user.id,nonce: "hogehogehogehogehogehoge")
+      Linenonce.create(user_id: user.id,nonce: "hogehogehogehogehogehoge")
       url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=hogehogehogehogehogehoge"
       redirect_to url
     else
@@ -101,6 +101,15 @@ class LinebotController < ApplicationController
             client.push_message(@line_id,Postback.purchase(event["postback"]["data"].sub("action=purchase&id=","")))
           end
         end
+      when Line::Bot::Event::AccountLink
+        nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
+        if nonce.user.update(line_id: event["source"]["userId"])
+          client.push_message(user.line_id, hello_message_template(line_user))
+          client.push_message(user.line_id, sticker_list("thanks")
+        else
+          client.push_message(user.line_id, sticker_list("sorry")
+        end
+      end
     end
     head :ok
 end

@@ -75,7 +75,7 @@ class User < ApplicationRecord
   end
 
 #-------------------------------------------------------------------------
-
+  belongs_to :linenonce
   has_one :store, dependent: :destroy, class_name: "Store"
   has_many :payment, dependent: :nullify
   has_many :baskets, dependent: :destroy
