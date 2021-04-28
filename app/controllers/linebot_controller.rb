@@ -21,7 +21,7 @@ class LinebotController < ApplicationController
   end
 
   def link_line_form
-    @link_token = params[:link_token]
+    @link_token = params[:linkToken]
     # {
     # "type": "template",
     # "altText": "this is a link line template",
@@ -100,17 +100,15 @@ class LinebotController < ApplicationController
           elsif event["postback"]["data"].include?("purchase")
             client.push_message(@line_id,Postback.purchase(event["postback"]["data"].sub("action=purchase&id=","")))
           end
+        when Line::Bot::Event::AccountLink
+          nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
+          if nonce.user.update(line_id: event["source"]["userId"])
+            client.push_message(user.line_id, hello_message_template(line_user))
+            client.push_message(user.line_id, sticker_list("thanks")
+          else
+            client.push_message(user.line_id, sticker_list("sorry")
+          end
         end
-      when Line::Bot::Event::AccountLink
-        nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
-        if nonce.user.update(line_id: event["source"]["userId"])
-          client.push_message(user.line_id, hello_message_template(line_user))
-          client.push_message(user.line_id, sticker_list("thanks")
-        else
-          client.push_message(user.line_id, sticker_list("sorry")
-        end
-      end
-    end
     head :ok
-end
+ end
 end
