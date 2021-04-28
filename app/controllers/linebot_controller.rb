@@ -104,12 +104,12 @@ class LinebotController < ApplicationController
         nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
         if nonce.user.update(line_id: event["source"]["userId"])
           client.push_message(user.line_id, hello_message_template(line_user))
-          client.push_message(user.line_id, sticker_list("thanks")
+          client.push_message(user.line_id, sticker_list("thanks"))
         else
-          client.push_message(user.line_id, sticker_list("sorry")
+          client.push_message(user.line_id, sticker_list("sorry"))
         end
       end
-        head :ok
+         head :ok
     end
   end
 
