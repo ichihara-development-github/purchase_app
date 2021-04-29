@@ -74,7 +74,7 @@ class LinebotController < ApplicationController
             message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
             client.push_message(@line_id, message)
           when "LINE連携"
-            client.reply_message(event['replyToken'], link_line_template if link_line(@line_id)
+            client.reply_message(event['replyToken'], link_line_template) if link_line(@line_id)
           when "店舗検索"
             client.reply_message(event['replyToken'], send_location_template)
           when "メニュー"
@@ -104,7 +104,8 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::AccountLink
         nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
         if nonce.user.update(line_id: event["source"]["userId"])
-          client.push_message(nonce.user.line_id, hello_message_template(line_user))
+          user = nonce.user
+          client.push_message(nonce.user.line_id, hello_message_template(user))
           client.push_message(nonce.user.line_id, sticker_list("thanks"))
         else
           client.push_message(event["source"]["userId"], sticker_list("sorry"))
