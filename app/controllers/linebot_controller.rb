@@ -44,7 +44,10 @@ class LinebotController < ApplicationController
     events = client.parse_events_from(body)
     events.each do |event|
       @line_id = event["source"]["userId"]
-      client.reply_message(events[0]['replyToken'],initial_line_link_template) unless @line_user = User.find_by(line_id: @line_id)
+      unless @line_user = User.find_by(line_id: @line_id)
+        client.push_message(@line_id), link_line_template)
+        client.reply_message(events[0]['replyToken'],initial_line_link_template)
+      end
       case event
       when Line::Bot::Event::Message
         case event.type
@@ -59,9 +62,6 @@ class LinebotController < ApplicationController
               client.reply_message(event['replyToken'], sticker_list("thanks"))
             message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
             client.push_message(@line_id, message)
-          when "LINE連携"
-            (client.reply_message(event['replyToken'], already_line_user_template) and return false) if @line_user
-            client.reply_message(event['replyToken'], link_line_template) if link_line(@line_id)
           when "店舗検索"
             client.reply_message(event['replyToken'], send_location_template)
           when "メニュー"
