@@ -27,9 +27,11 @@ class LinebotController < ApplicationController
   def line_login
     user = User.find_by(email: params[:line_session][:email])
     if user && user.authenticate(params[:line_session][:password])
-      Linenonce.create(user_id: user.id, nonce: "hogehogehogehogehogehoge")
-      url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=hogehogehogehogehogehoge"
-      redirect_to url
+      ActiveRecord::Base.transaction do
+        Linenonce.create(user_id: user.id, nonce: "hogehogehogehogehogehoge")
+        url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=hogehogehogehogehogehoge"
+        redirect_to url
+      end
     else
       flash[:warning] = "メールアドレスとパスワードが一致しません"
       @link_token = params[:line_session][:link_token]
