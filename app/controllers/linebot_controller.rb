@@ -44,7 +44,7 @@ class LinebotController < ApplicationController
     events = client.parse_events_from(body)
     events.each do |event|
       @line_id = event["source"]["userId"]
-        client.reply_message(events[0]['replyToken'],initial_line_link_template) unless @line_user = User.find_by(line_id: @line_id)
+      client.reply_message(events[0]['replyToken'],initial_line_link_template) unless @line_user = User.find_by(line_id: @line_id)
       case event
       when Line::Bot::Event::Message
         case event.type
@@ -66,6 +66,8 @@ class LinebotController < ApplicationController
             client.reply_message(event['replyToken'], send_location_template)
           when "メニュー"
             client.reply_message(event['replyToken'], menu_template)
+          when "解除"
+            client.reply_message(event['replyToken'], unlink_template)
           else
             client.reply_message(event['replyToken'], default_message)
           end
@@ -87,6 +89,9 @@ class LinebotController < ApplicationController
           client.push_message(@line_id, baskets_template)
         elsif event["postback"]["data"].include?("purchase")
           client.push_message(@line_id,Postback.purchase(event["postback"]["data"].sub("action=purchase&id=","")))
+        elsif event["postback"]["data"].include?("unlink")
+          User.find_by(line_id: @line_id).update(line_id: nil)
+          client.push_message(@line_id, {"type":"text","text":"LINE連携が解除されました！"})
         end
       when Line::Bot::Event::AccountLink
         nonce = Linenonce.find_by(nonce: event["link"]["nonce"])

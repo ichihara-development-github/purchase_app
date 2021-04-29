@@ -22,13 +22,29 @@ module LineTemplates
     }
   end
 
+  def unlink_template
+    {
+    "type": "template",
+    "altText": "this is a unlink line template",
+    "template": {
+        "type": "buttons",
+            "text": "連携解除",
+            "actions": [{
+                "type": "postback",
+                "label": "アカウント連携を解除する",
+                "data": "action=unlink"
+            }]
+      }
+    }
+  end
+
   def already_line_user_template
     {
       "type": "text",
       "text": "こんにちは#{@line_user.name}さん！ \n 既にLINE連携は完了しているので以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
       \n【簡単検索】:
       \n【店舗検索】:位置情報から送料無料の店舗を検索
-      \n【メニュー】:簡単メニューを開きます"
+      \n【メニュー】:簡単メニューを開きます\n\n また連携を解除する場合は【解除】と入力してください！"
     }
   end
 
