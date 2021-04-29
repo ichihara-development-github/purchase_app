@@ -22,22 +22,6 @@ class LinebotController < ApplicationController
 
   def link_line_form
     @link_token = params[:linkToken]
-    p "-------------------------#{@link_token}--------------------}"
-    # {
-    # "type": "template",
-    # "altText": "this is a link line template",
-    # "template": {
-    #     "type": "buttons",
-    #         "text": "アカウントを連携",
-    #         "actions": [{
-    #             "type": "uri",
-    #             "label": "アカウント連携",
-    #             "uri": "https://ichihara-purchase-app.com//link_line_form?linkToken=#{link_token}"
-    #         }]
-    #   }
-    # }
-    # https://access.line.me/dialog/bot/accountLink?linkToken={link token}&nonce={nonce}
-
   end
 
   def line_login
@@ -48,6 +32,7 @@ class LinebotController < ApplicationController
       redirect_to url
     else
       flash[:warning] = "メールアドレスとパスワードが一致しません"
+      @link_token = params[:line_session][:link_token]
       render "link_line_form"
     end
   end
@@ -57,8 +42,7 @@ class LinebotController < ApplicationController
     events = client.parse_events_from(body)
     events.each do |event|
       @line_id = event["source"]["userId"]
-      # @line_user = User.find_by(@line_id: @line_id)
-      @line_user = User.first
+        client.reply_message(events[0]['replyToken'],initial_line_link_template) unless @line_user = User.find_by(line_id: @line_id)
       case event
       when Line::Bot::Event::Message
         case event.type
@@ -74,6 +58,7 @@ class LinebotController < ApplicationController
             message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
             client.push_message(@line_id, message)
           when "LINE連携"
+            (client.reply_message(event['replyToken'], already_line_user_template) and return false) if @line_user
             client.reply_message(event['replyToken'], link_line_template) if link_line(@line_id)
           when "店舗検索"
             client.reply_message(event['replyToken'], send_location_template)

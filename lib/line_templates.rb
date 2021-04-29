@@ -22,6 +22,23 @@ module LineTemplates
     }
   end
 
+  def already_line_user_template
+    {
+      "type": "text",
+      "text": "こんにちは#{@line_user.name}さん！ \n 既にLINE連携は完了しているので以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
+      \n【簡単検索】:
+      \n【店舗検索】:位置情報から送料無料の店舗を検索
+      \n【メニュー】:簡単メニューを開きます"
+    }
+  end
+
+  def initial_line_link_template
+    {
+      "type": "text",
+      "text": "こんにちは！\n\n LINEボットではLINEを通して様々な簡単操作やアプリの通知を受け取ることができます。  \n まずは【LINE連携】と打ってLINEアカウントと連携してみて下さい！"
+    }
+  end
+
   def search_store(latitude, longitude)
     stores = []
 
@@ -60,8 +77,8 @@ module LineTemplates
     $product = nil
     {
       "type": "text",
-      "text": "こんにちは#{@line_user.name}さん \n 以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
-      \n【簡単検索】:
+      "text": " \n 以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
+      \n【】:
       \n【店舗検索】:位置情報から送料無料の店舗を検索
       \n【メニュー】:簡単メニューを開きます"
     }
