@@ -12,10 +12,10 @@ module LineTemplates
     "altText": "this is a link line template",
     "template": {
         "type": "buttons",
-            "text": "アカウントを連携",
+            "text": "こんにちは！\n\n LINEボットではLINEを通して様々な簡単操作やアプリの通知を受け取ることができます。  \n アカウント連携してみて下さい！",
             "actions": [{
                 "type": "uri",
-                "label": "アカウント連携",
+                "label": "アカウントを連携する",
                 "uri": "https://ichihara-purchase-app.com/link_line_form?linkToken=#{@link_token}"
             }]
       }

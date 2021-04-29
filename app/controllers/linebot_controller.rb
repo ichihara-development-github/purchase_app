@@ -7,6 +7,15 @@ class LinebotController < ApplicationController
   include LineTemplates
   include Postback
 
+  before_action :check_linked_user, only: [:callback]
+
+  def check_linked_user?
+    body = request.body.read
+    @events = client.parse_events_from(body)
+    @line_id = events[0]["source"]["userId"]
+    (client.reply_message(events[0]['replyToken'],link_line_template) and return false) unless @line_user = User.find_by(line_id: @line_id)
+  end
+
   def link_line(userId)
     url = "https://api.line.me/v2/bot/user/#{userId}/linkToken"
     uri = URI.parse(url)
@@ -40,14 +49,7 @@ class LinebotController < ApplicationController
   end
 
   def callback
-    body = request.body.read
-    events = client.parse_events_from(body)
-    events.each do |event|
-      @line_id = event["source"]["userId"]
-      unless @line_user = User.find_by(line_id: @line_id)
-        client.push_message(@line_id), link_line_template)
-        client.reply_message(events[0]['replyToken'],initial_line_link_template)
-      end
+    @events.each do |event|
       case event
       when Line::Bot::Event::Message
         case event.type
