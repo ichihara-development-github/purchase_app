@@ -36,9 +36,13 @@ class LinebotController < ApplicationController
   def line_login
     user = User.find_by(email: params[:line_session][:email])
     if user && user.authenticate(params[:line_session][:password])
+      Rails.application.config.content_security_policy do |policy|
+        policy.script_src :self, :https
+      end
+      nonce = Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
       ActiveRecord::Base.transaction do
-        Linenonce.create(user_id: user.id, nonce: "hogehogehogehogehogehoge")
-        url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=hogehogehogehogehogehoge"
+        Linenonce.create(user_id: user.id, nonce: nonce)
+        url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=#{nonce}"
         redirect_to url
       end
     else
@@ -97,7 +101,7 @@ class LinebotController < ApplicationController
         end
       when Line::Bot::Event::AccountLink
         nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
-        if nonce.user.update(line_id: event["source"]["userId"])
+        if nonce.user.update(line_id: event["source"]["userId"], nonce: nil)
           user = nonce.user
           client.push_message(nonce.user.line_id, hello_message_template(user))
           client.push_message(nonce.user.line_id, sticker_list("thanks"))
