@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210426093418) do
+ActiveRecord::Schema.define(version: 20210429035405) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer "user_id"
@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 20210426093418) do
   end
 
   create_table "linenonces", force: :cascade do |t|
-    t.integer "nonce"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nonce"
   end
 
   create_table "notifications", force: :cascade do |t|

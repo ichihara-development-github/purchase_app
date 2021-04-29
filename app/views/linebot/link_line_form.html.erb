@@ -3,7 +3,7 @@
 
     <div class = "margin-vertical">
       <%= form_for(:line_session, url: line_login_path) do |f| %>
-      <% hidden_field :link_token, value: @link_token %>
+      <%= f.hidden_field :link_token, :value => @link_token %>
       <%= f.label "メールアドレス" %>
       <%= f.text_field :email,class: "form-control" %><br />
 
