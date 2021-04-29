@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210429035405) do
+ActiveRecord::Schema.define(version: 20210429081424) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer "user_id"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 20210429035405) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.integer "line_id"
+    t.string "line_id"
     t.index ["store_id"], name: "index_users_on_store_id"
   end
 

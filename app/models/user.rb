@@ -75,7 +75,7 @@ class User < ApplicationRecord
   end
 
 #-------------------------------------------------------------------------
-  has_one :nonce, dependent: :destroy, foreign_key: "user_id", class_name: "Linenonce"
+  # has_one :nonce, dependent: :destroy, foreign_key: "user_id", class_name: "Linenonce"
   has_one :store, dependent: :destroy, class_name: "Store"
   has_many :payment, dependent: :nullify
   has_many :baskets, dependent: :destroy
