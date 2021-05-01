@@ -7,13 +7,13 @@ class LinebotController < ApplicationController
   include LineTemplates
   include Postback
 
-  before_action :check_linked_user, only: [:callback]
+  before_action :check_linked_user?, only: [:callback]
 
   def check_linked_user?
     body = request.body.read
     @events = client.parse_events_from(body)
-    @line_id = events[0]["source"]["userId"]
-    (client.reply_message(events[0]['replyToken'],link_line_template) and return false) unless @line_user = User.find_by(line_id: @line_id)
+    @line_id = @events[0]["source"]["userId"]
+    (client.reply_message(@events[0]['replyToken'],link_line_template) and return false) unless @line_user = User.find_by(line_id: @line_id)
   end
 
   def link_line(userId)
@@ -36,13 +36,13 @@ class LinebotController < ApplicationController
   def line_login
     user = User.find_by(email: params[:line_session][:email])
     if user && user.authenticate(params[:line_session][:password])
-      Rails.application.config.content_security_policy do |policy|
-        policy.script_src :self, :https
+      @nonce = SecureRandom.urlsafe_base64
+      while Linenonce.find_by(nonce: @nonce)==nil
+        @nonce = SecureRandom.urlsafe_base64
       end
-      nonce = Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
       ActiveRecord::Base.transaction do
-        Linenonce.create(user_id: user.id, nonce: nonce)
-        url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=#{nonce}"
+        Linenonce.create(user_id: user.id, nonce: @nonce)
+        url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=#{@nonce}"
         redirect_to url
       end
     else
