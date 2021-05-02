@@ -40,10 +40,8 @@ class LinebotController < ApplicationController
   def line_login
     user = User.find_by(email: params[:line_session][:email])
     if user && user.authenticate(params[:line_session][:password])
-      @nonce = SecureRandom.urlsafe_base64
-      while Linenonce.find_by(nonce: @nonce).present?
-        @nonce = SecureRandom.urlsafe_base64
-      end
+      @nonce = SecureRandom.urlsafe_base64 while Linenonce.find_by(nonce: @nonce).present?
+
       ActiveRecord::Base.transaction do
         Linenonce.create(user_id: user.id, nonce: @nonce)
         url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=#{@nonce}"
@@ -104,10 +102,11 @@ class LinebotController < ApplicationController
           client.push_message(@line_id, {"type":"text","text":"LINE連携が解除されました！"})
         end
       when Line::Bot::Event::AccountLink
-        user = Linenonce.find_by(nonce: event["link"]["nonce"]).user
-        if user.update(line_id: event["source"]["userId"], nonce: nil)
-          client.push_message(nonce.user.line_id, hello_message_template(user))
+        nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
+        if nonce.user.update(line_id: event["source"]["userId"])
+          client.push_message(nonce.user.line_id, hello_message_template(nonce.user))
           client.push_message(nonce.user.line_id, sticker_list("thanks"))
+          nonce.destroy
         else
           client.push_message(event["source"]["userId"], sticker_list("sorry"))
         end
