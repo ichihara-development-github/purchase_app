@@ -40,7 +40,10 @@ class LinebotController < ApplicationController
   def line_login
     user = User.find_by(email: params[:line_session][:email])
     if user && user.authenticate(params[:line_session][:password])
-      @nonce = SecureRandom.urlsafe_base64 while Linenonce.find_by(nonce: @nonce).present?
+      @nonce = SecureRandom.urlsafe_base64
+      while Linenonce.find_by(nonce: @nonce).present?
+        @nonce = SecureRandom.urlsafe_base64
+      end
 
       ActiveRecord::Base.transaction do
         Linenonce.create(user_id: user.id, nonce: @nonce)
