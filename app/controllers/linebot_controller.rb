@@ -13,7 +13,11 @@ class LinebotController < ApplicationController
     body = request.body.read
     @events = client.parse_events_from(body)
     @line_id = @events[0]["source"]["userId"]
-    (link_line(@line_id) and client.reply_message(@events[0]['replyToken'],link_line_template) and return false) unless @line_user = User.find_by(line_id: @line_id)
+    unless @line_user = User.find_by(line_id: @line_id)
+      link_line(@line_id)
+      client.reply_message(@events[0]['replyToken'],link_line_template)
+      return false
+    end
   end
 
   def link_line(userId)
@@ -100,9 +104,8 @@ class LinebotController < ApplicationController
           client.push_message(@line_id, {"type":"text","text":"LINE連携が解除されました！"})
         end
       when Line::Bot::Event::AccountLink
-        nonce = Linenonce.find_by(nonce: event["link"]["nonce"])
-        if nonce.user.update(line_id: event["source"]["userId"], nonce: nil)
-          user = nonce.user
+        user = Linenonce.find_by(nonce: event["link"]["nonce"]).user
+        if user.update(line_id: event["source"]["userId"], nonce: nil)
           client.push_message(nonce.user.line_id, hello_message_template(user))
           client.push_message(nonce.user.line_id, sticker_list("thanks"))
         else
