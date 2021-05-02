@@ -13,7 +13,7 @@ class LinebotController < ApplicationController
     body = request.body.read
     @events = client.parse_events_from(body)
     @line_id = @events[0]["source"]["userId"]
-    (client.reply_message(@events[0]['replyToken'],link_line_template) and return false) unless @line_user = User.find_by(line_id: @line_id)
+    (link_line(@line_id) and client.reply_message(@events[0]['replyToken'],link_line_template) and return false) unless @line_user = User.find_by(line_id: @line_id)
   end
 
   def link_line(userId)
@@ -37,7 +37,7 @@ class LinebotController < ApplicationController
     user = User.find_by(email: params[:line_session][:email])
     if user && user.authenticate(params[:line_session][:password])
       @nonce = SecureRandom.urlsafe_base64
-      while Linenonce.find_by(nonce: @nonce)==nil
+      while Linenonce.find_by(nonce: @nonce).present?
         @nonce = SecureRandom.urlsafe_base64
       end
       ActiveRecord::Base.transaction do
