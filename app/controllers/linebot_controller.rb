@@ -7,12 +7,7 @@ class LinebotController < ApplicationController
   include LineTemplates
   include Postback
 
-  before_action :check_linked_user?, only: [:callback]
-
   def check_linked_user?
-    body = request.body.read
-    @events = client.parse_events_from(body)
-    @line_id = @events[0]["source"]["userId"]
     unless @line_user = User.find_by(line_id: @line_id)
       link_line(@line_id)
       client.reply_message(@events[0]['replyToken'],link_line_template)
@@ -58,9 +53,13 @@ class LinebotController < ApplicationController
   end
 
   def callback
-    @events.each do |event|
+    body = request.body.read
+    @events = client.parse_events_from(body)
+    @line_id = @events[0]["source"]["userId"]
+    events.each do |event|
       case event
       when Line::Bot::Event::Message
+        check_linked_user?
         case event.type
         when  Line::Bot::Event::MessageType::Location
           message = search_store(event["message"]["latitude"], event["message"]["longitude"])
@@ -84,6 +83,7 @@ class LinebotController < ApplicationController
           end
         end
       when Line::Bot::Event::Postback
+        check_linked_user?
         if event["postback"]["data"].include?("display_products_stocks")
           client.reply_message(event['replyToken'], stocks_template)
         elsif event["postback"]["data"].include?("update_stocks")
