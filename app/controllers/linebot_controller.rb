@@ -54,12 +54,12 @@ class LinebotController < ApplicationController
 
   def callback
     body = request.body.read
-    @events = client.parse_events_from(body)
+    events = client.parse_events_from(body)
     @line_id = @events[0]["source"]["userId"]
     events.each do |event|
       case event
       when Line::Bot::Event::Message
-        check_linked_user?
+        return false if check_linked_user?
         case event.type
         when  Line::Bot::Event::MessageType::Location
           message = search_store(event["message"]["latitude"], event["message"]["longitude"])
@@ -83,7 +83,7 @@ class LinebotController < ApplicationController
           end
         end
       when Line::Bot::Event::Postback
-        check_linked_user?
+        return false if check_linked_user?
         if event["postback"]["data"].include?("display_products_stocks")
           client.reply_message(event['replyToken'], stocks_template)
         elsif event["postback"]["data"].include?("update_stocks")
