@@ -15,6 +15,9 @@ class LinebotController < ApplicationController
     end
   end
 
+  def line_bot_information
+  end
+
   def link_line(userId)
     url = "https://api.line.me/v2/bot/user/#{userId}/linkToken"
     uri = URI.parse(url)
@@ -54,12 +57,12 @@ class LinebotController < ApplicationController
 
   def callback
     body = request.body.read
-    events = client.parse_events_from(body)
-    @line_id = @events[0]["source"]["userId"]
-    events.each do |event|
+    @events = client.parse_events_from(body)
+    @events.each do |event|
+      @line_id = event["source"]["userId"]
       case event
       when Line::Bot::Event::Message
-        return false if check_linked_user?
+        return false unless check_linked_user?
         case event.type
         when  Line::Bot::Event::MessageType::Location
           message = search_store(event["message"]["latitude"], event["message"]["longitude"])
@@ -83,12 +86,15 @@ class LinebotController < ApplicationController
           end
         end
       when Line::Bot::Event::Postback
-        return false if check_linked_user?
+        return false unless check_linked_user?
         if event["postback"]["data"].include?("display_products_stocks")
           client.reply_message(event['replyToken'], stocks_template)
+        elsif ["postback"]["data"].include?("stocks")
+          $product = Product.find(event["postback"]["data"].sub("action=update_stocks&id=",""))
+          client.push_mesage(@line_id, count_template($product))
         elsif event["postback"]["data"].include?("update_stocks")
-          $product = Product.find(1)
-          client.push_message(@line_id, {"type": "text", "text":"変更後の個数を入力して下さい"})
+          $product.update(event["postback"]["data"].sub("update_stocks&count=",""))
+          client.reply_message(event['replyToken'], sticker_list("thanks"))
         elsif event["postback"]["data"].include?("fuga")
           client.reply_message(event['replyToken'], sticker_list("thanks"))
           message = {"type": "text", "text": event["postback"]["data"]}

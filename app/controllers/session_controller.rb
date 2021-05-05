@@ -3,7 +3,6 @@ class SessionController < ApplicationController
 
   end
 
-
   def login(user)
     session[:user_id] = user.id
     flash[:success] = 'ログインしました'

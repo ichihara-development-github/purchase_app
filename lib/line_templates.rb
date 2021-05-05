@@ -182,7 +182,7 @@ module LineTemplates
       "action": {
         "type": "postback",
         "label": "#{product.count} "+"#{product.name}",
-        "data": "action=update_stocks&id=#{product.id}"
+        "data": "action=stocks&id=#{product.id}"
        }
       }.with_indifferent_access)
     end
@@ -196,6 +196,34 @@ module LineTemplates
       }
      }
 
+   end
+
+   def count_template(product)
+     {
+       "type": "template",
+       "template": {
+           "type": "buttons",
+           "title": "#{product.name}",
+           "text": "変更後の個数を選択してください",
+           "actions": [
+               {
+                 "type": "postback",
+                 "label": "10個",
+                 "data": "update_stocks&count=10"
+               },
+               {
+                 "type": "postback",
+                 "label": "50個",
+                 "data": "update_stocks&count=50"
+               },
+               {
+                 "type": "postback",
+                 "label": "100個",
+                 "data": "update_stocks&count=100"
+               }
+           ]
+       }
+     }
    end
 
    def baskets_template

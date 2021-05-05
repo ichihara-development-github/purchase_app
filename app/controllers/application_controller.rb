@@ -36,10 +36,6 @@ class ApplicationController < ActionController::Base
     return false unless current_user.line_id
   end
 
-  def check_line_user(id)
-    return false unless User.find(line_id: id)
-  end
-
   #----------------------------check-authority------------------------
   def login_user?
     unless current_user

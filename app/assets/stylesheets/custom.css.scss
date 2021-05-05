@@ -13,7 +13,7 @@ li{
 }
 
 .container{
-    padding: 15px;
+    padding: 10px;
 }
 
 .pd-10{
@@ -357,3 +357,11 @@ display-400{
         cursor: pointer;
     }
       }
+
+  .line_bot{
+    width:100%;
+    margin-top:60px;
+    padding:10px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.8);
+  }

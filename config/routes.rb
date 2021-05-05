@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
  # line-bot
  post "/callback", to: "linebot#callback"
+ get "line_bot_information", to: "linebot#line_bot_information"
  get "/link_line_form", to: "linebot#link_line_form"
  post "line_login", to: "linebot#line_login"
 

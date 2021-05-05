@@ -98,12 +98,24 @@ $(function(){
 
     <% end %>
 
-     <%= render "layouts/navigation" %>
-        <div class = "main container" style = "margin-top: 40px">
-         <div class="flash-message-space">
-            <%= render "layouts/message" %>
+     <div class="margin-vertical">
+       <%= render "layouts/navigation" %>
+     </div>
+     <% if current_user && !current_user.line_id %>
+     <div class="line_bot">
+       <%= link_to "LINEボットに登録しよう！ >>",line_bot_information_path, style: "color:white" %>
+     </div>
+     <% end %>
+
+
+      <div class = "main container">
+        <div class="center">
+          <div class="flash-message-space">
+             <%= render "layouts/message" %>
+               <div style = "line-height: 50px; font-size:24px">
+               </div>
+            <%= yield %>
          </div>
-           <%= yield %>
         </div>
 
   </body>
