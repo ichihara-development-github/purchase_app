@@ -13,6 +13,7 @@ class LinebotController < ApplicationController
       client.reply_message(@events[0]['replyToken'],link_line_template)
       return false
     end
+    true
   end
 
   def line_bot_information
