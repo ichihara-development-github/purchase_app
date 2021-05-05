@@ -10,7 +10,7 @@ class LinebotController < ApplicationController
   def check_linked_user?
     unless @line_user = User.find_by(line_id: @line_id)
       link_line(@line_id)
-      client.reply_message(@events[0]['replyToken'],link_line_template)
+      client.reply_message(@events[1]['replyToken'],link_line_template)
       return false
     end
     true
