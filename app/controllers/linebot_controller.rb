@@ -1,7 +1,6 @@
 require './lib/line_templates'
 require './lib/postback'
 
-
 class LinebotController < ApplicationController
 
   include LineTemplates
@@ -10,7 +9,7 @@ class LinebotController < ApplicationController
   def check_linked_user?
     unless @line_user = User.find_by(line_id: @line_id)
       link_line(@line_id)
-      client.reply_message(@events[1]['replyToken'],link_line_template)
+      client.reply_message(@events[0]['replyToken'],link_line_template)
       return false
     end
     true
@@ -90,7 +89,7 @@ class LinebotController < ApplicationController
         return false unless check_linked_user?
         if event["postback"]["data"].include?("display_products_stocks")
           client.reply_message(event['replyToken'], stocks_template)
-        elsif ["postback"]["data"].include?("stocks")
+        elsif event["postback"]["data"].include?("stocks")
           $product = Product.find(event["postback"]["data"].sub("action=update_stocks&id=",""))
           client.push_mesage(@line_id, count_template($product))
         elsif event["postback"]["data"].include?("update_stocks")

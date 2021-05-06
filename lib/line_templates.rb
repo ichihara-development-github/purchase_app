@@ -143,35 +143,35 @@ module LineTemplates
   end
 
   def owner_menu_template
+    {
+      "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
+      "imageBackgroundColor": "#FFFFFF",
+      "title": "管理者メニュー",
+      "text": "LINEから簡単に実行できるメニューです",
+      "defaultAction": {
+          "type": "uri",
+          "label": "オーナー登録画面へ",
+          "uri": "https://ichihara-purchase-app.com/registration"
+      },
+      "actions": [
+          {
+              "type": "postback",
+              "label": "在庫確認",
+              "data": "action=display_products_stocks"
+          },
+          {
+              "type": "postback",
+              "label": "売上確認",
+              "data": "action=check_total_proceeds"
+          },
+          {
+              "type": "postback",
+              "label": "価格変更",
+              "data": "action=check_total_proceeds"
+          }
+      ]
+    }
 
-      {
-        "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
-        "imageBackgroundColor": "#FFFFFF",
-        "title": "管理者メニュー",
-        "text": "LINEから行える管理メニューです",
-        "defaultAction": {
-            "type": "uri",
-            "label": "オーナー登録画面へ",
-            "uri": "https://ichihara-purchase-app.com/registration"
-        },
-        "actions": [
-            {
-                "type": "postback",
-                "label": "在庫変更",
-                "data": "action=display_products_stocks"
-            },
-            {
-                "type": "postback",
-                "label": "価格変更",
-                "data": "action=check_total_proceeds"
-            },
-            {
-                "type": "postback",
-                "label": "売上確認",
-                "data": "check_total_proceeds"
-            }
-        ]
-      }
   end
 
   def stocks_template
