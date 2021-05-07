@@ -178,16 +178,25 @@ module LineTemplates
     list = []
     @line_user.store.products.each do |product|
       list.push(
-      {
-      "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
-      "action": {
-        "type": "postback",
-        "label": "#{product.count} "+"#{product.name}",
-        "data": "action=stocks&id=#{product.id}"
+        # {
+        #      "imageUrl": "https://example.com/bot/images/item1.jpg",
+        #      "action": {
+        #        "type": "postback",
+        #        "label": "Buy",
+        #        "data": "action=buy&itemid=111"
+        #      }
+        {
+             "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
+             "action": {
+               "type": "postback",
+               "label": "#{product.count} "+"#{product.name}",
+               "data": "action=stocks&id=#{product.id}"
        }
       }.with_indifferent_access
     )
     end
+
+
 
     {
       "type": "template",
