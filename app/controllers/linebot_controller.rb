@@ -7,7 +7,8 @@ class LinebotController < ApplicationController
   include Postback
 
   def check_linked_user?
-    unless @line_user = User.find_by(line_id: @line_id)
+    @line_user = User.find_by(line_id: @line_id)
+    unless @line_user 
       link_line(@line_id)
       client.reply_message(@events[0]['replyToken'],link_line_template)
       return false
@@ -88,7 +89,7 @@ class LinebotController < ApplicationController
           $product = Product.find(event["postback"]["data"].sub("action=update_stocks&id=",""))
           client.push_mesage(@line_id, count_template($product))
         elsif event["postback"]["data"].include?("update_stocks")
-          $product.update(event["postback"]["data"].sub("update_stocks&count=",""))
+          $product.update(count: event["postback"]["data"].sub("update_stocks&count=",""))
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         elsif event["postback"]["data"].include?("fuga")
           client.reply_message(event['replyToken'], sticker_list("thanks"))
