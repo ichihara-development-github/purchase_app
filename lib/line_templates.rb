@@ -156,13 +156,18 @@ module LineTemplates
       "actions": [
           {
               "type": "postback",
-              "label": "カート確認",
-              "data": "action=check_baskets"
+              "label": "売り上げ確認",
+              "data": "action=check_total_proceeds"
           },
           {
               "type": "postback",
-              "label": "今すぐ購入",
-              "data": "fuga"
+              "label": "在庫変更",
+              "data": "action=display_products_stocks"
+          },
+          {
+              "type": "postback",
+              "label": "価格変更",
+              "data": "action=display_products_stock"
           }
       ]
     }
