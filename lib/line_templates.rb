@@ -38,15 +38,15 @@ module LineTemplates
     }
   end
 
-  def already_line_user_template
-    {
-      "type": "text",
-      "text": "こんにちは#{@line_user.name}さん！ \n 既にLINE連携は完了しているので以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
-      \n【簡単検索】:
-      \n【店舗検索】:位置情報から送料無料の店舗を検索
-      \n【メニュー】:簡単メニューを開きます\n\n また連携を解除する場合は【解除】と入力してください！"
-    }
-  end
+  # def already_line_user_template
+  #   {
+  #     "type": "text",
+  #     "text": "こんにちは#{@line_user.name}さん！ \n 既にLINE連携は完了しているので以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
+  #     \n【簡単検索】:
+  #     \n【店舗検索】:位置情報から送料無料の店舗を検索
+  #     \n【メニュー】:簡単メニューを開きます\n\n また連携を解除する場合は【解除】と入力してください！"
+  #   }
+  # end
 
   def initial_line_link_template
     {
@@ -177,14 +177,23 @@ module LineTemplates
   def stocks_template
     list = []
     @line_user.store.products.each do |product|
-      list.push({
-      "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
-      "action": {
-        "type": "postback",
-        "label": "#{product.count} "+"#{product.name}",
-        "data": "action=stocks&id=#{product.id}"
-       }
-      }.with_indifferent_access)
+      list.push(
+        {
+             "imageUrl": "https://example.com/bot/images/item1.jpg",
+             "action": {
+               "type": "postback",
+               "label": "Buy",
+               "data": "action=buy&itemid=111"
+             }
+      #   {
+      # "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
+      # "action": {
+      #   "type": "postback",
+      #   "label": "#{product.count} "+"#{product.name}",
+      #   "data": "action=stocks&id=#{product.id}"
+      #  }
+      }.with_indifferent_access
+    )
     end
 
     {
