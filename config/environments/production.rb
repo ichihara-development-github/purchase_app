@@ -5,15 +5,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'https://ichihara-purchase-app.com'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'ichihara-purchase-app.herokuapp.com',
-    :enable_starttls_auto => true
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address        => 'smtp.sendgrid.net',
+  #   :port           => '587',
+  #   :authentication => :plain,
+  #   :user_name      => ENV['SENDGRID_USERNAME'],
+  #   :password       => ENV['SENDGRID_PASSWORD'],
+  #   :domain         => 'ichihara-purchase-app.herokuapp.com',
+  #   :enable_starttls_auto => true
+  # }
 
   # Code is not reloaded between requests.
   config.cache_classes = true

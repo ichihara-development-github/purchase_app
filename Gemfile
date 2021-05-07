@@ -8,7 +8,7 @@ gem 'will_paginate-bootstrap4'
 
 gem 'carrierwave'
 gem 'fog-aws'
-gem 'aws-ses' , '~> 0.6'
+gem 'aws-ses' , '~> 0.7'
 gem 'aws-sdk-rails'
 
 gem 'line-bot-api'
