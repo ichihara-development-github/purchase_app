@@ -13,7 +13,7 @@ module Postback extend self
     end
      {
       "type": "text",
-       "text": "_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/ \n 現在売り上げ: #{total}\n 売上個数: #{counts}\n 平均単価: #{total/counts} \n /_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/"
+       "text": "_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/ \n 現在売り上げ: #{total}\n 売上個数: #{counts}\n 平均単価: #{total/counts || 0} \n /_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/"
      }
   end
 

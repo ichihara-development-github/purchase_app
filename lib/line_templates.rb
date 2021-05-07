@@ -108,11 +108,6 @@ module LineTemplates
         "imageBackgroundColor": "#FFFFFF",
         "title": "メニュー",
         "text": "LINEから簡単に実行できるメニューです",
-        "defaultAction": {
-            "type": "uri",
-            "label": "オーナー登録画面へ",
-            "uri": "https://ichihara-purchase-app.com/registration"
-        },
         "actions": [
             {
                 "type": "postback",
@@ -123,6 +118,11 @@ module LineTemplates
                 "type": "postback",
                 "label": "今すぐ購入",
                 "data": "fuga"
+            },
+            {
+                "type": "uri",
+                "label": "サイトへ画面へ",
+                "uri": "https://ichihara-purchase-app.com"
             }
         ]
       }
