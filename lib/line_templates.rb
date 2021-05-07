@@ -90,13 +90,13 @@ module LineTemplates
   end
 
   def default_message
-    $product = nil
     {
       "type": "text",
       "text": " \n 以下のワードを入力して簡単機能を利用してみてください(・ω・)/ \n
-      \n【】:
       \n【店舗検索】:位置情報から送料無料の店舗を検索
-      \n【メニュー】:簡単メニューを開きます"
+      \n【メニュー】:簡単メニューを開きます
+      \n【ヘルプ】:ｋｆｊｊｆｋｄｊｆかｊｆ
+      \n\n\n また【解除】と入力するとLINE連携を解除します。"
     }
   end
 
@@ -146,7 +146,7 @@ module LineTemplates
     {
       "thumbnailImageUrl": "https://purchase-app-backet.s3.amazonaws.com/uploads/store.jpg",
       "imageBackgroundColor": "#FFFFFF",
-      "title": "管理者メニュー",
+      "title": "メニュー",
       "text": "LINEから簡単に実行できるメニューです",
       "defaultAction": {
           "type": "uri",
@@ -156,18 +156,13 @@ module LineTemplates
       "actions": [
           {
               "type": "postback",
-              "label": "在庫確認",
-              "data": "action=display_products_stocks"
+              "label": "カート確認",
+              "data": "action=check_baskets"
           },
           {
               "type": "postback",
-              "label": "売上確認",
-              "data": "action=check_total_proceeds"
-          },
-          {
-              "type": "postback",
-              "label": "価格変更",
-              "data": "action=check_total_proceeds"
+              "label": "今すぐ購入",
+              "data": "fuga"
           }
       ]
     }

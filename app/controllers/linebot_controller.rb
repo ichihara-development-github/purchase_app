@@ -42,7 +42,6 @@ class LinebotController < ApplicationController
       while Linenonce.find_by(nonce: @nonce).present?
         @nonce = SecureRandom.urlsafe_base64
       end
-
       ActiveRecord::Base.transaction do
         Linenonce.create(user_id: user.id, nonce: @nonce)
         url = "https://access.line.me/dialog/bot/accountLink?linkToken=#{params[:line_session][:link_token]}&nonce=#{@nonce}"
@@ -71,10 +70,6 @@ class LinebotController < ApplicationController
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         when Line::Bot::Event::MessageType::Text
           case event.message['text']
-          when (1..1000).to_s
-              client.reply_message(event['replyToken'], sticker_list("thanks"))
-            message = Postback.update_stocks(event.message['text']) ? "更新が完了しました" : default_message
-            client.push_message(@line_id, message)
           when "店舗検索"
             client.reply_message(event['replyToken'], send_location_template)
           when "メニュー"
