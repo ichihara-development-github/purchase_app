@@ -182,7 +182,7 @@ module LineTemplates
              "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
              "action": {
                "type": "postback",
-               "label": "#{product.count}"+"#{product.name}",
+               "label": "#{product.count}",
                "data":"action=stocks&id=#{product.id}"
              }
       }.with_indifferent_access
@@ -202,12 +202,12 @@ module LineTemplates
 
    end
 
-   def count_template(product)
+   def count_template(id)
      {
        "type": "template",
        "template": {
            "type": "buttons",
-           "title": "#{product.name}",
+           "title": "#{id}",
            "text": "変更後の個数を選択してください",
            "actions": [
                {

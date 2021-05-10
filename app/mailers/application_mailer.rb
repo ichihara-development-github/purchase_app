@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreplay@ichihara-purchase-app.com', charset: 'ISO-2022-JP'
+  default from: 'no-replay@ichihara-purchase-app.com', charset: 'ISO-2022-JP'
   layout 'mailer'
 end
