@@ -182,7 +182,7 @@ module LineTemplates
              "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
              "action": {
                "type": "postback",
-               "label": "#{product.count}",
+               "label": "#{product.count}"+"#{product.name}",
                "data":"action=stocks&id=#{product.id}"
              }
       }.with_indifferent_access
