@@ -219,11 +219,6 @@ module LineTemplates
                  "type": "postback",
                  "label": "50個",
                  "data": "update_stocks&count=50"
-               },
-               {
-                 "type": "postback",
-                 "label": "100個",
-                 "data": "update_stocks&count=100"
                }
            ]
        }
