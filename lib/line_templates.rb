@@ -183,7 +183,7 @@ module LineTemplates
              "action": {
                "type": "postback",
                "label": "#{product.count}",
-               "data":"action=stocks&id=#{product.id}"
+               "data":"action=select_stock&id=#{product.id}"
              }
       }.with_indifferent_access
     )

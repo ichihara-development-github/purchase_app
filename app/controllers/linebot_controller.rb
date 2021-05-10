@@ -85,7 +85,7 @@ class LinebotController < ApplicationController
         return false unless check_linked_user?
         if event["postback"]["data"].include?("display_products_stocks")
           client.reply_message(event['replyToken'], stocks_template)
-        elsif event["postback"]["data"].include?("stocks")
+        elsif event["postback"]["data"].include?("select_stock")
           id = event["postback"]["data"].sub("action=stocks&id=","")
           client.push_message(@line_id, count_template(id))
         elsif event["postback"]["data"].include?("update_stocks")
