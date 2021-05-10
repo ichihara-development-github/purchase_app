@@ -3,13 +3,6 @@ class SessionController < ApplicationController
 
   end
 
-  def login(user)
-    session[:user_id] = user.id
-    flash[:success] = 'ログインしました'
-    return redirect_to line_login_path(link_token: params[:link_token]) if params[:link_token].present?
-    redirect_after_login(root_path)
-  end
-
   def create
     unless current_user
       user = User.find_by(email: params[:session][:email])

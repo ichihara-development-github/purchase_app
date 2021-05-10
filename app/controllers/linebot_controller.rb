@@ -89,7 +89,7 @@ class LinebotController < ApplicationController
           id = event["postback"]["data"].sub("action=stocks&id=","")
           client.push_message(@line_id, count_template(id))
         elsif event["postback"]["data"].include?("update_stocks")
-          product.update(count: event["postback"]["data"].sub("update_stocks&count=",""))
+          Product.find(event["title"]).update(count: event["postback"]["title"].sub("update_stocks&count=",""))
           client.reply_message(event['replyToken'], sticker_list("thanks"))
         elsif event["postback"]["data"].include?("check_total_proceeds")
           message = Postback.check_total_proceeds(@line_user)

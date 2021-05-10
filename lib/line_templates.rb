@@ -204,25 +204,55 @@ module LineTemplates
 
    def count_template(id)
      {
-       "type": "template",
-       "template": {
-           "type": "buttons",
-           "title": "#{id}",
-           "text": "変更後の個数を選択してください",
-           "actions": [
-               {
-                 "type": "postback",
-                 "label": "10個",
-                 "data": "update_stocks&count=10"
-               },
-               {
-                 "type": "postback",
-                 "label": "50個",
-                 "data": "update_stocks&count=50"
-               }
-           ]
-       }
-     }
+  "type": "template",
+  "altText": "This is a buttons template",
+  "template": {
+      "type": "buttons",
+      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+      "imageAspectRatio": "rectangle",
+      "imageSize": "cover",
+      "imageBackgroundColor": "#FFFFFF",
+      "title": "#{id}",
+      "text": "変更後の個数を選択してください",
+      "actions": [
+          {
+            "type": "postback",
+            "label": "10個",
+            "data": "update_stocks&count=10"
+          },
+          {
+            "type": "postback",
+            "label": "50個",
+            "data": "update_stocks&count=50"
+          },
+          {
+            "type": "postback",
+            "label": "50個",
+            "data": "update_stocks&count100"
+          }
+      ]
+  }
+}
+     # {
+     #   "type": "template",
+     #   "template": {
+     #       "type": "buttons",
+     #       "title": "#{id}",
+     #       "text": "変更後の個数を選択してください",
+     #       "actions": [
+     #           {
+     #             "type": "postback",
+     #             "label": "10個",
+     #             "data": "update_stocks&count=10"
+     #           },
+     #           {
+     #             "type": "postback",
+     #             "label": "50個",
+     #             "data": "update_stocks&count=50"
+     #           }
+     #       ]
+     #   }
+     # }
    end
 
    def baskets_template

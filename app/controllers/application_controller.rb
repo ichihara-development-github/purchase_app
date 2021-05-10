@@ -32,6 +32,14 @@ class ApplicationController < ActionController::Base
     @current_user = User.find(session[:user_id]) if session[:user_id]
   end
 
+
+  def login(user)
+    session[:user_id] = user.id
+    flash[:success] = 'ログインしました'
+    redirect_after_login(root_path)
+  end
+
+
   def line_user?(user_id)
     return false unless current_user.line_id
   end
