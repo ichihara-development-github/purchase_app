@@ -32,7 +32,7 @@ module LineTemplates
             "actions": [{
                 "type": "postback",
                 "label": "アカウント連携を解除する",
-                "data": "action=unlink"
+                "data": "unlink"
             }]
       }
     }
@@ -112,7 +112,7 @@ module LineTemplates
             {
                 "type": "postback",
                 "label": "カート確認",
-                "data": "action=check_baskets"
+                "data": "check_baskets"
             },
             {
                 "type": "postback",
@@ -157,17 +157,17 @@ module LineTemplates
           {
               "type": "postback",
               "label": "売り上げ確認",
-              "data": "action=check_total_proceeds"
+              "data": "check_total_proceeds"
           },
           {
               "type": "postback",
               "label": "在庫変更",
-              "data": "action=display_products_stocks"
+              "data": "display_products_stocks"
           },
           {
               "type": "postback",
               "label": "価格変更",
-              "data": "action=display_products_stock"
+              "data": "display_products_stock"
           }
       ]
     }
