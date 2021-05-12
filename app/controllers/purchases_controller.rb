@@ -41,8 +41,20 @@ class PurchasesController < ApplicationController
 
          current_user.baskets.destroy_all
          flash[:success] = "購入が完了しました"
-         redirect_to baskets_path
+         @baskets.each do |basket|
+           product = basket.product
+           Product.update(count: @stocks)
+           current_user.purchases.create(product_id: product.id,count: basket.count)
+
+           message = {"type": "text", "text": "#{current_user.name}さんが#{product.name}を購入しました。"}
+           create_notification(product.store.user, product, "", "purchase") and (client.push_message(product.store.user.line_id, message) if product.store.user.line_id)
+
+           message = {"type": "text", "text": "#{product.name}の在庫が0になりました。\n 簡単メニューから変更するか直接サイトから在庫を変更してください。>>#{product_path(product)}"}
+           create_notification(product.store.user, product, "", "sold") and client.push_message(product.store.user.line_id, message) if (product.store.user.line_id && count == 0)
+
+           UserMailer.notice_purchase(current_user,product,(product.price*product.count)).deliver_now
         end
+        redirect_to baskets_path
 
        rescue Stripe::CardError => e
          flash[:danger] = "決済中にエラーが発生しました #{e.message}"
@@ -62,26 +74,15 @@ class PurchasesController < ApplicationController
       rescue => e
         flash.now[:danger] = "エラーが発生しました #{e.message}"
         render "new"
+      end
     end
   end
 
   def check_product_stocks
     @baskets.each do |basket|
       product = basket.product
-      stocks = product.count - basket.count
-      if  stocks < 0
-        flash[:danger] = "#{product.name}の在庫が不足しています。"
-        return false
-      else
-        Product.update(count: stocks)
-        current_user.purchases.create(product_id: product.id,count: basket.count)
-
-        message = {"type": "text", "text": "#{current_user.name}さんが#{product.name}を購入しました。"}
-        create_notification(product.store.user, product, "", "purchase") and (client.push_message(product.store.user.line_id, message) if product.store.user.line_id)
-
-        message = {"type": "text", "text": "#{product.name}の在庫が0になりました。\n 簡単メニューから変更するか直接サイトから在庫を変更してください。>>#{product_path(product)}"}
-        create_notification(product.store.user, product, "", "sold") and client.push_message(product.store.user.line_id, message) if (product.store.user.line_id && count == 0)
-      end
+      @stocks = product.count - basket.count
+      flash[:danger] = "#{product.name}の在庫が不足しています。" and return false if stocks < 0
     end
   end
 

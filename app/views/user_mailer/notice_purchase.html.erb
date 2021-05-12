@@ -1,0 +1,16 @@
+<h4><%= @product.name %>の購入が完了しました！</h4>
+
+<p>この度は<%= @product.store.name %>でのご購入誠にありがとうございます。</p>
+
+<h4>合計: <%= @total %></h4>
+
+<div style = "padding:10px;border:solid 1px gray">
+  <h5>商品名:　<%= @product.name %></h5>
+  <h5>店舗名:　<%= @product.store.name %></h5>
+  <h5>単価:　<%= @product.price %></h5>
+  <h5>購入数:　<%= @total/@product.price %></h5>
+</div>
+
+
+
+<%= link_to "店舗で他の商品も見てみる>>", "https://ichihara-purchase-app/store/#{@product.store.id}" %>

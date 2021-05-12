@@ -7,11 +7,13 @@
     <%= hidden_field_tag 'amount', basket_sum + postage %>
   <%= hidden_field_tag "user_id", current_user.id %>
 
-  <%= render "shared/explanation" %>
+  <% unless basket_count == 0 %>
+    <%= render "shared/explanation" %>
 
-  <div class="margin-vertical center">
-    <button id = "btn-pay" type = "button" class = "col-sm-6 btn btn-primary"> 以下の内容で支払いをする</button>
-  </div>
+    <div class="margin-vertical center">
+      <button id = "btn-pay" type = "button" class = "col-sm-6 btn btn-primary"> 以下の内容で支払いをする</button>
+    </div>
+  <% end %>
 <div>
   <h3 style = "border-bottom: inset 2px gray">お客様情報</h3>
   <div class="margin-vertical pd-10" style = "border:solid 1px gray">

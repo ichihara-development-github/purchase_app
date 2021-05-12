@@ -115,9 +115,9 @@ module LineTemplates
                 "data": "check_baskets"
             },
             {
-                "type": "postback",
+                "type": "uri",
                 "label": "今すぐ購入",
-                "data": "fuga"
+                "uri": "https://ichihara-purchase-app.com/purchases/new"
             },
             {
                 "type": "uri",
@@ -164,11 +164,6 @@ module LineTemplates
               "label": "在庫変更",
               "data": "display_products_stocks"
           },
-          {
-              "type": "postback",
-              "label": "価格変更",
-              "data": "display_products_stock"
-          }
       ]
     }
 
@@ -182,7 +177,7 @@ module LineTemplates
              "imageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
              "action": {
                "type": "postback",
-               "label": "#{product.count}",
+               "label": "現在在庫:"+"#{product.count}",
                "data":"select_stock&id=#{product.id}"
              }
       }.with_indifferent_access
@@ -203,16 +198,18 @@ module LineTemplates
    end
 
    def count_template(id)
+
+     product = Product.find(id)
      {
       "type": "template",
       "altText": "This is a buttons template",
       "template": {
           "type": "buttons",
-          "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+          "thumbnailImageUrl": "#{IMAGE_PATH}/#{product.main_image.path}",
           "imageAspectRatio": "rectangle",
           "imageSize": "cover",
           "imageBackgroundColor": "#FFFFFF",
-          "text": "【#{Product.find(id).name}】変更後の個数を選択してください",
+          "text": "【#{product.name}】\n変更後の個数を選択してください",
           "actions": [
               {
                 "type": "postback",

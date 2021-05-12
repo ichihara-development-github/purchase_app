@@ -1,0 +1,14 @@
+<%= @product.name %>の購入が完了しました！
+この度は<%= @product.store.name %>でのご購入誠にありがとうございます。
+
+合計: <%= @total %>
+
+  商品名:　<%= @product.name%>
+  店舗名:　<%= @product.store.name %>
+  単価:　<%= @product.price %>
+  購入数:　<%= @total/@product.price %>
+
+
+
+
+  <%= link_to "店舗で他の商品も見てみる>>", "/store/#{@product.store.id}" %>
