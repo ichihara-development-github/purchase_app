@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
     before_action :has_store?, only: [:new, :edit_products]
     before_action :login_user?, only: [:show]
-    before_action :set_product, only: [:show, :edit, :update, :destroy, :compare]
+    before_action :set_product, only: [:show, :edit, :update, :destroy]
     before_action -> { has_authority?(@product.store.user) }, only: [:edit, :update, :destroy]
 
   def set_product
@@ -136,7 +136,7 @@ class ProductsController < ApplicationController
     #------------------------compare---------------------
 
     def compare
-      @prices = Product.send_get_request(@product.name)["body"]
+      @prices = Product.send_get_request(params[:name])["body"]
       respond_to do |format|
         format.html
         format.js

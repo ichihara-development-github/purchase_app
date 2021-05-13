@@ -10,6 +10,11 @@
           Amazonと比較する
           <% end %>
         </li>
+        <li class="list-group-item compare_amazon" style = "background-color:red">
+          <%= link_to compare_path(name: @product.name), remote: true do %>
+          楽天と比較する
+          <% end %>
+        </li>
       </ul>
  </div>
 

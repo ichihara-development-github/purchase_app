@@ -43,7 +43,7 @@
      <% end %>
      </span>
      <span class = "right price" >¥ <%= @product.price %></span><br />
-     <div id = "compare">
+     <div class = "d-md-block d-lg-none" id = "compare">
        <%= link_to "価格を比較する", compare_path(id: @product),class: "btn btn-success", remote: :true %>
      </div>
       <blockquote class="blockquote text-left">
@@ -119,12 +119,12 @@
 </div>
 </div>
 
-<div class = "d-none d-lg-block ">
+
+<div class = "d-none d-lg-block col-lg-2">
   <div class =  "side-bar-wrapper" style = "position:fixed">
     <%= render "layouts/side_bar" %>
   </div>
 </div>
-
 
 <div class = "container margin-vertical">
 <h3>その他の商品</h3>
