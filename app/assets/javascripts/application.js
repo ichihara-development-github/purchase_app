@@ -40,15 +40,21 @@ $(function(){
     });
 
     $('.slide-menu-toggle').on("click", function(){
+     $(".slide-menu").toggleClass("open");
+  });
 
-  if($(this).hasClass('active')) {
-    $(this).removeClass('active');
-    $(".slide-menu").removeClass('open');
 
-  } else {
-    $(this).addClass('active');
-    $(".slide-menu").addClass('open');
-  }
+    $('.slide-menu-toggle').on("click", function(){
+
+  //
+  // if($(this).hasClass('active')) {
+  //   $(this).removeClass('active');
+  //   $(".slide-menu").removeClass('open');
+  //
+  // } else {
+  //   $(this).addClass('active');
+  //   $(".slide-menu").addClass('open');
+  // }
 });
 
 var headersHeight = $('header').outerHeight();

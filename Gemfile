@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #---------------------------later installed-------------------------
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 5.0'
 gem 'rails-i18n'
 gem 'stripe'
 gem 'will_paginate-bootstrap4'
@@ -23,7 +23,6 @@ gem 'http'
 
 gem 'listen', '~> 3.0.5'
 
-gem 'whenever', require: false
 
 platforms :ruby do
   gem 'unicorn', require: false
