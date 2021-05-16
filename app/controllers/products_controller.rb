@@ -137,6 +137,7 @@ class ProductsController < ApplicationController
 
     def compare
       @prices = Product.send_get_request(params[:name])["body"]
+      p @prices
       respond_to do |format|
         format.html
         format.js

@@ -59,7 +59,8 @@ class Product < ApplicationRecord
    end
 
    def self.input_request(name)
-     uri = URI.parse(URI.encode(CRUD_URL))
+     url = "#{INPUT_URL}?name=#{name}"
+     uri = URI.parse(URI.encode(url))
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Post.new(uri.request_uri)
@@ -97,7 +98,8 @@ class Product < ApplicationRecord
       url = "#{CRUD_URL}?name=#{name}"
       p url
       p CRUD_URL
-      uri = URI.parse(url)
+      p name
+      uri = URI.parse(URI.encode(url))
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
