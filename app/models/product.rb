@@ -59,7 +59,7 @@ class Product < ApplicationRecord
    end
 
    def self.input_request(name)
-     uri = URI.parse(URI.encode(url))
+     uri = URI.parse(URI.encode(CRUD_URL))
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Post.new(uri.request_uri)
@@ -95,14 +95,18 @@ class Product < ApplicationRecord
 
    def self.send_get_request(name)
       url = "#{CRUD_URL}?name=#{name}"
-      uri = URI.parse(URI.encode(url))
+      p url
+      p CRUD_URL
+      uri = URI.parse(url)
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
       headers = {'x-api-key' => CRUD_API_KEY, "Content-Type" => "application/json"}
       req.initialize_http_header(headers)
       res = http.request(req)
-      return JSON.parse(res.body)
+
+      p  JSON.parse(res.body)
+       JSON.parse(res.body)
    end
 
 #-------------------------------------------compare-------------------------------------------
