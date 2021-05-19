@@ -106,9 +106,7 @@ class Product < ApplicationRecord
       headers = {'x-api-key' => CRUD_API_KEY, "Content-Type" => "application/json"}
       req.initialize_http_header(headers)
       res = http.request(req)
-
-      p  JSON.parse(res.body)
-       JSON.parse(res.body)
+      JSON.parse(res.body)
    end
 
 #-------------------------------------------compare-------------------------------------------

@@ -136,6 +136,7 @@ class ProductsController < ApplicationController
     #------------------------compare---------------------
 
     def compare
+      @product = Product.find_by(name: params[:name])
       @prices = Product.send_get_request(params[:name])["body"]
       p @prices
       respond_to do |format|

@@ -314,7 +314,6 @@ display-400{
 }
 
 .basket-container{
-    width:70%;
     padding:15px;
     overflow:hidden;
 }
@@ -368,5 +367,8 @@ display-400{
   .line-information{
     font-family:serif;
     font-weight:bold;
-    border:2px solid orange;
+    border:2px solid rgba(10,10,10,0.8);
+    background-color:black;
+    color:white;
+    margin: 15px 0;
   }
