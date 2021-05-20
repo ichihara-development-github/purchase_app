@@ -9,15 +9,27 @@
   <% diff > 0 ? text = "安い"
      : diff < 0 ? text = "高い"
      :  "同価格" %>
-  <div class="compare_amazon">
-    <h4><%= site %> との比較</h4>
-      <ul class = "">
-        <li style  = "font-weight:bold">平均値: <%= average %></li>
-        <li>最高価格: <%= price["Max"] %></li>
-        <li>最低価格: <%= price["Min"] %></li>
-      </ul>
-      <h5><%= price["Datetime"] %>更新</h5>
-      <span>この商品は<%= site %>の平均と比べて ¥<%= diff.abs %> <%= text %>です。</span>
-  </div>
+     <table class="table table-striped">
+  <thead>
+    <tr class = "table-info">
+      <th scope="col">商品名</th>
+      <th scope="col">比較サイト</th>
+      <th scope= "col">平均</th>
+      <th scope="col">最高</th>
+      <th scope="col">最安</th>
+      <th scope="col">評価</th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+      <td><%= link_to product_path(product) do %><%= product.name %><% end %></td>
+      <td><%= site %></td>
+      <td><%= average %></td>
+      <td><%= price["Max"] %></td>
+      <td><%= price["Min"] %></td>
+      <td><%= "¥#{diff.abs} #{text}" %></td>
+    </tr>
+  </tbody>
+ </table>
   <% end %>
 <% end %>
