@@ -137,14 +137,7 @@ class ProductsController < ApplicationController
 
     def compare
       @product = Product.find_by(name: params[:name])
-      # @prices = Product.send_get_request(params[:name])["body"]
-      # p @prices
-      @prices = [{
-      "Site": "template",
-      "Average":75,
-      "Max": 111,
-      "Min":10
-    }.with_indifferent_access]
+      @prices = Product.send_get_request(params[:name])["body"]
       respond_to do |format|
         format.html
         format.js

@@ -43,7 +43,7 @@
      <% end %>
      </span>
      <span class = "right price" >¥ <%= @product.price %></span><br />
-     <div class = "center d-md-block d-lg-none" id = "compare">
+     <div class = "center" id = "compare">
        <%= link_to "価格を比較する", compare_path(name: @product.name),class: "btn btn-success", remote: :true %>
      </div>
       <blockquote class="blockquote text-left">
