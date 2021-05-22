@@ -102,10 +102,10 @@ $(function(){
      <div class="margin-vertical">
        <%= render "layouts/navigation" %>
      </div>
-     <% if current_user && !current_user.line_id %>
-     <div class="line_bot">
-       <%= link_to "LINEボットに登録しよう！ >>",line_bot_information_path, style: "color:white" %>
-     </div>
+     <% if current_user && !current_user.line_id && request.path != line_bot_information_path %>
+       <div class="line_bot">
+         <%= link_to "LINEボットに登録しよう！ >>",line_bot_information_path, style: "color:white" %>
+       </div>
      <% end %>
 
 

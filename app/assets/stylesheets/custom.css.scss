@@ -8,6 +8,7 @@ a{
     color:rgb(100,100,100);
 }
 
+
 li{
   list-style:none;
 }
@@ -97,11 +98,11 @@ display-400{
 }
 
 .mid-img{
-  height:270px;
+  height:100%;
   width:100%;
 }
 .long-img{
-    height:200px;
+    height:300px;
     width:100%;
 }
 
@@ -109,7 +110,7 @@ display-400{
     width:100%;
     max-width: 1000px;
     margin:0px auto;
-    height:350px;
+    height:380px;
     border-radius:5px;
 }
 
@@ -365,6 +366,8 @@ display-400{
   }
 
   .line-information{
+    padding-inline-start:0px;
+    padding:15px 0;
     font-family:serif;
     font-weight:bold;
     border:2px solid rgba(10,10,10,0.8);
