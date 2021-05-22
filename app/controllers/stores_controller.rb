@@ -1,8 +1,8 @@
 class StoresController < ApplicationController
 
   prepend_before_action -> {check_captcha("stores")}, only: :create
-
-  before_action :login_user?, only: [:show]
+  #
+  # before_action :login_user?, only: [:show]
   before_action :seller_user?, only: [:new, :edit]
   before_action :set_store, only: [:show, :edit, :update, :destroy]
   before_action -> { has_authority?(@store.user) }, only: [:update, :edit, :destroy]
@@ -47,6 +47,7 @@ class StoresController < ApplicationController
 
   def show
     @products = @store.products.paginate(page: params[:page], per_page: 8)
+    current_user ||= User.new(address:"Tokyo",latitude: 35.6813208,longitude:139.765384)
     @distance = distance(current_user.latitude, current_user.longitude, @store.latitude, @store.longitude)
   end
 

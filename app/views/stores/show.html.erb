@@ -1,6 +1,9 @@
-<% unless current_user.seller? %>
-   <%= link_to "オーナ登録はこちら", registration_path ,class: "btn btn-warning btn-lg btn-block" %>
-<% end %>
+
+<% current_user ||= User.new(address:"Tokyo",latitude: 35.6813208,longitude:139.765384) %>
+
+
+<%= link_to "オーナ登録はこちら",
+registration_path ,class: "btn btn-warning btn-lg btn-block" unless !!(current_user && !current_user.seller?) %>
 
 <div class = "container center">
     <div class = "row">
@@ -23,9 +26,8 @@
           <p><%= current_user.address %>まで<%= @distance.round(2) %> km</p>
           <h3>送料　¥<%= how_much_postage(@distance)%></h3><br />
           <%= render "shared/postage_explanation" %>
-         <% if has_store(@store) %>
-         <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical"%>
-         <% end %>
+
+         <%= link_to "店舗情報の編集", edit_store_path(@store) , class: "btn btn-success margin-vertical" if current_user.store == @store %>
       </div>
      </div>
 </div>

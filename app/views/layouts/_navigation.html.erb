@@ -1,4 +1,4 @@
-<header class = "fixed-top" style = "height:50px">
+<header class = "fixed-top">
   <nav class="navbar navbar-dark", style = "background-color: teal", ontouchstart:"">
  <% if current_user %>
  <div class = "row">
@@ -111,6 +111,9 @@
 
   <ul class = "navbar-nav list-group list-group-horizontal">
     <li class = "btn"><%= link_to "商品一覧", products_path, style: "color:white" %> </li>
+    <li class="nav-item active pd-10">
+       <%= link_to  "店舗一覧",stores_path, class: "nav-link" %>
+    </li>
   </ul>
 
   <ul class = "navbar-nav list-group list-group-horizontal">

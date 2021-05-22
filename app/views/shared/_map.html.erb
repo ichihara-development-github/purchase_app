@@ -1,8 +1,8 @@
-
 <div id = "map">
 
 
 </div>
+<% current_user ||= User.new(address:"Tokyo",latitude: 35.6813208,longitude:139.765384) %>
 
 <style>
 #map{
@@ -63,7 +63,7 @@ function initMap(){
       (function(){
 
         var infowindow = new google.maps.InfoWindow({
-          content: "<p><%= current_user.address if current_user.address %></p>"+
+          content: "<p><%= current_user.address %></p>"+
                      "<span class = 'fas fa-home fa-lg'></span>" +
                      "<span>自宅</span>"
         });
@@ -84,7 +84,4 @@ function initMap(){
 
     }
 </script>
-
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKnVvlCy9D9nY3-WJ5frpbVzuZK3DIy2Y&callback=initMap">
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKnVvlCy9D9nY3-WJ5frpbVzuZK3DIy2Y&callback=initMap""></script>

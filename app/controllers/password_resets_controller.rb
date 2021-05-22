@@ -4,7 +4,6 @@ class PasswordResetsController < ApplicationController
     before_action :valid_user, only: [:edit, :update]
     before_action :check_expration, only: [:edit, :update]
 
-
     def new
     end
 
@@ -57,7 +56,7 @@ class PasswordResetsController < ApplicationController
 
     def check_expration
         if @user.password_reset_expired?
-            flash[:danger] = "パスワードリセットの有効期限が切れています"
+            flash[:danger] = "リンクの有効期限が切れています"
             redirect_to new_password_reset_path
         end
     end
