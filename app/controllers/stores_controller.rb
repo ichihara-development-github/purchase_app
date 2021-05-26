@@ -17,7 +17,7 @@ class StoresController < ApplicationController
   end
 
   def map_index
-    gon.studios = Store.all
+    gon.stores = Store.all
   end
 
   def create
