@@ -27,11 +27,26 @@ function initMap(){
 
       var cityCircle = new google.maps.Circle(circleOptions);
 
+      var circleOptions = {
+        center: latlng,
+        fillColor: 'red',
+        fillOpacity: 0.2,
+        map: map,
+        radius: 10000,
+        strokeColor: 'red',
+        strokeOpacity: 0.5,
+        strokeWeight: 0.5
+    };
+
+    var cityCircle = new google.maps.Circle(circleOptions);
+
+
       (function(){
 
         var infowindow = new google.maps.InfoWindow({
-          content:"<p>自宅</p>",
-                   maxWidth: 220
+          content: "<p><%= current_user.address %></p>"+
+                     "<span class = 'fas fa-home fa-lg'></span>" +
+                     "<span>　自宅</span>"
         });
 
         var marker = new google.maps.Marker({
@@ -45,24 +60,12 @@ function initMap(){
           infowindow.open(map, marker);
         });
 
-
-              var circleOptions = {
-                center: latlng,
-                fillColor: 'red',
-                fillOpacity: 0.2,
-                map: map,
-                radius: 10000,
-                strokeColor: 'red',
-                strokeOpacity: 0.5,
-                strokeWeight: 0.5
-            };
-
-            var cityCircle = new google.maps.Circle(circleOptions);
-
       })();
+
+
+      <% Store.all.each do |store| %>
       (function(){
 
-        <% Store.all.each do |store| %>
         var infowindow = new google.maps.InfoWindow({
           content: "<img src = '<%= store.top_image if store.top_image %>' style = 'width:100%'><br />"+
                    "<a href='<%= store_path(store) %>' style = 'font-size: 20px'><%= store.name %></a><br />"+
@@ -80,12 +83,12 @@ function initMap(){
         store_marker.addListener("click", function(){
           infowindow.open(map, store_marker);
         });
-
-        <% end %>
-
       })();
 
+      <% end %>
 
-    }
+
+
+    };
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKnVvlCy9D9nY3-WJ5frpbVzuZK3DIy2Y&callback=initMap""></script>
