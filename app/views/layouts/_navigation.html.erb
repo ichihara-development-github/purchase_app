@@ -79,7 +79,7 @@
             </li>
             <% if current_user.seller? || current_user.admin? %>
               <li>
-                <a  href = "#"  class="nav-link fade-menu-toggle slide-item"  data-toggle="dropdown" >
+                <a class="nav-link fade-menu-toggle slide-item"  data-toggle="dropdown" >
                 　管理メニュー▾
                 </a>
                 <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -118,7 +118,6 @@
 
   <ul class = "navbar-nav list-group list-group-horizontal">
     <li class = "btn btn-light"><%= link_to "ログイン", new_session_path %></li>
-    <li class = "btn"><%= link_to "新規登録", new_user_path, style: "color:white", data: {"turbolinks" => false}  %> </li>
   </ul>
 
   <% end %>

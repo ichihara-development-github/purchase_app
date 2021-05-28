@@ -1,20 +1,31 @@
-<style>
-#map{
-  height: 350px;
-}
-</style>
+<div class="row">
+  <div class="col-lg-9">
+    <div id = "map">
 
+    </div>
+  </div>
 
-<div id = "map">
-
+  <div class = "d-none d-lg-block col-lg-2">
+    <div class =  "side-bar-wrapper">
+      <%= render "layouts/side_bar" %>
+    </div>
+  </div>
 </div>
 
+<style>
+#map{
+  height: 500px;
+}
+
+</style>
+
 <script>
-<% current_user ||= User.new(address:"Tokyo",latitude: 35.6813208,longitude:139.765384) %>
 
 function initMap(){
 
-      //初期表示位置
+       <% current_user = (session[:user_id] && User.find(session[:user_id])) || User.new(address:"Tokyo",latitude: 35.6813208,longitude:139.765384) %>
+
+
       var latlng = new google.maps.LatLng(<%= current_user.latitude %>, <%= current_user.longitude %>);
 
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -54,12 +65,12 @@ function initMap(){
         	position: latlng,
         	animation: google.maps.Animation.DROP,
           icon: {
-        		fillColor: "royalblue",                //塗り潰し色
-        		fillOpacity: 1.0,                    //塗り潰し透過率
-        		path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,//円を指定
-        		scale: 6,                           //円のサイズ
-        		strokeColor: "white",                //枠の色
-        		strokeWeight: 1.0                    //枠の透過率
+        		fillColor: "royalblue",
+        		fillOpacity: 1.0,
+        		path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+        		scale: 6,
+        		strokeColor: "white",
+        		strokeWeight: 1.0
         	}
         })
 
@@ -86,10 +97,10 @@ function initMap(){
           map: map,
           animation: google.maps.Animation.DROP,
           icon: {
-        		url: '/<%= store.top_image %>',
+        		url: "<%= store.top_image %>",
         		scaledSize: new google.maps.Size(40, 40)
         	},
-        	optimized: false
+        	optimized: true
         });
 
         store_marker.addListener("click", function(){
@@ -103,4 +114,4 @@ function initMap(){
 
     };
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKnVvlCy9D9nY3-WJ5frpbVzuZK3DIy2Y&callback=initMap""></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKnVvlCy9D9nY3-WJ5frpbVzuZK3DIy2Y&callback=initMap"></script>

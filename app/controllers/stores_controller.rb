@@ -17,7 +17,7 @@ class StoresController < ApplicationController
   end
 
   def map_index
-    gon.stores = Store.all
+
   end
 
   def create
@@ -45,9 +45,10 @@ class StoresController < ApplicationController
   end
 
 
-  def show
-    @products = @store.products.paginate(page: params[:page], per_page: 8)
+  def show    
     current_user ||= User.new(address:"Tokyo",latitude: 35.6813208,longitude:139.765384)
+
+    @products = @store.products.paginate(page: params[:page], per_page: 8)
     @distance = distance(current_user.latitude, current_user.longitude, @store.latitude, @store.longitude)
   end
 
