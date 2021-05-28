@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #---------------------------later installed-------------------------
 
-gem 'bootstrap', '~> 5.0'
+gem 'bootstrap', '~> 4.4'
 gem 'rails-i18n'
 gem 'stripe'
 gem 'will_paginate-bootstrap4'

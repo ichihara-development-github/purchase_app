@@ -1,6 +1,7 @@
 <div>
     <%= form_tag purchases_path ,method: :post, id: "payForm" do %>
     <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src = "http://js.stripe.com/v3/"></script>
 
     <%= hidden_field_tag "stripeToken" %>
      <%= hidden_field_tag "stripe_email" %>

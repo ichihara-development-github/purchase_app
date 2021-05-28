@@ -11,7 +11,7 @@
         <% end %>
       </span>
       <div class="col-10">
-        <h5 class="mb-1">
+        <h5 class="mb-1 left">
           <%= link_to user_path(notice_user) do %><%= notice_user.name %><% end %>が
           <%= render "#{notification.action}", product: product, comment: comment %>
         </h5>

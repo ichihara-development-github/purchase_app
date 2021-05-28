@@ -45,7 +45,7 @@ function initMap(){
 
         var infowindow = new google.maps.InfoWindow({
           content: "<img src = '<%= @store.top_image if @store.top_image %>' style = 'width:100%'><br />"+
-                   "<a href='<%= store_path(@store) %>' style = 'font-size: 20px'><%= @store.name %></a><br />"+
+                   "<%= @store.name %><br />"+
                    "<p><%= @store.address %></p>",
                    maxWidth: 220
 
@@ -68,7 +68,7 @@ function initMap(){
         var infowindow = new google.maps.InfoWindow({
           content: "<p><%= current_user.address %></p>"+
                      "<span class = 'fas fa-home fa-lg'></span>" +
-                     "<span>自宅</span>"
+                     "　<span>自宅</span>"
         });
 
         var marker = new google.maps.Marker({
