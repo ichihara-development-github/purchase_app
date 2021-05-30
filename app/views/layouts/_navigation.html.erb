@@ -78,8 +78,8 @@
               <%= link_to  "商品一覧",products_path, class:"nav-link", style: "color:white"%>
             </li>
             <% if current_user.seller? || current_user.admin? %>
-              <li>
-                <a class="nav-link fade-menu-toggle slide-item"  data-toggle="dropdown" >
+              <li class = "slide-toggle">
+                <a class="nav-link fade-menu-toggle slide-item">
                 　管理メニュー▾
                 </a>
                 <div class="fade-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -96,11 +96,11 @@
                 </div>
               </li>
             <% end %>
-            <li class="nav-item active slide-item">
-              <%= link_to "ユーザー一覧", users_path, class: "dropdown-item", style:"color:white" if current_user.admin? %>
-            </li>
+            <% if current_user.admin? %>
+             <li class="nav-item active slide-item"><%= link_to "ユーザー一覧", users_path, class: "dropdown-item", style:"color:white"%></li>
+            <% end %>
             <li class="nav-item active pd-10 slide-item">
-              <%= link_to  "ログアウト", session_path(session[:user_id]),method: :delete, style:"color:white" %>
+              <%= link_to  "ログアウト", session_path(session[:user_id]),method: :delete, class: "nav-link",style:"color:white" %>
             </li>
           </ul>
       </li>
