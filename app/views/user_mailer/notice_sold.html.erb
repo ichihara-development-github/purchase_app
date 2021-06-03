@@ -1,0 +1,10 @@
+<h4><%= @product.name %>のが購入されました！</h4>
+
+<h4>合計: <%= @total %></h4>
+
+<div style = "padding:10px;border:solid 1px gray">
+  <h5>購入者: <%= @user.name%></h5>
+  <h5>商品名:　<%= @product.name %></h5>
+  <h5>単価:　<%= @product.price %></h5>
+  <h5>購入数:　<%= @total/@product.price %></h5>
+</div>

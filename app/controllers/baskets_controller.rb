@@ -15,7 +15,7 @@ class BasketsController < ApplicationController
     end
 
     def index
-        @baskets = current_user.baskets
+        @baskets = current_user.baskets || []
         @purchases = current_user.purchases || []
         @products = current_user.considering_products
     end
