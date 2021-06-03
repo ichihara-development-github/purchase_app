@@ -82,7 +82,7 @@ class PurchasesController < ApplicationController
     @baskets.each do |basket|
       product = basket.product
       @stocks = product.count - basket.count
-      flash[:danger] = "#{product.name}の在庫が不足しています。" and return false if stocks < 0
+      flash[:danger] = "#{product.name}の在庫が不足しています。" and return false if @stocks < 0
     end
   end
 
