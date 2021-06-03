@@ -13,10 +13,10 @@ class UserMailer < ApplicationMailer
   end
 
   def notice_sold(user,product, total)
-    @user = current_user
+    @user = user
     @product = product
     @total = total
-    mail to: user.email, subject: "購入通知"
+    mail to: product.store.user,.email, subject: "購入通知"
   end
 
 end
