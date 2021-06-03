@@ -43,7 +43,7 @@ class PurchasesController < ApplicationController
          flash[:success] = "購入が完了しました"
          @baskets.each do |basket|
            product = basket.product
-           message = {"type": "text", "text": "#{current_user.name}さんが#{product.name}を購入しました。/n 売上: #{product.price*product.count"}
+           message = {"type": "text", "text": "#{current_user.name}さんが#{product.name}を購入しました。/n 売上: #{product.price*product.count}"}
            create_notification(product.store.user, product, "", "purchase") and (client.push_message(product.store.user.line_id, message) if product.store.user.line_id)
 
            message = {"type": "text", "text": "#{product.name}の在庫が0になりました。\n 簡単メニューから変更するか直接サイトから在庫を変更してください。>>#{product_path(product)}"}
