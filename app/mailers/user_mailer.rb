@@ -16,7 +16,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @product = product
     @total = total
-    mail to: product.store.user,.email, subject: "購入通知"
+    mail to: product.store.user.email, subject: "購入通知"
   end
 
 end
