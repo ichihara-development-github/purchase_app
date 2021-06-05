@@ -89,10 +89,6 @@ $(function(){
         readURL(this);
     });
 
-    var headersHeight = $('header').outerHeight();
-    $('.main').css('padding-top', headersHeight + 'px');
-    $('.slide-menu').css('margin-top', headersHeight + 'px');
-
 });
 
     <% end %>
@@ -111,8 +107,6 @@ $(function(){
         <div class="center">
           <div class="flash-message-space">
              <%= render "layouts/message" %>
-               <div style = "line-height: 50px; font-size:24px">
-               </div>
             <%= yield %>
          </div>
         </div>

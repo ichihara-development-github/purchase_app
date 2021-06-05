@@ -43,7 +43,7 @@ li{
 
 .shadow{
     border-radius: 5px;
-    box_shadow: 2px 2px 1px rgb(200,200,200);
+    box-shadow: 2px 2px 1px rgb(200,200,200);
 }
 
 .margin-vertical{
@@ -320,6 +320,7 @@ display-400{
 }
 
 .accounting-btn{
+    display:inline-block;
     padding: 10px 25px;
     background-color:#e5a323;
     box-shadow:1px 1px 1px rgb(10,10,10);

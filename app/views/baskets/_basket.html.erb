@@ -21,7 +21,7 @@
               <div>
                 <% if obj == "basket" %>
                   <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
-                   <%= f.select :count, (1..product.count).map{|i| i}, {}, class: "form-control update-input-form"%>
+                   <%= f.select :count, (1..20).map{|i| i}, {}, class: "form-control update-input-form"%>
                    <% f.submit %>
                   <% end %>
                <% else %>

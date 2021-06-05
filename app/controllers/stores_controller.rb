@@ -42,10 +42,11 @@ class StoresController < ApplicationController
 
   def index
     @stores = Store.all
+  
   end
 
 
-  def show    
+  def show
     current_user ||= User.new(address:"Tokyo",latitude: 35.6813208,longitude:139.765384)
 
     @products = @store.products.paginate(page: params[:page], per_page: 8)
