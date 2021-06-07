@@ -1,5 +1,18 @@
 <% product = basket.product %>
    <div class="col-md-10 basket-wrapper">
+     <% if product.nil? %>
+       <div class="margin-vertical">
+         <div class="row">
+           <div class="col-sm-4">
+             <img class="left card-img"  style = "max-width:400px" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
+             </div>
+             <div class="margin-vertical">
+               <p>こちらの商品は削除されました</p>
+               <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分") if basket.class == Purchase %> 購入
+             </div>
+         </div>
+       </div>
+     <% else %>
      <div class="row">
        <div class="col-sm-4">
          <% if product.main_image.present? %>
@@ -37,5 +50,5 @@
             </div>
        </div>
      </div>
-
+     <%end%>
     </div>
