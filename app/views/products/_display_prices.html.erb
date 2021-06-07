@@ -15,9 +15,9 @@
       <th scope="col">商品名</th>
       <th scope="col">比較サイト</th>
       <th scope= "col">平均</th>
-      <th scope="col">最高</th>
       <th scope="col">最安</th>
       <th scope="col">評価</th>
+      <th>更新日</th>
     </tr>
   </thead>
     <tbody>
@@ -25,9 +25,9 @@
       <td><%= link_to product_path(product) do %><%= product.name %><% end %></td>
       <td><%= site %></td>
       <td><%= average %></td>
-      <td><%= price["Max"] %></td>
       <td><%= price["Min"] %></td>
       <td><%= "¥#{diff.abs} #{text}" %></td>
+      <td><%= price["Datetime"]%></td>
     </tr>
   </tbody>
  </table>

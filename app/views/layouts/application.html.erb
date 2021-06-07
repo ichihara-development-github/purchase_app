@@ -58,6 +58,12 @@ $(function(){
      $(".slide-menu").toggleClass("open");
   })
 
+
+  var headersHeight = $('header').outerHeight();
+  $('.main').css('padding-top', headersHeight + 'px');
+  $('.slide-menu').css('margin-top', headersHeight + 'px');
+
+
   //パスワードフォーム
   $("#password-icon-toggle").on("click",function() {
 
@@ -96,13 +102,7 @@ $(function(){
      <div class="margin-vertical">
        <%= render "layouts/navigation" %>
      </div>
-     <% if current_user && !current_user.line_id && request.path != line_bot_information_path %>
-       <div class="line_bot">
-         <%= link_to "LINEボットに登録しよう！ >>",line_bot_information_path, style: "color:white" %>
-       </div>
-     <% end %>
-
-
+     
       <div class = "main container">
         <div class="center">
           <div class="flash-message-space">

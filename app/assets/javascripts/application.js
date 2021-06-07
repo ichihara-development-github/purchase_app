@@ -57,10 +57,6 @@ $(function(){
   // }
 });
 
-var headersHeight = $('header').outerHeight();
-$('.main').css('padding-top', headersHeight + 'px');
-$('.slide-menu').css('margin-top', headersHeight + 'px');
-
 
 
 
