@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     if @product.save
       users = current_user.followers
       users.map{|user| create_notification(user, @product, "", "create") }
-      Product.input_request(@product.name)
+      p Product.input_request(@product.name)
       flash[:success] = "商品の作成が完了しました"
       redirect_to @product
     else
@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
     if @product.destroy
       flash[:success] = "削除しました"
       redirect_to edit_products_path
-      Product.delete_request(name)
+      p Product.delete_request(name)
     else
       flash[:error_messages] = @product.errors.full_messages
       render "edit_product"
@@ -138,6 +138,7 @@ class ProductsController < ApplicationController
     def compare
       @product = Product.find_by(name: params[:name])
       @prices = Product.send_get_request(params[:name])["body"]
+      p @price
       respond_to do |format|
         format.html
         format.js

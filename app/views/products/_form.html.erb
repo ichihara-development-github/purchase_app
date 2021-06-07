@@ -78,7 +78,7 @@
           </div>
 
           <div class="margin-vertical">
-            <%= render "shared/recaptcha" %>
+            <%= render "shared/recaptcha" if request.path = product_new_path  %>
           </div>
 
          <div class = "form-group center">
