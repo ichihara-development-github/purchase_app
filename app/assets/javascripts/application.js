@@ -39,7 +39,7 @@ $(function(){
     });
 
     $(".dropdown-log").on("click", function(){
-        $(this).next(".purchacelog").slideToggle()
+        $(this).next(".purchaselog").slideToggle()
     });
 
     $(".fade-menu-toggle").on("click", function(){
