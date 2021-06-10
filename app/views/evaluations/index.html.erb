@@ -4,5 +4,5 @@
 <%  ev = evaluation_avarage(@product) %>
 <h3>平均評価:  <%= (ev**2 / ev) == ev ? ev : "評価がありません" %></h3>
 
-<%= link_to "評価を付ける", new_evaluation_path(id: @product.id) unless current_user && (@product.evaluations & current_user.evaluations.size > 0) %>
+<%= link_to "評価を付ける", new_evaluation_path(id: @product.id) unless current_user && ((@evaluations & current_user.evaluations).size > 0) %>
 <%= render @evaluations %>
