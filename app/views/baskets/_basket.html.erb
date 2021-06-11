@@ -21,33 +21,31 @@
            <img class="left card-img"  style = "max-width:400px" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
          <% end %>
        </div>
-        <div class = "basket-container col-sm-8">
+        <div class = "basket-container col-sm-6">
           <div style = "float:left">
-            <%= link_to product_path(product) do %>
-                <h4><%= product.name %></h4>
-            <% end %>
+            <%= link_to "#{product.name}", product_path(product), style:"fontsize:24px"%>
              <p class = "display-200"><%= product.description if basket.class == Basket %></p>
              <span>店舗:　<%= link_to store_path(product.store) do %><%= product.store.name %><% end %></span>
           </div>
-            <div class="right">
-              <h4 style = "font-color:red">¥ <%= product.price %></h4>
-              <div>
-                <% if basket.class == Basket %>
-                  <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
-                   <%= f.select :count, (1..20).map{|i| i}, {}, class: "form-control update-input-form"%>
-                   <% f.submit %>
-                  <% end %>
-               <% else %>
-                 ×　<%= basket.count ||= 1%><br />
-                <div class="margin-vertical">
-                  <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分") if basket.class == Purchase %>
-                </div>
-               <% end %>
-             </div><br />
-              <div class="pd">
-                <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless basket.class == Purchase%>
-              </div>
-            </div>
+       </div>
+       <div class="right col-md-2">
+         <h4 style = "font-color:red">¥ <%= product.price %></h4>
+         <div>
+           <% if basket.class == Basket %>
+             <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
+              <%= f.select :count, (1..20).map{|i| i}, {}, class: "form-control update-input-form"%>
+              <% f.submit %>
+             <% end %>
+          <% else %>
+            ×　<%= basket.count ||= 1%><br />
+           <div class="margin-vertical">
+             <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分") if basket.class == Purchase %>
+           </div>
+          <% end %>
+        </div><br />
+         <div class="pd">
+           <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless basket.class == Purchase%>
+         </div>
        </div>
      </div>
      <%end%>
