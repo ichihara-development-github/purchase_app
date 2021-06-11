@@ -23,6 +23,11 @@ $(function(){
     $('.main').css('padding-top', headersHeight + 'px');
     $('.slide-menu').css('margin-top', headersHeight + 'px');
 
+// update basket quatient
+    $(".update-input-form").on("change", function(){
+      Rails.fire($(this).closest("form")[0], 'submit');
+    });
+
 
     $(".dropdown-toggle").click(function(){
         $(this).next(".dropdown-menu").fadeToggle()
@@ -30,10 +35,6 @@ $(function(){
 
     $("#compare").click(function(){
         $(this).next(".margin-vertical").fadeToggle()
-    });
-// update basket quatient
-    $(".update-input-form").on("change", function(){
-      Rails.fire($(this).closest("form")[0], 'submit');
     });
 
     $(".dropdown-log").on("click", function(){
@@ -81,37 +82,6 @@ card.addEventListener("change", function(event) {
     }else {
         displayError.textContent
     }
-});
-
-stripe.confirmCardPayment(clientSecret, {
-  payment_method: {
-    card: card,
-    // billing_details: {
-    //   name: 'Jenny Rosen'
-    // }
-  },
-  setup_future_usage: 'off_session'
-}).then(function(result) {
-  if (result.error) {
-
-    console.log(result.error.message);
-  } else {
-    if (result.paymentIntent.status === 'succeeded') {
-
-    }
-  }
-});
-
-stripe.confirmCardPayment(intent.client_secret, {
-  payment_method: intent.last_payment_error.payment_method.id
-}).then(function(result) {
-  if (result.error) {
-
-    console.log(result.error.message);
-  } else {
-    if (result.paymentIntent.status === 'succeeded') {
-    }
-  }
 });
 
 });

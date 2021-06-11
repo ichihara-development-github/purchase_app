@@ -13,6 +13,38 @@
     <button id = "btn-pay" type = "button" class = "btn btn-primary">支払いをする</button>
 
     <script>
+
+      stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          // billing_details: {
+          //   name: 'Jenny Rosen'
+          // }
+        },
+        setup_future_usage: 'off_session'
+      }).then(function(result) {
+        if (result.error) {
+
+          console.log(result.error.message);
+        } else {
+          if (result.paymentIntent.status === 'succeeded') {
+
+          }
+        }
+      });
+
+      stripe.confirmCardPayment(intent.client_secret, {
+        payment_method: intent.last_payment_error.payment_method.id
+      }).then(function(result) {
+        if (result.error) {
+
+          console.log(result.error.message);
+        } else {
+          if (result.paymentIntent.status === 'succeeded') {
+          }
+        }
+      });
+
     var handler = StripeCheckout.configure({
         key: "<%= ENV["publishable_key"] %>",
         locale : "auto",

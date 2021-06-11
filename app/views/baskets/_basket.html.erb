@@ -6,7 +6,7 @@
            <div class="col-sm-4">
              <img class="left card-img"  style = "max-width:400px" src="https://purchase-app-backet.s3-ap-northeast-1.amazonaws.com/uploads/no-image.jpg" alt="Something">
              </div>
-             <div class="margin-vertical">
+             <div class="col-sm-8 margin-vertical center">
                <p>こちらの商品は削除されました</p>
                <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分") if basket.class == Purchase %> 購入
              </div>
@@ -26,13 +26,13 @@
             <%= link_to product_path(product) do %>
                 <h4><%= product.name %></h4>
             <% end %>
-             <p class = "display-200"><%= product.description %></p>
+             <p class = "display-200"><%= product.description if basket.class == Basket %></p>
              <span>店舗:　<%= link_to store_path(product.store) do %><%= product.store.name %><% end %></span>
           </div>
             <div class="right">
               <h4 style = "font-color:red">¥ <%= product.price %></h4>
               <div>
-                <% if obj == "basket" %>
+                <% if basket.class == Basket %>
                   <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
                    <%= f.select :count, (1..20).map{|i| i}, {}, class: "form-control update-input-form"%>
                    <% f.submit %>
@@ -45,7 +45,7 @@
                <% end %>
              </div><br />
               <div class="pd">
-                <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless obj == "purchase"%>
+                <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless basket.class == Purchase%>
               </div>
             </div>
        </div>
