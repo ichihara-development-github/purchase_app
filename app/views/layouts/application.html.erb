@@ -59,7 +59,11 @@ $(function(){
 
     $('.slide-menu-toggle').on("click", function(){
      $(".slide-menu").toggleClass("open");
-  })
+  });
+
+  $(".dropdown-log").on("click", function(){
+      $(this).next(".purchaselog").slideToggle()
+  });
 
 
   //パスワードフォーム
