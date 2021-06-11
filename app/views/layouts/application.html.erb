@@ -40,7 +40,7 @@ $(function(){
   });
 });
 
-  
+
 
 
     $(".dropdown-toggle").click(function(){
@@ -91,6 +91,11 @@ $(function(){
     $("#production_image").change(function(){
         readURL(this);
     });
+
+    var headersHeight = $('header').outerHeight();
+    $('.main').css('padding-top', headersHeight + 'px');
+    $('.slide-menu').css('margin-top', headersHeight + 'px');
+
 
 });
 
