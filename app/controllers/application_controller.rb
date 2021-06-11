@@ -39,11 +39,6 @@ class ApplicationController < ActionController::Base
     redirect_after_login(root_path)
   end
 
-
-  def line_user?(user_id)
-    return false unless current_user.line_id
-  end
-
   #----------------------------check-authority------------------------
   def login_user?
     unless current_user
