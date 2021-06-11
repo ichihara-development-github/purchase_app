@@ -113,12 +113,12 @@ module Shared_test
       end
     end
 
-    context "user has not logged in" do
-      before do
-        get :show, params: {id: obj.id}
-      end
-      it_behaves_like "redirect to loginpage if user has not logged in"
-    end
+    # context "user has not logged in" do
+    #   before do
+    #     get :show, params: {id: obj.id}
+    #   end
+    #   it_behaves_like "redirect to loginpage if user has not logged in"
+    # end
   end
 
    describe "get edit" do

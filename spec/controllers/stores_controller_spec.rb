@@ -3,7 +3,11 @@ require 'rails_helper'
 
 RSpec.describe StoresController, type: :controller do
 
-  
+  include Shared_test
+
+  describe "default test" do
+    it_behaves_like "default_test", Store
+  end
 
   describe "get edit" do
     let!(:store){Store.first}
