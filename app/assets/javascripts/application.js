@@ -18,9 +18,7 @@
 //= require "raty"
 
 $(function(){
-  var headersHeight = $('header').outerHeight();
-  $('.main').css('padding-top', headersHeight + 'px');
-  $('.slide-menu').css('margin-top', headersHeight + 'px');
+    
 // update basket quatient
     $(".update-input-form").on("change", function(){
       Rails.fire($(this).closest("form")[0], 'submit');
