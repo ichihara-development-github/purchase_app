@@ -18,7 +18,7 @@
 //= require "raty"
 
 $(function(){
-    
+
 // update basket quatient
     $(".update-input-form").on("change", function(){
       Rails.fire($(this).closest("form")[0], 'submit');
@@ -45,20 +45,21 @@ $(function(){
      $(".slide-menu").toggleClass("open");
   });
 
+  var pagetop = $('#to_top');
 
-    $('.slide-menu-toggle').on("click", function(){
-
-  //
-  // if($(this).hasClass('active')) {
-  //   $(this).removeClass('active');
-  //   $(".slide-menu").removeClass('open');
-  //
-  // } else {
-  //   $(this).addClass('active');
-  //   $(".slide-menu").addClass('open');
-  // }
-});
-
+  $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {  //100pxスクロールしたら表示
+          pagetop.fadeIn();
+      } else {
+          pagetop.fadeOut();
+      }
+  });
+  pagetop.click(function () {
+      $('body,html').animate({
+          scrollTop: 0
+      }, 450); //0.5秒かけてトップへ移動
+      return false;
+  });
 
 
 

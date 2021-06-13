@@ -24,7 +24,7 @@
         <div class = "basket-container col-sm-6">
           <div style = "float:left">
             <%= link_to "#{product.name}", product_path(product), style:"fontsize:24px"%>
-             <p class = "display-200"><%= product.description if basket.class == Basket %></p>
+             <p class = "display-200" style = "font-size:14px"><%= product.description if basket.class == Basket %></p>
              <span>店舗:　<%= link_to store_path(product.store) do %><%= product.store.name %><% end %></span>
           </div>
        </div>

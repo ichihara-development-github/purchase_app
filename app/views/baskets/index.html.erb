@@ -1,9 +1,9 @@
  <div class = "margin-vertical">
  <span class = "dropdown-toggle dropdown-log right" style="margin-bottom:25px"> 購入履歴 </span>
  <div class = "display-300 row purchaselog" style = "clear:both;display:none">
-   <h4>購入履歴一覧</h4>
+   <h2 style="font-family:serif">購入履歴一覧</h2>
   <% @purchases.each do |datum| %>
-   <%= render "basket",  basket: datum if @purchases %>
+   <%= render "basket",  basket: datum unless @purchases.empty? %>
   <% end %>
  </div>
 
