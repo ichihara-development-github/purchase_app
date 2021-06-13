@@ -4,6 +4,50 @@
 
 // general
 
+.purchaselog {
+  background: #fffffc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  padding: 15px;
+  margin-top:10px;
+  position: relative;
+}
+
+.purchaselog:after, .purchaselog:before{
+  height: 95%;
+  width:100%;
+  content: "";
+  position: absolute;
+  background: #f6f6f6;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  z-index: -1;
+}
+
+.purchaselog:after{
+  right: -3px;
+  top: 1px;
+  transform: rotate(2deg);
+}
+
+.purchaselog:before{
+  left: -3px;
+  top: 1px;
+  transform: rotate(-2deg);
+}
+
+//
+// .purchaselog:after {
+//   content: "";
+//   height: 98%;
+//   position: absolute;
+//   width: 100%;
+//   z-index: -1;
+//   background: #f6f6f6;
+//   box-shadow: 0 0 3px rgba(0,0,0,0.2);
+//   right: -3px;
+//   top: 1px;
+//   transform: rotate(1.4deg);
+// }
+
 a{
     color:rgb(100,100,100);
 }
@@ -310,7 +354,7 @@ display-400{
 
 // baskets
 .basket-wrapper{
-    margin:15px 0;
+    padding:15px 0;
     border-bottom:1px solid rgb(200,200,200);
 }
 
