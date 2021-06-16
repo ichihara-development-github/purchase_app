@@ -24,7 +24,7 @@
         <div class = "basket-container col-8 col-sm-5">
           <div style = "float:left">
             <%= link_to "#{product.name}", product_path(product), style:"fontsize:30px"%>
-             <%= product.description class: "display-200", style: "font-size:14px" if basket.class == Basket %>
+             <%= product.description, class: "display-200", style: "font-size:14px" if basket.class == Basket %>
              <span>店舗:　<%= link_to store_path(product.store) do %><%= product.store.name %><% end %></span>
           </div>
        </div>
@@ -38,11 +38,9 @@
              <% end %>
           <% else %>
             ×　<%= basket.count ||= 1%><br />
-           <div class="margin-vertical">
              <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分") if basket.class == Purchase %>
-           </div>
           <% end %>
-        </div><br />
+        </div>
          <div class="pd">
            <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless basket.class == Purchase%>
          </div>
