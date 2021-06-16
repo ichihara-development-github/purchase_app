@@ -1,6 +1,6 @@
  <div class = "margin-vertical">
  <span class = "dropdown-toggle dropdown-log right" style="margin-bottom:25px"> 購入履歴 </span>
- <div class = "display-300 row purchaselog" style = "clear:both;display:none">
+ <div class = "display-300 row purchaselog middle" style = "clear:both;display:none">
    <h2 style="font-family:serif">購入履歴一覧</h2>
   <% @purchases.each do |datum| %>
    <%= render "basket",  basket: datum unless @purchases.empty? %>
@@ -10,6 +10,7 @@
 </div>
 
 <div class = "container">
+  <h2>カート一覧</h2>
      <div class = "margin-vertical">
          <% unless @products.blank? %>
            <h5><%= basket_count %>点</h5>

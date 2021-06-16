@@ -11,8 +11,7 @@
   position: fixed;
   right: 0;
   bottom: 0;
-  background-color:rgba(10,10,10,.8) ;
-  opacity: 0.6;
+  background-color:rgba(10,10,10,.6) ;
   border-radius: 50%;
 }
 #to_top a{
@@ -37,8 +36,9 @@
 }
 
 .purchaselog {
+  width:95%;
   background: #fffffc;
-  background-image:url("5daf80c18670a95a36431a4c006af09d_t.jpeg");
+  background-image:url("https://purchase-app-backet.s3.ap-northeast-1.amazonaws.com/uploads/background.jpeg");
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   padding: 15px;
   margin-top:10px;
@@ -47,7 +47,7 @@
 
 .purchaselog:after, .purchaselog:before{
   height: 95%;
-  width:100%;
+  width:90%;
   content: "";
   position: absolute;
   background: #f6f6f6;
