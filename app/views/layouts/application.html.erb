@@ -22,6 +22,11 @@
 $(function(){
 
 
+  $(".update-input-form").on("change", function(){
+    Rails.fire($(this).closest("form")[0], 'submit');
+  });
+
+
  $(function(){
   $(".upfile").change(function(e){
     var file = e.target.files[0];
