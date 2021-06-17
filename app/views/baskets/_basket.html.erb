@@ -28,7 +28,7 @@
              <span>店舗:　<%= link_to store_path(product.store) do %><%= product.store.name %><% end %></span>
           </div>
        </div>
-       <div class="middle col-3">
+       <div class="middle col-4 col-sm-3">
          <h4 style = "font-color:red">¥ <%= product.price %></h4>
          <div>
            <% if basket.class == Basket %>
@@ -41,7 +41,7 @@
              <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分") if basket.class == Purchase %>
           <% end %>
         </div>
-         <div class="pd">
+         <div class="pd-10">
            <%= link_to "削除", basket_delete_path(product), method: :post, class: "right btn btn-danger" unless basket.class == Purchase%>
          </div>
        </div>
