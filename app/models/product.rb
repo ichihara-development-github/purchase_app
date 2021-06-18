@@ -60,7 +60,7 @@ class Product < ApplicationRecord
 
    def self.input_request(name)
      url = "#{INPUT_URL}?name=#{name}"
-     uri = Addressable::URI.parse(Addressable::URI.encode(url))
+     uri = URI.parse(URI.encode(url))
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Post.new(uri.request_uri)
@@ -73,7 +73,7 @@ class Product < ApplicationRecord
 
    def self.update_request(old_name, name)
      url = "#{CRUD_URL}?oldname=#{old_name}&name=#{name}"
-     uri = Addressable::URI.parse(Addressable::URI.encode(url))
+     uri = URI.parse(URI.encode(url))
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Patch.new(uri.request_uri)
@@ -84,7 +84,7 @@ class Product < ApplicationRecord
 
    def self.delete_request(name)
      url = "#{CRUD_URL}?name=#{name}"
-     uri = Addressable::URI.parse(Addressable::URI.encode(url))
+     uri = URI.parse(URI.encode(url))
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Delete.new(uri.request_uri)
@@ -95,15 +95,14 @@ class Product < ApplicationRecord
    end
 
    def self.send_get_request(name)
-      url = "#{CRUD_URL}?name=#{name}"
+      url = "#{CRUD_URL}=#{name}"
       p url
-      p CRUD_URL
       p name
-      uri = Addressable::URI.parse(Addressable::URI.encode(url))
+      uri = URI.parse(URI.encode(url))
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
-      headers = {'x-api-key' => CRUD_API_KEY, "Content-Type" => "application/json"}
+      headers = {'x-api-key' => "#{CRUD_API_KEY}", "Content-Type" => "application/json"}
       req.initialize_http_header(headers)
       res = http.request(req)
       p res
