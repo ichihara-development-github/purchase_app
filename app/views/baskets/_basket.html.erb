@@ -33,7 +33,7 @@
          <div>
            <% if basket.class == Basket %>
              <%= form_for basket,url: basket_path(basket), html: {method: "patch"}, remote: true do |f| %>
-              <%= f.select :count, (1..20).map{|i| i}, {}, class: "form-control update-input-form", style:"max-width:100px"%>
+              <%= f.select :count, (1..20).map{|i| i}, {}, class: "form-control update-input-form", style:"display:inline-block;max-width:100px"%>
               <% f.submit %>
              <% end %>
           <% else %>
@@ -41,7 +41,7 @@
              <%= basket.created_at.strftime("%Y年%m月%d日 %H時%M分") if basket.class == Purchase %>
           <% end %>
         </div>
-         <div style = "padding:10px 0;>
+         <div style = "padding:10px 0;">
            <%= link_to "削除", basket_delete_path(product), method: :post, class: "btn btn-danger" unless basket.class == Purchase%>
          </div>
        </div>
