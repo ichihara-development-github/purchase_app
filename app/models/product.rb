@@ -4,10 +4,10 @@ class Product < ApplicationRecord
   require 'uri'
   require 'json'
 
-  CRUD_API_KEY = "7AAXLaF1tG3Qpcs6nP5Uq8cGXv0L62cr4RGPraZN"
+  CRUD_API_KEY = ENV["CRUD_API_KEY"]
   STEPFUNC_API_KEY = ENV["STEPFUNC_API_KEY"]
 
-  CRUD_URL = "https://260g56ts98.execute-api.us-east-2.amazonaws.com/crud"
+  CRUD_URL = ENV["CRUD_URL"]
   INPUT_URL = ENV["INPUT_URL"]
 
     def self.search(sp)
