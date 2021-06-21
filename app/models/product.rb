@@ -4,10 +4,10 @@ class Product < ApplicationRecord
   require 'uri'
   require 'json'
 
-  CRUD_API_KEY = ENV["CRUD_API_KEY"]
+  CRUD_API_KEY = "7AAXLaF1tG3Qpcs6nP5Uq8cGXv0L62cr4RGPraZN"
   STEPFUNC_API_KEY = ENV["STEPFUNC_API_KEY"]
 
-  CRUD_URL = ENV["CRUD_URL"]
+  CRUD_URL = "https://260g56ts98.execute-api.us-east-2.amazonaws.com/crud"
   INPUT_URL = ENV["INPUT_URL"]
 
     def self.search(sp)
@@ -59,8 +59,9 @@ class Product < ApplicationRecord
    end
 
    def self.input_request(name)
-     url = "#{INPUT_URL}?name=#{name}"
-     uri = URI.parse(URI.encode_www_form_component(url))
+     url = "#{INPUT_URL}?"
+     uri = URI.parse(url+URI.encode_www_form([["name",name]]))
+     p uri
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Post.new(uri.request_uri)
@@ -72,8 +73,9 @@ class Product < ApplicationRecord
    end
 
    def self.update_request(old_name, name)
-     url = "#{CRUD_URL}?oldname=#{old_name}&name=#{name}"
-     uri = URI.parse(URI.encode_www_form_component(url))
+     url = "#{CRUD_URL}?"
+     uri = URI.parse(url+URI.encode_www_form([["old_name",old_name]["name",name]]))
+     p uri
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Patch.new(uri.request_uri)
@@ -83,8 +85,9 @@ class Product < ApplicationRecord
    end
 
    def self.delete_request(name)
-     url = "#{CRUD_URL}?name=#{name}"
-     uri = URI.parse(URI.encode_www_form_component(url))
+     url = "#{CRUD_URL}?"
+     uri = URI.parse(url+URI.encode_www_form([["name",name]]))
+     p uri
      http = Net::HTTP.new(uri.host, uri.port)
      http.use_ssl = true
      req = Net::HTTP::Delete.new(uri.request_uri)
@@ -95,10 +98,9 @@ class Product < ApplicationRecord
    end
 
    def self.send_get_request(name)
-      url = "#{CRUD_URL}=#{name}"
-      p url
-      p name
-      uri = URI.parse(URI.encode_www_form_component(url))
+      url = "#{CRUD_URL}/?"
+      uri = URI.parse(url+URI.encode_www_form([["name",name]]))
+      p uri
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Get.new(uri.request_uri)
